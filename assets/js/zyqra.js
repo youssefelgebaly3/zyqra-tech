@@ -84,7 +84,7 @@ function loadCartPage() {
     cart.forEach((item, index) => {
         subtotal += item.price * (item.quantity || 1);
         html += `
-            <div class="cart-item" data-aos="fade-up">
+            <div class="cart-item">
                 <div class="cart-item-image">
                     <i class="bi bi-box-seam"></i>
                 </div>
