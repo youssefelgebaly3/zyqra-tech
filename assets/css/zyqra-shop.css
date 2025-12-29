@@ -1,0 +1,781 @@
+﻿/**
+* ZYQRA Shop Styles
+* Products, Courses, Search, and Details
+*/
+
+/*--------------------------------------------------------------
+# Product Cards
+--------------------------------------------------------------*/
+.product-card {
+    background: var(--surface-color);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--accent-color), var(--heading-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image i {
+    font-size: 5rem;
+    color: white;
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-category {
+    display: inline-block;
+    background: color-mix(in srgb, var(--accent-color), transparent 90%);
+    color: var(--accent-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.product-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 0.5rem;
+}
+
+.product-desc {
+    color: var(--default-color);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.product-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.product-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--default-color);
+    margin-bottom: 0.5rem;
+}
+
+.product-features li i {
+    color: var(--accent-color);
+}
+
+.btn-product {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-product:hover {
+    background: color-mix(in srgb, var(--accent-color), black 15%);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/*--------------------------------------------------------------
+# Course Cards
+--------------------------------------------------------------*/
+.course-card {
+    background: var(--surface-color);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    height: 100%;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.course-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.course-image i {
+    font-size: 4rem;
+    color: white;
+}
+
+.course-info {
+    padding: 1.5rem;
+}
+
+.course-badge {
+    display: inline-block;
+    background: #28A745;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.course-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 0.5rem;
+}
+
+.course-desc {
+    color: var(--default-color);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.course-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: var(--default-color);
+}
+
+.course-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.course-meta i {
+    color: var(--accent-color);
+}
+
+.btn-course {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-course:hover {
+    background: color-mix(in srgb, var(--accent-color), black 15%);
+    color: white;
+}
+
+/*--------------------------------------------------------------
+# Search Page
+--------------------------------------------------------------*/
+.search-container {
+    background: var(--surface-color);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    margin-bottom: 2rem;
+}
+
+.search-input-wrapper {
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1.25rem 1.5rem 1.25rem 4rem;
+    border: 2px solid #e5e5e5;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.search-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(46, 134, 171, 0.15);
+    outline: none;
+}
+
+.search-btn {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.search-btn:hover {
+    background: color-mix(in srgb, var(--accent-color), black 15%);
+}
+
+.filter-tags {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.filter-tag {
+    padding: 0.5rem 1rem;
+    background: color-mix(in srgb, var(--default-color), transparent 95%);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+}
+
+.filter-tag:hover,
+.filter-tag.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+.result-card {
+    background: var(--surface-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.result-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.result-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent-color), var(--heading-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.result-image i {
+    font-size: 3rem;
+    color: white;
+}
+
+.result-info {
+    flex: 1;
+}
+
+.result-category {
+    display: inline-block;
+    background: color-mix(in srgb, var(--accent-color), transparent 90%);
+    color: var(--accent-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.result-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.result-desc {
+    color: var(--default-color);
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.result-price {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.no-results i {
+    font-size: 5rem;
+    color: var(--accent-color);
+    opacity: 0.3;
+    margin-bottom: 1.5rem;
+}
+
+/*--------------------------------------------------------------
+# Product Details
+--------------------------------------------------------------*/
+.product-gallery {
+    background: var(--surface-color);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.main-image {
+    width: 100%;
+    height: 400px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--accent-color), var(--heading-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.main-image i {
+    font-size: 8rem;
+    color: white;
+}
+
+.product-details {
+    background: var(--surface-color);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.product-rating i {
+    color: #F59E0B;
+}
+
+.features-list {
+    margin-bottom: 2rem;
+}
+
+.features-list h5 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.features-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.features-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.features-list li i {
+    color: #10B981;
+    font-size: 1.25rem;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.quantity-selector label {
+    font-weight: 600;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-add-cart {
+    flex: 1;
+    min-width: 200px;
+    background: var(--accent-color);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.btn-add-cart:hover {
+    background: color-mix(in srgb, var(--accent-color), black 15%);
+    transform: translateY(-2px);
+}
+
+.btn-wishlist {
+    width: 56px;
+    height: 56px;
+    border: 2px solid #e5e5e5;
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-wishlist:hover {
+    border-color: #EF4444;
+    color: #EF4444;
+}
+
+/*--------------------------------------------------------------
+# Course Details
+--------------------------------------------------------------*/
+.course-hero {
+    background: var(--surface-color);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.btn-enroll {
+    background: var(--accent-color);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.btn-enroll:hover {
+    background: color-mix(in srgb, var(--accent-color), black 15%);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--default-color);
+}
+
+.meta-item i {
+    color: var(--accent-color);
+}
+
+.curriculum-section {
+    margin-top: 3rem;
+}
+
+.curriculum-section h3 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.lesson-item {
+    background: var(--surface-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.lesson-item:hover {
+    transform: translateX(-5px);
+    border-color: var(--accent-color);
+}
+
+.lesson-number {
+    width: 40px;
+    height: 40px;
+    background: color-mix(in srgb, var(--accent-color), transparent 90%);
+    color: var(--accent-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.lesson-info {
+    flex: 1;
+}
+
+.lesson-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.lesson-duration {
+    font-size: 0.875rem;
+    color: var(--default-color);
+}
+
+.lesson-icon {
+    color: var(--accent-color);
+}
+
+.sidebar-card {
+    background: var(--surface-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-card h5 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sidebar-card h5 i {
+    color: var(--accent-color);
+}
+
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidebar-list li:last-child {
+    border-bottom: none;
+}
+
+.instructor-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.instructor-avatar {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent-color), var(--heading-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.instructor-avatar i {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.instructor-name {
+    font-weight: 700;
+}
+
+.instructor-title {
+    font-size: 0.9rem;
+    color: var(--default-color);
+}
+
+/*--------------------------------------------------------------
+# ZYQRA El-Khair Section
+--------------------------------------------------------------*/
+.el-khair-section {
+    padding: 60px 0;
+    margin: 0;
+    max-width: 100%;
+    background: transparent;
+    position: relative;
+}
+
+.el-khair-content {
+    padding: 10px;
+}
+
+.el-khair-content .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: color-mix(in srgb, var(--accent-color), transparent 90%);
+    color: var(--accent-color);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.el-khair-content .section-heading {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--heading-color);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.el-khair-content .text-accent {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+}
+
+.el-khair-content .lead {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--default-color);
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.features-list-simple {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: default;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.feature-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(var(--accent-color-rgb), 0.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-item i {
+    font-size: 1.6rem;
+    color: var(--accent-color);
+    background: rgba(var(--accent-color-rgb), 0.1);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover i {
+    background: var(--accent-color);
+    color: #fff;
+    transform: rotate(360deg);
+}
+
+.feature-item span {
+    font-weight: 700;
+    color: var(--heading-color);
+    font-size: 1rem;
+}
+
+.el-khair-image img {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 450px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 15px rgba(var(--accent-color-rgb), 0.2));
+}
+
+.el-khair-image img:hover {
+    transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) scale(1.05);
+}
+
+@media (max-width: 991px) {
+    .el-khair-content .section-heading {
+        font-size: 2.2rem;
+    }
+
+    .el-khair-image {
+        margin-bottom: 30px;
+    }
+}

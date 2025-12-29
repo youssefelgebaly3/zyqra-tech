@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقدمة في الأنظمة المدمجة - ZYQRA الخير</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS Files -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/zyqra-common.css" rel="stylesheet">
+    <style>
+        .course-player {
+            padding-top: 80px;
+            background: var(--dark);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .player-header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .player-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 0;
+            height: calc(100vh - 80px);
+        }
+
+        .video-section {
+            background: #000;
+            position: relative;
+        }
+
+        .video-player {
+            width: 100%;
+            height: 100%;
+            background: #000;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            padding: 2rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .video-section:hover .video-controls {
+            opacity: 1;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--accent-color);
+            border-radius: 3px;
+            width: 30%;
+            position: relative;
+        }
+
+        .controls-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .control-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--accent-color);
+        }
+
+        .time-display {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .volume-slider {
+            width: 80px;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            color: var(--default-color);
+            overflow-y: auto;
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            background: white;
+        }
+
+        .progress-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: conic-gradient(var(--accent-color) 25%, #eee 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--default-color);
+            opacity: 0.7;
+        }
+
+        .search-lessons {
+            padding: 1rem;
+            background: white;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+
+        .curriculum-list {
+            padding: 1rem;
+        }
+
+        .section-item {
+            margin-bottom: 1rem;
+        }
+
+        .section-header {
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .section-header:hover {
+            background: #fcfcfc;
+        }
+
+        .lessons-list {
+            padding: 0.5rem 0;
+        }
+
+        .lesson-item {
+            padding: 0.8rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            margin-bottom: 4px;
+        }
+
+        .lesson-item:hover {
+            background: color-mix(in srgb, var(--accent-color), transparent 92%);
+        }
+
+        .lesson-item.active {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .lesson-duration {
+            margin-right: auto;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        .content-tabs {
+            background: white;
+            padding: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .tabs-header {
+            display: flex;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .content-tab {
+            padding: 1rem 2rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .content-tab.active {
+            border-bottom-color: var(--accent-color);
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .tab-panel {
+            display: none;
+            max-width: 900px;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .resources-list {
+            list-style: none;
+        }
+
+        .resource-item {
+            padding: 1.2rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .resource-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .discussion-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1.5rem 0;
+        }
+
+        .discussion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .player-container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .sidebar {
+                display: block;
+                height: 500px;
+                border-right: none;
+                border-top: 1px solid #333;
+            }
+        }
+
+        /* Standard Footer override for dark mode */
+        .footer {
+            background: #0a0a0a !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Player Header -->
+    <header class="player-header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-4">
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <span class="sitename">ZYQRA</span>
+                    </a>
+                    <div class="text-white">
+                        <h4 class="m-0 h5 fw-bold">مقدمة في الأنظمة المدمجة</h4>
+                        <div class="small opacity-75">
+                            <i class="bi bi-mortarboard-fill"></i>
+                            ZYQRA الخير
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <div class="progress-circle"
+                        style="width: 45px; height: 45px; font-size: 0.75rem; background: color-mix(in srgb, var(--accent-color), transparent 85%);">
+                        <span class="fw-bold" style="color: var(--accent-color);">25%</span>
+                    </div>
+                    <a href="course-details.html" class="btn btn-sm rounded-pill px-3"
+                        style="background: var(--accent-color); color: var(--contrast-color); border: none;">
+                        <i class="bi bi-arrow-right"></i>
+                        الخروج
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Course Player -->
+    <main class="course-player">
+        <div class="player-container">
+            <!-- Video Section -->
+            <div class="video-section">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        style="width: 100%; height: 100%; border: none;" allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="video-controls">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <div class="controls-row">
+                        <div class="d-flex align-items-center gap-2">
+                            <button class="control-btn">
+                                <i class="bi bi-play-fill"></i>
+                            </button>
+                            <button class="control-btn">
+                                <i class="bi bi-skip-backward-fill"></i>
+                            </button>
+                            <button class="control-btn">
+                                <i class="bi bi-skip-forward-fill"></i>
+                            </button>
+                            <div class="time-display ms-2">10:30 / 45:15</div>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3 ms-auto">
+                            <div class="volume-control">
+                                <button class="control-btn">
+                                    <i class="bi bi-volume-up-fill"></i>
+                                </button>
+                                <input type="range" class="volume-slider" min="0" max="100" value="80">
+                            </div>
+                            <button class="control-btn">
+                                <i class="bi bi-fullscreen"></i>
+                            </button>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-2">
+                            <button class="control-btn">
+                                <i class="bi bi-gear-fill"></i>
+                            </button>
+                            <button class="control-btn">
+                                <i class="bi bi-chat-square-text-fill"></i>
+                            </button>
+                            <button class="control-btn">
+                                <i class="bi bi-bookmark-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <div class="progress-circle">
+                        <span style="color: var(--dark); font-weight: 600; font-size: 0.8rem;">25%</span>
+                    </div>
+                    <div class="progress-text">25% مكتمل</div>
+                </div>
+
+                <div class="search-lessons">
+                    <input type="text" class="search-input" placeholder="ابحث في الدروس...">
+                </div>
+
+                <div class="curriculum-list">
+                    <!-- Section 1 -->
+                    <div class="section-item">
+                        <div class="section-header">
+                            <div>
+                                <h4 class="m-0" style="font-size: 1rem;">المقدمة والأساسيات</h4>
+                                <div class="small text-muted">5/5 دروس • 20% مكتمل</div>
+                            </div>
+                            <i class="bi bi-chevron-down"></i>
+                        </div>
+                        <div class="lessons-list">
+                            <div class="lesson-item active">
+                                <i class="bi bi-play-circle-fill"></i>
+                                <span>مقدمة في الأنظمة المدمجة</span>
+                                <span class="lesson-duration">25:30</span>
+                                <i class="bi bi-check-circle-fill" style="color: var(--accent-color);"></i>
+                            </div>
+                            <div class="lesson-item">
+                                <i class="bi bi-play-circle-fill"></i>
+                                <span>تعريف بمنصة Arduino</span>
+                                <span class="lesson-duration">18:15</span>
+                                <i class="bi bi-circle"></i>
+                            </div>
+                            <div class="lesson-item">
+                                <i class="bi bi-file-earmark-text-fill"></i>
+                                <span>تنصيب البرامج المطلوبة</span>
+                                <span class="lesson-duration">-</span>
+                                <i class="bi bi-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="section-item">
+                        <div class="section-header">
+                            <div>
+                                <h4 class="m-0" style="font-size: 1rem;">البرمجة الأساسية</h4>
+                                <div class="small text-muted">0/8 دروس • 0% مكتمل</div>
+                            </div>
+                            <i class="bi bi-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Tabs -->
+        <div class="content-tabs">
+            <div class="tabs-header">
+                <div class="content-tab active" data-tab="overview">نظرة عامة</div>
+                <div class="content-tab" data-tab="resources">الموارد</div>
+                <div class="content-tab" data-tab="discussion">المناقشة</div>
+                <div class="content-tab" data-tab="assignment">الواجب</div>
+            </div>
+
+            <div class="tab-panel active" id="overview">
+                <h3>مقدمة في الأنظمة المدمجة</h3>
+                <p style="line-height: 1.6; margin-bottom: 2rem;">
+                    في هذا الدرس، سنتعرف على مفهوم الأنظمة المدمجة وأهميتها في حياتنا اليومية.
+                    سنناقش أمثلة عملية على الأنظمة المدمجة من حولنا وكيف تعمل.
+                </p>
+
+                <h4 style="margin-bottom: 1rem;">نقاط التعلم الرئيسية:</h4>
+                <ul class="requirements-list">
+                    <li>فهم مفهوم الأنظمة المدمجة</li>
+                    <li>التعرف على مكونات النظام المدمج</li>
+                    <li>أمثلة عملية من الحياة الواقعية</li>
+                    <li>مقدمة عن متحكمات Arduino</li>
+                </ul>
+
+                <div style="margin-top: 2rem;">
+                    <button class="btn btn-primary rounded-pill px-4">
+                        <i class="bi bi-download"></i>
+                        تحميل العرض التقديمي
+                    </button>
+                </div>
+            </div>
+
+            <div class="tab-panel" id="resources">
+                <h3 style="margin-bottom: 1.5rem;">الموارد والمراجع</h3>
+                <div class="resources-list">
+                    <div class="resource-item">
+                        <div class="resource-info">
+                            <div style="font-weight: 600;">العرض التقديمي للدرس</div>
+                            <div style="font-size: 0.9rem; color: var(--gray);">PDF • 2.5 MB</div>
+                        </div>
+                        <button class="btn btn-outline-primary btn-sm rounded-pill">
+                            <i class="bi bi-download"></i>
+                            تحميل
+                        </button>
+                    </div>
+                    <div class="resource-item">
+                        <div class="resource-info">
+                            <div style="font-weight: 600;">كود المصدر</div>
+                            <div style="font-size: 0.9rem; color: var(--gray);">ZIP • 1.2 MB</div>
+                        </div>
+                        <button class="btn btn-outline-primary btn-sm rounded-pill">
+                            <i class="bi bi-download"></i>
+                            تحميل
+                        </button>
+                    </div>
+                    <div class="resource-item">
+                        <div class="resource-info">
+                            <div style="font-weight: 600;">المراجع الإضافية</div>
+                            <div style="font-size: 0.9rem; color: var(--gray);">DOC • 850 KB</div>
+                        </div>
+                        <button class="btn btn-outline-primary btn-sm rounded-pill">
+                            <i class="bi bi-download"></i>
+                            تحميل
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-panel" id="discussion">
+                <h3 style="margin-bottom: 1.5rem;">المناقشة والأسئلة</h3>
+                <div style="background: #f8f9fa; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                    <textarea placeholder="اطرح سؤالك أو شارك في النقاش..."
+                        style="width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 10px; margin-bottom: 1rem;"
+                        rows="4"></textarea>
+                    <button class="btn btn-primary rounded-pill px-4">نشر السؤال</button>
+                </div>
+
+                <div class="discussion-item">
+                    <div class="discussion-header">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <img src="https://via.placeholder.com/40" alt="طالب"
+                                style="width: 40px; height: 40px; border-radius: 50%;">
+                            <div>
+                                <div style="font-weight: 600;">محمد أحمد</div>
+                                <div style="font-size: 0.8rem; color: var(--gray);">منذ ساعتين</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 1rem;">
+                            <button class="control-btn" style="color: var(--default-color); font-size: 0.9rem;">
+                                <i class="bi bi-hand-thumbs-up-fill"></i>
+                                <span class="ms-1">12</span>
+                            </button>
+                            <button class="control-btn" style="color: var(--default-color); font-size: 0.9rem;">
+                                <i class="bi bi-hand-thumbs-down-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p>هل يمكن استخدام Arduino في المشاريع التجارية؟ وما هي الرخصة التي تغطيها؟</p>
+                </div>
+            </div>
+
+            <div class="tab-panel" id="assignment">
+                <h3 style="margin-bottom: 1.5rem;">الواجب العملي</h3>
+                <div style="background: #f8f9fa; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                    <h4 class="mb-3">:المهمة</h4>
+                    <p style="line-height: 1.6; margin-bottom: 1.5rem;">
+                        قم ببناء دائرة بسيطة باستخدام LED ومقاومة، واكتب برنامج يجعل الـ LED يومض كل ثانية.
+                        التزم بالخطوات التالية:
+                    </p>
+
+                    <ul class="requirements-list mb-4">
+                        <li>ارسم الدائرة الإلكترونية</li>
+                        <li>اكتب كود البرنامج</li>
+                        <li>التقط صورة للنتيجة النهائية</li>
+                        <li>ارفع الملفات المطلوبة</li>
+                    </ul>
+
+                    <div
+                        style="background: #fff3cd; padding: 1rem; border-radius: 10px; border-right: 4px solid #ffc107;">
+                        <strong>موعد التسليم:</strong> 15 مارس 2023
+                    </div>
+                </div>
+
+                <h4 class="mb-3">تسليم الحل</h4>
+                <div
+                    style="border: 2px dashed #ddd; padding: 3rem; text-align: center; border-radius: 15px; margin-bottom: 2rem; background: #fafafa;">
+                    <i class="bi bi-cloud-arrow-up-fill"
+                        style="font-size: 3.5rem; color: #ccc; margin-bottom: 1rem; display: block;"></i>
+                    <div class="mb-3 text-muted">اسحب وأفلت الملفات هنا أو</div>
+                    <button class="btn btn-outline-primary rounded-pill px-4">
+                        <i class="bi bi-folder2-open"></i>
+                        اختر الملفات
+                    </button>
+                </div>
+
+                <div class="mb-4">
+                    <label class="d-block mb-2 fw-bold">رابط GitHub (اختياري)</label>
+                    <input type="url" placeholder="https://github.com/username/repository"
+                        class="form-control rounded-pill px-4" style="padding: 0.8rem;">
+                </div>
+
+                <button class="btn btn-primary rounded-pill px-5 py-3">
+                    <i class="bi bi-send-fill"></i>
+                    تسليم الواجب
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer" class="footer position-relative dark-background">
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-5 col-md-12 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <span class="sitename">ZYQRA</span>
+                    </a>
+                    <p>نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز.</p>
+                    <div class="social-links d-flex mt-4">
+                        <a href="https://api.whatsapp.com/send?phone=201033624387" target="_blank"><i
+                                class="bi bi-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/zyqratech/" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/zyqra-tech/" target="_blank"><i
+                                class="bi bi-linkedin"></i></a>
+                        <a href="https://www.tiktok.com/@zyqra_tech" target="_blank"><i class="bi bi-tiktok"></i></a>
+                        <a href="https://www.instagram.com/zyqra_tech" target="_blank"><i
+                                class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-6 footer-links">
+                    <h4>روابط مفيدة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="courses.html">الدورات</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                        <li><a href="terms.html">الشروط والأحكام</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-6 footer-links">
+                    <h4>خدماتنا</h4>
+                    <ul>
+                        <li><a href="products.html">المنتجات الذكية</a></li>
+                        <li><a href="courses.html">الدورات التعليمية</a></li>
+                        <li><a href="contact.html">الدعم الفني</a></li>
+                        <li><a href="contact.html">الاستشارات</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                    <h4>تواصل معنا</h4>
+                    <p>القاهرة</p>
+                    <p>مصر</p>
+                    <p class="mt-4"><strong>الهاتف:</strong> <span>+20 123 456 7890</span></p>
+                    <p><strong>البريد:</strong> <span>info@zyqra.com</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright text-center mt-4">
+            <p>© <span>حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong> <span>جميع الحقوق محفوظة</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/zyqra.js"></script>
+    <script>
+        // Course player functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Content tabs
+            const contentTabs = document.querySelectorAll('.content-tab');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+
+            contentTabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    const tabId = this.dataset.tab;
+
+                    // Update active tab
+                    contentTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Show corresponding panel
+                    tabPanels.forEach(panel => {
+                        panel.classList.remove('active');
+                        if (panel.id === tabId) {
+                            panel.classList.add('active');
+                        }
+                    });
+                });
+            });
+
+            // Lesson items
+            const lessonItems = document.querySelectorAll('.lesson-item');
+            lessonItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    lessonItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Here you would load the selected lesson
+                    const lessonTitle = this.querySelector('span').textContent;
+                    document.querySelector('#overview h3').textContent = lessonTitle;
+                });
+            });
+
+            // Section headers
+            const sectionHeaders = document.querySelectorAll('.section-header');
+            sectionHeaders.forEach(header => {
+                header.addEventListener('click', function () {
+                    const lessonsList = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+
+                    lessonsList.style.display = lessonsList.style.display === 'none' ? 'block' : 'none';
+                    icon.style.transform = lessonsList.style.display === 'none' ? 'rotate(0deg)' : 'rotate(180deg)';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

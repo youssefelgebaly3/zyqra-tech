@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - ZYQRA Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="assets/css/zyqra-common.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="container header-container">
+            <div style="display: flex; align-items: center; gap: 2rem;">
+                <a href="index.html" class="logo">ZY<span>QRA</span></a>
+                <div class="admin-badge">Admin</div>
+            </div>
+
+            <div class="nav-actions">
+                <div class="nav-action-item notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count">3</span>
+                </div>
+                <div class="user-menu">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <img src="https://via.placeholder.com/40" alt="Admin"
+                            style="width: 40px; height: 40px; border-radius: 50%;">
+                        <span>مدير النظام</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Layout -->
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active">
+                    <i class="fas fa-chart-line"></i>
+                    <span>لوحة التحكم</span>
+                </a>
+                <a href="#users" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>إدارة المستخدمين</span>
+                </a>
+                <a href="#products" class="nav-item">
+                    <i class="fas fa-box"></i>
+                    <span>إدارة المنتجات</span>
+                </a>
+                <a href="#orders" class="nav-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>إدارة الطلبات</span>
+                </a>
+                <a href="#courses" class="nav-item">
+                    <i class="fas fa-book-open"></i>
+                    <span>إادة الكورسات</span>
+                </a>
+                <a href="#videos" class="nav-item">
+                    <i class="fas fa-video"></i>
+                    <span>إدارة الفيديوهات</span>
+                </a>
+                <a href="#submissions" class="nav-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>مراجعة الواجبات</span>
+                </a>
+                <a href="#analytics" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>التقارير والإحصائيات</span>
+                </a>
+                <a href="#roles" class="nav-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>الصلاحيات</span>
+                </a>
+                <a href="#settings" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>الإعدادات</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-content">
+            <!-- Dashboard Tab -->
+            <div class="tab-content active" id="dashboard">
+                <div class="page-header">
+                    <h1>لوحة التحكم</h1>
+                    <div class="breadcrumb">
+                        <span>الرئيسية</span>
+                        <i class="fas fa-chevron-left"></i>
+                        <span>لوحة التحكم</span>
+                    </div>
+                </div>
+
+                <!-- Metrics Cards -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon revenue">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="metric-info">
+                            <div class="metric-value">48,250 ر.س</div>
+                            <div class="metric-label">إجمالي الإيرادات</div>
+                            <div class="metric-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                12% عن الشهر الماضي
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon students">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="metric-info">
+                            <div class="metric-value">2,458</div>
+                            <div class="metric-label">طلاب نشطين</div>
+                            <div class="metric-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                8% عن الشهر الماضي
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon orders">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div class="metric-info">
+                            <div class="metric-value">156</div>
+                            <div class="metric-label">طلبات pending</div>
+                            <div class="metric-change negative">
+                                <i class="fas fa-arrow-down"></i>
+                                5% عن الشهر الماضي
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon completions">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="metric-info">
+                            <div class="metric-value">324</div>
+                            <div class="metric-label">إتمام كورسات</div>
+                            <div class="metric-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                15% عن الشهر الماضي
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>الإيرادات الشهرية</h3>
+                            <select class="chart-filter">
+                                <option>آخر 6 أشهر</option>
+                                <option>آخر سنة</option>
+                            </select>
+                        </div>
+                        <div class="chart-placeholder">
+                            <!-- Chart would be rendered here -->
+                            <div style="text-align: center; padding: 3rem; color: var(--gray);">
+                                <i class="fas fa-chart-line" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                                <div>رسم بياني للإيرادات</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>أداء الكورسات</h3>
+                            <select class="chart-filter">
+                                <option>هذا الشهر</option>
+                                <option>الربع الأخير</option>
+                            </select>
+                        </div>
+                        <div class="chart-placeholder">
+                            <div style="text-align: center; padding: 3rem; color: var(--gray);">
+                                <i class="fas fa-chart-pie" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                                <div>رسم بياني لأداء الكورسات</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-section">
+                    <div class="section-header">
+                        <h3>النشاط الحديث</h3>
+                        <button class="btn btn-outline">عرض الكل</button>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon new-order">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">طلب جديد #ZYQ-2023-1654</div>
+                                <div class="activity-description">محمد أحمد قام بطلب MotoLock Pro</div>
+                                <div class="activity-time">منذ 5 دقائق</div>
+                            </div>
+                            <div class="activity-actions">
+                                <button class="btn btn-sm btn-primary">عرض</button>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon new-user">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">مستخدم جديد</div>
+                                <div class="activity-description">سارة محمد سجلت في المنصة</div>
+                                <div class="activity-time">منذ ساعة</div>
+                            </div>
+                            <div class="activity-actions">
+                                <button class="btn btn-sm btn-outline">عرض</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users Management Tab -->
+            <div class="tab-content" id="users">
+                <div class="page-header">
+                    <h1>إدارة المستخدمين</h1>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        إضافة مستخدم
+                    </button>
+                </div>
+                <!-- Users management content -->
+            </div>
+
+            <!-- Orders Management Tab -->
+            <div class="tab-content" id="orders">
+                <div class="page-header">
+                    <h1>إدارة الطلبات</h1>
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="btn btn-outline" onclick="refreshOrders()">
+                            <i class="fas fa-sync"></i>
+                            تحديث
+                        </button>
+                    </div>
+                </div>
+
+                <div class="data-table-container">
+                    <table class="data-table" id="ordersTable">
+                        <thead>
+                            <tr>
+                                <th>رقم الطلب</th>
+                                <th>العميل</th>
+                                <th>المنتجات</th>
+                                <th>المبلغ</th>
+                                <th>الحالة</th>
+                                <th>رقم التتبع</th>
+                                <th>التاريخ</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <tr>
+                                <td colspan="8" style="text-align: center; padding: 3rem; color: var(--gray);">
+                                    <i class="fas fa-shopping-bag"
+                                        style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                                    <div>لا توجد طلبات حالياً</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Order Details Modal -->
+            <div class="modal" id="orderModal">
+                <div class="modal-content" style="max-width: 800px;">
+                    <div class="modal-header">
+                        <h2>تفاصيل الطلب</h2>
+                        <button class="modal-close" onclick="closeOrderModal()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="orderModalBody">
+                        <!-- Order details will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other tabs would be implemented similarly -->
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/tracking.js"></script>
+    <script src="js/demo-order.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="assets/js/zyqra.js"></script>
+</body>
+
+</html>

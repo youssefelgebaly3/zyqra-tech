@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>تفاصيل المنتج - ZYQRA</title>
+
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/zyqra-common.css" rel="stylesheet">
+    <link href="assets/css/zyqra-shop.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container position-relative d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <h1 class="sitename">ZYQRA</h1>
+            </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="products.html">المنتجات</a></li>
+                    <li><a href="courses.html">الدورات</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                    <li class="d-xl-none"><a href="signin.html"><i class="bi bi-person me-2"></i> تسجيل الدخول</a></li>
+                    <li class="d-xl-none"><a href="signup.html"><i class="bi bi-person-plus me-2"></i> إنشاء حساب</a>
+                    </li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+            <div class="header-actions d-flex align-items-center gap-2">
+                <div class="auth-links d-none d-xl-flex align-items-center gap-2">
+                    <a href="signin.html" class="auth-link login">
+                        <i class="bi bi-person"></i>
+                        <span>تسجيل الدخول</span>
+                    </a>
+                    <a href="signup.html" class="auth-link signup">
+                        <i class="bi bi-person-plus"></i>
+                        <span>إنشاء حساب</span>
+                    </a>
+                </div>
+                <a class="btn-shop-icon" href="cart.html" title="السلة">
+                    <i class="bi bi-cart3"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+
+
+
+
+
+        <section class="section">
+            <div class="container" data-aos="fade-up">
+                <div class="row g-4">
+
+                    <div class="col-lg-6">
+                        <div class="product-gallery" data-aos="fade-right">
+                            <div class="main-image">
+                                <i class="bi bi-shield-lock"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="product-details" data-aos="fade-left">
+                            <span class="product-category"><i class="bi bi-tag me-2"></i> أنظمة الأمان</span>
+                            <h1 class="product-title">MotoLock</h1>
+
+
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <span>(4.5) - 128 تقييم</span>
+                            </div>
+
+                            <div class="product-price">1,500 ج.م</div>
+
+                            <p class="product-desc">نظام أمان ذكي للدراجات النارية يحول هاتفك إلى مفتاح كامل. مع تتبع
+                                GPS مباشر وتنبيهات فورية عند الحركة غير المصرح بها.</p>
+
+                            <div class="features-list">
+                                <h5><i class="bi bi-check2-circle me-2"></i> المميزات الرئيسية</h5>
+                                <ul>
+                                    <li><i class="bi bi-check-circle-fill"></i> تتبع GPS مباشر على مدار الساعة</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> تنبيهات فورية عند الحركة</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> تحكم كامل عبر التطبيق</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> فتح وإغلاق بالبصمة أو الهاتف</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> ضمان سنة كاملة</li>
+                                </ul>
+                            </div>
+
+                            <div class="quantity-selector">
+                                <label>الكمية:</label>
+                                <div class="quantity-control">
+                                    <button class="quantity-btn" onclick="updateDetailsQty(-1)">-</button>
+                                    <span class="quantity-value" id="qty">1</span>
+                                    <button class="quantity-btn" onclick="updateDetailsQty(1)">+</button>
+                                </div>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button class="btn-add-cart" onclick="addDetailsToCart('MotoLock', 1500)">
+                                    <i class="bi bi-cart-plus"></i> أضف للسلة
+                                </button>
+                                <button class="btn-wishlist">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs-section" data-aos="fade-up">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab"
+                                data-bs-target="#specs">المواصفات</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews">التقييمات</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#shipping">الشحن</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="specs">
+                            <h5>المواصفات التقنية</h5>
+                            <ul>
+                                <li>بطارية: ليثيوم 3.7V 2000mAh</li>
+                                <li>اتصال: Bluetooth 5.0 + GSM</li>
+                                <li>تتبع: GPS عالي الدقة</li>
+                                <li>مقاومة: IP67 (مقاوم للماء والغبار)</li>
+                                <li>التوافق: Android 6.0+ / iOS 12+</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="reviews">
+                            <p>لا توجد تقييمات حتى الآن. كن أول من يقيم هذا المنتج!</p>
+                        </div>
+                        <div class="tab-pane fade" id="shipping">
+                            <h5>معلومات الشحن</h5>
+                            <ul>
+                                <li>الشحن خلال 2-5 أيام عمل</li>
+                                <li>الشحن مجاني للطلبات فوق 1000 ج.م</li>
+                                <li>رسوم الشحن: 50 ج.م</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer" class="footer position-relative dark-background">
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-6 footer-about">
+                    <a href="index.html" class="logo"><span class="sitename">ZYQRA</span></a>
+                    <p>منصة تقنية متكاملة</p>
+                    <div class="social-links d-flex mt-4">
+                        <a href="https://api.whatsapp.com/send?phone=201033624387" target="_blank"><i
+                                class="bi bi-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/zyqratech/" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/zyqra-tech/" target="_blank"><i
+                                class="bi bi-linkedin"></i></a>
+                        <a href="https://www.tiktok.com/@zyqra_tech" target="_blank"><i class="bi bi-tiktok"></i></a>
+                        <a href="https://www.instagram.com/zyqra_tech" target="_blank"><i
+                                class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-6 footer-links">
+                    <h4>روابط مفيدة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="courses.html">الدورات</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                        <li><a href="terms.html">الشروط والأحكام</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-6 footer-links">
+                    <h4>خدماتنا</h4>
+                    <ul>
+                        <li><a href="products.html">المنتجات الذكية</a></li>
+                        <li><a href="courses.html">الدورات التعليمية</a></li>
+                        <li><a href="contact.html">الدعم الفني</a></li>
+                        <li><a href="contact.html">الاستشارات</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                    <h4>تواصل معنا</h4>
+                    <p>القاهرة</p>
+                    <p>مصر</p>
+                    <p class="mt-4"><strong>الهاتف:</strong> <span>+20 123 456 7890</span></p>
+                    <p><strong>البريد:</strong> <span>info@zyqra.com</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright text-center mt-4">
+            <p>© ZYQRA - جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/zyqra.js"></script>
+
+</body>
+
+</html>
