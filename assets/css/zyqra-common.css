@@ -128,6 +128,89 @@ body {
     transform: translateX(-50%);
 }
 
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 60px;
+    width: 100%;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Dots */
+.timeline-dot {
+    width: 20px;
+    height: 20px;
+    background: var(--surface-color);
+    border: 3px solid var(--accent-color);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 5px;
+    transform: translateX(-50%);
+    z-index: 10;
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent-color), transparent 92%);
+}
+
+/* Dates */
+.timeline-date {
+    position: absolute;
+    top: 5px;
+    line-height: 20px;
+    font-weight: 800;
+    color: var(--accent-color);
+    width: 45%;
+    font-family: var(--heading-font);
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-date {
+    right: 50%;
+    left: auto;
+    text-align: right;
+    padding-right: 25px;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+    left: 50%;
+    right: auto;
+    text-align: left;
+    padding-left: 25px;
+}
+
+/* Content Cards */
+.timeline-content {
+    width: 45%;
+    padding: 25px;
+    background: var(--surface-color);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 2;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px color-mix(in srgb, var(--accent-color), transparent 90%);
+    border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: auto;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-right: auto;
+    text-align: right;
+}
+
 @media (max-width: 768px) {
 
     /* Keep desktop structure but scale down */
@@ -140,8 +223,8 @@ body {
     }
 
     .timeline-dot {
-        width: 12px;
-        height: 12px;
+        width: 14px;
+        height: 14px;
         left: 50%;
         transform: translateX(-50%);
         border-width: 2px;
@@ -152,8 +235,8 @@ body {
     }
 
     .timeline-date {
-        font-size: 0.8rem;
-        width: 40%;
+        font-size: 0.9rem;
+        width: 45%;
         /* Reset mobile override */
         position: absolute;
         display: block;
@@ -163,7 +246,7 @@ body {
 
     /* Odd Items (Date Left, Content Right) */
     .timeline-item:nth-child(odd) .timeline-date {
-        right: 52%;
+        right: 53%;
         text-align: right;
         padding-right: 0;
         left: auto !important;
@@ -171,15 +254,15 @@ body {
 
     /* Even Items (Date Right, Content Left) */
     .timeline-item:nth-child(even) .timeline-date {
-        left: 52%;
+        left: 53%;
         text-align: left;
         padding-left: 0;
         right: auto !important;
     }
 
     .timeline-content {
-        width: 42%;
-        padding: 15px;
+        width: 45%;
+        padding: 12px;
         /* Reset mobile override */
         margin: 0;
     }
@@ -195,8 +278,8 @@ body {
     }
 
     .timeline-content h3 {
-        font-size: 0.9rem;
-        margin-bottom: 5px;
+        font-size: 1rem;
+        margin-bottom: 6px;
     }
 
     .timeline-content p {

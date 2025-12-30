@@ -914,9 +914,10 @@ section,
 
 @media (max-width: 576px) {
   .hero .hero-content .hero-actions {
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row;
+    gap: 15px;
     margin-bottom: 48px;
+    justify-content: flex-start;
   }
 }
 
