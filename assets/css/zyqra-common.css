@@ -129,125 +129,79 @@ body {
 }
 
 @media (max-width: 768px) {
+
+    /* Keep desktop structure but scale down */
     .timeline .timeline-container::before {
-        right: 20px;
-        left: auto;
-        transform: none;
+        /* Keep centered line */
+        left: 50%;
+        width: 2px;
+        transform: translateX(-50%);
+        right: auto;
     }
-}
 
-.timeline-item {
-    position: relative;
-    margin-bottom: 60px;
-    width: 100%;
-}
-
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
-
-/* Dots */
-.timeline-dot {
-    width: 20px;
-    height: 20px;
-    background: var(--surface-color);
-    border: 3px solid var(--accent-color);
-    border-radius: 50%;
-    position: absolute;
-    left: 50%;
-    top: 5px;
-    transform: translateX(-50%);
-    z-index: 10;
-    box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent-color), transparent 92%);
-}
-
-@media (max-width: 768px) {
     .timeline-dot {
-        right: 20px;
-        left: auto;
-        transform: translateX(50%);
-        top: 0;
+        width: 12px;
+        height: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 2px;
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 92%);
+        /* Reset mobile override */
+        top: 5px;
+        right: auto;
     }
-}
 
-/* Dates */
-.timeline-date {
-    position: absolute;
-    top: 5px;
-    line-height: 20px;
-    font-weight: 800;
-    color: var(--accent-color);
-    width: 45%;
-    font-family: var(--heading-font);
-    font-size: 1.4rem;
-    transition: all 0.3s ease;
-    z-index: 1;
-}
-
-.timeline-item:nth-child(odd) .timeline-date {
-    right: 50%;
-    left: auto;
-    text-align: right;
-    padding-right: 25px;
-}
-
-.timeline-item:nth-child(even) .timeline-date {
-    left: 50%;
-    right: auto;
-    text-align: left;
-    padding-left: 25px;
-}
-
-@media (max-width: 768px) {
     .timeline-date {
-        position: relative;
-        right: 40px !important;
-        left: auto !important;
-        width: auto;
-        text-align: right !important;
-        margin-bottom: 8px;
+        font-size: 0.8rem;
+        width: 40%;
+        /* Reset mobile override */
+        position: absolute;
         display: block;
-        font-size: 1.15rem;
-        padding: 0 !important;
-        top: 0;
+        margin-bottom: 0;
+        top: 2px;
     }
-}
 
-/* Content Cards */
-.timeline-content {
-    width: 45%;
-    padding: 25px;
-    background: var(--surface-color);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
-    position: relative;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    z-index: 2;
-}
+    /* Odd Items (Date Left, Content Right) */
+    .timeline-item:nth-child(odd) .timeline-date {
+        right: 52%;
+        text-align: right;
+        padding-right: 0;
+        left: auto !important;
+    }
 
-.timeline-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px color-mix(in srgb, var(--accent-color), transparent 90%);
-    border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
-}
+    /* Even Items (Date Right, Content Left) */
+    .timeline-item:nth-child(even) .timeline-date {
+        left: 52%;
+        text-align: left;
+        padding-left: 0;
+        right: auto !important;
+    }
 
-.timeline-item:nth-child(odd) .timeline-content {
-    margin-left: auto;
-    text-align: right;
-}
-
-.timeline-item:nth-child(even) .timeline-content {
-    margin-right: auto;
-    text-align: right;
-}
-
-@media (max-width: 768px) {
     .timeline-content {
-        width: calc(100% - 50px);
-        margin-right: 40px !important;
-        margin-left: 0 !important;
-        padding: 20px;
+        width: 42%;
+        padding: 15px;
+        /* Reset mobile override */
+        margin: 0;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-right: auto;
+        margin-left: 0;
+    }
+
+    .timeline-content h3 {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+
+    .timeline-content p {
+        font-size: 0.75rem;
+        line-height: 1.4;
     }
 }
 
