@@ -306,3 +306,32 @@
     font-size: 0.9rem;
     margin-top: 1rem;
 }
+
+/*--------------------------------------------------------------
+# Mobile Responsive Cart
+--------------------------------------------------------------*/
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .cart-item-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .cart-item-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .cart-item-title {
+        font-size: 1.1rem;
+    }
+
+    .cart-item-price {
+        font-size: 1.1rem;
+    }
+}

@@ -36,6 +36,7 @@ function addToCart(name, price, quantity = 1) {
     let cart = getCart();
     cart.push({ name, price, quantity });
     saveCart(cart);
+    updateCartBadge();
     alert('تمت إضافة ' + name + ' إلى السلة!');
 }
 
@@ -44,6 +45,7 @@ function updateCartQuantity(index, change) {
     cart[index].quantity = (cart[index].quantity || 1) + change;
     if (cart[index].quantity < 1) cart[index].quantity = 1;
     saveCart(cart);
+    updateCartBadge();
     loadCartPage();
 }
 
@@ -51,7 +53,26 @@ function removeCartItem(index) {
     const cart = getCart();
     cart.splice(index, 1);
     saveCart(cart);
+    updateCartBadge();
     loadCartPage();
+}
+
+/*--------------------------------------------------------------
+# Cart Badge
+--------------------------------------------------------------*/
+function updateCartBadge() {
+    const cart = getCart();
+    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    const badges = document.querySelectorAll('.cart-badge');
+
+    badges.forEach(badge => {
+        if (totalItems > 0) {
+            badge.textContent = totalItems;
+            badge.style.display = 'flex';
+        } else {
+            badge.style.display = 'none';
+        }
+    });
 }
 
 /*--------------------------------------------------------------
@@ -228,6 +249,9 @@ function selectPaymentMethod(el) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Update cart badge on all pages
+    updateCartBadge();
+
     // Initialize Cart Page
     if (document.body.classList.contains('cart-page')) {
         loadCartPage();
