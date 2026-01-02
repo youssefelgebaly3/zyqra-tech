@@ -250,6 +250,10 @@
                                 <span>الشحن</span>
                                 <span id="checkout-shipping">50 ج.م</span>
                             </div>
+                            <div class="summary-row" id="cod-fee-row" style="color: #EF4444;">
+                                <span>رسوم الدفع عند الاستلام</span>
+                                <span id="checkout-cod-fee">50 ج.م</span>
+                            </div>
                             <div class="summary-row summary-total">
                                 <span>الإجمالي</span>
                                 <span id="checkout-total">0 ج.م</span>
@@ -342,6 +346,10 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/zyqra.js"></script>
     <script>
+        let currentSubtotal = 0;
+        const SHIPPING_FEE = 50;
+        const COD_FEE = 50;
+
         document.addEventListener('DOMContentLoaded', function () {
             // Load cart items
             loadOrderSummary();
@@ -364,9 +372,26 @@
                     if (infoEl) {
                         infoEl.style.display = 'block';
                     }
+
+                    // Update totals based on payment method
+                    updateTotals(methodId);
                 });
             });
         });
+
+        function updateTotals(paymentMethod) {
+            const codFeeRow = document.getElementById('cod-fee-row');
+            let total = currentSubtotal + SHIPPING_FEE;
+
+            if (paymentMethod === 'cod') {
+                codFeeRow.style.display = 'flex';
+                total += COD_FEE;
+            } else {
+                codFeeRow.style.display = 'none';
+            }
+
+            document.getElementById('checkout-total').textContent = total.toLocaleString() + ' ج.م';
+        }
 
         function loadOrderSummary() {
             const cart = JSON.parse(localStorage.getItem('zyqra_cart')) || [];
@@ -378,10 +403,10 @@
             }
 
             let html = '';
-            let subtotal = 0;
+            currentSubtotal = 0;
 
             cart.forEach(item => {
-                subtotal += item.price * item.quantity;
+                currentSubtotal += item.price * item.quantity;
                 html += `
                     <div class="order-item">
                         <div class="order-item-image">
@@ -398,12 +423,13 @@
 
             orderItems.innerHTML = html;
 
-            const shipping = 50;
-            const total = subtotal + shipping;
+            document.getElementById('checkout-subtotal').textContent = currentSubtotal.toLocaleString() + ' ج.م';
+            document.getElementById('checkout-shipping').textContent = SHIPPING_FEE + ' ج.م';
+            document.getElementById('checkout-cod-fee').textContent = COD_FEE + ' ج.م';
 
-            document.getElementById('checkout-subtotal').textContent = subtotal.toLocaleString() + ' ج.م';
-            document.getElementById('checkout-shipping').textContent = shipping + ' ج.م';
-            document.getElementById('checkout-total').textContent = total.toLocaleString() + ' ج.م';
+            // Calculate initial total (COD is default selected)
+            const activeMethod = document.querySelector('.payment-method.active');
+            updateTotals(activeMethod ? activeMethod.dataset.method : 'cod');
         }
 
         function placeOrder() {
