@@ -962,11 +962,11 @@ section,
 @media (max-width: 576px) {
   .hero .hero-content .hero-actions {
     flex-direction: row;
-    gap: 8px;
+    gap: 15px;
     margin-bottom: 48px;
     justify-content: flex-start;
-    flex-wrap: nowrap;
-    /* Ensure they don't wrap */
+    flex-wrap: wrap;
+    /* Allow wrapping to prevent cutoff */
   }
 
   /* Compact buttons for mobile */
