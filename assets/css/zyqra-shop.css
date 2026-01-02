@@ -57,6 +57,13 @@
     margin-bottom: 0.5rem;
 }
 
+.product-subtitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
 .product-desc {
     color: var(--default-color);
     font-size: 0.9rem;
@@ -149,6 +156,28 @@
 
 .btn-product:hover {
     background: color-mix(in srgb, var(--accent-color), black 15%);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-details {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--accent-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--accent-color);
+    cursor: pointer;
+}
+
+.btn-details:hover {
+    background: var(--accent-color);
     color: white;
     transform: translateY(-2px);
 }
@@ -798,12 +827,70 @@
 
 .el-khair-image img {
     border: none;
+}
+
+/*--------------------------------------------------------------
+# FAQ Section
+--------------------------------------------------------------*/
+.faq-section {
+    margin-top: 3rem;
+    background: var(--surface-color);
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    max-height: 450px;
-    object-fit: contain;
-    filter: drop-shadow(0 10px 15px rgba(var(--accent-color-rgb), 0.2));
+    padding: 2rem;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.faq-section .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.faq-section .section-title i {
+    color: var(--accent-color);
+}
+
+.faq-section .accordion-item {
+    background: transparent;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+    border-radius: 12px !important;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+}
+
+.faq-section .accordion-button {
+    background: color-mix(in srgb, var(--accent-color), transparent 95%);
+    color: var(--heading-color);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 12px !important;
+}
+
+.faq-section .accordion-button:not(.collapsed) {
+    background: color-mix(in srgb, var(--accent-color), transparent 90%);
+    color: var(--accent-color);
+    box-shadow: none;
+}
+
+.faq-section .accordion-button:focus {
+    box-shadow: none;
+    border-color: var(--accent-color);
+}
+
+.faq-section .accordion-button::after {
+    filter: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%232E86AB'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.faq-section .accordion-body {
+    padding: 1rem 1.25rem;
+    color: var(--default-color);
+    line-height: 1.8;
+    font-size: 0.95rem;
 }
 
 .el-khair-image img:hover {
