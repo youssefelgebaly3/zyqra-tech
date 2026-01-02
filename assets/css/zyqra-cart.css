@@ -308,30 +308,267 @@
 }
 
 /*--------------------------------------------------------------
-# Mobile Responsive Cart
+# Checkout Progress Bar
+--------------------------------------------------------------*/
+.checkout-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    gap: 0;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.progress-step .step-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--default-color), transparent 90%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--default-color);
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.progress-step span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--default-color);
+}
+
+.progress-step.active .step-icon {
+    background: var(--accent-color);
+    color: white;
+    box-shadow: 0 4px 20px color-mix(in srgb, var(--accent-color), transparent 50%);
+}
+
+.progress-step.active span {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.progress-step.completed .step-icon {
+    background: #28A745;
+    color: white;
+}
+
+.progress-step.completed span {
+    color: #28A745;
+}
+
+.progress-line {
+    width: 60px;
+    height: 3px;
+    background: color-mix(in srgb, var(--default-color), transparent 85%);
+    margin: 0 0.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 2px;
+}
+
+.progress-line.completed {
+    background: #28A745;
+}
+
+/*--------------------------------------------------------------
+# Checkout Form Enhancements
+--------------------------------------------------------------*/
+.checkout-card .form-control,
+.checkout-card .form-select {
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    border: 2px solid color-mix(in srgb, var(--default-color), transparent 85%);
+    transition: all 0.3s ease;
+}
+
+.checkout-card .form-control:focus,
+.checkout-card .form-select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 85%);
+}
+
+.checkout-card .form-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+}
+
+.payment-method span {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.order-item-qty {
+    font-size: 0.85rem;
+    color: var(--default-color);
+    opacity: 0.8;
+}
+
+/*--------------------------------------------------------------
+# Checkout Mobile Responsive
+--------------------------------------------------------------*/
+@media (max-width: 768px) {
+    .checkout-progress {
+        padding: 1rem 0;
+        gap: 0;
+    }
+
+    .progress-step .step-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .progress-step span {
+        font-size: 0.7rem;
+    }
+
+    .progress-line {
+        width: 30px;
+        margin: 0 0.25rem;
+    }
+
+    .checkout-card {
+        padding: 1.25rem;
+        border-radius: 14px;
+    }
+
+    .checkout-card h4 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .payment-methods {
+        gap: 0.75rem;
+    }
+
+    .payment-method {
+        min-width: calc(50% - 0.5rem);
+        padding: 0.75rem;
+    }
+
+    .payment-method i {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .payment-method span {
+        font-size: 0.8rem;
+    }
+
+    .order-summary-card {
+        padding: 1.25rem;
+        border-radius: 14px;
+        position: static;
+    }
+}
+
+/*--------------------------------------------------------------
+# Mobile Responsive Cart - Premium Compact Design
 --------------------------------------------------------------*/
 @media (max-width: 768px) {
     .cart-item {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
         gap: 1rem;
+        padding: 1.25rem 1rem;
+        border-radius: 16px;
+        background: linear-gradient(145deg, var(--surface-color), color-mix(in srgb, var(--surface-color), var(--accent-color) 2%));
+        border: 2px solid color-mix(in srgb, var(--accent-color), transparent 88%);
+        box-shadow: 0 8px 24px color-mix(in srgb, var(--accent-color), transparent 90%);
     }
 
     .cart-item-image {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 20%));
+        box-shadow: 0 6px 18px color-mix(in srgb, var(--accent-color), transparent 70%);
     }
 
-    .cart-item-actions {
-        width: 100%;
-        justify-content: space-between;
+    .cart-item-image i {
+        font-size: 1.8rem;
+    }
+
+    .cart-item-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.35rem;
     }
 
     .cart-item-title {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 0;
     }
 
     .cart-item-price {
         font-size: 1.1rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 15%));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .cart-item-actions {
+        width: 100%;
+        justify-content: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    .quantity-control {
+        background: color-mix(in srgb, var(--accent-color), transparent 94%);
+        border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+        border-radius: 10px;
+        padding: 0.3rem;
+    }
+
+    .quantity-btn {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        font-size: 1rem;
+    }
+
+    .quantity-value {
+        min-width: 35px;
+        font-size: 0.95rem;
+    }
+
+    .remove-btn {
+        padding: 0.5rem 0.9rem;
+        border-radius: 10px;
+        font-size: 0.85rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    }
+
+    .cart-summary {
+        padding: 1.5rem;
+        border-radius: 18px;
+        border: 2px solid color-mix(in srgb, var(--accent-color), transparent 88%);
+    }
+
+    .checkout-btn {
+        padding: 0.9rem;
+        border-radius: 12px;
+        font-size: 1rem;
     }
 }

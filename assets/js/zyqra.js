@@ -9,7 +9,7 @@
 const ZYQRA_STORAGE_KEY = 'zyqra_cart';
 
 const searchItems = [
-    { type: 'products', title: 'MotoLock Pro', desc: 'نظام أمان ذكي للدراجات النارية', price: '1,500 ج.م', icon: 'bi-shield-lock' },
+    { type: 'products', title: 'MotoLock', desc: 'نظام أمان ذكي للدراجات النارية', price: '1,000 ج.م', icon: 'bi-shield-lock' },
     { type: 'products', title: 'Smart Home Kit', desc: 'مجموعة متكاملة للمنزل الذكي', price: '2,500 ج.م', icon: 'bi-house-gear' },
     { type: 'products', title: 'IoT Sensor Pack', desc: 'حساسات ذكية لمراقبة البيئة', price: '800 ج.م', icon: 'bi-cpu' },
     { type: 'products', title: 'ZYQRA Dev Board', desc: 'لوحة تطوير للمبرمجين', price: '350 ج.م', icon: 'bi-motherboard' },

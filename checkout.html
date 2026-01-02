@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>إتمام الشراء - ZYQRA</title>
+    <meta name="description" content="أكمل طلبك بأمان - ZYQRA">
 
     <link href="assets/img/favicon.png" rel="icon">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
@@ -59,140 +60,221 @@
 
     <main class="main">
 
+        <!-- Checkout Progress -->
+        <section class="section" style="padding-top: 120px; padding-bottom: 0;">
+            <div class="container">
+                <div class="checkout-progress" data-aos="fade-up">
+                    <div class="progress-step completed">
+                        <div class="step-icon"><i class="bi bi-cart-check"></i></div>
+                        <span>السلة</span>
+                    </div>
+                    <div class="progress-line completed"></div>
+                    <div class="progress-step active">
+                        <div class="step-icon"><i class="bi bi-truck"></i></div>
+                        <span>الشحن</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <div class="step-icon"><i class="bi bi-credit-card"></i></div>
+                        <span>الدفع</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <div class="step-icon"><i class="bi bi-check-circle"></i></div>
+                        <span>تأكيد</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-
-
-
+        <!-- Checkout Form -->
         <section class="section">
             <div class="container" data-aos="fade-up">
-                <form id="checkout-form">
-                    <div class="row g-4">
+                <div class="row g-4">
 
-                        <div class="col-lg-8">
+                    <!-- Checkout Forms -->
+                    <div class="col-lg-8">
 
-                            <!-- Billing Info -->
-                            <div class="checkout-card" data-aos="fade-up" data-aos-delay="100">
-                                <h4><span class="step-number">1</span> معلومات الفاتورة</h4>
+                        <!-- Shipping Information -->
+                        <div class="checkout-card" data-aos="fade-up" data-aos-delay="100">
+                            <h4>
+                                <span class="step-number">1</span>
+                                معلومات الشحن
+                            </h4>
+                            <form id="shipping-form">
                                 <div class="row g-3">
                                     <div class="col-md-6">
-                                        <label class="form-label">الاسم الأول</label>
-                                        <input type="text" class="form-control" required>
+                                        <label class="form-label">الاسم الأول *</label>
+                                        <input type="text" class="form-control" id="firstName" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">الاسم الأخير</label>
-                                        <input type="text" class="form-control" required>
+                                        <label class="form-label">اسم العائلة *</label>
+                                        <input type="text" class="form-control" id="lastName" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">البريد الإلكتروني</label>
-                                        <input type="email" class="form-control" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">رقم الهاتف</label>
-                                        <input type="tel" class="form-control" required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Shipping Address -->
-                            <div class="checkout-card" data-aos="fade-up" data-aos-delay="200">
-                                <h4><span class="step-number">2</span> عنوان الشحن</h4>
-                                <div class="row g-3">
-                                    <div class="col-12">
-                                        <label class="form-label">العنوان</label>
-                                        <input type="text" class="form-control" placeholder="الشارع، رقم المبنى"
+                                        <label class="form-label">رقم الهاتف *</label>
+                                        <input type="tel" class="form-control" id="phone" placeholder="01xxxxxxxxx"
                                             required>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">المدينة</label>
-                                        <input type="text" class="form-control" required>
+                                        <label class="form-label">البريد الإلكتروني</label>
+                                        <input type="email" class="form-control" id="email"
+                                            placeholder="example@email.com">
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">المحافظة</label>
-                                        <select class="form-select" required>
+                                    <div class="col-12">
+                                        <label class="form-label">العنوان *</label>
+                                        <input type="text" class="form-control" id="address"
+                                            placeholder="الشارع، رقم المبنى، الشقة" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">المحافظة *</label>
+                                        <select class="form-select" id="governorate" required>
                                             <option value="">اختر المحافظة</option>
-                                            <option>القاهرة</option>
-                                            <option>الجيزة</option>
-                                            <option>الإسكندرية</option>
-                                            <option>المنوفية</option>
-                                            <option>الشرقية</option>
-                                            <option>أخرى</option>
+                                            <option value="cairo">القاهرة</option>
+                                            <option value="giza">الجيزة</option>
+                                            <option value="alex">الإسكندرية</option>
+                                            <option value="dakahlia">الدقهلية</option>
+                                            <option value="sharqia">الشرقية</option>
+                                            <option value="gharbia">الغربية</option>
+                                            <option value="monufia">المنوفية</option>
+                                            <option value="qalyubia">القليوبية</option>
+                                            <option value="beheira">البحيرة</option>
+                                            <option value="kafr">كفر الشيخ</option>
+                                            <option value="damietta">دمياط</option>
+                                            <option value="portsaid">بورسعيد</option>
+                                            <option value="ismailia">الإسماعيلية</option>
+                                            <option value="suez">السويس</option>
+                                            <option value="fayoum">الفيوم</option>
+                                            <option value="benisuef">بني سويف</option>
+                                            <option value="minya">المنيا</option>
+                                            <option value="assiut">أسيوط</option>
+                                            <option value="sohag">سوهاج</option>
+                                            <option value="qena">قنا</option>
+                                            <option value="luxor">الأقصر</option>
+                                            <option value="aswan">أسوان</option>
+                                            <option value="redsea">البحر الأحمر</option>
+                                            <option value="matrouh">مطروح</option>
+                                            <option value="newvalley">الوادي الجديد</option>
+                                            <option value="northsinai">شمال سيناء</option>
+                                            <option value="southsinai">جنوب سيناء</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">الرمز البريدي (اختياري)</label>
-                                        <input type="text" class="form-control">
+                                    <div class="col-md-4">
+                                        <label class="form-label">المدينة/المنطقة *</label>
+                                        <input type="text" class="form-control" id="city" required>
                                     </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">الرمز البريدي</label>
+                                        <input type="text" class="form-control" id="postalCode">
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">ملاحظات إضافية</label>
+                                        <textarea class="form-control" id="notes" rows="2"
+                                            placeholder="تعليمات إضافية للتوصيل..."></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="checkout-card" data-aos="fade-up" data-aos-delay="200">
+                            <h4>
+                                <span class="step-number">2</span>
+                                طريقة الدفع
+                            </h4>
+                            <div class="payment-methods">
+                                <div class="payment-method active" data-method="cod">
+                                    <i class="bi bi-cash-coin"></i>
+                                    <span>الدفع عند الاستلام</span>
+                                </div>
+                                <div class="payment-method" data-method="vodafone">
+                                    <i class="bi bi-phone"></i>
+                                    <span>فودافون كاش</span>
+                                </div>
+                                <div class="payment-method" data-method="instapay">
+                                    <i class="bi bi-wallet2"></i>
+                                    <span>إنستاباي</span>
                                 </div>
                             </div>
 
-                            <!-- Payment -->
-                            <div class="checkout-card" data-aos="fade-up" data-aos-delay="300">
-                                <h4><span class="step-number">3</span> طريقة الدفع</h4>
-                                <div class="payment-methods">
-                                    <div class="payment-method" onclick="selectPaymentMethod(this)">
-                                        <div class="method-icon"><i class="bi bi-credit-card"></i></div>
-                                        <div class="method-info">
-                                            <div class="method-name">بطاقة ائتمان</div>
-                                            <div class="method-desc">Visa, MasterCard</div>
-                                        </div>
-                                    </div>
-                                    <div class="payment-method" onclick="selectPaymentMethod(this)">
-                                        <div class="method-icon"><i class="bi bi-wallet2"></i></div>
-                                        <div class="method-info">
-                                            <div class="method-name">محفظة إلكترونية</div>
-                                            <div class="method-desc">Vodafone Cash, Fawry</div>
-                                        </div>
-                                    </div>
-                                    <div class="payment-method active" onclick="selectPaymentMethod(this)">
-                                        <div class="method-icon"><i class="bi bi-cash-stack"></i></div>
-                                        <div class="method-info">
-                                            <div class="method-name">دفع عند الاستلام</div>
-                                            <div class="method-desc">الدفع نقداً عند التوصيل</div>
-                                        </div>
-                                    </div>
+                            <!-- COD Info -->
+                            <div id="cod-info" class="payment-info mt-3">
+                                <div class="alert alert-info d-flex align-items-center" style="border-radius: 12px;">
+                                    <i class="bi bi-info-circle-fill me-2 fs-5"></i>
+                                    <span>سيتم الدفع نقداً عند استلام الطلب. قد تُضاف رسوم إضافية للدفع عند
+                                        الاستلام.</span>
                                 </div>
-
-                                <!-- Notes -->
-                                <div class="checkout-card" data-aos="fade-up" data-aos-delay="400">
-                                    <h4><span class="step-number">4</span> ملاحظات إضافية</h4>
-                                    <textarea class="form-control" rows="3"
-                                        placeholder="أي ملاحظات خاصة بالطلب (اختياري)"></textarea>
-                                </div>
-
                             </div>
 
-                            <div class="col-lg-4">
-                                <div class="checkout-card order-summary" data-aos="fade-up" data-aos-delay="100">
-                                    <h4><i class="bi bi-bag-check"></i> ملخص الطلب</h4>
-
-                                    <div id="order-items">
-                                        <!-- Items will be populated by JavaScript -->
+                            <!-- Vodafone Info -->
+                            <div id="vodafone-info" class="payment-info mt-3" style="display: none;">
+                                <div class="alert alert-warning d-flex flex-column" style="border-radius: 12px;">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="bi bi-phone-fill me-2 fs-5"></i>
+                                        <strong>رقم فودافون كاش: 01033624387</strong>
                                     </div>
-
-                                    <div class="summary-row">
-                                        <span>المجموع الفرعي</span>
-                                        <span id="subtotal">0 ج.م</span>
-                                    </div>
-                                    <div class="summary-row">
-                                        <span>الشحن</span>
-                                        <span>50 ج.م</span>
-                                    </div>
-                                    <div class="summary-row summary-total">
-                                        <span>الإجمالي</span>
-                                        <span id="total">0 ج.م</span>
-                                    </div>
-
-                                    <button type="submit" class="place-order-btn">
-                                        <i class="bi bi-check-circle me-2"></i> تأكيد الطلب
-                                    </button>
-
-                                    <div class="secure-badge">
-                                        <i class="bi bi-shield-check"></i>
-                                        <span>دفع آمن ومشفر 100%</span>
-                                    </div>
-
+                                    <small>قم بالتحويل ثم أرسل صورة الإيصال على واتساب</small>
                                 </div>
-                </form>
+                            </div>
+
+                            <!-- InstaPay Info -->
+                            <div id="instapay-info" class="payment-info mt-3" style="display: none;">
+                                <div class="alert alert-success d-flex flex-column" style="border-radius: 12px;">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="bi bi-wallet2 me-2 fs-5"></i>
+                                        <strong>اسم المستخدم: ZYQRA-Tech</strong>
+                                    </div>
+                                    <small>قم بالتحويل عبر إنستاباي ثم أرسل صورة الإيصال على واتساب</small>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="col-lg-4">
+                        <div class="order-summary-card" data-aos="fade-up" data-aos-delay="300">
+                            <h4 class="mb-4"><i class="bi bi-receipt me-2"></i>ملخص الطلب</h4>
+
+                            <div id="order-items">
+                                <!-- Items will be populated by JavaScript -->
+                            </div>
+
+                            <hr>
+
+                            <div class="summary-row">
+                                <span>المجموع الفرعي</span>
+                                <span id="checkout-subtotal">0 ج.م</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>الشحن</span>
+                                <span id="checkout-shipping">50 ج.م</span>
+                            </div>
+                            <div class="summary-row summary-total">
+                                <span>الإجمالي</span>
+                                <span id="checkout-total">0 ج.م</span>
+                            </div>
+
+                            <button type="button" class="place-order-btn" onclick="placeOrder()">
+                                <i class="bi bi-check-circle me-2"></i>
+                                تأكيد الطلب
+                            </button>
+
+                            <div class="secure-badge">
+                                <i class="bi bi-shield-lock-fill"></i>
+                                <span>تسوق آمن 100%</span>
+                            </div>
+
+                            <div class="mt-3 text-center">
+                                <a href="cart.html" class="text-muted">
+                                    <i class="bi bi-arrow-right me-1"></i>
+                                    العودة للسلة
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 
@@ -201,9 +283,9 @@
     <footer id="footer" class="footer position-relative dark-background">
         <div class="container footer-top">
             <div class="row gy-4">
-                <div class="col-lg-6 footer-about">
+                <div class="col-lg-5 footer-about">
                     <a href="index.html" class="logo"><span class="sitename">ZYQRA</span></a>
-                    <p>منصة تقنية متكاملة</p>
+                    <p>منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي.</p>
                     <div class="social-links d-flex mt-4">
                         <a href="https://api.whatsapp.com/send?phone=201033624387" target="_blank"><i
                                 class="bi bi-whatsapp"></i></a>
@@ -252,10 +334,150 @@
         </div>
     </footer>
 
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/zyqra.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load cart items
+            loadOrderSummary();
+
+            // Payment method selection
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function () {
+                    paymentMethods.forEach(m => m.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Hide all payment info
+                    document.querySelectorAll('.payment-info').forEach(info => {
+                        info.style.display = 'none';
+                    });
+
+                    // Show selected payment info
+                    const methodId = this.dataset.method;
+                    const infoEl = document.getElementById(methodId + '-info');
+                    if (infoEl) {
+                        infoEl.style.display = 'block';
+                    }
+                });
+            });
+        });
+
+        function loadOrderSummary() {
+            const cart = JSON.parse(localStorage.getItem('zyqra_cart')) || [];
+            const orderItems = document.getElementById('order-items');
+
+            if (cart.length === 0) {
+                window.location.href = 'cart.html';
+                return;
+            }
+
+            let html = '';
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+                html += `
+                    <div class="order-item">
+                        <div class="order-item-image">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <div class="order-item-info">
+                            <div class="order-item-name">${item.name}</div>
+                            <div class="order-item-qty">الكمية: ${item.quantity}</div>
+                        </div>
+                        <div class="order-item-price">${(item.price * item.quantity).toLocaleString()} ج.م</div>
+                    </div>
+                `;
+            });
+
+            orderItems.innerHTML = html;
+
+            const shipping = 50;
+            const total = subtotal + shipping;
+
+            document.getElementById('checkout-subtotal').textContent = subtotal.toLocaleString() + ' ج.م';
+            document.getElementById('checkout-shipping').textContent = shipping + ' ج.م';
+            document.getElementById('checkout-total').textContent = total.toLocaleString() + ' ج.م';
+        }
+
+        function placeOrder() {
+            // Validate form
+            const form = document.getElementById('shipping-form');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // Get form data
+            const orderData = {
+                customer: {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    phone: document.getElementById('phone').value,
+                    email: document.getElementById('email').value,
+                    address: document.getElementById('address').value,
+                    governorate: document.getElementById('governorate').value,
+                    city: document.getElementById('city').value,
+                    postalCode: document.getElementById('postalCode').value,
+                    notes: document.getElementById('notes').value
+                },
+                paymentMethod: document.querySelector('.payment-method.active').dataset.method,
+                items: JSON.parse(localStorage.getItem('zyqra_cart')) || [],
+                total: document.getElementById('checkout-total').textContent
+            };
+
+            // Show success message
+            const successHtml = `
+                <div class="text-center py-5" data-aos="zoom-in">
+                    <div class="success-icon mb-4">
+                        <i class="bi bi-check-circle-fill" style="font-size: 5rem; color: #28a745;"></i>
+                    </div>
+                    <h2 class="mb-3">تم استلام طلبك بنجاح! 🎉</h2>
+                    <p class="text-muted mb-4">شكراً لك ${orderData.customer.firstName}، سنتواصل معك قريباً لتأكيد الطلب.</p>
+                    <div class="order-number mb-4">
+                        <span class="badge bg-primary fs-5 p-3" style="border-radius: 12px;">
+                            رقم الطلب: #ZYQ-${Date.now().toString().slice(-6)}
+                        </span>
+                    </div>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a href="https://api.whatsapp.com/send?phone=201033624387&text=مرحباً، أود الاستفسار عن طلبي" 
+                           class="btn btn-success btn-lg" style="border-radius: 12px;" target="_blank">
+                            <i class="bi bi-whatsapp me-2"></i>تواصل عبر واتساب
+                        </a>
+                        <a href="index.html" class="btn btn-outline-primary btn-lg" style="border-radius: 12px;">
+                            <i class="bi bi-house me-2"></i>العودة للرئيسية
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            // Clear cart
+            localStorage.removeItem('zyqra_cart');
+
+            // Update page
+            document.querySelector('.main').innerHTML = `
+                <section class="section" style="padding-top: 150px;">
+                    <div class="container">
+                        ${successHtml}
+                    </div>
+                </section>
+            `;
+
+            // Update cart badge
+            updateCartBadge();
+
+            // Re-init AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
+        }
+    </script>
 
 </body>
 
