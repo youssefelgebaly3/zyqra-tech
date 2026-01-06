@@ -2,312 +2,848 @@
 <html lang="ar" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>لوحة التحكم - ZYQRA Admin</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/admin.css">
-    <link href="assets/css/zyqra-common.css" rel="stylesheet">
+    <meta name="description" content="لوحة تحكم الإدارة - ZYQRA">
+
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
-<body>
-    <!-- Admin Header -->
-    <header class="admin-header">
-        <div class="container header-container">
-            <div style="display: flex; align-items: center; gap: 2rem;">
-                <a href="index.html" class="logo">ZY<span>QRA</span></a>
-                <div class="admin-badge">Admin</div>
-            </div>
+<body class="admin-page">
 
-            <div class="nav-actions">
-                <div class="nav-action-item notifications">
-                    <i class="fas fa-bell"></i>
-                    <span class="notification-count">3</span>
-                </div>
-                <div class="user-menu">
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <img src="https://via.placeholder.com/40" alt="Admin"
-                            style="width: 40px; height: 40px; border-radius: 50%;">
-                        <span>مدير النظام</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                </div>
-            </div>
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">ZYQRA</a>
+            <span class="admin-badge">Admin</span>
         </div>
-    </header>
+        <nav class="sidebar-nav">
+            <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                <i class="bi bi-grid-1x2"></i>
+                <span>لوحة التحكم</span>
+            </a>
+            <a href="#users" class="nav-item" data-section="users">
+                <i class="bi bi-people"></i>
+                <span>المستخدمين</span>
+            </a>
+            <a href="#orders" class="nav-item" data-section="orders">
+                <i class="bi bi-bag"></i>
+                <span>الطلبات</span>
+            </a>
+            <a href="#courses" class="nav-item" data-section="courses">
+                <i class="bi bi-book"></i>
+                <span>الدورات</span>
+            </a>
+            <a href="#products" class="nav-item" data-section="products">
+                <i class="bi bi-box-seam"></i>
+                <span>المنتجات</span>
+            </a>
+            <a href="#inventory" class="nav-item" data-section="inventory">
+                <i class="bi bi-boxes"></i>
+                <span>المخزون</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item">
+                <i class="bi bi-house"></i>
+                <span>الموقع الرئيسي</span>
+            </a>
+            <a href="signin.html" class="nav-item logout">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>تسجيل الخروج</span>
+            </a>
+        </div>
+    </aside>
 
-    <!-- Admin Layout -->
-    <div class="admin-layout">
-        <!-- Sidebar -->
-        <aside class="admin-sidebar">
-            <nav class="sidebar-nav">
-                <a href="#dashboard" class="nav-item active">
-                    <i class="fas fa-chart-line"></i>
-                    <span>لوحة التحكم</span>
-                </a>
-                <a href="#users" class="nav-item">
-                    <i class="fas fa-users"></i>
-                    <span>إدارة المستخدمين</span>
-                </a>
-                <a href="#products" class="nav-item">
-                    <i class="fas fa-box"></i>
-                    <span>إدارة المنتجات</span>
-                </a>
-                <a href="#orders" class="nav-item">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span>إدارة الطلبات</span>
-                </a>
-                <a href="#courses" class="nav-item">
-                    <i class="fas fa-book-open"></i>
-                    <span>إادة الكورسات</span>
-                </a>
-                <a href="#videos" class="nav-item">
-                    <i class="fas fa-video"></i>
-                    <span>إدارة الفيديوهات</span>
-                </a>
-                <a href="#submissions" class="nav-item">
-                    <i class="fas fa-tasks"></i>
-                    <span>مراجعة الواجبات</span>
-                </a>
-                <a href="#analytics" class="nav-item">
-                    <i class="fas fa-chart-bar"></i>
-                    <span>التقارير والإحصائيات</span>
-                </a>
-                <a href="#roles" class="nav-item">
-                    <i class="fas fa-user-shield"></i>
-                    <span>الصلاحيات</span>
-                </a>
-                <a href="#settings" class="nav-item">
-                    <i class="fas fa-cog"></i>
-                    <span>الإعدادات</span>
-                </a>
-            </nav>
-        </aside>
+    <!-- Main Content -->
+    <main class="admin-main">
 
-        <!-- Main Content -->
-        <main class="admin-content">
-            <!-- Dashboard Tab -->
-            <div class="tab-content active" id="dashboard">
-                <div class="page-header">
-                    <h1>لوحة التحكم</h1>
-                    <div class="breadcrumb">
-                        <span>الرئيسية</span>
-                        <i class="fas fa-chevron-left"></i>
-                        <span>لوحة التحكم</span>
+        <!-- Top Bar -->
+        <header class="admin-topbar">
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="topbar-search">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="بحث...">
+            </div>
+            <div class="topbar-actions">
+                <button class="notification-btn">
+                    <i class="bi bi-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+                <div class="admin-profile">
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=2E86AB&color=fff" alt="Admin">
+                    <span>الأدمن</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section class="admin-section active" id="dashboard">
+            <div class="section-header">
+                <h2>لوحة التحكم</h2>
+                <p>نظرة عامة على أداء المنصة</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card users">
+                    <div class="stat-icon">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number">1,256</span>
+                        <span class="stat-label">مستخدم مسجل</span>
+                    </div>
+                    <div class="stat-trend up">
+                        <i class="bi bi-arrow-up"></i> 12% هذا الشهر
                     </div>
                 </div>
 
-                <!-- Metrics Cards -->
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-icon revenue">
-                            <i class="fas fa-dollar-sign"></i>
-                        </div>
-                        <div class="metric-info">
-                            <div class="metric-value">48,250 ر.س</div>
-                            <div class="metric-label">إجمالي الإيرادات</div>
-                            <div class="metric-change positive">
-                                <i class="fas fa-arrow-up"></i>
-                                12% عن الشهر الماضي
-                            </div>
-                        </div>
+                <div class="stat-card orders">
+                    <div class="stat-icon">
+                        <i class="bi bi-bag-fill"></i>
                     </div>
-
-                    <div class="metric-card">
-                        <div class="metric-icon students">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="metric-info">
-                            <div class="metric-value">2,458</div>
-                            <div class="metric-label">طلاب نشطين</div>
-                            <div class="metric-change positive">
-                                <i class="fas fa-arrow-up"></i>
-                                8% عن الشهر الماضي
-                            </div>
-                        </div>
+                    <div class="stat-info">
+                        <span class="stat-number">84</span>
+                        <span class="stat-label">طلب جديد</span>
                     </div>
-
-                    <div class="metric-card">
-                        <div class="metric-icon orders">
-                            <i class="fas fa-shopping-bag"></i>
-                        </div>
-                        <div class="metric-info">
-                            <div class="metric-value">156</div>
-                            <div class="metric-label">طلبات pending</div>
-                            <div class="metric-change negative">
-                                <i class="fas fa-arrow-down"></i>
-                                5% عن الشهر الماضي
-                            </div>
-                        </div>
+                    <div class="stat-trend up">
+                        <i class="bi bi-arrow-up"></i> 8% هذا الأسبوع
                     </div>
+                </div>
 
-                    <div class="metric-card">
-                        <div class="metric-icon completions">
-                            <i class="fas fa-graduation-cap"></i>
+                <div class="stat-card courses">
+                    <div class="stat-icon">
+                        <i class="bi bi-book-fill"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">دورة متاحة</span>
+                    </div>
+                    <div class="stat-trend">
+                        <i class="bi bi-dash"></i> ثابت
+                    </div>
+                </div>
+
+                <div class="stat-card revenue">
+                    <div class="stat-icon">
+                        <i class="bi bi-cash-stack"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number">45,200 ج.م</span>
+                        <span class="stat-label">إجمالي المبيعات</span>
+                    </div>
+                    <div class="stat-trend up">
+                        <i class="bi bi-arrow-up"></i> 23% هذا الشهر
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats Row -->
+            <div class="row g-4 mt-2">
+                <!-- Recent Orders -->
+                <div class="col-lg-8">
+                    <div class="admin-card">
+                        <div class="card-header">
+                            <h5><i class="bi bi-clock-history"></i> آخر الطلبات</h5>
+                            <a href="#orders" class="view-all" onclick="showSection('orders')">عرض الكل</a>
                         </div>
-                        <div class="metric-info">
-                            <div class="metric-value">324</div>
-                            <div class="metric-label">إتمام كورسات</div>
-                            <div class="metric-change positive">
-                                <i class="fas fa-arrow-up"></i>
-                                15% عن الشهر الماضي
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>رقم الطلب</th>
+                                            <th>العميل</th>
+                                            <th>المنتج</th>
+                                            <th>المبلغ</th>
+                                            <th>الحالة</th>
+                                            <th>الإجراءات</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#ZYQ-789456</td>
+                                            <td>محمد علي</td>
+                                            <td>MotoLock x2</td>
+                                            <td>2,100 ج.م</td>
+                                            <td><span class="status-badge pending">قيد المراجعة</span></td>
+                                            <td>
+                                                <button class="action-btn"><i class="bi bi-eye"></i></button>
+                                                <button class="action-btn success"><i class="bi bi-check"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#ZYQ-789455</td>
+                                            <td>سارة أحمد</td>
+                                            <td>MotoLock x1</td>
+                                            <td>1,050 ج.م</td>
+                                            <td><span class="status-badge shipping">قيد الشحن</span></td>
+                                            <td>
+                                                <button class="action-btn"><i class="bi bi-eye"></i></button>
+                                                <button class="action-btn"><i class="bi bi-truck"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#ZYQ-789454</td>
+                                            <td>أحمد حسن</td>
+                                            <td>MotoLock x1</td>
+                                            <td>1,050 ج.م</td>
+                                            <td><span class="status-badge delivered">تم التسليم</span></td>
+                                            <td>
+                                                <button class="action-btn"><i class="bi bi-eye"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#ZYQ-789453</td>
+                                            <td>فاطمة محمود</td>
+                                            <td>MotoLock x3</td>
+                                            <td>3,150 ج.م</td>
+                                            <td><span class="status-badge delivered">تم التسليم</span></td>
+                                            <td>
+                                                <button class="action-btn"><i class="bi bi-eye"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Charts Section -->
-                <div class="charts-grid">
-                    <div class="chart-card">
-                        <div class="chart-header">
-                            <h3>الإيرادات الشهرية</h3>
-                            <select class="chart-filter">
-                                <option>آخر 6 أشهر</option>
-                                <option>آخر سنة</option>
-                            </select>
+                <!-- Course Stats -->
+                <div class="col-lg-4">
+                    <div class="admin-card">
+                        <div class="card-header">
+                            <h5><i class="bi bi-bar-chart"></i> أشهر الدورات</h5>
                         </div>
-                        <div class="chart-placeholder">
-                            <!-- Chart would be rendered here -->
-                            <div style="text-align: center; padding: 3rem; color: var(--gray);">
-                                <i class="fas fa-chart-line" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                                <div>رسم بياني للإيرادات</div>
+                        <div class="card-body">
+                            <div class="course-stat-item">
+                                <div class="course-info">
+                                    <span class="course-name">أساسيات الإلكترونيات</span>
+                                    <span class="course-students">456 طالب</span>
+                                </div>
+                                <div class="course-bar">
+                                    <div class="bar-fill" style="width: 85%;"></div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="chart-card">
-                        <div class="chart-header">
-                            <h3>أداء الكورسات</h3>
-                            <select class="chart-filter">
-                                <option>هذا الشهر</option>
-                                <option>الربع الأخير</option>
-                            </select>
-                        </div>
-                        <div class="chart-placeholder">
-                            <div style="text-align: center; padding: 3rem; color: var(--gray);">
-                                <i class="fas fa-chart-pie" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                                <div>رسم بياني لأداء الكورسات</div>
+                            <div class="course-stat-item">
+                                <div class="course-info">
+                                    <span class="course-name">Embedded Systems</span>
+                                    <span class="course-students">312 طالب</span>
+                                </div>
+                                <div class="course-bar">
+                                    <div class="bar-fill" style="width: 65%;"></div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Recent Activity -->
-                <div class="activity-section">
-                    <div class="section-header">
-                        <h3>النشاط الحديث</h3>
-                        <button class="btn btn-outline">عرض الكل</button>
-                    </div>
-                    <div class="activity-list">
-                        <div class="activity-item">
-                            <div class="activity-icon new-order">
-                                <i class="fas fa-shopping-cart"></i>
+                            <div class="course-stat-item">
+                                <div class="course-info">
+                                    <span class="course-name">IoT - إنترنت الأشياء</span>
+                                    <span class="course-students">289 طالب</span>
+                                </div>
+                                <div class="course-bar">
+                                    <div class="bar-fill" style="width: 55%;"></div>
+                                </div>
                             </div>
-                            <div class="activity-content">
-                                <div class="activity-title">طلب جديد #ZYQ-2023-1654</div>
-                                <div class="activity-description">محمد أحمد قام بطلب MotoLock</div>
-                                <div class="activity-time">منذ 5 دقائق</div>
-                            </div>
-                            <div class="activity-actions">
-                                <button class="btn btn-sm btn-primary">عرض</button>
-                            </div>
-                        </div>
-
-                        <div class="activity-item">
-                            <div class="activity-icon new-user">
-                                <i class="fas fa-user-plus"></i>
-                            </div>
-                            <div class="activity-content">
-                                <div class="activity-title">مستخدم جديد</div>
-                                <div class="activity-description">سارة محمد سجلت في المنصة</div>
-                                <div class="activity-time">منذ ساعة</div>
-                            </div>
-                            <div class="activity-actions">
-                                <button class="btn btn-sm btn-outline">عرض</button>
+                            <div class="course-stat-item">
+                                <div class="course-info">
+                                    <span class="course-name">مهارات التواصل</span>
+                                    <span class="course-students">198 طالب</span>
+                                </div>
+                                <div class="course-bar">
+                                    <div class="bar-fill" style="width: 40%;"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Users Management Tab -->
-            <div class="tab-content" id="users">
-                <div class="page-header">
-                    <h1>إدارة المستخدمين</h1>
-                    <button class="btn btn-primary">
-                        <i class="fas fa-plus"></i>
-                        إضافة مستخدم
-                    </button>
-                </div>
-                <!-- Users management content -->
+        <!-- Users Section -->
+        <section class="admin-section" id="users">
+            <div class="section-header">
+                <h2>إدارة المستخدمين</h2>
+                <p>عرض وإدارة جميع المستخدمين المسجلين</p>
             </div>
 
-            <!-- Orders Management Tab -->
-            <div class="tab-content" id="orders">
-                <div class="page-header">
-                    <h1>إدارة الطلبات</h1>
-                    <div style="display: flex; gap: 1rem;">
-                        <button class="btn btn-outline" onclick="refreshOrders()">
-                            <i class="fas fa-sync"></i>
-                            تحديث
-                        </button>
+            <div class="admin-card">
+                <div class="card-header">
+                    <h5><i class="bi bi-people"></i> قائمة المستخدمين</h5>
+                    <div class="header-actions">
+                        <input type="text" placeholder="بحث عن مستخدم..." class="search-input">
+                        <button class="btn-add"><i class="bi bi-plus"></i> إضافة مستخدم</button>
                     </div>
                 </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>المستخدم</th>
+                                    <th>البريد الإلكتروني</th>
+                                    <th>تاريخ التسجيل</th>
+                                    <th>الدورات</th>
+                                    <th>الطلبات</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Ahmed&background=2E86AB&color=fff"
+                                                alt="">
+                                            <span>أحمد محمد</span>
+                                        </div>
+                                    </td>
+                                    <td>ahmed@example.com</td>
+                                    <td>15 يناير 2024</td>
+                                    <td>5</td>
+                                    <td>2</td>
+                                    <td><span class="status-badge active">نشط</span></td>
+                                    <td>
+                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
+                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
+                                        <button class="action-btn danger"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Sara&background=A23B72&color=fff"
+                                                alt="">
+                                            <span>سارة علي</span>
+                                        </div>
+                                    </td>
+                                    <td>sara@example.com</td>
+                                    <td>20 فبراير 2024</td>
+                                    <td>3</td>
+                                    <td>1</td>
+                                    <td><span class="status-badge active">نشط</span></td>
+                                    <td>
+                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
+                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
+                                        <button class="action-btn danger"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Mohamed&background=F18F01&color=fff"
+                                                alt="">
+                                            <span>محمد حسن</span>
+                                        </div>
+                                    </td>
+                                    <td>mohamed@example.com</td>
+                                    <td>5 مارس 2024</td>
+                                    <td>2</td>
+                                    <td>0</td>
+                                    <td><span class="status-badge inactive">غير نشط</span></td>
+                                    <td>
+                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
+                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
+                                        <button class="action-btn danger"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <div class="data-table-container">
-                    <table class="data-table" id="ordersTable">
-                        <thead>
-                            <tr>
-                                <th>رقم الطلب</th>
-                                <th>العميل</th>
-                                <th>المنتجات</th>
-                                <th>المبلغ</th>
-                                <th>الحالة</th>
-                                <th>رقم التتبع</th>
-                                <th>التاريخ</th>
-                                <th>الإجراءات</th>
-                            </tr>
-                        </thead>
-                        <tbody id="ordersTableBody">
-                            <tr>
-                                <td colspan="8" style="text-align: center; padding: 3rem; color: var(--gray);">
-                                    <i class="fas fa-shopping-bag"
-                                        style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
-                                    <div>لا توجد طلبات حالياً</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <!-- Orders Section -->
+        <section class="admin-section" id="orders">
+            <div class="section-header">
+                <h2>إدارة الطلبات</h2>
+                <p>متابعة وإدارة جميع الطلبات</p>
+            </div>
+
+            <div class="admin-card">
+                <div class="card-header">
+                    <h5><i class="bi bi-bag"></i> قائمة الطلبات</h5>
+                    <div class="header-actions">
+                        <select class="filter-select">
+                            <option value="">جميع الحالات</option>
+                            <option value="pending">قيد المراجعة</option>
+                            <option value="shipping">قيد الشحن</option>
+                            <option value="delivered">تم التسليم</option>
+                            <option value="cancelled">ملغي</option>
+                        </select>
+                        <input type="text" placeholder="بحث برقم الطلب..." class="search-input">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>رقم الطلب</th>
+                                    <th>العميل</th>
+                                    <th>المنتجات</th>
+                                    <th>المبلغ</th>
+                                    <th>طريقة الدفع</th>
+                                    <th>التاريخ</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>#ZYQ-789456</strong></td>
+                                    <td>محمد علي</td>
+                                    <td>MotoLock x2</td>
+                                    <td>2,100 ج.م</td>
+                                    <td><span class="payment-method cod">عند الاستلام</span></td>
+                                    <td>5 يناير 2025</td>
+                                    <td>
+                                        <select class="status-select pending">
+                                            <option value="pending" selected>قيد المراجعة</option>
+                                            <option value="confirmed">تم التأكيد</option>
+                                            <option value="shipping">قيد الشحن</option>
+                                            <option value="delivered">تم التسليم</option>
+                                            <option value="cancelled">ملغي</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
+                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
+                                        <button class="action-btn whatsapp"><i class="bi bi-whatsapp"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#ZYQ-789455</strong></td>
+                                    <td>سارة أحمد</td>
+                                    <td>MotoLock x1</td>
+                                    <td>1,050 ج.م</td>
+                                    <td><span class="payment-method vodafone">فودافون كاش</span></td>
+                                    <td>4 يناير 2025</td>
+                                    <td>
+                                        <select class="status-select shipping">
+                                            <option value="pending">قيد المراجعة</option>
+                                            <option value="confirmed">تم التأكيد</option>
+                                            <option value="shipping" selected>قيد الشحن</option>
+                                            <option value="delivered">تم التسليم</option>
+                                            <option value="cancelled">ملغي</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
+                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
+                                        <button class="action-btn whatsapp"><i class="bi bi-whatsapp"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#ZYQ-789454</strong></td>
+                                    <td>أحمد حسن</td>
+                                    <td>MotoLock x1</td>
+                                    <td>1,050 ج.م</td>
+                                    <td><span class="payment-method instapay">إنستاباي</span></td>
+                                    <td>3 يناير 2025</td>
+                                    <td>
+                                        <select class="status-select delivered">
+                                            <option value="pending">قيد المراجعة</option>
+                                            <option value="confirmed">تم التأكيد</option>
+                                            <option value="shipping">قيد الشحن</option>
+                                            <option value="delivered" selected>تم التسليم</option>
+                                            <option value="cancelled">ملغي</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
+                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
+                                        <button class="action-btn whatsapp"><i class="bi bi-whatsapp"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section class="admin-section" id="courses">
+            <div class="section-header">
+                <h2>إدارة الدورات</h2>
+                <p>إحصائيات الدورات والمشتركين</p>
+            </div>
+
+            <div class="admin-card">
+                <div class="card-header">
+                    <h5><i class="bi bi-book"></i> قائمة الدورات</h5>
+                    <button class="btn-add"><i class="bi bi-plus"></i> إضافة دورة</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>الدورة</th>
+                                    <th>التصنيف</th>
+                                    <th>المشتركين</th>
+                                    <th>المكتملين</th>
+                                    <th>التقييم</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="course-cell">
+                                            <div class="course-icon"
+                                                style="background: linear-gradient(135deg, #2E86AB, #1A1A2E);">
+                                                <i class="bi bi-cpu"></i>
+                                            </div>
+                                            <span>أساسيات الإلكترونيات</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="category-badge tech">تقنية</span></td>
+                                    <td>456</td>
+                                    <td>234 (51%)</td>
+                                    <td><span class="rating"><i class="bi bi-star-fill"></i> 4.8</span></td>
+                                    <td><span class="status-badge active">نشطة</span></td>
+                                    <td>
+                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
+                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
+                                        <button class="action-btn"><i class="bi bi-graph-up"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="course-cell">
+                                            <div class="course-icon"
+                                                style="background: linear-gradient(135deg, #A23B72, #2E86AB);">
+                                                <i class="bi bi-motherboard"></i>
+                                            </div>
+                                            <span>Embedded Systems</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="category-badge tech">تقنية</span></td>
+                                    <td>312</td>
+                                    <td>156 (50%)</td>
+                                    <td><span class="rating"><i class="bi bi-star-fill"></i> 4.9</span></td>
+                                    <td><span class="status-badge active">نشطة</span></td>
+                                    <td>
+                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
+                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
+                                        <button class="action-btn"><i class="bi bi-graph-up"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="course-cell">
+                                            <div class="course-icon"
+                                                style="background: linear-gradient(135deg, #EC4899, #2E86AB);">
+                                                <i class="bi bi-people"></i>
+                                            </div>
+                                            <span>مهارات التواصل الفعال</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="category-badge soft">شخصية</span></td>
+                                    <td>198</td>
+                                    <td>145 (73%)</td>
+                                    <td><span class="rating"><i class="bi bi-star-fill"></i> 4.7</span></td>
+                                    <td><span class="status-badge active">نشطة</span></td>
+                                    <td>
+                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
+                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
+                                        <button class="action-btn"><i class="bi bi-graph-up"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="admin-section" id="products">
+            <div class="section-header">
+                <h2>إدارة المنتجات</h2>
+                <p>عرض وإدارة المنتجات المتاحة</p>
+            </div>
+
+            <div class="admin-card">
+                <div class="card-header">
+                    <h5><i class="bi bi-box-seam"></i> قائمة المنتجات</h5>
+                    <button class="btn-add"><i class="bi bi-plus"></i> إضافة منتج</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>المنتج</th>
+                                    <th>السعر</th>
+                                    <th>المخزون</th>
+                                    <th>المبيعات</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="product-cell">
+                                            <div class="product-icon">
+                                                <i class="bi bi-shield-lock"></i>
+                                            </div>
+                                            <div class="product-info">
+                                                <span class="product-name">MotoLock</span>
+                                                <span class="product-sku">SKU: ML-001</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><strong>1,000 ج.م</strong></td>
+                                    <td>
+                                        <span class="stock-badge in-stock">
+                                            <i class="bi bi-check-circle"></i> 45 قطعة
+                                        </span>
+                                    </td>
+                                    <td>84 طلب</td>
+                                    <td><span class="status-badge active">متاح</span></td>
+                                    <td>
+                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
+                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
+                                        <button class="action-btn"><i class="bi bi-graph-up"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inventory Section -->
+        <section class="admin-section" id="inventory">
+            <div class="section-header">
+                <h2>إدارة المخزون</h2>
+                <p>تتبع المخزون والكميات المتوفرة</p>
+            </div>
+
+            <!-- Inventory Stats -->
+            <div class="inventory-stats">
+                <div class="inv-stat-card">
+                    <div class="inv-icon total">
+                        <i class="bi bi-boxes"></i>
+                    </div>
+                    <div class="inv-info">
+                        <span class="inv-number">45</span>
+                        <span class="inv-label">إجمالي المخزون</span>
+                    </div>
+                </div>
+                <div class="inv-stat-card">
+                    <div class="inv-icon sold">
+                        <i class="bi bi-bag-check"></i>
+                    </div>
+                    <div class="inv-info">
+                        <span class="inv-number">84</span>
+                        <span class="inv-label">تم بيعها</span>
+                    </div>
+                </div>
+                <div class="inv-stat-card">
+                    <div class="inv-icon low">
+                        <i class="bi bi-exclamation-triangle"></i>
+                    </div>
+                    <div class="inv-info">
+                        <span class="inv-number">0</span>
+                        <span class="inv-label">منخفض المخزون</span>
+                    </div>
+                </div>
+                <div class="inv-stat-card">
+                    <div class="inv-icon out">
+                        <i class="bi bi-x-circle"></i>
+                    </div>
+                    <div class="inv-info">
+                        <span class="inv-number">0</span>
+                        <span class="inv-label">نفذ من المخزون</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Order Details Modal -->
-            <div class="modal" id="orderModal">
-                <div class="modal-content" style="max-width: 800px;">
-                    <div class="modal-header">
-                        <h2>تفاصيل الطلب</h2>
-                        <button class="modal-close" onclick="closeOrderModal()">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="modal-body" id="orderModalBody">
-                        <!-- Order details will be loaded here -->
+            <div class="admin-card mt-4">
+                <div class="card-header">
+                    <h5><i class="bi bi-boxes"></i> تفاصيل المخزون</h5>
+                    <button class="btn-add"><i class="bi bi-plus"></i> إضافة مخزون</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>المنتج</th>
+                                    <th>SKU</th>
+                                    <th>الكمية المتوفرة</th>
+                                    <th>الحد الأدنى</th>
+                                    <th>آخر تحديث</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="product-cell">
+                                            <div class="product-icon">
+                                                <i class="bi bi-shield-lock"></i>
+                                            </div>
+                                            <span>MotoLock</span>
+                                        </div>
+                                    </td>
+                                    <td>ML-001</td>
+                                    <td>
+                                        <div class="quantity-cell">
+                                            <button class="qty-btn minus"><i class="bi bi-dash"></i></button>
+                                            <input type="number" value="45" class="qty-input">
+                                            <button class="qty-btn plus"><i class="bi bi-plus"></i></button>
+                                        </div>
+                                    </td>
+                                    <td>10 قطع</td>
+                                    <td>5 يناير 2025</td>
+                                    <td><span class="status-badge in-stock">متوفر</span></td>
+                                    <td>
+                                        <button class="action-btn success" title="حفظ"><i
+                                                class="bi bi-check-lg"></i></button>
+                                        <button class="action-btn" title="السجل"><i
+                                                class="bi bi-clock-history"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
 
-            <!-- Other tabs would be implemented similarly -->
-        </main>
-    </div>
+            <!-- Inventory History -->
+            <div class="admin-card mt-4">
+                <div class="card-header">
+                    <h5><i class="bi bi-clock-history"></i> سجل حركة المخزون</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>التاريخ</th>
+                                    <th>المنتج</th>
+                                    <th>النوع</th>
+                                    <th>الكمية</th>
+                                    <th>الرصيد السابق</th>
+                                    <th>الرصيد الجديد</th>
+                                    <th>ملاحظات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>5 يناير 2025</td>
+                                    <td>MotoLock</td>
+                                    <td><span class="movement-badge out">بيع</span></td>
+                                    <td>-2</td>
+                                    <td>47</td>
+                                    <td>45</td>
+                                    <td>طلب #ZYQ-789456</td>
+                                </tr>
+                                <tr>
+                                    <td>4 يناير 2025</td>
+                                    <td>MotoLock</td>
+                                    <td><span class="movement-badge out">بيع</span></td>
+                                    <td>-1</td>
+                                    <td>48</td>
+                                    <td>47</td>
+                                    <td>طلب #ZYQ-789455</td>
+                                </tr>
+                                <tr>
+                                    <td>1 يناير 2025</td>
+                                    <td>MotoLock</td>
+                                    <td><span class="movement-badge in">إضافة</span></td>
+                                    <td>+50</td>
+                                    <td>0</td>
+                                    <td>50</td>
+                                    <td>توريد جديد</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <script src="js/main.js"></script>
-    <script src="js/tracking.js"></script>
-    <script src="js/demo-order.js"></script>
-    <script src="js/admin.js"></script>
-    <script src="assets/js/zyqra.js"></script>
+    </main>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script>
+        // Sidebar Toggle
+        document.getElementById('sidebarToggle').addEventListener('click', function () {
+            document.querySelector('.admin-sidebar').classList.toggle('collapsed');
+            document.querySelector('.admin-main').classList.toggle('expanded');
+        });
+
+        // Section Navigation
+        document.querySelectorAll('.sidebar-nav .nav-item').forEach(item => {
+            item.addEventListener('click', function (e) {
+                e.preventDefault();
+                const section = this.dataset.section;
+                showSection(section);
+            });
+        });
+
+        function showSection(sectionId) {
+            // Update nav
+            document.querySelectorAll('.sidebar-nav .nav-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.dataset.section === sectionId) {
+                    item.classList.add('active');
+                }
+            });
+
+            // Update sections
+            document.querySelectorAll('.admin-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Status select styling
+        document.querySelectorAll('.status-select').forEach(select => {
+            select.addEventListener('change', function () {
+                this.className = 'status-select ' + this.value;
+            });
+        });
+
+        // Quantity buttons
+        document.querySelectorAll('.qty-btn.minus').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const input = this.parentElement.querySelector('.qty-input');
+                if (parseInt(input.value) > 0) {
+                    input.value = parseInt(input.value) - 1;
+                }
+            });
+        });
+
+        document.querySelectorAll('.qty-btn.plus').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const input = this.parentElement.querySelector('.qty-input');
+                input.value = parseInt(input.value) + 1;
+            });
+        });
+    </script>
+
 </body>
 
 </html>

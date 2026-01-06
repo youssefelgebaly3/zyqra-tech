@@ -6,723 +6,896 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مقدمة في الأنظمة المدمجة - ZYQRA الخير</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
         rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <!-- Main CSS Files -->
     <link href="assets/css/main.css" rel="stylesheet">
-    <link href="assets/css/zyqra-common.css" rel="stylesheet">
     <style>
-        .course-player {
-            padding-top: 80px;
-            background: var(--dark);
-            color: white;
-            min-height: 100vh;
+        :root {
+            --player-dark: #0f0f1a;
+            --player-card: #1a1a2e;
+            --player-border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            background: var(--player-dark);
         }
 
         .player-header {
-            background: rgba(0, 0, 0, 0.5);
+            background: linear-gradient(180deg, rgba(15, 15, 26, 0.98) 0%, rgba(15, 15, 26, 0.95) 100%);
             padding: 1rem 0;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--player-border);
         }
 
-        .player-container {
+        .course-player {
+            padding-top: 75px;
+            min-height: 100vh;
+        }
+
+        .player-grid {
             display: grid;
-            grid-template-columns: 1fr 350px;
-            gap: 0;
-            height: calc(100vh - 80px);
+            grid-template-columns: 1fr 380px;
+            min-height: calc(100vh - 75px);
         }
 
+        @media (max-width: 1200px) {
+            .player-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Video Section */
         .video-section {
             background: #000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-wrapper {
             position: relative;
+            padding-bottom: 56.25%;
+            background: linear-gradient(135deg, #1a1a2e, #2E86AB);
         }
 
-        .video-player {
-            width: 100%;
-            height: 100%;
-            background: #000;
-        }
-
-        .video-controls {
+        .video-wrapper iframe {
             position: absolute;
-            bottom: 0;
-            right: 0;
+            top: 0;
             left: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-            padding: 2rem;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .video-section:hover .video-controls {
-            opacity: 1;
-        }
-
-        .progress-bar-container {
             width: 100%;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 3px;
-            margin-bottom: 1rem;
-            cursor: pointer;
-        }
-
-        .progress-bar {
             height: 100%;
-            background: var(--accent-color);
-            border-radius: 3px;
-            width: 30%;
-            position: relative;
+            border: none;
         }
 
-        .controls-row {
+        /* Lesson Controls Bar */
+        .lesson-controls {
+            background: var(--player-card);
+            padding: 1rem 1.5rem;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 1rem;
+            border-bottom: 1px solid var(--player-border);
         }
 
-        .control-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .control-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--accent-color);
-        }
-
-        .time-display {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .volume-control {
+        .lesson-nav-btn {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-        }
-
-        .volume-slider {
-            width: 80px;
-        }
-
-        .sidebar {
-            background: #f8f9fa;
-            color: var(--default-color);
-            overflow-y: auto;
-            border-right: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .sidebar-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            background: white;
-        }
-
-        .progress-circle {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: conic-gradient(var(--accent-color) 25%, #eee 0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-        }
-
-        .progress-text {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--default-color);
-            opacity: 0.7;
-        }
-
-        .search-lessons {
-            padding: 1rem;
-            background: white;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #ddd;
+            padding: 0.6rem 1.2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--player-border);
             border-radius: 10px;
-            font-size: 0.9rem;
-        }
-
-        .curriculum-list {
-            padding: 1rem;
-        }
-
-        .section-item {
-            margin-bottom: 1rem;
-        }
-
-        .section-header {
-            padding: 1rem;
-            background: white;
-            border-radius: 12px;
+            color: white;
+            font-weight: 500;
             cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
             transition: all 0.3s ease;
         }
 
-        .section-header:hover {
-            background: #fcfcfc;
-        }
-
-        .lessons-list {
-            padding: 0.5rem 0;
-        }
-
-        .lesson-item {
-            padding: 0.8rem 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            margin-bottom: 4px;
-        }
-
-        .lesson-item:hover {
-            background: color-mix(in srgb, var(--accent-color), transparent 92%);
-        }
-
-        .lesson-item.active {
+        .lesson-nav-btn:hover {
             background: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .lesson-nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .lesson-title-bar {
+            flex: 1;
+            text-align: center;
             color: white;
         }
 
-        .lesson-duration {
-            margin-right: auto;
+        .lesson-title-bar h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .lesson-title-bar span {
             font-size: 0.8rem;
-            opacity: 0.7;
+            opacity: 0.6;
+        }
+
+        .lesson-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .action-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--player-border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .action-btn.completed {
+            background: #10B981;
+            border-color: #10B981;
+        }
+
+        /* Content Section */
+        .content-section {
+            background: var(--player-dark);
+            flex: 1;
+            overflow-y: auto;
         }
 
         .content-tabs {
-            background: white;
-            padding: 2rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .tabs-header {
             display: flex;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--player-border);
+            background: var(--player-card);
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         .content-tab {
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
+            color: rgba(255, 255, 255, 0.6);
             cursor: pointer;
             border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
             font-weight: 500;
         }
 
+        .content-tab:hover {
+            color: white;
+        }
+
         .content-tab.active {
-            border-bottom-color: var(--accent-color);
             color: var(--accent-color);
-            font-weight: 700;
+            border-bottom-color: var(--accent-color);
+        }
+
+        .tab-content {
+            padding: 2rem;
+            color: white;
         }
 
         .tab-panel {
             display: none;
-            max-width: 900px;
         }
 
         .tab-panel.active {
             display: block;
         }
 
-        .resources-list {
-            list-style: none;
+        .overview-card {
+            background: var(--player-card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--player-border);
         }
 
-        .resource-item {
-            padding: 1.2rem;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            border-radius: 12px;
+        .overview-card h3 {
+            font-size: 1.3rem;
             margin-bottom: 1rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: 0.5rem;
+        }
+
+        .overview-card h3 i {
+            color: var(--accent-color);
+        }
+
+        .overview-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        .learning-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .learning-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(46, 134, 171, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(46, 134, 171, 0.2);
+        }
+
+        .learning-point i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-top: 2px;
+        }
+
+        .resource-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            background: var(--player-card);
+            border-radius: 12px;
+            border: 1px solid var(--player-border);
+            margin-bottom: 0.75rem;
             transition: all 0.3s ease;
         }
 
-        .resource-item:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        .resource-card:hover {
+            border-color: var(--accent-color);
+            transform: translateX(-5px);
         }
 
-        .discussion-item {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 1.5rem 0;
-        }
-
-        .discussion-header {
+        .resource-info {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: 1rem;
+        }
+
+        .resource-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .resource-icon.pdf {
+            background: #fee2e2;
+            color: #DC2626;
+        }
+
+        .resource-icon.zip {
+            background: #dbeafe;
+            color: #2563EB;
+        }
+
+        .resource-icon.doc {
+            background: #d1fae5;
+            color: #059669;
+        }
+
+        .download-btn {
+            padding: 0.5rem 1rem;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Sidebar */
+        .course-sidebar {
+            background: var(--player-card);
+            border-right: 1px solid var(--player-border);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        @media (max-width: 1200px) {
+            .course-sidebar {
+                position: fixed;
+                top: 75px;
+                left: -400px;
+                width: 380px;
+                height: calc(100vh - 75px);
+                z-index: 100;
+                transition: left 0.3s ease;
+            }
+
+            .course-sidebar.open {
+                left: 0;
+            }
+
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                top: 75px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 99;
+            }
+
+            .sidebar-overlay.show {
+                display: block;
+            }
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--player-border);
+            text-align: center;
+        }
+
+        .progress-ring {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            position: relative;
+        }
+
+        .progress-ring svg {
+            transform: rotate(-90deg);
+            width: 80px;
+            height: 80px;
+        }
+
+        .progress-ring circle {
+            fill: none;
+            stroke-width: 6;
+        }
+
+        .progress-ring .bg {
+            stroke: rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-ring .progress {
+            stroke: var(--accent-color);
+            stroke-linecap: round;
+            stroke-dasharray: 220;
+            stroke-dashoffset: 165;
+            transition: stroke-dashoffset 0.5s ease;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .progress-label {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .lessons-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .section-block {
             margin-bottom: 1rem;
         }
 
-        @media (max-width: 768px) {
-            .player-container {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-            .sidebar {
-                display: block;
-                height: 500px;
-                border-right: none;
-                border-top: 1px solid #333;
+        .section-header:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .section-header h5 {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .section-header span {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .section-header i {
+            color: rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .section-block.open .section-header i {
+            transform: rotate(180deg);
+        }
+
+        .lesson-list {
+            padding: 0.5rem 0;
+        }
+
+        .lesson-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 4px;
+        }
+
+        .lesson-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .lesson-item.active {
+            background: linear-gradient(135deg, var(--accent-color), #2563EB);
+        }
+
+        .lesson-item.completed .lesson-check {
+            background: #10B981;
+            border-color: #10B981;
+        }
+
+        .lesson-check {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .lesson-check i {
+            font-size: 0.7rem;
+            color: white;
+        }
+
+        .lesson-info {
+            flex: 1;
+        }
+
+        .lesson-info h6 {
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        .lesson-info span {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .lesson-duration {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Mobile Toggle */
+        .mobile-sidebar-toggle {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            font-size: 1.3rem;
+            z-index: 101;
+            box-shadow: 0 4px 20px rgba(46, 134, 171, 0.4);
+        }
+
+        @media (max-width: 1200px) {
+            .mobile-sidebar-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         }
 
-        /* Standard Footer override for dark mode */
-        .footer {
-            background: #0a0a0a !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        /* Notes Section */
+        .notes-section {
+            padding: 1rem;
+            border-top: 1px solid var(--player-border);
+        }
+
+        .notes-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--player-border);
+            border-radius: 12px;
+            color: white;
+            resize: none;
+            font-family: inherit;
+        }
+
+        .notes-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .notes-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        /* Toast Notification */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 50%;
+            transform: translateX(50%) translateY(100px);
+            padding: 1rem 2rem;
+            background: #10B981;
+            color: white;
+            border-radius: 12px;
+            font-weight: 600;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 1000;
+        }
+
+        .toast-notification.show {
+            opacity: 1;
+            transform: translateX(50%) translateY(0);
         }
     </style>
 </head>
 
 <body>
-    <!-- Player Header -->
+    <!-- Header -->
     <header class="player-header">
-        <div class="container">
+        <div class="container-fluid px-4">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center gap-4">
-                    <a href="index.html" class="logo d-flex align-items-center">
-                        <span class="sitename">ZYQRA</span>
+                    <a href="courses.html" class="text-white text-decoration-none d-flex align-items-center gap-2">
+                        <i class="bi bi-arrow-right"></i>
+                        <span class="d-none d-md-inline">العودة للدورات</span>
                     </a>
-                    <div class="text-white">
-                        <h4 class="m-0 h5 fw-bold">مقدمة في الأنظمة المدمجة</h4>
-                        <div class="small opacity-75">
-                            <i class="bi bi-mortarboard-fill"></i>
-                            ZYQRA الخير
-                        </div>
+                    <div class="text-white d-none d-lg-block">
+                        <h4 class="m-0 h6 fw-bold">مقدمة في الأنظمة المدمجة</h4>
+                        <div class="small opacity-75"><i class="bi bi-mortarboard-fill me-1"></i>ZYQRA الخير</div>
                     </div>
                 </div>
                 <div class="d-flex align-items-center gap-3">
-                    <div class="progress-circle"
-                        style="width: 45px; height: 45px; font-size: 0.75rem; background: color-mix(in srgb, var(--accent-color), transparent 85%);">
-                        <span class="fw-bold" style="color: var(--accent-color);">25%</span>
+                    <div class="d-none d-md-flex align-items-center gap-2 text-white">
+                        <i class="bi bi-trophy-fill text-warning"></i>
+                        <span class="small">250 نقطة</span>
                     </div>
-                    <a href="course-details.html" class="btn btn-sm rounded-pill px-3"
-                        style="background: var(--accent-color); color: var(--contrast-color); border: none;">
-                        <i class="bi bi-arrow-right"></i>
-                        الخروج
-                    </a>
+                    <a href="index.html" class="logo"><span class="sitename">ZYQRA</span></a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Course Player -->
+    <!-- Main Player -->
     <main class="course-player">
-        <div class="player-container">
-            <!-- Video Section -->
+        <div class="player-grid">
+            <!-- Video & Content -->
             <div class="video-section">
-                <div class="video-player">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                        style="width: 100%; height: 100%; border: none;" allowfullscreen>
-                    </iframe>
+                <div class="video-wrapper">
+                    <iframe id="videoPlayer" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
                 </div>
 
-                <div class="video-controls">
-                    <div class="progress-bar-container">
-                        <div class="progress-bar"></div>
+                <div class="lesson-controls">
+                    <button class="lesson-nav-btn" id="prevBtn" disabled>
+                        <i class="bi bi-chevron-right"></i>
+                        <span class="d-none d-sm-inline">السابق</span>
+                    </button>
+                    <div class="lesson-title-bar">
+                        <h4 id="currentTitle">مقدمة في الأنظمة المدمجة</h4>
+                        <span>الدرس 1 من 12</span>
                     </div>
-                    <div class="controls-row">
-                        <div class="d-flex align-items-center gap-2">
-                            <button class="control-btn">
-                                <i class="bi bi-play-fill"></i>
-                            </button>
-                            <button class="control-btn">
-                                <i class="bi bi-skip-backward-fill"></i>
-                            </button>
-                            <button class="control-btn">
-                                <i class="bi bi-skip-forward-fill"></i>
-                            </button>
-                            <div class="time-display ms-2">10:30 / 45:15</div>
-                        </div>
+                    <div class="lesson-actions d-none d-md-flex">
+                        <button class="action-btn" title="ملاحظات"><i class="bi bi-journal-text"></i></button>
+                        <button class="action-btn" title="إشارة مرجعية"><i class="bi bi-bookmark"></i></button>
+                        <button class="action-btn" title="مشاركة"><i class="bi bi-share"></i></button>
+                        <button class="action-btn" id="completeBtn" title="إكمال الدرس"><i
+                                class="bi bi-check-lg"></i></button>
+                    </div>
+                    <button class="lesson-nav-btn" id="nextBtn">
+                        <span class="d-none d-sm-inline">التالي</span>
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                </div>
 
-                        <div class="d-flex align-items-center gap-3 ms-auto">
-                            <div class="volume-control">
-                                <button class="control-btn">
-                                    <i class="bi bi-volume-up-fill"></i>
-                                </button>
-                                <input type="range" class="volume-slider" min="0" max="100" value="80">
+                <div class="content-section">
+                    <div class="content-tabs">
+                        <div class="content-tab active" data-tab="overview">نظرة عامة</div>
+                        <div class="content-tab" data-tab="resources">الموارد</div>
+                        <div class="content-tab" data-tab="notes">ملاحظاتي</div>
+                        <div class="content-tab" data-tab="qa">أسئلة</div>
+                    </div>
+
+                    <div class="tab-content">
+                        <!-- Overview -->
+                        <div class="tab-panel active" id="overview">
+                            <div class="overview-card">
+                                <h3><i class="bi bi-info-circle-fill"></i> عن هذا الدرس</h3>
+                                <p>في هذا الدرس، سنتعرف على مفهوم الأنظمة المدمجة وأهميتها في حياتنا اليومية. سنناقش
+                                    أمثلة عملية على الأنظمة المدمجة من حولنا وكيف تعمل.</p>
                             </div>
-                            <button class="control-btn">
-                                <i class="bi bi-fullscreen"></i>
-                            </button>
+
+                            <div class="overview-card">
+                                <h3><i class="bi bi-lightbulb-fill"></i> ماذا ستتعلم</h3>
+                                <div class="learning-points">
+                                    <div class="learning-point">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>فهم مفهوم الأنظمة المدمجة وتطبيقاتها</span>
+                                    </div>
+                                    <div class="learning-point">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>التعرف على مكونات النظام المدمج</span>
+                                    </div>
+                                    <div class="learning-point">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>أمثلة عملية من الحياة الواقعية</span>
+                                    </div>
+                                    <div class="learning-point">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>مقدمة عن متحكمات Arduino</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="d-flex align-items-center gap-2">
-                            <button class="control-btn">
-                                <i class="bi bi-gear-fill"></i>
-                            </button>
-                            <button class="control-btn">
-                                <i class="bi bi-chat-square-text-fill"></i>
-                            </button>
-                            <button class="control-btn">
-                                <i class="bi bi-bookmark-fill"></i>
-                            </button>
+                        <!-- Resources -->
+                        <div class="tab-panel" id="resources">
+                            <div class="resource-card">
+                                <div class="resource-info">
+                                    <div class="resource-icon pdf"><i class="bi bi-file-pdf-fill"></i></div>
+                                    <div>
+                                        <h6 class="m-0 text-white">العرض التقديمي</h6>
+                                        <span class="small" style="color: rgba(255,255,255,0.5)">PDF • 2.5 MB</span>
+                                    </div>
+                                </div>
+                                <button class="download-btn"><i class="bi bi-download"></i> تحميل</button>
+                            </div>
+                            <div class="resource-card">
+                                <div class="resource-info">
+                                    <div class="resource-icon zip"><i class="bi bi-file-zip-fill"></i></div>
+                                    <div>
+                                        <h6 class="m-0 text-white">كود المصدر</h6>
+                                        <span class="small" style="color: rgba(255,255,255,0.5)">ZIP • 1.2 MB</span>
+                                    </div>
+                                </div>
+                                <button class="download-btn"><i class="bi bi-download"></i> تحميل</button>
+                            </div>
+                            <div class="resource-card">
+                                <div class="resource-info">
+                                    <div class="resource-icon doc"><i class="bi bi-file-earmark-text-fill"></i></div>
+                                    <div>
+                                        <h6 class="m-0 text-white">ملخص الدرس</h6>
+                                        <span class="small" style="color: rgba(255,255,255,0.5)">DOC • 850 KB</span>
+                                    </div>
+                                </div>
+                                <button class="download-btn"><i class="bi bi-download"></i> تحميل</button>
+                            </div>
+                        </div>
+
+                        <!-- Notes -->
+                        <div class="tab-panel" id="notes">
+                            <div class="overview-card">
+                                <h3><i class="bi bi-pencil-fill"></i> ملاحظاتك الخاصة</h3>
+                                <textarea class="notes-input" rows="8"
+                                    placeholder="اكتب ملاحظاتك هنا... سيتم حفظها تلقائياً"></textarea>
+                                <button class="download-btn mt-3"><i class="bi bi-save"></i> حفظ الملاحظات</button>
+                            </div>
+                        </div>
+
+                        <!-- Q&A -->
+                        <div class="tab-panel" id="qa">
+                            <div class="overview-card">
+                                <h3><i class="bi bi-chat-dots-fill"></i> اطرح سؤالك</h3>
+                                <textarea class="notes-input" rows="4" placeholder="اكتب سؤالك هنا..."></textarea>
+                                <button class="download-btn mt-3"><i class="bi bi-send-fill"></i> إرسال السؤال</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Sidebar -->
-            <div class="sidebar">
+            <div class="course-sidebar" id="sidebar">
                 <div class="sidebar-header">
-                    <div class="progress-circle">
-                        <span style="color: var(--dark); font-weight: 600; font-size: 0.8rem;">25%</span>
+                    <div class="progress-ring">
+                        <svg>
+                            <circle class="bg" cx="40" cy="40" r="35" />
+                            <circle class="progress" cx="40" cy="40" r="35" />
+                        </svg>
+                        <span class="progress-text" id="progressText">25%</span>
                     </div>
-                    <div class="progress-text">25% مكتمل</div>
+                    <div class="progress-label">أكملت 3 من 12 درس</div>
                 </div>
 
-                <div class="search-lessons">
-                    <input type="text" class="search-input" placeholder="ابحث في الدروس...">
+                <div class="lessons-container" id="lessonsContainer">
+                    <!-- Generated by JS -->
                 </div>
 
-                <div class="curriculum-list">
-                    <!-- Section 1 -->
-                    <div class="section-item">
-                        <div class="section-header">
-                            <div>
-                                <h4 class="m-0" style="font-size: 1rem;">المقدمة والأساسيات</h4>
-                                <div class="small text-muted">5/5 دروس • 20% مكتمل</div>
-                            </div>
-                            <i class="bi bi-chevron-down"></i>
-                        </div>
-                        <div class="lessons-list">
-                            <div class="lesson-item active">
-                                <i class="bi bi-play-circle-fill"></i>
-                                <span>مقدمة في الأنظمة المدمجة</span>
-                                <span class="lesson-duration">25:30</span>
-                                <i class="bi bi-check-circle-fill" style="color: var(--accent-color);"></i>
-                            </div>
-                            <div class="lesson-item">
-                                <i class="bi bi-play-circle-fill"></i>
-                                <span>تعريف بمنصة Arduino</span>
-                                <span class="lesson-duration">18:15</span>
-                                <i class="bi bi-circle"></i>
-                            </div>
-                            <div class="lesson-item">
-                                <i class="bi bi-file-earmark-text-fill"></i>
-                                <span>تنصيب البرامج المطلوبة</span>
-                                <span class="lesson-duration">-</span>
-                                <i class="bi bi-circle"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Section 2 -->
-                    <div class="section-item">
-                        <div class="section-header">
-                            <div>
-                                <h4 class="m-0" style="font-size: 1rem;">البرمجة الأساسية</h4>
-                                <div class="small text-muted">0/8 دروس • 0% مكتمل</div>
-                            </div>
-                            <i class="bi bi-chevron-down"></i>
-                        </div>
-                    </div>
+                <div class="notes-section">
+                    <input type="text" class="notes-input" placeholder="🔍 ابحث في الدروس...">
                 </div>
-            </div>
-        </div>
-
-        <!-- Content Tabs -->
-        <div class="content-tabs">
-            <div class="tabs-header">
-                <div class="content-tab active" data-tab="overview">نظرة عامة</div>
-                <div class="content-tab" data-tab="resources">الموارد</div>
-                <div class="content-tab" data-tab="discussion">المناقشة</div>
-                <div class="content-tab" data-tab="assignment">الواجب</div>
-            </div>
-
-            <div class="tab-panel active" id="overview">
-                <h3>مقدمة في الأنظمة المدمجة</h3>
-                <p style="line-height: 1.6; margin-bottom: 2rem;">
-                    في هذا الدرس، سنتعرف على مفهوم الأنظمة المدمجة وأهميتها في حياتنا اليومية.
-                    سنناقش أمثلة عملية على الأنظمة المدمجة من حولنا وكيف تعمل.
-                </p>
-
-                <h4 style="margin-bottom: 1rem;">نقاط التعلم الرئيسية:</h4>
-                <ul class="requirements-list">
-                    <li>فهم مفهوم الأنظمة المدمجة</li>
-                    <li>التعرف على مكونات النظام المدمج</li>
-                    <li>أمثلة عملية من الحياة الواقعية</li>
-                    <li>مقدمة عن متحكمات Arduino</li>
-                </ul>
-
-                <div style="margin-top: 2rem;">
-                    <button class="btn btn-primary rounded-pill px-4">
-                        <i class="bi bi-download"></i>
-                        تحميل العرض التقديمي
-                    </button>
-                </div>
-            </div>
-
-            <div class="tab-panel" id="resources">
-                <h3 style="margin-bottom: 1.5rem;">الموارد والمراجع</h3>
-                <div class="resources-list">
-                    <div class="resource-item">
-                        <div class="resource-info">
-                            <div style="font-weight: 600;">العرض التقديمي للدرس</div>
-                            <div style="font-size: 0.9rem; color: var(--gray);">PDF • 2.5 MB</div>
-                        </div>
-                        <button class="btn btn-outline-primary btn-sm rounded-pill">
-                            <i class="bi bi-download"></i>
-                            تحميل
-                        </button>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-info">
-                            <div style="font-weight: 600;">كود المصدر</div>
-                            <div style="font-size: 0.9rem; color: var(--gray);">ZIP • 1.2 MB</div>
-                        </div>
-                        <button class="btn btn-outline-primary btn-sm rounded-pill">
-                            <i class="bi bi-download"></i>
-                            تحميل
-                        </button>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-info">
-                            <div style="font-weight: 600;">المراجع الإضافية</div>
-                            <div style="font-size: 0.9rem; color: var(--gray);">DOC • 850 KB</div>
-                        </div>
-                        <button class="btn btn-outline-primary btn-sm rounded-pill">
-                            <i class="bi bi-download"></i>
-                            تحميل
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-panel" id="discussion">
-                <h3 style="margin-bottom: 1.5rem;">المناقشة والأسئلة</h3>
-                <div style="background: #f8f9fa; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
-                    <textarea placeholder="اطرح سؤالك أو شارك في النقاش..."
-                        style="width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 10px; margin-bottom: 1rem;"
-                        rows="4"></textarea>
-                    <button class="btn btn-primary rounded-pill px-4">نشر السؤال</button>
-                </div>
-
-                <div class="discussion-item">
-                    <div class="discussion-header">
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <img src="https://via.placeholder.com/40" alt="طالب"
-                                style="width: 40px; height: 40px; border-radius: 50%;">
-                            <div>
-                                <div style="font-weight: 600;">محمد أحمد</div>
-                                <div style="font-size: 0.8rem; color: var(--gray);">منذ ساعتين</div>
-                            </div>
-                        </div>
-                        <div style="display: flex; gap: 1rem;">
-                            <button class="control-btn" style="color: var(--default-color); font-size: 0.9rem;">
-                                <i class="bi bi-hand-thumbs-up-fill"></i>
-                                <span class="ms-1">12</span>
-                            </button>
-                            <button class="control-btn" style="color: var(--default-color); font-size: 0.9rem;">
-                                <i class="bi bi-hand-thumbs-down-fill"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <p>هل يمكن استخدام Arduino في المشاريع التجارية؟ وما هي الرخصة التي تغطيها؟</p>
-                </div>
-            </div>
-
-            <div class="tab-panel" id="assignment">
-                <h3 style="margin-bottom: 1.5rem;">الواجب العملي</h3>
-                <div style="background: #f8f9fa; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
-                    <h4 class="mb-3">:المهمة</h4>
-                    <p style="line-height: 1.6; margin-bottom: 1.5rem;">
-                        قم ببناء دائرة بسيطة باستخدام LED ومقاومة، واكتب برنامج يجعل الـ LED يومض كل ثانية.
-                        التزم بالخطوات التالية:
-                    </p>
-
-                    <ul class="requirements-list mb-4">
-                        <li>ارسم الدائرة الإلكترونية</li>
-                        <li>اكتب كود البرنامج</li>
-                        <li>التقط صورة للنتيجة النهائية</li>
-                        <li>ارفع الملفات المطلوبة</li>
-                    </ul>
-
-                    <div
-                        style="background: #fff3cd; padding: 1rem; border-radius: 10px; border-right: 4px solid #ffc107;">
-                        <strong>موعد التسليم:</strong> 15 مارس 2023
-                    </div>
-                </div>
-
-                <h4 class="mb-3">تسليم الحل</h4>
-                <div
-                    style="border: 2px dashed #ddd; padding: 3rem; text-align: center; border-radius: 15px; margin-bottom: 2rem; background: #fafafa;">
-                    <i class="bi bi-cloud-arrow-up-fill"
-                        style="font-size: 3.5rem; color: #ccc; margin-bottom: 1rem; display: block;"></i>
-                    <div class="mb-3 text-muted">اسحب وأفلت الملفات هنا أو</div>
-                    <button class="btn btn-outline-primary rounded-pill px-4">
-                        <i class="bi bi-folder2-open"></i>
-                        اختر الملفات
-                    </button>
-                </div>
-
-                <div class="mb-4">
-                    <label class="d-block mb-2 fw-bold">رابط GitHub (اختياري)</label>
-                    <input type="url" placeholder="https://github.com/username/repository"
-                        class="form-control rounded-pill px-4" style="padding: 0.8rem;">
-                </div>
-
-                <button class="btn btn-primary rounded-pill px-5 py-3">
-                    <i class="bi bi-send-fill"></i>
-                    تسليم الواجب
-                </button>
             </div>
         </div>
     </main>
 
-    <footer id="footer" class="footer position-relative dark-background">
-        <div class="container footer-top">
-            <div class="row gy-4">
-                <div class="col-lg-5 col-md-12 footer-about">
-                    <a href="index.html" class="logo d-flex align-items-center">
-                        <span class="sitename">ZYQRA</span>
-                    </a>
-                    <p>نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز.</p>
-                    <div class="social-links d-flex mt-4">
-                        <a href="https://api.whatsapp.com/send?phone=201033624387" target="_blank"><i
-                                class="bi bi-whatsapp"></i></a>
-                        <a href="https://www.facebook.com/zyqratech/" target="_blank"><i class="bi bi-facebook"></i></a>
-                        <a href="https://www.linkedin.com/company/zyqra-tech/" target="_blank"><i
-                                class="bi bi-linkedin"></i></a>
-                        <a href="https://www.tiktok.com/@zyqra_tech" target="_blank"><i class="bi bi-tiktok"></i></a>
-                        <a href="https://www.instagram.com/zyqra_tech" target="_blank"><i
-                                class="bi bi-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-6 footer-links">
-                    <h4>روابط مفيدة</h4>
-                    <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="products.html">المنتجات</a></li>
-                        <li><a href="courses.html">الدورات</a></li>
-                        <li><a href="about.html">من نحن</a></li>
-                        <li><a href="contact.html">تواصل معنا</a></li>
-                        <li><a href="terms.html">الشروط والأحكام</a></li>
-                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-6 footer-links">
-                    <h4>خدماتنا</h4>
-                    <ul>
-                        <li><a href="products.html">المنتجات الذكية</a></li>
-                        <li><a href="courses.html">الدورات التعليمية</a></li>
-                        <li><a href="contact.html">الدعم الفني</a></li>
-                        <li><a href="contact.html">الاستشارات</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                    <h4>تواصل معنا</h4>
-                    <p>طنطا، الغربية</p>
-                    <p>مصر</p>
-                    <p class="mt-4"><strong>الهاتف:</strong> <span dir="ltr">+201033624387</span></p>
-                    <p><strong>البريد:</strong> <span>info@zyqra.com</span></p>
-                </div>
-            </div>
-        </div>
-        <div class="container copyright text-center mt-4">
-            <p>© <span>حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong> <span>جميع الحقوق محفوظة</span>
-            </p>
-        </div>
-    </footer>
+    <button class="mobile-sidebar-toggle" id="sidebarToggle"><i class="bi bi-list-ul"></i></button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="toast-notification" id="toast">تم إكمال الدرس بنجاح! 🎉</div>
 
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/zyqra.js"></script>
     <script>
-        // Course player functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            // Content tabs
-            const contentTabs = document.querySelectorAll('.content-tab');
-            const tabPanels = document.querySelectorAll('.tab-panel');
+        const courseData = {
+            sections: [
+                {
+                    title: 'المقدمة والأساسيات',
+                    lessons: [
+                        { id: 1, title: 'مقدمة في الأنظمة المدمجة', duration: '25:30', completed: true },
+                        { id: 2, title: 'تعريف بمنصة Arduino', duration: '18:15', completed: true },
+                        { id: 3, title: 'تنصيب البرامج المطلوبة', duration: '12:00', completed: true }
+                    ]
+                },
+                {
+                    title: 'البرمجة الأساسية',
+                    lessons: [
+                        { id: 4, title: 'أساسيات لغة C', duration: '30:00', completed: false },
+                        { id: 5, title: 'المتغيرات والأنواع', duration: '22:45', completed: false },
+                        { id: 6, title: 'الشروط والتكرار', duration: '28:30', completed: false },
+                        { id: 7, title: 'الدوال Functions', duration: '25:00', completed: false }
+                    ]
+                },
+                {
+                    title: 'المشاريع العملية',
+                    lessons: [
+                        { id: 8, title: 'مشروع LED Blink', duration: '15:00', completed: false },
+                        { id: 9, title: 'قراءة الحساسات', duration: '35:00', completed: false },
+                        { id: 10, title: 'التحكم بالمحركات', duration: '40:00', completed: false },
+                        { id: 11, title: 'شاشة LCD', duration: '30:00', completed: false },
+                        { id: 12, title: 'المشروع النهائي', duration: '60:00', completed: false }
+                    ]
+                }
+            ]
+        };
 
-            contentTabs.forEach(tab => {
-                tab.addEventListener('click', function () {
-                    const tabId = this.dataset.tab;
+        let currentLesson = 1;
 
-                    // Update active tab
-                    contentTabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
+        function renderLessons() {
+            const container = document.getElementById('lessonsContainer');
+            container.innerHTML = courseData.sections.map((section, sIdx) => `
+                <div class="section-block ${sIdx === 0 ? 'open' : ''}">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <div>
+                            <h5>${section.title}</h5>
+                            <span>${section.lessons.filter(l => l.completed).length}/${section.lessons.length} دروس</span>
+                        </div>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="lesson-list" style="display: ${sIdx === 0 ? 'block' : 'none'}">
+                        ${section.lessons.map(lesson => `
+                            <div class="lesson-item ${lesson.completed ? 'completed' : ''} ${lesson.id === currentLesson ? 'active' : ''}" 
+                                 onclick="selectLesson(${lesson.id})">
+                                <div class="lesson-check">
+                                    ${lesson.completed ? '<i class="bi bi-check"></i>' : lesson.id}
+                                </div>
+                                <div class="lesson-info">
+                                    <h6>${lesson.title}</h6>
+                                    <span><i class="bi bi-play-circle"></i> فيديو</span>
+                                </div>
+                                <span class="lesson-duration">${lesson.duration}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
 
-                    // Show corresponding panel
-                    tabPanels.forEach(panel => {
-                        panel.classList.remove('active');
-                        if (panel.id === tabId) {
-                            panel.classList.add('active');
-                        }
-                    });
-                });
-            });
+        function toggleSection(header) {
+            const block = header.parentElement;
+            const list = header.nextElementSibling;
+            block.classList.toggle('open');
+            list.style.display = list.style.display === 'none' ? 'block' : 'none';
+        }
 
-            // Lesson items
-            const lessonItems = document.querySelectorAll('.lesson-item');
-            lessonItems.forEach(item => {
-                item.addEventListener('click', function () {
-                    lessonItems.forEach(i => i.classList.remove('active'));
-                    this.classList.add('active');
+        function selectLesson(id) {
+            currentLesson = id;
+            const lesson = courseData.sections.flatMap(s => s.lessons).find(l => l.id === id);
+            document.getElementById('currentTitle').textContent = lesson.title;
+            document.getElementById('prevBtn').disabled = id === 1;
+            document.getElementById('nextBtn').disabled = id === 12;
+            renderLessons();
+            closeSidebar();
+        }
 
-                    // Here you would load the selected lesson
-                    const lessonTitle = this.querySelector('span').textContent;
-                    document.querySelector('#overview h3').textContent = lessonTitle;
-                });
-            });
+        function updateProgress() {
+            const all = courseData.sections.flatMap(s => s.lessons);
+            const done = all.filter(l => l.completed).length;
+            const pct = Math.round((done / all.length) * 100);
+            document.getElementById('progressText').textContent = pct + '%';
+            document.querySelector('.progress-ring .progress').style.strokeDashoffset = 220 - (220 * pct / 100);
+        }
 
-            // Section headers
-            const sectionHeaders = document.querySelectorAll('.section-header');
-            sectionHeaders.forEach(header => {
-                header.addEventListener('click', function () {
-                    const lessonsList = this.nextElementSibling;
-                    const icon = this.querySelector('i');
+        document.getElementById('completeBtn').onclick = function () {
+            const lesson = courseData.sections.flatMap(s => s.lessons).find(l => l.id === currentLesson);
+            lesson.completed = !lesson.completed;
+            this.classList.toggle('completed', lesson.completed);
+            renderLessons();
+            updateProgress();
+            if (lesson.completed) showToast();
+        };
 
-                    lessonsList.style.display = lessonsList.style.display === 'none' ? 'block' : 'none';
-                    icon.style.transform = lessonsList.style.display === 'none' ? 'rotate(0deg)' : 'rotate(180deg)';
-                });
-            });
+        document.getElementById('prevBtn').onclick = () => { if (currentLesson > 1) selectLesson(currentLesson - 1); };
+        document.getElementById('nextBtn').onclick = () => { if (currentLesson < 12) selectLesson(currentLesson + 1); };
+
+        document.querySelectorAll('.content-tab').forEach(tab => {
+            tab.onclick = function () {
+                document.querySelectorAll('.content-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById(this.dataset.tab).classList.add('active');
+            };
         });
+
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        document.getElementById('sidebarToggle').onclick = () => { sidebar.classList.add('open'); overlay.classList.add('show'); };
+        function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('show'); }
+        overlay.onclick = closeSidebar;
+
+        function showToast() {
+            const t = document.getElementById('toast');
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
+
+        renderLessons();
+        updateProgress();
     </script>
 </body>
 

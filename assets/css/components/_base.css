@@ -1,0 +1,179 @@
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+    color: var(--default-color);
+    background-color: var(--background-color);
+    font-family: var(--default-font);
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+body:not(.index-page) .main {
+    padding-top: 100px;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: color-mix(in srgb, var(--accent-color), transparent 25%);
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--heading-color);
+    font-family: var(--heading-font);
+}
+
+/* PHP Email Form Messages
+------------------------------*/
+.php-email-form .error-message {
+    display: none;
+    background: #df1529;
+    color: #ffffff;
+    text-align: left;
+    padding: 15px;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.php-email-form .sent-message {
+    display: none;
+    color: #ffffff;
+    background: #059652;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.php-email-form .loading {
+    display: none;
+    background: var(--surface-color);
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 24px;
+}
+
+.php-email-form .loading:before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px -6px 0;
+    border: 3px solid var(--accent-color);
+    border-top-color: var(--surface-color);
+    animation: php-email-form-loading 1s linear infinite;
+}
+
+@keyframes php-email-form-loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    [data-aos-delay] {
+        transition-delay: 0 !important;
+    }
+}
+
+/*--------------------------------------------------------------
+# RTL Fixes
+--------------------------------------------------------------*/
+.hero .hero-content .hero-stats .stat-item {
+    text-align: right;
+}
+
+.about .content-wrapper {
+    padding-right: 0;
+    padding-left: 2rem;
+}
+
+@media (max-width: 992px) {
+    .about .content-wrapper {
+        padding-left: 0;
+    }
+}
+
+.about .main-image-container .overlay-card {
+    left: auto;
+    right: -20px;
+}
+
+@media (max-width: 992px) {
+    .about .main-image-container .overlay-card {
+        right: auto;
+    }
+}
+
+.footer h4::after {
+    right: auto;
+    left: 0;
+}
+
+.features .content-wrapper {
+    padding-right: 0;
+    padding-left: 40px;
+}
+
+@media (max-width: 992px) {
+    .features .content-wrapper {
+        padding-left: 0;
+    }
+}
+
+.services .services-grid .service-card .card-number span {
+    font-family: var(--heading-font);
+}
+
+.call-to-action .feature-list li i {
+    margin-right: 0;
+    margin-left: 12px;
+}
+
+.footer .footer-links ul a::before {
+    content: none;
+}
+
+.contact .contact-info .info-item i {
+    margin-left: 1rem;
+    margin-right: 0;
+}
+
+/*--------------------------------------------------------------
+# Hero Image Placeholder
+--------------------------------------------------------------*/
+.hero-image-placeholder,
+.hero-placeholder-img {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(135deg, var(--accent-color), var(--heading-color));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image-placeholder i,
+.hero-placeholder-img i {
+    font-size: 8rem;
+    color: rgba(255, 255, 255, 0.3);
+}

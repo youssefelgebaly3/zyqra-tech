@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>الملف الشخصي - ZYQRA</title>
+    <meta name="description" content="إدارة حسابك ودوراتك وشهاداتك - ZYQRA">
+
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="profile-page">
+
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container position-relative d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <h1 class="sitename">ZYQRA</h1>
+            </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="products.html">المنتجات</a></li>
+                    <li><a href="courses.html">الدورات</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                    <li class="d-xl-none"><a href="profile.html" class="active"><i class="bi bi-person-circle me-2"></i>
+                            حسابي</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+            <div class="header-actions d-flex align-items-center gap-2">
+                <div class="auth-links d-none d-xl-flex align-items-center gap-2">
+                    <a href="profile.html" class="auth-link login active">
+                        <i class="bi bi-person-circle"></i>
+                        <span>حسابي</span>
+                    </a>
+                </div>
+                <a class="btn-shop-icon" href="cart.html" title="السلة">
+                    <i class="bi bi-cart3"></i>
+                    <span class="cart-badge"></span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+
+        <!-- Profile Header Section -->
+        <section class="profile-header-section">
+            <div class="container" data-aos="fade-up">
+                <div class="profile-header-card">
+                    <div class="profile-avatar">
+                        <img src="assets/img/profile-avatar.png" alt="صورة المستخدم"
+                            onerror="this.src='https://ui-avatars.com/api/?name=User&background=2E86AB&color=fff&size=150'">
+                        <button class="change-avatar-btn" title="تغيير الصورة">
+                            <i class="bi bi-camera-fill"></i>
+                        </button>
+                    </div>
+                    <div class="profile-info">
+                        <h1 class="profile-name" id="user-name">أحمد محمد</h1>
+                        <p class="profile-email"><i class="bi bi-envelope me-2"></i><span
+                                id="user-email">ahmed@example.com</span></p>
+                        <p class="profile-since"><i class="bi bi-calendar3 me-2"></i>عضو منذ: <span
+                                id="member-since">يناير 2024</span></p>
+                        <div class="profile-badges">
+                            <span class="badge-item"><i class="bi bi-award"></i> طالب متميز</span>
+                            <span class="badge-item"><i class="bi bi-graph-up-arrow"></i> 3 دورات مكتملة</span>
+                        </div>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="courses-count">5</span>
+                            <span class="stat-label">دوراتي</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="certificates-count">3</span>
+                            <span class="stat-label">شهاداتي</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="orders-count">2</span>
+                            <span class="stat-label">طلباتي</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Tabs Section -->
+        <section class="profile-tabs-section section">
+            <div class="container" data-aos="fade-up">
+
+                <!-- Tabs Navigation -->
+                <ul class="nav nav-pills profile-nav justify-content-center" id="profileTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="courses-tab" data-bs-toggle="pill" data-bs-target="#courses"
+                            type="button" role="tab">
+                            <i class="bi bi-book"></i>
+                            <span>دوراتي</span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="certificates-tab" data-bs-toggle="pill"
+                            data-bs-target="#certificates" type="button" role="tab">
+                            <i class="bi bi-award"></i>
+                            <span>شهاداتي</span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="orders-tab" data-bs-toggle="pill" data-bs-target="#orders"
+                            type="button" role="tab">
+                            <i class="bi bi-bag"></i>
+                            <span>طلباتي</span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="settings-tab" data-bs-toggle="pill" data-bs-target="#settings"
+                            type="button" role="tab">
+                            <i class="bi bi-gear"></i>
+                            <span>الإعدادات</span>
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- Tabs Content -->
+                <div class="tab-content mt-5" id="profileTabsContent">
+
+                    <!-- My Courses Tab -->
+                    <div class="tab-pane fade show active" id="courses" role="tabpanel">
+                        <div class="row g-4">
+
+                            <!-- Course Card 1 - In Progress -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="profile-course-card">
+                                    <div class="course-image"
+                                        style="background: linear-gradient(135deg, #2E86AB, #1A1A2E);">
+                                        <i class="bi bi-cpu"></i>
+                                        <span class="course-status in-progress">قيد التقدم</span>
+                                    </div>
+                                    <div class="course-content">
+                                        <h5>أساسيات الإلكترونيات</h5>
+                                        <div class="course-progress">
+                                            <div class="progress-bar-custom">
+                                                <div class="progress-fill" style="width: 65%;"></div>
+                                            </div>
+                                            <span class="progress-text">65%</span>
+                                        </div>
+                                        <div class="course-meta">
+                                            <span><i class="bi bi-clock"></i> 8/12 ساعة</span>
+                                            <span><i class="bi bi-play-circle"></i> 13/20 درس</span>
+                                        </div>
+                                        <a href="course-player.html" class="btn-continue">
+                                            متابعة الدورة <i class="bi bi-arrow-left"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Course Card 2 - Completed -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="profile-course-card completed">
+                                    <div class="course-image"
+                                        style="background: linear-gradient(135deg, #A23B72, #2E86AB);">
+                                        <i class="bi bi-motherboard"></i>
+                                        <span class="course-status completed">مكتملة</span>
+                                    </div>
+                                    <div class="course-content">
+                                        <h5>Embedded Systems</h5>
+                                        <div class="course-progress">
+                                            <div class="progress-bar-custom">
+                                                <div class="progress-fill" style="width: 100%;"></div>
+                                            </div>
+                                            <span class="progress-text">100%</span>
+                                        </div>
+                                        <div class="course-meta">
+                                            <span><i class="bi bi-clock"></i> 20/20 ساعة</span>
+                                            <span><i class="bi bi-trophy"></i> مكتملة</span>
+                                        </div>
+                                        <a href="#certificates" class="btn-certificate" onclick="showCertificatesTab()">
+                                            عرض الشهادة <i class="bi bi-award"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Course Card 3 - In Progress -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="profile-course-card">
+                                    <div class="course-image"
+                                        style="background: linear-gradient(135deg, #F18F01, #2E86AB);">
+                                        <i class="bi bi-wifi"></i>
+                                        <span class="course-status in-progress">قيد التقدم</span>
+                                    </div>
+                                    <div class="course-content">
+                                        <h5>IoT - إنترنت الأشياء</h5>
+                                        <div class="course-progress">
+                                            <div class="progress-bar-custom">
+                                                <div class="progress-fill" style="width: 30%;"></div>
+                                            </div>
+                                            <span class="progress-text">30%</span>
+                                        </div>
+                                        <div class="course-meta">
+                                            <span><i class="bi bi-clock"></i> 5/15 ساعة</span>
+                                            <span><i class="bi bi-play-circle"></i> 6/25 درس</span>
+                                        </div>
+                                        <a href="course-player.html" class="btn-continue">
+                                            متابعة الدورة <i class="bi bi-arrow-left"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Course Card 4 - Completed -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="profile-course-card completed">
+                                    <div class="course-image"
+                                        style="background: linear-gradient(135deg, #EC4899, #2E86AB);">
+                                        <i class="bi bi-people"></i>
+                                        <span class="course-status completed">مكتملة</span>
+                                    </div>
+                                    <div class="course-content">
+                                        <h5>مهارات التواصل الفعال</h5>
+                                        <div class="course-progress">
+                                            <div class="progress-bar-custom">
+                                                <div class="progress-fill" style="width: 100%;"></div>
+                                            </div>
+                                            <span class="progress-text">100%</span>
+                                        </div>
+                                        <div class="course-meta">
+                                            <span><i class="bi bi-clock"></i> 6/6 ساعة</span>
+                                            <span><i class="bi bi-trophy"></i> مكتملة</span>
+                                        </div>
+                                        <a href="#certificates" class="btn-certificate" onclick="showCertificatesTab()">
+                                            عرض الشهادة <i class="bi bi-award"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Course Card 5 - Not Started -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="profile-course-card not-started">
+                                    <div class="course-image"
+                                        style="background: linear-gradient(135deg, #6366F1, #2E86AB);">
+                                        <i class="bi bi-lightning-charge"></i>
+                                        <span class="course-status not-started">لم تبدأ</span>
+                                    </div>
+                                    <div class="course-content">
+                                        <h5>Arduino Projects</h5>
+                                        <div class="course-progress">
+                                            <div class="progress-bar-custom">
+                                                <div class="progress-fill" style="width: 0%;"></div>
+                                            </div>
+                                            <span class="progress-text">0%</span>
+                                        </div>
+                                        <div class="course-meta">
+                                            <span><i class="bi bi-clock"></i> 0/8 ساعة</span>
+                                            <span><i class="bi bi-play-circle"></i> 0/15 درس</span>
+                                        </div>
+                                        <a href="course-player.html" class="btn-start">
+                                            ابدأ الآن <i class="bi bi-play-fill"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Browse More -->
+                            <div class="col-lg-4 col-md-6">
+                                <a href="courses.html" class="browse-more-card">
+                                    <i class="bi bi-plus-circle"></i>
+                                    <span>تصفح المزيد من الدورات</span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- My Certificates Tab -->
+                    <div class="tab-pane fade" id="certificates" role="tabpanel">
+                        <div class="row g-4">
+
+                            <!-- Certificate 1 -->
+                            <div class="col-lg-6">
+                                <div class="certificate-card">
+                                    <div class="certificate-preview">
+                                        <div class="certificate-frame">
+                                            <div class="certificate-inner">
+                                                <div class="cert-logo">ZYQRA</div>
+                                                <div class="cert-title">شهادة إتمام</div>
+                                                <div class="cert-course">Embedded Systems</div>
+                                                <div class="cert-name">أحمد محمد</div>
+                                                <div class="cert-date">15 ديسمبر 2024</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-info">
+                                        <h5>Embedded Systems</h5>
+                                        <p><i class="bi bi-calendar3"></i> صدرت: 15 ديسمبر 2024</p>
+                                        <p><i class="bi bi-hash"></i> رقم الشهادة: ZYQRA-ES-2024-001</p>
+                                        <div class="certificate-actions">
+                                            <button class="btn-download"><i class="bi bi-download"></i> تحميل
+                                                PDF</button>
+                                            <button class="btn-share"><i class="bi bi-share"></i> مشاركة</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Certificate 2 -->
+                            <div class="col-lg-6">
+                                <div class="certificate-card">
+                                    <div class="certificate-preview">
+                                        <div class="certificate-frame">
+                                            <div class="certificate-inner">
+                                                <div class="cert-logo">ZYQRA</div>
+                                                <div class="cert-title">شهادة إتمام</div>
+                                                <div class="cert-course">مهارات التواصل الفعال</div>
+                                                <div class="cert-name">أحمد محمد</div>
+                                                <div class="cert-date">20 نوفمبر 2024</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-info">
+                                        <h5>مهارات التواصل الفعال</h5>
+                                        <p><i class="bi bi-calendar3"></i> صدرت: 20 نوفمبر 2024</p>
+                                        <p><i class="bi bi-hash"></i> رقم الشهادة: ZYQRA-COM-2024-042</p>
+                                        <div class="certificate-actions">
+                                            <button class="btn-download"><i class="bi bi-download"></i> تحميل
+                                                PDF</button>
+                                            <button class="btn-share"><i class="bi bi-share"></i> مشاركة</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Certificate 3 -->
+                            <div class="col-lg-6">
+                                <div class="certificate-card">
+                                    <div class="certificate-preview">
+                                        <div class="certificate-frame">
+                                            <div class="certificate-inner">
+                                                <div class="cert-logo">ZYQRA</div>
+                                                <div class="cert-title">شهادة إتمام</div>
+                                                <div class="cert-course">أساسيات الإلكترونيات</div>
+                                                <div class="cert-name">أحمد محمد</div>
+                                                <div class="cert-date">10 أكتوبر 2024</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-info">
+                                        <h5>أساسيات الإلكترونيات</h5>
+                                        <p><i class="bi bi-calendar3"></i> صدرت: 10 أكتوبر 2024</p>
+                                        <p><i class="bi bi-hash"></i> رقم الشهادة: ZYQRA-EL-2024-087</p>
+                                        <div class="certificate-actions">
+                                            <button class="btn-download"><i class="bi bi-download"></i> تحميل
+                                                PDF</button>
+                                            <button class="btn-share"><i class="bi bi-share"></i> مشاركة</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- My Orders Tab -->
+                    <div class="tab-pane fade" id="orders" role="tabpanel">
+                        <div class="orders-list">
+
+                            <!-- Order 1 -->
+                            <div class="order-card">
+                                <div class="order-header">
+                                    <div class="order-id">
+                                        <span class="label">رقم الطلب:</span>
+                                        <span class="value">#ZYQ-123456</span>
+                                    </div>
+                                    <div class="order-date">
+                                        <i class="bi bi-calendar3"></i>
+                                        <span>25 ديسمبر 2024</span>
+                                    </div>
+                                    <div class="order-status delivered">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>تم التسليم</span>
+                                    </div>
+                                </div>
+                                <div class="order-body">
+                                    <div class="order-items">
+                                        <div class="order-item">
+                                            <div class="item-image">
+                                                <i class="bi bi-shield-lock"></i>
+                                            </div>
+                                            <div class="item-info">
+                                                <h6>MotoLock</h6>
+                                                <span>الكمية: 1</span>
+                                            </div>
+                                            <div class="item-price">1,000 ج.م</div>
+                                        </div>
+                                    </div>
+                                    <div class="order-summary">
+                                        <div class="total">
+                                            <span>الإجمالي:</span>
+                                            <span class="amount">1,100 ج.م</span>
+                                        </div>
+                                        <div class="order-actions">
+                                            <button class="btn-reorder"><i class="bi bi-arrow-repeat"></i> إعادة
+                                                الطلب</button>
+                                            <button class="btn-details"><i class="bi bi-eye"></i> التفاصيل</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Order 2 -->
+                            <div class="order-card">
+                                <div class="order-header">
+                                    <div class="order-id">
+                                        <span class="label">رقم الطلب:</span>
+                                        <span class="value">#ZYQ-123789</span>
+                                    </div>
+                                    <div class="order-date">
+                                        <i class="bi bi-calendar3"></i>
+                                        <span>5 يناير 2025</span>
+                                    </div>
+                                    <div class="order-status shipping">
+                                        <i class="bi bi-truck"></i>
+                                        <span>قيد الشحن</span>
+                                    </div>
+                                </div>
+                                <div class="order-body">
+                                    <div class="order-items">
+                                        <div class="order-item">
+                                            <div class="item-image">
+                                                <i class="bi bi-shield-lock"></i>
+                                            </div>
+                                            <div class="item-info">
+                                                <h6>MotoLock</h6>
+                                                <span>الكمية: 2</span>
+                                            </div>
+                                            <div class="item-price">2,000 ج.م</div>
+                                        </div>
+                                    </div>
+                                    <div class="order-summary">
+                                        <div class="total">
+                                            <span>الإجمالي:</span>
+                                            <span class="amount">2,150 ج.م</span>
+                                        </div>
+                                        <div class="order-actions">
+                                            <button class="btn-track"><i class="bi bi-geo-alt"></i> تتبع الشحنة</button>
+                                            <button class="btn-details"><i class="bi bi-eye"></i> التفاصيل</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Settings Tab -->
+                    <div class="tab-pane fade" id="settings" role="tabpanel">
+                        <div class="settings-container">
+                            <div class="row g-4">
+
+                                <!-- Personal Info -->
+                                <div class="col-lg-6">
+                                    <div class="settings-card">
+                                        <h5><i class="bi bi-person"></i> المعلومات الشخصية</h5>
+                                        <form class="settings-form">
+                                            <div class="form-group">
+                                                <label>الاسم الأول</label>
+                                                <input type="text" class="form-control" value="أحمد">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>اسم العائلة</label>
+                                                <input type="text" class="form-control" value="محمد">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>البريد الإلكتروني</label>
+                                                <input type="email" class="form-control" value="ahmed@example.com">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>رقم الهاتف</label>
+                                                <input type="tel" class="form-control" value="01012345678">
+                                            </div>
+                                            <button type="submit" class="btn-save">حفظ التغييرات</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <!-- Change Password -->
+                                <div class="col-lg-6">
+                                    <div class="settings-card">
+                                        <h5><i class="bi bi-lock"></i> تغيير كلمة المرور</h5>
+                                        <form class="settings-form">
+                                            <div class="form-group">
+                                                <label>كلمة المرور الحالية</label>
+                                                <input type="password" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>كلمة المرور الجديدة</label>
+                                                <input type="password" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>تأكيد كلمة المرور الجديدة</label>
+                                                <input type="password" class="form-control">
+                                            </div>
+                                            <button type="submit" class="btn-save">تحديث كلمة المرور</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <!-- Notifications -->
+                                <div class="col-lg-6">
+                                    <div class="settings-card">
+                                        <h5><i class="bi bi-bell"></i> إعدادات الإشعارات</h5>
+                                        <div class="notification-settings">
+                                            <div class="notification-item">
+                                                <div class="info">
+                                                    <span class="title">إشعارات البريد الإلكتروني</span>
+                                                    <span class="desc">استلام تحديثات عبر البريد</span>
+                                                </div>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" checked>
+                                                </div>
+                                            </div>
+                                            <div class="notification-item">
+                                                <div class="info">
+                                                    <span class="title">تحديثات الدورات</span>
+                                                    <span class="desc">إشعارات المحتوى الجديد</span>
+                                                </div>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" checked>
+                                                </div>
+                                            </div>
+                                            <div class="notification-item">
+                                                <div class="info">
+                                                    <span class="title">العروض والخصومات</span>
+                                                    <span class="desc">عروض حصرية ومنتجات جديدة</span>
+                                                </div>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Account Actions -->
+                                <div class="col-lg-6">
+                                    <div class="settings-card danger-zone">
+                                        <h5><i class="bi bi-exclamation-triangle"></i> إجراءات الحساب</h5>
+                                        <div class="account-actions">
+                                            <button class="btn-logout">
+                                                <i class="bi bi-box-arrow-right"></i>
+                                                تسجيل الخروج
+                                            </button>
+                                            <button class="btn-delete-account">
+                                                <i class="bi bi-trash"></i>
+                                                حذف الحساب
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer" class="footer position-relative dark-background">
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-5 col-md-12 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <span class="sitename">ZYQRA</span>
+                    </a>
+                    <p>نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز، نسعى لتحقيق
+                        تأثير
+                        اجتماعي إيجابي من خلال الابتكار.</p>
+                    <div class="social-links d-flex mt-4">
+                        <a href="https://api.whatsapp.com/send?phone=201033624387" target="_blank"><i
+                                class="bi bi-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/zyqratech/" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/zyqra-tech/" target="_blank"><i
+                                class="bi bi-linkedin"></i></a>
+                        <a href="https://www.tiktok.com/@zyqra_tech" target="_blank"><i class="bi bi-tiktok"></i></a>
+                        <a href="https://www.instagram.com/zyqra_tech" target="_blank"><i
+                                class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-6 footer-links">
+                    <h4>روابط مفيدة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="courses.html">الدورات</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                        <li><a href="terms.html">الشروط والأحكام</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-6 footer-links">
+                    <h4>خدماتنا</h4>
+                    <ul>
+                        <li><a href="products.html">المنتجات الذكية</a></li>
+                        <li><a href="courses.html">الدورات التعليمية</a></li>
+                        <li><a href="contact.html">الدعم الفني</a></li>
+                        <li><a href="contact.html">الاستشارات</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                    <h4>تواصل معنا</h4>
+                    <p>طنطا، الغربية</p>
+                    <p>مصر</p>
+                    <p class="mt-4"><strong>الهاتف:</strong> <span dir="ltr">+201033624387</span></p>
+                    <p><strong>البريد:</strong> <span>info@zyqra.com</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright text-center mt-4">
+            <p>© <span>حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong> <span>جميع الحقوق محفوظة</span>
+            </p>
+        </div>
+    </footer>
+
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/js/main.js" ></script>
+    <script>
+        function showCertificatesTab() {
+            const certificatesTab = document.getElementById('certificates-tab');
+            const tab = new bootstrap.Tab(certificatesTab);
+            tab.show();
+        }
+
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        });
+    </script>
+
+</body>
+
+</html>

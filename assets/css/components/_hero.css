@@ -1,0 +1,284 @@
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+    padding: 140px 0 60px 0;
+    background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--accent-color), transparent 95%) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, color-mix(in srgb, var(--accent-color), transparent 90%) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero .hero-content {
+    padding: 20px 0;
+}
+
+.hero .hero-content .hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 32px;
+    color: var(--heading-color);
+}
+
+@media (max-width: 768px) {
+    .hero .hero-content .hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 24px;
+    }
+}
+
+.hero .hero-content .hero-description {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--default-color);
+    margin-bottom: 48px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .hero .hero-content .hero-description {
+        font-size: 1.125rem;
+        margin-bottom: 40px;
+    }
+}
+
+.hero .hero-content .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 64px;
+}
+
+@media (max-width: 576px) {
+    .hero .hero-content .hero-actions {
+        flex-direction: row;
+        gap: 15px;
+        margin-bottom: 48px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        /* Allow wrapping to prevent cutoff */
+    }
+
+    /* Compact buttons for mobile */
+    .hero .hero-content .hero-actions .btn-primary {
+        padding: 10px 18px;
+        /* Reduced padding */
+        font-size: 0.9rem;
+        /* Reduced font size */
+        white-space: nowrap;
+    }
+
+    .hero .hero-content .hero-actions .btn-secondary {
+        font-size: 0.9rem;
+        /* Reduced font size */
+        white-space: nowrap;
+        padding: 10px 15px;
+        /* Added explicit padding control if needed, ensuring consistency */
+    }
+
+    .hero .hero-content .hero-actions .btn-secondary i {
+        font-size: 1.1rem;
+    }
+}
+
+.hero .hero-content .hero-actions .btn-primary {
+    background: var(--accent-color);
+    color: var(--contrast-color);
+    padding: 16px 32px;
+    border-radius: 6px;
+    font-weight: 400;
+    font-size: 1.15rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.hero .hero-content .hero-actions .btn-primary:hover {
+    background: color-mix(in srgb, var(--accent-color), black 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.hero .hero-content .hero-actions .btn-secondary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--heading-color);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.hero .hero-content .hero-actions .btn-secondary i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.hero .hero-content .hero-actions .btn-secondary:hover {
+    color: var(--accent-color);
+    transform: translateX(4px);
+}
+
+.hero .hero-content .hero-stats {
+    display: flex;
+    gap: 48px;
+}
+
+@media (max-width: 768px) {
+    .hero .hero-content .hero-stats {
+        gap: 32px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero .hero-content .hero-stats {
+        flex-direction: row;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
+
+.hero .hero-content .hero-stats .stat-item {
+    text-align: left;
+}
+
+.hero .hero-content .hero-stats .stat-item .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    margin-bottom: 4px;
+}
+
+.hero .hero-content .hero-stats .stat-item .stat-label {
+    font-size: 1rem;
+    color: var(--default-color);
+    font-weight: 600;
+}
+
+.hero .hero-visual {
+    position: relative;
+}
+
+.hero .hero-visual .hero-image-wrapper {
+    position: relative;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.hero .hero-visual .hero-image-wrapper .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero .hero-visual .floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.hero .hero-visual .floating-elements .floating-card {
+    position: absolute;
+    background: var(--surface-color);
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px color-mix(in srgb, var(--default-color), transparent 85%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: floating 3s ease-in-out infinite;
+}
+
+.hero .hero-visual .floating-elements .floating-card i {
+    font-size: 1.125rem;
+    color: var(--accent-color);
+}
+
+.hero .hero-visual .floating-elements .floating-card span {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--heading-color);
+    white-space: nowrap;
+}
+
+.hero .hero-visual .floating-elements .floating-card.card-1 {
+    top: 10px;
+    left: 40%;
+    animation-delay: 0s;
+}
+
+.hero .hero-visual .floating-elements .floating-card.card-2 {
+    top: 50%;
+    right: 15px;
+    animation-delay: -1s;
+}
+
+.hero .hero-visual .floating-elements .floating-card.card-3 {
+    bottom: 25%;
+    left: 15px;
+    animation-delay: -2s;
+}
+
+@media (max-width: 768px) {
+    .hero .hero-visual .floating-elements .floating-card {
+        padding: 12px 16px;
+    }
+
+    .hero .hero-visual .floating-elements .floating-card span {
+        font-size: 0.75rem;
+    }
+
+    .hero .hero-visual .floating-elements .floating-card.card-1 {
+        left: 5px;
+    }
+
+    .hero .hero-visual .floating-elements .floating-card.card-2 {
+        right: 5px;
+    }
+
+    .hero .hero-visual .floating-elements .floating-card.card-3 {
+        left: 10px;
+    }
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 992px) {
+    .hero {
+        padding: 80px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 0;
+    }
+}
