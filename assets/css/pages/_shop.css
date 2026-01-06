@@ -192,6 +192,8 @@
     transition: all 0.3s ease;
     border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .course-card:hover {
@@ -206,6 +208,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .course-image i {
@@ -215,6 +218,10 @@
 
 .course-info {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
 }
 
 .course-badge {
@@ -273,6 +280,250 @@
     transition: all 0.3s ease;
     width: 100%;
     justify-content: center;
+    margin-top: auto;
+}
+
+/*--------------------------------------------------------------
+# Skill Cards (Premium Design)
+--------------------------------------------------------------*/
+.skill-card {
+    position: relative;
+    border-radius: 24px;
+    padding: 2px;
+    /* For gradient border */
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.skill-card .card-content {
+    background: var(--surface-color);
+    border-radius: 22px;
+    padding: 1.5rem 1.25rem;
+    /* Reduced from 2rem 1.5rem */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.skill-card.hard-skills {
+    background: linear-gradient(135deg, #2E86AB, #06b6d4, #1A1A2E);
+}
+
+.skill-card.soft-skills {
+    background: linear-gradient(135deg, #A23B72, #ec4899, #4a044e);
+}
+
+.skill-card .icon-box {
+    position: relative;
+    width: 65px;
+    /* Reduced from 80px */
+    height: 65px;
+    /* Reduced from 80px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    /* Reduced from 2rem */
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-card .icon-box i {
+    font-size: 2.2rem;
+    /* Reduced from 2.8rem */
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-card.hard-skills .icon-box i {
+    color: #06b6d4;
+    text-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+}
+
+.skill-card.soft-skills .icon-box i {
+    color: #ec4899;
+    text-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+}
+
+.skill-card .bg-icon {
+    position: absolute;
+    font-size: 6rem !important;
+    opacity: 0.08;
+    transform: rotate(-15deg);
+    top: 50%;
+    left: 50%;
+    margin-top: -3rem;
+    /* Half of font-size to center properly */
+    margin-left: -3rem;
+    z-index: 1;
+    color: inherit;
+    text-shadow: none !important;
+    pointer-events: none;
+}
+
+.skill-card h3 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+}
+
+.skill-card .subtitle {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+}
+
+.skill-card p {
+    color: var(--default-color);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Uiverse Button Style - Modern Glow */
+.uiverse-btn {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: white;
+    color: var(--heading-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.uiverse-btn svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Uiverse Button Style - Dynamic Evolve */
+.uiverse-btn {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: #1a1a2e;
+    /* Professional dark default */
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.uiverse-btn svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Card Hover Effect (Restored) */
+.skill-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Button Activation ONLY on direct button hover */
+.uiverse-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* Hard Skills Button Hover */
+.skill-card.hard-skills .uiverse-btn:hover {
+    background: #06b6d4;
+    box-shadow: 0 10px 25px rgba(6, 182, 212, 0.5);
+}
+
+/* Soft Skills Button Hover */
+.skill-card.soft-skills .uiverse-btn:hover {
+    background: #ec4899;
+    box-shadow: 0 10px 25px rgba(236, 72, 153, 0.5);
+}
+
+.uiverse-btn:hover svg {
+    transform: translateX(5px);
+}
+
+.uiverse-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.uiverse-btn:hover::after {
+    opacity: 1;
+}
+
+.skill-card .card-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.skill-card:hover .card-glow {
+    opacity: 0.1;
 }
 
 .btn-course:hover {
@@ -904,5 +1155,157 @@
 
     .el-khair-image {
         margin-bottom: 30px;
+    }
+}
+
+/* Hero Browse Button - Curly Crab 71 Style (Compact) */
+.uiverse-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    background-color: #006aff;
+    border: 5px solid #c0dfff;
+    color: white !important;
+    gap: 8px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none !important;
+    font-family: var(--nav-font);
+}
+
+.uiverse-hero-btn .text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.uiverse-hero-btn .svg {
+    padding-top: 3px;
+    height: 100%;
+    width: fit-content;
+}
+
+.uiverse-hero-btn .svg svg {
+    width: 30px;
+    height: 18px;
+}
+
+.uiverse-hero-btn:hover {
+    border: 5px solid #b1d8ff;
+    background-color: #1b7aff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 106, 255, 0.2);
+}
+
+.uiverse-hero-btn:active {
+    border: 5px solid #c0dfff;
+    transform: translateY(0);
+}
+
+.uiverse-hero-btn:hover .svg svg {
+    animation: jello-vertical-btn 0.9s both;
+    transform-origin: left;
+}
+
+@keyframes jello-vertical-btn {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    40% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    50% {
+        transform: scale3d(0.85, 1.15, 1);
+    }
+
+    65% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+
+    75% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* Back to Paths Button - Satyam 'Shine' Design */
+.uiverse-shine-btn {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 25px;
+    background-color: var(--accent-color);
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffff;
+    gap: 12px;
+    font-weight: bold;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    outline: none;
+    overflow: hidden;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-family: var(--nav-font);
+    text-decoration: none !important;
+}
+
+.uiverse-shine-btn .icon {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease-in-out;
+    transform: scaleX(-1);
+    /* Flips the arrow direction for RTL Back */
+}
+
+.uiverse-shine-btn:hover {
+    transform: scale(1.05);
+    /* Only scale, no translation as requested */
+    border-color: rgba(255, 255, 255, 0.6);
+    background-color: var(--heading-color);
+}
+
+/* Shine effect */
+.uiverse-shine-btn::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(120deg,
+            rgba(255, 255, 255, 0) 30%,
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0) 70%);
+    top: 0;
+    left: -100px;
+    opacity: 0.6;
+}
+
+.uiverse-shine-btn:hover::before {
+    animation: shine-animation 1.5s ease-out infinite;
+}
+
+@keyframes shine-animation {
+    0% {
+        left: -100px;
+    }
+
+    60% {
+        left: 100%;
+    }
+
+    to {
+        left: 100%;
     }
 }

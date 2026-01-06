@@ -278,35 +278,95 @@
 }
 
 @media (max-width: 480px) {
+    .stats.section>.container {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+        max-width: 100% !important;
+    }
+
     .stats .stats-grid .row {
-        --bs-gutter-x: 1rem;
-        --bs-gutter-y: 1rem;
+        --bs-gutter-x: 0.5rem;
+        --bs-gutter-y: 0.5rem;
+    }
+
+    .stats .stats-grid .row>[class*="col-"] {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
     }
 
     .stats .stat-item {
         padding: 1rem 0.5rem;
+        border-radius: 1rem;
+        display: block;
+        text-align: center;
     }
 
     .stats .stat-icon {
-        width: 48px;
-        height: 48px;
-        margin-bottom: 0.75rem;
+        width: 44px;
+        height: 44px;
+        margin: 0 auto 0.5rem;
     }
 
     .stats .stat-icon i {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
+    }
+
+    .stats .stat-content {
+        display: block;
     }
 
     .stats .stat-number {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
     }
 
     .stats .stat-label {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
     }
 
     .stats .stat-growth {
+        font-size: 0.7rem;
+        gap: 0.25rem;
+        justify-content: center;
+        margin-top: 0;
+    }
+
+    .stats .stat-growth i {
+        font-size: 0.6rem;
+    }
+
+    .stats .main-headline {
+        font-size: 1.5rem;
+    }
+
+    .stats .main-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .stats .achievement-badge {
+        padding: 0.75rem 1rem;
+        margin-bottom: 1.5rem;
+        border-radius: 1.25rem;
+    }
+
+    .stats .achievement-badge .achievement-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .stats .achievement-badge .achievement-icon i {
+        font-size: 1rem;
+    }
+
+    .stats .achievement-badge .achievement-title {
+        font-size: 0.95rem;
+    }
+
+    .stats .achievement-badge .achievement-subtitle {
         font-size: 0.75rem;
-        flex-wrap: wrap;
     }
 }

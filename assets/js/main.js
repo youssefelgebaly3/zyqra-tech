@@ -29,12 +29,49 @@
   /*--------------------------------------------------------------
   # Cart Functions
   --------------------------------------------------------------*/
+  /*--------------------------------------------------------------
+  # Storage Wrapper (Cross-Browser Persistence)
+  --------------------------------------------------------------*/
+  const StorageWrapper = {
+    get: function () {
+      try {
+        return JSON.parse(localStorage.getItem(ZYQRA_STORAGE_KEY) || '[]');
+      } catch (e) {
+        // Fallback for Firefox file:// protocol
+        try {
+          if (window.name && window.name.startsWith('ZYQRA:')) {
+            return JSON.parse(window.name.substring(6));
+          }
+        } catch (err) { }
+        return [];
+      }
+    },
+    set: function (data) {
+      try {
+        localStorage.setItem(ZYQRA_STORAGE_KEY, JSON.stringify(data));
+      } catch (e) {
+        // Fallback: Save to window.name
+        window.name = 'ZYQRA:' + JSON.stringify(data);
+      }
+    },
+    clear: function () {
+      try {
+        localStorage.removeItem(ZYQRA_STORAGE_KEY);
+      } catch (e) {
+        window.name = '';
+      }
+    }
+  };
+
+  /*--------------------------------------------------------------
+  # Cart Functions
+  --------------------------------------------------------------*/
   function getCart() {
-    return JSON.parse(localStorage.getItem(ZYQRA_STORAGE_KEY) || '[]');
+    return StorageWrapper.get();
   }
 
   function saveCart(cart) {
-    localStorage.setItem(ZYQRA_STORAGE_KEY, JSON.stringify(cart));
+    StorageWrapper.set(cart);
   }
 
   function addToCart(name, price, quantity = 1) {
@@ -451,7 +488,7 @@
         checkoutForm.addEventListener('submit', function (e) {
           e.preventDefault();
           alert('تم استلام طلبك بنجاح! سنتواصل معك قريباً.');
-          localStorage.removeItem(ZYQRA_STORAGE_KEY);
+          StorageWrapper.clear();
           window.location.href = 'index.html';
         });
       }
