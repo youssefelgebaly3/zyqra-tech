@@ -18,6 +18,9 @@
 
 <body class="admin-page">
 
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
     <!-- Admin Sidebar -->
     <aside class="admin-sidebar" id="adminSidebar">
         <div class="sidebar-header">
@@ -797,9 +800,35 @@
     <script src="assets/vendor/aos/aos.js"></script>
     <script>
         // Sidebar Toggle
-        document.getElementById('sidebarToggle').addEventListener('click', function () {
-            document.querySelector('.admin-sidebar').classList.toggle('collapsed');
-            document.querySelector('.admin-main').classList.toggle('expanded');
+        const adminSidebar = document.getElementById('adminSidebar');
+        const adminMain = document.querySelector('.admin-main');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+
+        sidebarToggle.addEventListener('click', function () {
+            if (window.innerWidth <= 1200) {
+                adminSidebar.classList.toggle('mobile-open');
+                sidebarOverlay.classList.toggle('active');
+            } else {
+                adminSidebar.classList.toggle('collapsed');
+                adminMain.classList.toggle('expanded');
+            }
+        });
+
+        // Close mobile sidebar when clicking overlay
+        sidebarOverlay.addEventListener('click', function () {
+            adminSidebar.classList.remove('mobile-open');
+            sidebarOverlay.classList.remove('active');
+        });
+
+        // Close sidebar when clicking nav items on mobile
+        document.querySelectorAll('.sidebar-nav .nav-item').forEach(item => {
+            item.addEventListener('click', function () {
+                if (window.innerWidth <= 1200) {
+                    adminSidebar.classList.remove('mobile-open');
+                    sidebarOverlay.classList.remove('active');
+                }
+            });
         });
 
         // Section Navigation
