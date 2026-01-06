@@ -276,3 +276,37 @@
         font-size: 1rem;
     }
 }
+
+@media (max-width: 480px) {
+    .stats .stats-grid .row {
+        --bs-gutter-x: 1rem;
+        --bs-gutter-y: 1rem;
+    }
+
+    .stats .stat-item {
+        padding: 1rem 0.5rem;
+    }
+
+    .stats .stat-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 0.75rem;
+    }
+
+    .stats .stat-icon i {
+        font-size: 1.25rem;
+    }
+
+    .stats .stat-number {
+        font-size: 1.75rem;
+    }
+
+    .stats .stat-label {
+        font-size: 0.9rem;
+    }
+
+    .stats .stat-growth {
+        font-size: 0.75rem;
+        flex-wrap: wrap;
+    }
+}
