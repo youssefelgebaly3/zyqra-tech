@@ -148,11 +148,15 @@
 
     .header .logo {
         order: 1;
+        display: flex;
+        align-items: center;
     }
 
     .header .logo h1 {
         font-size: 22px;
+        margin: 0;
         margin-left: 10px;
+        line-height: 1;
     }
 
     .header .header-actions {
