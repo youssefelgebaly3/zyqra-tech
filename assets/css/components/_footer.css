@@ -107,6 +107,12 @@
     margin-bottom: 5px;
 }
 
+@media (max-width: 767px) {
+    .footer .footer-contact {
+        text-align: center !important;
+    }
+}
+
 .footer .copyright {
     padding-top: 25px;
     padding-bottom: 25px;
