@@ -18,8 +18,15 @@
 
 @media (max-width: 992px) {
     .features .nav-tabs {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .features .nav-tabs {
+        gap: 10px;
     }
 }
 
@@ -30,7 +37,8 @@
 
 @media (max-width: 992px) {
     .features .nav-item {
-        flex: none;
+        flex: 1;
+        width: 100%;
     }
 }
 
@@ -65,8 +73,11 @@
 
 @media (max-width: 768px) {
     .features .nav-link {
-        padding: 20px 15px;
-        min-height: 70px;
+        padding: 15px 12px;
+        min-height: 60px;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
     }
 }
 
