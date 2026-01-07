@@ -105,11 +105,14 @@
     const badges = document.querySelectorAll('.cart-badge');
 
     badges.forEach(badge => {
+      const parentBtn = badge.closest('.btn-shop-icon');
       if (totalItems > 0) {
         badge.textContent = totalItems;
         badge.style.display = 'flex';
+        if (parentBtn) parentBtn.classList.add('cart-animate');
       } else {
         badge.style.display = 'none';
+        if (parentBtn) parentBtn.classList.remove('cart-animate');
       }
     });
   }

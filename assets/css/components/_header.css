@@ -136,7 +136,9 @@
 }
 
 @media (max-width: 1200px) {
-    .header .container {
+
+    .header .container,
+    .scrolled .header .container {
         width: 90%;
         max-width: 350px;
         margin-left: 15px;
@@ -155,7 +157,8 @@
 
     .header .header-actions {
         order: 2;
-        gap: 25px;
+        gap: 10px;
+        margin-right: auto;
     }
 
     .header .navmenu {
@@ -164,7 +167,8 @@
     }
 
     .header .btn-shop-icon {
-        margin-left: 15px;
+        margin-left: 0;
+        margin-right: 110px;
     }
 }
 
@@ -303,7 +307,7 @@
         font-size: 24px;
         line-height: 0;
         margin-right: 0;
-        margin-left: 20px;
+        margin-left: 0;
         cursor: pointer;
         transition: color 0.3s;
         background: color-mix(in srgb, var(--accent-color), transparent 92%);
@@ -397,6 +401,11 @@
         transform: rotate(180deg);
     }
 
+    .navmenu li.d-xl-none a {
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
     .navmenu .dropdown ul {
         position: static;
         display: none;
@@ -454,7 +463,11 @@
 
     /* Fix for scrolled header gap */
     body.scrolled.mobile-nav-active .navmenu {
-        top: 50px;
+        top: 60px;
+    }
+
+    body.scrolled.mobile-nav-active .navmenu ul {
+        top: 60px;
     }
 
     .mobile-nav-active .navmenu>ul {
@@ -463,8 +476,50 @@
         transform: translateY(0);
     }
 
-    /* Adjust toggle position when scrolled */
+    /* Keep toggle visible when scrolled */
     body.scrolled.mobile-nav-active .mobile-nav-toggle {
-        top: -45px;
+        top: 68px;
     }
+}
+
+/* Cart Icon Animation - Premium Bounce */
+.header .btn-shop-icon.cart-animate {
+    animation: cart-bounce 2s ease-in-out infinite;
+    display: flex !important;
+    /* Ensure it stays visible if JS toggles it */
+}
+
+@keyframes cart-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1) rotate(0);
+    }
+
+    15% {
+        transform: translateY(-7px) scale(1.1) rotate(-12deg);
+    }
+
+    30% {
+        transform: translateY(0) scale(1.05) rotate(10deg);
+    }
+
+    45% {
+        transform: translateY(-4px) scale(1.02) rotate(-6deg);
+    }
+
+    60% {
+        transform: translateY(0) scale(1.01) rotate(4deg);
+    }
+
+    75% {
+        transform: translateY(-2px) scale(1) rotate(-2deg);
+    }
+}
+
+/* Ensure hover doesn't completely kill animation visibility but still feels interactive */
+.header .btn-shop-icon.cart-animate:hover {
+    animation-play-state: paused;
+    transform: translateY(-5px) scale(1.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
