@@ -49,7 +49,7 @@
                         <span>إنشاء حساب</span>
                     </a>
                 </div>
-                <a class="btn-shop-icon" href="products.html" title="تسوق الآن">
+                <a class="btn-shop-icon" href="cart.html" title="السلة">
                     <i class="bi bi-cart3"></i>
                     <span class="cart-badge"></span>
                 </a>
@@ -436,44 +436,7 @@
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/js/main.js"></script>
-    <script>
-        function showCourses(category) {
-            // Hide categories
-            document.getElementById('course-categories').style.display = 'none';
-            document.getElementById('el-khair').style.display = 'none';
-
-            // Show grid
-            document.getElementById('courses-grid').style.display = 'block';
-
-            // Update Title
-            const titleEl = document.getElementById('grid-title');
-            if (category === 'hard-skills') {
-                titleEl.textContent = 'الدورات التقنية (Hard Skills)';
-            } else {
-                titleEl.textContent = 'المهارات الشخصية (Soft Skills)';
-            }
-
-            // Filter items
-            const items = document.querySelectorAll('.course-item');
-            items.forEach(item => {
-                if (item.getAttribute('data-category') === category) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-
-            // Scroll to courses
-            document.getElementById('courses-grid').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function showCategories() {
-            document.getElementById('courses-grid').style.display = 'none';
-            document.getElementById('course-categories').style.display = 'block';
-            document.getElementById('el-khair').style.display = 'block';
-            document.getElementById('course-categories').scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
+    <script src="assets/js/courses.js"></script>
 
 </body>
 
