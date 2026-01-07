@@ -86,6 +86,7 @@
 .features .nav-link .tab-icon i {
     font-size: 24px;
     color: var(--contrast-color);
+    line-height: 0;
 }
 
 @media (max-width: 768px) {
@@ -213,6 +214,7 @@
 .features .content-wrapper .icon-badge i {
     font-size: 30px;
     color: var(--contrast-color);
+    line-height: 0;
 }
 
 .features .content-wrapper h3 {
@@ -382,6 +384,7 @@
 .features .visual-content .floating-card i {
     font-size: 28px;
     color: var(--accent-color);
+    line-height: 0;
 }
 
 @media (max-width: 576px) {
@@ -449,8 +452,8 @@
             var(--surface-color) 50%,
             color-mix(in srgb, var(--surface-color), var(--accent-color) 5%) 100%);
     border: 2px solid color-mix(in srgb, var(--accent-color), transparent 80%);
-    border-radius: 28px;
-    padding: 35px 30px;
+    border-radius: 24px;
+    padding: 30px 25px;
     box-shadow:
         0 10px 40px color-mix(in srgb, var(--accent-color), transparent 88%),
         0 2px 8px color-mix(in srgb, var(--default-color), transparent 94%),
@@ -458,7 +461,61 @@
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: visible;
     position: relative;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0 1.25rem;
+}
+
+/* Theme Colors for Modern Cards */
+.card-products {
+    --card-accent: #006aff;
+    --card-accent-rgb: 0, 106, 255;
+    --card-glow: rgba(0, 106, 255, 0.15);
+}
+
+.card-courses {
+    --card-accent: #ff9800;
+    --card-accent-rgb: 255, 152, 0;
+    --card-glow: rgba(255, 152, 0, 0.15);
+}
+
+.features-cards .feature-card.modern-card::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 30px;
+    background: conic-gradient(from var(--border-angle),
+            transparent 20%,
+            var(--card-accent),
+            transparent 40%);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: rotate-border 4s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@property --border-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes rotate-border {
+    to {
+        --border-angle: 360deg;
+    }
+}
+
+.features-cards .feature-card.modern-card:hover::after {
+    opacity: 1;
 }
 
 .features-cards .feature-card.modern-card::before {
@@ -468,7 +525,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 28px;
+    border-radius: 24px;
     padding: 2px;
     background: linear-gradient(135deg,
             color-mix(in srgb, var(--accent-color), transparent 50%),
@@ -485,16 +542,15 @@
 }
 
 .features-cards .feature-card.modern-card:hover::before {
-    opacity: 1;
+    opacity: 0.5;
 }
 
 .features-cards .feature-card.modern-card:hover {
     transform: translateY(-15px) scale(1.02);
     box-shadow:
-        0 25px 80px color-mix(in srgb, var(--accent-color), transparent 65%),
-        0 15px 40px color-mix(in srgb, var(--accent-color), transparent 75%),
-        0 0 60px color-mix(in srgb, var(--accent-color), transparent 85%);
-    border-color: var(--accent-color);
+        0 25px 80px var(--card-glow),
+        0 15px 40px rgba(0, 0, 0, 0.1);
+    border-color: var(--card-accent);
 }
 
 /* Card Pattern Background */
@@ -511,11 +567,11 @@
     opacity: 0;
     transition: opacity 0.6s ease;
     pointer-events: none;
-    border-radius: 28px;
+    border-radius: 24px;
 }
 
 .features-cards .feature-card.modern-card:hover .card-pattern {
-    opacity: 1;
+    opacity: 0.8;
 }
 
 /* Card Badge */
@@ -523,7 +579,7 @@
     position: absolute;
     top: 20px;
     left: 20px;
-    background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 20%));
+    background: linear-gradient(135deg, var(--card-accent), color-mix(in srgb, var(--card-accent), var(--heading-color) 20%));
     color: var(--contrast-color);
     padding: 8px 16px;
     border-radius: 50px;
@@ -532,7 +588,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    box-shadow: 0 4px 15px color-mix(in srgb, var(--accent-color), transparent 60%);
+    box-shadow: 0 4px 15px rgba(var(--card-accent-rgb), 0.4);
     z-index: 2;
     transition: all 0.3s ease;
 }
@@ -547,7 +603,7 @@
 
 .features-cards .feature-card.modern-card:hover .card-badge {
     transform: scale(1.05);
-    box-shadow: 0 6px 20px color-mix(in srgb, var(--accent-color), transparent 50%);
+    box-shadow: 0 6px 20px rgba(var(--card-accent-rgb), 0.5);
 }
 
 /* Iconic Box - Simplified */
@@ -575,6 +631,7 @@
     transition: all 0.3s ease;
     position: relative;
     z-index: 2;
+    line-height: 0;
 }
 
 .features-cards .feature-card:hover .icon-box i {
@@ -583,18 +640,20 @@
 
 /* Modern Icon Box */
 .features-cards .feature-card.modern-card .icon-box {
-    width: 80px;
-    height: 80px;
-    border-radius: 22px;
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
     background: linear-gradient(145deg,
-            color-mix(in srgb, var(--accent-color), transparent 88%),
-            color-mix(in srgb, var(--accent-color), transparent 82%));
-    margin-bottom: 28px;
+            rgba(var(--card-accent-rgb), 0.12),
+            rgba(var(--card-accent-rgb), 0.18));
+    margin-bottom: 1.25rem;
+    grid-column: 1;
+    grid-row: 1;
     position: relative;
     overflow: hidden;
     box-shadow:
-        0 8px 25px color-mix(in srgb, var(--accent-color), transparent 80%),
-        inset 0 1px 0 color-mix(in srgb, var(--contrast-color), transparent 80%);
+        0 8px 25px rgba(var(--card-accent-rgb), 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -617,9 +676,10 @@
 }
 
 .features-cards .feature-card.modern-card .icon-box i {
-    font-size: 42px;
-    color: var(--accent-color);
+    font-size: 36px;
+    color: var(--card-accent);
     z-index: 2;
+    line-height: 0;
 }
 
 .features-cards .feature-card.modern-card:hover .icon-box {
@@ -654,23 +714,27 @@
 
 /* Modern Card Titles & Description */
 .features-cards .feature-card.modern-card h3 {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 800;
-    margin-bottom: 15px;
+    margin-bottom: 1.25rem;
     color: var(--heading-color);
     line-height: 1.3;
     position: relative;
     z-index: 2;
+    grid-column: 2;
+    grid-row: 1;
 }
 
 .features-cards .feature-card.modern-card p {
-    font-size: 14.5px;
+    font-size: 14px;
     line-height: 1.6;
     color: var(--default-color);
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
     opacity: 0.85;
     position: relative;
     z-index: 2;
+    grid-column: 1 / span 2;
+    grid-row: 2;
 }
 
 /* List of Features */
@@ -696,7 +760,8 @@
 
 /* Modern Feature List */
 .features-cards .feature-card.modern-card .feature-list {
-    margin: 0 0 20px 0;
+    margin: 0 0 1.5rem 0;
+    grid-column: 1 / span 2;
 }
 
 .features-cards .feature-card.modern-card .feature-list li {
@@ -708,20 +773,20 @@
     border-radius: 12px;
     display: flex;
     align-items: center;
-    background: color-mix(in srgb, var(--accent-color), transparent 96%);
+    background: rgba(var(--card-accent-rgb), 0.04);
     transition: all 0.3s ease;
 }
 
 .features-cards .feature-card.modern-card .feature-list li:hover {
-    background: color-mix(in srgb, var(--accent-color), transparent 90%);
-    transform: translateX(-5px);
+    background: rgba(var(--card-accent-rgb), 0.08);
+    transform: translateX(-8px);
 }
 
 .features-cards .feature-card.modern-card .feature-list li i {
-    color: var(--accent-color);
+    color: var(--card-accent);
     margin-left: 12px;
     font-size: 18px;
-    background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 85%), color-mix(in srgb, var(--accent-color), transparent 80%));
+    background: rgba(var(--card-accent-rgb), 0.1);
     width: 32px;
     height: 32px;
     border-radius: 10px;
@@ -729,7 +794,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-color), transparent 80%);
+    box-shadow: 0 4px 12px rgba(var(--card-accent-rgb), 0.15);
 }
 
 /* Read More Link / Button */
@@ -761,13 +826,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 30px;
-    padding-top: 25px;
-    border-top: 2px solid color-mix(in srgb, var(--accent-color), transparent 88%);
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid color-mix(in srgb, var(--card-accent), transparent 88%);
+    grid-column: 1 / span 2;
 }
 
 .features-cards .feature-card.modern-card .card-footer .read-more {
-    background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 25%));
+    background: linear-gradient(135deg, var(--card-accent), color-mix(in srgb, var(--card-accent), var(--heading-color) 25%));
     color: var(--contrast-color);
     padding: 14px 28px;
     border-radius: 14px;
@@ -777,8 +843,8 @@
     align-items: center;
     gap: 10px;
     box-shadow:
-        0 8px 25px color-mix(in srgb, var(--accent-color), transparent 55%),
-        0 4px 12px color-mix(in srgb, var(--accent-color), transparent 70%);
+        0 8px 25px rgba(var(--card-accent-rgb), 0.3),
+        0 4px 12px rgba(var(--card-accent-rgb), 0.4);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;

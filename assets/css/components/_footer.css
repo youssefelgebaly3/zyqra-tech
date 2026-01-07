@@ -51,6 +51,10 @@
     transition: 0.3s;
 }
 
+.footer .social-links a i {
+    line-height: 0;
+}
+
 .footer .social-links a:hover {
     color: var(--accent-color);
     border-color: var(--accent-color);
@@ -133,6 +137,9 @@
     height: 44px;
     border-radius: 50px;
     transition: all 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .scroll-top i {

@@ -208,6 +208,10 @@
     transition: transform 0.3s ease;
 }
 
+.about .feature-box .feature-icon i {
+    line-height: 0;
+}
+
 .about .feature-box .feature-icon:hover {
     transform: translateY(-5px);
 }
@@ -235,7 +239,7 @@
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border-radius: 24px;
-    padding: 2.5rem 2rem;
+    padding: 2rem 2rem 1rem;
     height: 100%;
     border: 1px solid rgba(0, 106, 255, 0.1);
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
@@ -243,14 +247,14 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: right;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 }
 
 .cyber-card:hover {
-    transform: translateY(-15px) scale(1.02);
-    box-shadow: 0 30px 60px rgba(0, 106, 255, 0.15);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
     background: white;
 }
 
@@ -267,17 +271,25 @@
 }
 
 .cyber-card:hover .card-glow {
-    opacity: 1;
+    opacity: 0;
+}
+
+.card-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
 }
 
 .icon-wrapper {
     position: relative;
-    width: 90px;
-    height: 90px;
-    margin-bottom: 2rem;
+    width: 70px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .icon-inner {
@@ -294,6 +306,10 @@
     border: 1px solid rgba(0, 106, 255, 0.1);
     z-index: 2;
     transform-style: preserve-3d;
+}
+
+.icon-inner i {
+    line-height: 0;
 }
 
 .cyber-card:hover .icon-inner {
@@ -318,15 +334,15 @@
 
 .cyber-card:hover .icon-glow {
     opacity: 0.5;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
 }
 
 .cyber-card h3 {
     font-size: 1.6rem;
     font-weight: 800;
     color: var(--heading-color);
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     position: relative;
 }
 
@@ -357,6 +373,18 @@
     color: #006aff;
 }
 
+.vision-card .icon-glow {
+    background: #006aff;
+}
+
+.vision-card .card-footer-line {
+    background: #006aff;
+}
+
+.vision-card:hover .icon-inner {
+    background: #006aff;
+}
+
 .mission-card .icon-inner {
     color: #2ecc71;
 }
@@ -365,9 +393,12 @@
     color: #f1c40f;
 }
 
+.vision-card:hover {
+    border-color: #006aff;
+}
+
 .mission-card:hover {
     border-color: #2ecc71;
-    box-shadow: 0 30px 60px rgba(46, 204, 113, 0.15);
 }
 
 .mission-card .icon-glow {
@@ -384,7 +415,6 @@
 
 .values-card:hover {
     border-color: #f1c40f;
-    box-shadow: 0 30px 60px rgba(241, 196, 15, 0.15);
 }
 
 .values-card .icon-glow {

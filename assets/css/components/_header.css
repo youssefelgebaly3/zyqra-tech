@@ -103,6 +103,10 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.header .btn-shop-icon i {
+    line-height: 0;
+}
+
 .header .btn-shop-icon:hover {
     background: color-mix(in srgb, var(--accent-color), black 10%);
     color: var(--contrast-color);
@@ -309,6 +313,10 @@
         align-items: center;
         justify-content: center;
         border-radius: 50%;
+    }
+
+    .mobile-nav-toggle i {
+        line-height: 0;
     }
 
     .navmenu {
