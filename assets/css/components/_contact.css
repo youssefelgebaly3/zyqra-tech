@@ -2,11 +2,16 @@
 # Contact Section
 --------------------------------------------------------------*/
 .contact .section-category {
+    display: inline-block;
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+    color: var(--accent-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
     font-family: var(--heading-font);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .contact .content h2 {
@@ -88,4 +93,33 @@
 
 .contact .contact-form .btn-submit:active {
     transform: translateY(0);
+}
+
+/* Social Links Fix */
+.contact .social-links .d-flex {
+    flex-wrap: wrap;
+}
+
+.contact .social-links a {
+    padding: 0 !important;
+    /* Remove Bootstrap default padding */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease;
+}
+
+.contact .social-links a i {
+    font-size: 1.25rem;
+    line-height: 0;
+}
+
+@media (max-width: 768px) {
+    .contact .social-links {
+        text-align: center;
+    }
+
+    .contact .social-links .d-flex {
+        justify-content: center;
+    }
 }
