@@ -107,6 +107,7 @@
     margin-bottom: 6px;
     display: flex;
     align-items: center;
+    gap: 8px;
 }
 
 .profile-email i,

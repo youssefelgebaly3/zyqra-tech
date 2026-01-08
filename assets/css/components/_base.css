@@ -190,9 +190,10 @@ h6 {
 --------------------------------------------------------------*/
 i.bi {
     line-height: 0;
+    vertical-align: middle;
 }
 
-/* Ensure common icon containers use flex centering */
+/* Ensure common icon containers use flex centering and text alignment */
 .stat-icon,
 .icon-box,
 .step-icon,
@@ -201,8 +202,29 @@ i.bi {
 .course-icon,
 .cart-item-image,
 .order-item-image,
-.change-avatar-btn {
-    display: flex !important;
+.change-avatar-btn,
+.auth-link,
+.nav-link,
+.badge-item,
+.course-meta span,
+.order-date,
+.order-status,
+.order-summary .total,
+.certificate-info p,
+.profile-email,
+.profile-since {
+    display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
+    line-height: 1.2 !important;
+}
+
+/* Specific fix for Arabic text baseline in flex containers */
+.badge-item,
+.auth-link span,
+.nav-link span,
+.profile-info p span {
+    line-height: normal !important;
+    margin-bottom: -0.1em;
+    /* Subtle adjustment for Tajawal font baseline */
 }
