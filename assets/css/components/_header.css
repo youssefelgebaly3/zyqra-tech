@@ -405,7 +405,6 @@
     .navmenu .active:focus i {
         background-color: var(--accent-color);
         color: var(--contrast-color);
-        transform: rotate(180deg);
     }
 
     .navmenu li.d-xl-none a {
