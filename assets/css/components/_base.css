@@ -184,3 +184,25 @@ h6 {
     font-size: 8rem;
     color: rgba(255, 255, 255, 0.3);
 }
+
+/*--------------------------------------------------------------
+# Global Icon Alignment Fix
+--------------------------------------------------------------*/
+i.bi {
+    line-height: 0;
+}
+
+/* Ensure common icon containers use flex centering */
+.stat-icon,
+.icon-box,
+.step-icon,
+.item-image,
+.product-icon,
+.course-icon,
+.cart-item-image,
+.order-item-image,
+.change-avatar-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}

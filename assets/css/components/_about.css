@@ -73,29 +73,33 @@
     text-align: center;
     padding: 1.5rem 1rem;
     background-color: var(--surface-color);
-    border-radius: 8px;
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-    transition: all 0.3s ease;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .about .stat-item:hover {
+    transform: translateY(-6px);
     border-color: var(--accent-color);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 25px rgba(0, 106, 255, 0.08);
 }
 
 .about .stat-item .stat-number {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--accent-color);
     line-height: 1;
     margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
 }
 
 .about .stat-item .stat-label {
     font-size: 0.875rem;
-    color: var(--default-color);
+    color: #64748b;
     font-weight: 700;
     margin: 0;
+    letter-spacing: 0.02em;
 }
 
 .about .visual-section {

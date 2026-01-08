@@ -73,6 +73,9 @@
     cursor: pointer;
     border-radius: 6px;
     transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .quantity-btn:hover {
@@ -94,6 +97,10 @@
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .remove-btn:hover {
@@ -125,7 +132,7 @@
 }
 
 .checkout-btn {
-    display: block;
+    display: inline-flex;
     width: 100%;
     background: var(--accent-color);
     color: white;
@@ -140,6 +147,9 @@
     text-align: center;
     text-decoration: none;
     color: white;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .checkout-btn:hover {
@@ -290,6 +300,10 @@
     cursor: pointer;
     transition: all 0.3s;
     margin-top: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
 }
 
 .place-order-btn:hover {

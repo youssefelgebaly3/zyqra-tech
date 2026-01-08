@@ -415,6 +415,20 @@
     color: white;
 }
 
+.btn-certificate,
+.btn-start {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
 .btn-certificate {
     background: #10B981;
     color: white;
@@ -599,6 +613,10 @@
 .btn-share {
     background: #f3f4f6;
     color: var(--default-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
 }
 
 .btn-share:hover {
@@ -771,8 +789,9 @@
     border-radius: 10px;
     font-weight: 600;
     font-size: 0.9rem;
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
