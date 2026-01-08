@@ -25,9 +25,9 @@
         const titleEl = document.getElementById('grid-title');
         if (titleEl) {
             if (category === 'hard-skills') {
-                titleEl.textContent = 'الدورات التقنية (Hard Skills)';
+                titleEl.innerHTML = '<span class="d-md-none">الدورات التقنية<span class="d-block mt-1" style="font-size: 0.5em; opacity: 0.7; letter-spacing: 1px; font-weight: 600;">Hard Skills</span></span><span class="d-none d-md-inline">الدورات التقنية (Hard Skills)</span>';
             } else {
-                titleEl.textContent = 'المهارات الشخصية (Soft Skills)';
+                titleEl.innerHTML = '<span class="d-md-none">المهارات الشخصية<span class="d-block mt-1" style="font-size: 0.5em; opacity: 0.7; letter-spacing: 1px; font-weight: 600;">Soft Skills</span></span><span class="d-none d-md-inline">المهارات الشخصية (Soft Skills)</span>';
             }
         }
 
