@@ -340,12 +340,12 @@
         visibility: hidden;
         opacity: 0;
         position: fixed;
-        top: 90px;
+        top: 70px;
         left: 0;
         right: 0;
         width: 100%;
         height: auto;
-        max-height: calc(100vh - 90px);
+        max-height: calc(100vh - 70px);
         padding: 20px 0;
         margin: 0;
         border-radius: 15px;
@@ -441,7 +441,7 @@
         color: var(--heading-color);
         position: fixed;
         font-size: 28px;
-        top: 98px;
+        top: 78px;
         left: 1px;
         right: auto;
         margin-right: 0;
@@ -458,7 +458,7 @@
     .mobile-nav-active .navmenu {
         position: fixed;
         overflow: visible;
-        top: 90px;
+        top: 70px;
         left: 0;
         right: 0;
         bottom: 0;
@@ -469,11 +469,11 @@
 
     /* Fix for scrolled header gap */
     body.scrolled.mobile-nav-active .navmenu {
-        top: 90px;
+        top: 70px;
     }
 
     body.scrolled.mobile-nav-active .navmenu ul {
-        top: 90px;
+        top: 70px;
     }
 
     .mobile-nav-active .navmenu>ul {
@@ -484,7 +484,7 @@
 
     /* Keep toggle visible when scrolled */
     body.scrolled.mobile-nav-active .mobile-nav-toggle {
-        top: 98px;
+        top: 78px;
     }
 }
 
