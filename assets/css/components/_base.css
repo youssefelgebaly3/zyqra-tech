@@ -212,7 +212,8 @@ i.bi {
 .order-summary .total,
 .certificate-info p,
 .profile-email,
-.profile-since {
+.profile-since,
+.btn-submit {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -223,7 +224,8 @@ i.bi {
 .badge-item,
 .auth-link span,
 .nav-link span,
-.profile-info p span {
+.profile-info p span,
+.btn-submit {
     line-height: normal !important;
     margin-bottom: -0.1em;
     /* Subtle adjustment for Tajawal font baseline */

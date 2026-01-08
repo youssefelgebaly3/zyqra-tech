@@ -123,13 +123,20 @@
     z-index: -1;
 }
 
-.hero .hero-content .hero-actions .btn-primary:hover {
+.hero .hero-content .hero-actions .btn-primary:hover,
+.hero .hero-content .hero-actions .btn-primary:active {
     transform: translateY(-5px) scale(1.03);
     box-shadow: 0 15px 30px rgba(0, 106, 255, 0.4);
     color: var(--contrast-color);
 }
 
-.hero .hero-content .hero-actions .btn-primary:hover::before {
+.hero .hero-content .hero-actions .btn-primary:active {
+    transform: scale(0.95);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), black 10%), #00b8e6);
+}
+
+.hero .hero-content .hero-actions .btn-primary:hover::before,
+.hero .hero-content .hero-actions .btn-primary:active::before {
     width: 100%;
 }
 
@@ -160,7 +167,8 @@
     transition: all 0.4s ease;
 }
 
-.hero .hero-content .hero-actions .btn-secondary:hover {
+.hero .hero-content .hero-actions .btn-secondary:hover,
+.hero .hero-content .hero-actions .btn-secondary:active {
     background: color-mix(in srgb, var(--accent-color), transparent 92%);
     border-color: var(--accent-color);
     color: var(--accent-color);
@@ -168,7 +176,13 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
-.hero .hero-content .hero-actions .btn-secondary:hover i {
+.hero .hero-content .hero-actions .btn-secondary:active {
+    transform: scale(0.95);
+    background: color-mix(in srgb, var(--accent-color), transparent 85%);
+}
+
+.hero .hero-content .hero-actions .btn-secondary:hover i,
+.hero .hero-content .hero-actions .btn-secondary:active i {
     transform: scale(1.2) rotate(360deg);
 }
 

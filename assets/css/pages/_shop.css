@@ -396,7 +396,7 @@
     line-height: 1.6;
 }
 
-/* Uiverse Button Style - Modern Glow */
+/* Uiverse Button Style - Premium Evolve */
 .uiverse-btn {
     margin-top: auto;
     display: flex;
@@ -411,42 +411,7 @@
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background: white;
-    color: var(--heading-color);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.uiverse-btn svg {
-    width: 18px;
-    height: 18px;
-    transition: transform 0.3s ease;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-/* Uiverse Button Style - Dynamic Evolve */
-.uiverse-btn {
-    margin-top: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 12px 28px;
-    border: none;
-    border-radius: 50px;
-    font-family: inherit;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     background: #1a1a2e;
-    /* Professional dark default */
     color: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     position: relative;
@@ -465,30 +430,36 @@
     stroke-linejoin: round;
 }
 
-/* Card Hover Effect (Restored) */
+/* Card Hover Effect */
 .skill-card:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Button Activation ONLY on direct button hover */
-.uiverse-btn:hover {
+/* Button States (Hover & Active/Touch) */
+.uiverse-btn:hover,
+.uiverse-btn:active {
     transform: translateY(-5px) scale(1.1);
 }
 
-/* Hard Skills Button Hover */
-.skill-card.hard-skills .uiverse-btn:hover {
-    background: #06b6d4;
+/* Hard Skills Button Hover & Active */
+.skill-card.hard-skills .uiverse-btn:hover,
+.skill-card.hard-skills .uiverse-btn:active,
+.skill-card.hard-skills .uiverse-btn:focus {
+    background: #06b6d4 !important;
     box-shadow: 0 10px 25px rgba(6, 182, 212, 0.5);
 }
 
-/* Soft Skills Button Hover */
-.skill-card.soft-skills .uiverse-btn:hover {
-    background: #ec4899;
+/* Soft Skills Button Hover & Active */
+.skill-card.soft-skills .uiverse-btn:hover,
+.skill-card.soft-skills .uiverse-btn:active,
+.skill-card.soft-skills .uiverse-btn:focus {
+    background: #ec4899 !important;
     box-shadow: 0 10px 25px rgba(236, 72, 153, 0.5);
 }
 
-.uiverse-btn:hover svg {
+.uiverse-btn:hover svg,
+.uiverse-btn:active svg {
     transform: translateX(5px);
 }
 
@@ -504,7 +475,8 @@
     transition: opacity 0.3s;
 }
 
-.uiverse-btn:hover::after {
+.uiverse-btn:hover::after,
+.uiverse-btn:active::after {
     opacity: 1;
 }
 
