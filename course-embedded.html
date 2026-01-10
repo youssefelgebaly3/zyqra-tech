@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشغل الدورة - ZYQRA الخير</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link href="assets/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/pages/_course-player.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bg-animation"></div>
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Header -->
+    <header class="player-header">
+        <div class="header-content">
+            <a href="courses.html" class="back-btn">
+                <i class="bi bi-arrow-right"></i>
+                <span>العودة للدورات</span>
+            </a>
+
+            <div class="course-title-header">
+                <h1>أساسيات الإلكترونيات</h1>
+                <span><i class="bi bi-mortarboard-fill"></i> ZYQRA الخير</span>
+            </div>
+
+            <div class="header-actions">
+                <div class="streak-badge" id="streakBadge">
+                    <i class="bi bi-fire"></i>
+                    <span id="streakCount">3</span> <span>أيام متتالية</span>
+                </div>
+                <a href="index.html" class="logo-link">ZYQRA</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="player-main">
+        <div class="player-grid">
+            <!-- Video Section -->
+            <div class="video-section">
+                <div class="video-wrapper">
+                    <iframe id="videoPlayer" src="https://www.youtube.com/embed/aeE84PebGvo?enablejsapi=1"
+                        allowfullscreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                    </iframe>
+                </div>
+
+                <div class="video-controls-bar">
+                    <button class="nav-btn" id="prevBtn" disabled>
+                        <i class="bi bi-chevron-right"></i>
+                        <span>السابق</span>
+                    </button>
+
+                    <div class="lesson-info-bar">
+                        <h3 id="currentTitle">مقدمة في الإلكترونيات</h3>
+                        <div class="lesson-counter">الدرس <span id="currentNum">1</span> من <span id="totalNum">5</span>
+                        </div>
+                    </div>
+
+                    <div class="control-actions">
+                        <div class="speed-control">
+                            <button class="action-btn" id="speedBtn" title="سرعة التشغيل">
+                                <span style="font-size: 0.75rem; font-weight: 700;">1x</span>
+                            </button>
+                            <div class="speed-dropdown">
+                                <div class="speed-option" data-speed="0.5">0.5x</div>
+                                <div class="speed-option" data-speed="0.75">0.75x</div>
+                                <div class="speed-option active" data-speed="1">1x</div>
+                                <div class="speed-option" data-speed="1.25">1.25x</div>
+                                <div class="speed-option" data-speed="1.5">1.5x</div>
+                                <div class="speed-option" data-speed="2">2x</div>
+                            </div>
+                        </div>
+                        <button class="action-btn" id="bookmarkBtn" title="إشارة مرجعية">
+                            <i class="bi bi-bookmark"></i>
+                        </button>
+                        <button class="action-btn" id="pipBtn" title="نافذة صغيرة">
+                            <i class="bi bi-pip"></i>
+                        </button>
+                        <button class="action-btn" id="completeBtn" title="تم الدرس">
+                            <i class="bi bi-check-lg"></i>
+                        </button>
+                    </div>
+
+                    <button class="nav-btn" id="nextBtn">
+                        <span>التالي</span>
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                </div>
+
+                <!-- Content Tabs -->
+                <div class="content-section">
+                    <div class="content-tabs">
+                        <button class="tab-btn active" data-tab="overview">
+                            <i class="bi bi-info-circle me-2"></i>نظرة عامة
+                        </button>
+                        <button class="tab-btn" data-tab="resources">
+                            <i class="bi bi-folder me-2"></i>الموارد
+                        </button>
+                        <button class="tab-btn" data-tab="tasks">
+                            <i class="bi bi-list-check me-2"></i>المهام
+                        </button>
+                        <button class="tab-btn" data-tab="notes">
+                            <i class="bi bi-journal-text me-2"></i>ملاحظاتي
+                        </button>
+                    </div>
+
+                    <div class="tab-content">
+                        <!-- Overview Tab -->
+                        <div class="tab-panel active" id="overview">
+                            <div class="row g-4">
+                                <div class="col-lg-8">
+                                    <div class="glass-card mb-4">
+                                        <h3><i class="bi bi-info-circle-fill"></i> عن الدورة</h3>
+                                        <p class="text-muted leading-relaxed">
+                                            دورة شاملة في الأنظمة المدمجة - برمجة الميكروكنترولر وتطوير المشاريع. ستنتقل
+                                            من الأساسيات إلى الاحتراف في تصميم وبرمجة الأنظمة المدمجة المتقدمة.
+                                        </p>
+                                    </div>
+
+                                    <div class="glass-card">
+                                        <h3><i class="bi bi-lightbulb-fill"></i> ماذا ستتعلم</h3>
+                                        <div class="learning-grid">
+                                            <div class="learning-item">
+                                                <i class="bi bi-check-circle-fill"></i>
+                                                <span>معمارية الميكروكنترولر (Microcontroller Architecture)</span>
+                                            </div>
+                                            <div class="learning-item">
+                                                <i class="bi bi-check-circle-fill"></i>
+                                                <span>برمجة C المتقدمة للأنظمة المدمجة (Embedded C)</span>
+                                            </div>
+                                            <div class="learning-item">
+                                                <i class="bi bi-check-circle-fill"></i>
+                                                <span>التعامل مع الملحقات (ADC, Timers, Interrupts)</span>
+                                            </div>
+                                            <div class="learning-item">
+                                                <i class="bi bi-check-circle-fill"></i>
+                                                <span>تصميم الأنظمة المدمجة (System Design) ومعالجة المشاكل</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="glass-card mb-4">
+                                        <h5 class="mb-3"><i class="bi bi-person-badge"></i> المدرب</h5>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="avatar-circle"
+                                                style="width: 50px; height: 50px; background: var(--accent-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                                                <i class="bi bi-person-fill fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-0 fw-bold">م. يوسف الجبالى</h6>
+                                                <span class="text-muted small">خبير الأنظمة المدمجة</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="glass-card">
+                                        <h5 class="mb-3"><i class="bi bi-bar-chart-fill"></i> معلومات الدورة</h5>
+                                        <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+                                            <li class="d-flex justify-content-between text-muted">
+                                                <span><i class="bi bi-bar-chart me-2"></i>المستوى</span>
+                                                <strong class="text-dark">متوسط</strong>
+                                            </li>
+                                            <li class="d-flex justify-content-between text-muted">
+                                                <span><i class="bi bi-clock me-2"></i>المدة</span>
+                                                <strong class="text-dark">20 ساعة</strong>
+                                            </li>
+                                            <li class="d-flex justify-content-between text-muted">
+                                                <span><i class="bi bi-translate me-2"></i>اللغة</span>
+                                                <strong class="text-dark">العربية</strong>
+                                            </li>
+                                            <li class="d-flex justify-content-between text-muted">
+                                                <span><i class="bi bi-cash me-2"></i>السعر</span>
+                                                <strong class="text-success">مجاني 100%</strong>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Resources Tab -->
+                        <div class="tab-panel" id="resources">
+                            <div class="resource-item">
+                                <div class="resource-info">
+                                    <div class="resource-icon pdf"><i class="bi bi-file-pdf-fill"></i></div>
+                                    <div class="resource-details">
+                                        <h6>العرض التقديمي</h6>
+                                        <span>PDF • 2.5 MB</span>
+                                    </div>
+                                </div>
+                                <button class="download-btn"><i class="bi bi-download"></i> تحميل</button>
+                            </div>
+                            <div class="resource-item">
+                                <div class="resource-info">
+                                    <div class="resource-icon code"><i class="bi bi-file-code-fill"></i></div>
+                                    <div class="resource-details">
+                                        <h6>كود المصدر</h6>
+                                        <span>ZIP • 1.2 MB</span>
+                                    </div>
+                                </div>
+                                <button class="download-btn"><i class="bi bi-download"></i> تحميل</button>
+                            </div>
+                            <div class="resource-item">
+                                <div class="resource-info">
+                                    <div class="resource-icon doc"><i class="bi bi-file-text-fill"></i></div>
+                                    <div class="resource-details">
+                                        <h6>ملخص الدرس</h6>
+                                        <span>DOC • 850 KB</span>
+                                    </div>
+                                </div>
+                                <button class="download-btn"><i class="bi bi-download"></i> تحميل</button>
+                            </div>
+                        </div>
+
+                        <!-- Tasks Tab -->
+                        <div class="tab-panel" id="tasks">
+                            <div class="glass-card">
+                                <h3><i class="bi bi-list-check"></i> المهام المطلوبة</h3>
+                                <div class="task-list">
+                                    <div class="learning-item mb-3"
+                                        style="background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3);">
+                                        <i class="bi bi-exclamation-circle text-warning"></i>
+                                        <div style="flex: 1;">
+                                            <h6 class="mb-1" style="color: var(--text-primary); font-weight: 600;">تمرين
+                                                عملي: تصميم دائرة بسيطة</h6>
+                                            <p class="mb-2 small text-muted">قم بتصميم دائرة إنارة بسيطة باستخدام بطارية
+                                                ومقاومة وLED، ثم ارفع صورة للتصميم.</p>
+                                            <div class="d-flex gap-2">
+                                                <button class="btn btn-sm btn-primary" style="font-size: 0.8rem;">
+                                                    <i class="bi bi-upload me-1"></i> رفع الحل
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-secondary"
+                                                    style="font-size: 0.8rem;">
+                                                    <i class="bi bi-download me-1"></i> تحميل ملفات التمرين
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="learning-item">
+                                        <i class="bi bi-check-circle-fill text-success"></i>
+                                        <div style="flex: 1;">
+                                            <h6 class="mb-1" style="color: var(--text-primary); font-weight: 600;">
+                                                اختبار قصير: المكونات الإلكترونية</h6>
+                                            <p class="mb-2 small text-muted">أجب على 5 أسئلة للتأكد من فهمك للموضوع.</p>
+                                            <button class="btn btn-sm btn-success" disabled
+                                                style="opacity: 0.8; font-size: 0.8rem;">
+                                                <i class="bi bi-check-lg me-1"></i> تم الإكمال
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notes Tab -->
+                        <div class="tab-panel" id="notes">
+                            <div class="glass-card">
+                                <h3><i class="bi bi-pencil-fill"></i> ملاحظاتك الخاصة</h3>
+                                <textarea class="notes-textarea" id="notesArea"
+                                    placeholder="اكتب ملاحظاتك هنا... سيتم حفظها تلقائياً"></textarea>
+                                <button class="download-btn mt-3" onclick="saveNotes()">
+                                    <i class="bi bi-save"></i> حفظ الملاحظات
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <div class="circular-progress">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="bg-circle" cx="50" cy="50" r="45" />
+                            <circle class="progress-circle" cx="50" cy="50" r="45" id="progressCircle" />
+                        </svg>
+                        <span class="progress-value" id="progressValue">20%</span>
+                    </div>
+                    <div class="progress-label">أكملت <span id="completedCount">1</span> من <span
+                            id="totalCount">5</span> دروس</div>
+                    <div class="time-remaining">
+                        <i class="bi bi-clock"></i>
+                        <span id="timeRemaining">متبقي ~45 دقيقة</span>
+                    </div>
+                </div>
+
+                <div class="lessons-container" id="lessonsContainer">
+                    <!-- Generated by JS -->
+                </div>
+
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="🔍 ابحث في الدروس..." id="searchInput">
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <button class="mobile-toggle" id="mobileToggle">
+        <i class="bi bi-list-ul"></i>
+    </button>
+    <div class="sidebar-overlay" id="overlay"></div>
+
+    <div class="toast-notification" id="toast">
+        <i class="bi bi-check-circle-fill"></i>
+        <span>تم إكمال الدرس بنجاح! 🎉</span>
+    </div>
+
+    <div class="shortcuts-info">
+        اختصارات: <kbd>Space</kbd> تشغيل/إيقاف • <kbd>→</kbd> التالي • <kbd>←</kbd> السابق
+    </div>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/data/embedded.js"></script>
+    <script src="assets/js/pages/course-player.js"></script>
+</body>
+
+</html>
