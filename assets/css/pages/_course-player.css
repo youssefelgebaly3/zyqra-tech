@@ -141,7 +141,6 @@ body {
     padding-top: 70px;
     min-height: 100vh;
     position: relative;
-    z-index: 1;
 }
 
 .player-grid {
@@ -568,7 +567,7 @@ body {
         width: 380px;
         max-width: 90vw;
         height: calc(100vh - 70px);
-        z-index: 100;
+        z-index: 2000;
         transition: left 0.3s ease;
         box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
     }
@@ -926,7 +925,9 @@ body {
         display: none;
     }
 
-    .control-actions {
+    .control-actions .speed-control,
+    .control-actions #bookmarkBtn,
+    .control-actions #pipBtn {
         display: none;
     }
 
