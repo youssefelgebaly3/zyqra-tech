@@ -40,15 +40,16 @@ body {
 
 /* Header */
 .player-header {
-    background: #ffffff;
-    backdrop-filter: blur(20px);
-    padding: 0.8rem 0;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 0.75rem 0;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    border-bottom: 1px solid #e5e7eb;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 161, 158, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .header-content {
@@ -98,36 +99,85 @@ body {
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
+}
+
+.streak-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 50px;
+    transition: all 0.3s ease;
 }
 
 .streak-badge {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.1));
-    border: 1px solid rgba(245, 158, 11, 0.3);
+    gap: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    background: linear-gradient(135deg, #F59E0B, #D97706);
     border-radius: 20px;
-    color: #F59E0B;
-    font-weight: 600;
+    color: white;
+    font-weight: 700;
     line-height: 1;
+    cursor: help;
 }
 
-.streak-badge i {
-    animation: pulse 1.5s infinite;
+.freeze-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: linear-gradient(135deg, #3B82F6, #2563EB);
+    border-radius: 20px;
+    color: white;
+    font-weight: 700;
+    line-height: 1;
+    cursor: help;
+    transition: all 0.3s ease;
 }
 
-@keyframes pulse {
+.freeze-count.frozen {
+    animation: freezeShake 0.5s ease;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+@keyframes freezeShake {
 
     0%,
     100% {
         transform: scale(1);
     }
 
+    25% {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    75% {
+        transform: scale(1.1) rotate(-5deg);
+    }
+}
+
+.streak-badge i {
+    animation: firePulse 1.5s infinite;
+}
+
+@keyframes firePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px rgba(245, 158, 11, 0.5));
+    }
+
     50% {
         transform: scale(1.2);
+        filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.8));
     }
 }
 
@@ -972,9 +1022,13 @@ body {
 
 @media (max-width: 576px) {
     .toast-notification {
-        left: auto;
+        left: 20px;
         right: 20px;
-        transform: translateY(100px);
+        bottom: 110px;
+        transform: translateY(20px);
+        width: calc(100% - 40px);
+        text-align: center;
+        justify-content: center;
     }
 
     .toast-notification.show {

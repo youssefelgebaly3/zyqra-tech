@@ -192,15 +192,18 @@ function toggleComplete() {
         showToast();
         triggerConfetti();
         updateStreak(true);
+        checkModuleRewards();
     }
 }
 
 // Toast notification
-function showToast() {
+function showToast(message = 'تم إكمال الدرس بنجاح 🎉') {
     const toast = document.getElementById('toast');
-    toast.querySelector('span').textContent = 'تم إكمال الدرس بنجاح 🎉';
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 3000);
+    if (toast) {
+        toast.querySelector('span').textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+    }
 }
 
 // Confetti effect
@@ -254,6 +257,7 @@ function updateStreak(isCompletion = false) {
     const today = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD
     let streak = parseInt(localStorage.getItem('streak') || '0');
     let lastCompletionDate = localStorage.getItem('lastCompletionDate');
+    let freezes = parseInt(localStorage.getItem('freezes') || '2');
 
     if (isCompletion) {
         if (lastCompletionDate !== today) {
@@ -269,13 +273,14 @@ function updateStreak(isCompletion = false) {
             localStorage.setItem('streak', streak);
             localStorage.setItem('lastCompletionDate', today);
 
-            // Visual feedback
             const badge = document.getElementById('streakBadge');
-            badge.classList.add('streak-up');
-            setTimeout(() => badge.classList.remove('streak-up'), 1000);
+            if (badge) {
+                badge.classList.add('streak-up');
+                setTimeout(() => badge.classList.remove('streak-up'), 1000);
+            }
         }
     } else {
-        // On load: check if streak is lost
+        // On load: check if streak is lost or needs freeze
         if (lastCompletionDate) {
             const lastDate = new Date(lastCompletionDate);
             const todayDate = new Date(today);
@@ -283,13 +288,92 @@ function updateStreak(isCompletion = false) {
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
             if (diffDays > 1 && lastCompletionDate !== today) {
-                streak = 0;
-                localStorage.setItem('streak', streak);
+                if (freezes > 0) {
+                    freezes--;
+                    localStorage.setItem('freezes', freezes);
+
+                    const yesterday = new Date();
+                    yesterday.setDate(yesterday.getDate() - 1);
+                    localStorage.setItem('lastCompletionDate', yesterday.toLocaleDateString('en-CA'));
+
+                    const freezeBadge = document.getElementById('freezeBadge');
+                    if (freezeBadge) freezeBadge.classList.add('frozen');
+
+                    setTimeout(() => {
+                        const toast = document.getElementById('toast');
+                        if (toast) {
+                            toast.querySelector('span').textContent = 'تم استخدام تجميد الحماسة! ❄️';
+                            toast.classList.add('show');
+                            setTimeout(() => toast.classList.remove('show'), 3000);
+                        }
+                    }, 1000);
+                } else {
+                    streak = 0;
+                    localStorage.setItem('streak', streak);
+                }
             }
+        }
+        if (localStorage.getItem('freezes') === null) {
+            localStorage.setItem('freezes', '2');
         }
     }
 
-    document.getElementById('streakCount').textContent = streak;
+    const streakEl = document.getElementById('streakCount');
+    const freezeEl = document.getElementById('freezeCount');
+    if (streakEl) streakEl.textContent = streak;
+    if (freezeEl) freezeEl.textContent = freezes;
+}
+
+// Module completion rewards
+function checkModuleRewards() {
+    // Find current module
+    let currentModule = null;
+    let moduleIndex = -1;
+
+    courseData.modules.forEach((mod, idx) => {
+        if (mod.lessons.some(l => l.id === courseData.lessons[currentLessonIndex].id)) {
+            currentModule = mod;
+            moduleIndex = idx;
+        }
+    });
+
+    if (!currentModule) return;
+
+    // Check if all lessons in this module are completed
+    const allCompleted = currentModule.lessons.every(l => {
+        const lessonInData = courseData.lessons.find(ld => ld.id === l.id);
+        return lessonInData && lessonInData.completed;
+    });
+
+    if (allCompleted) {
+        const rewardKey = `rewarded_module_${courseData.id}_${moduleIndex}`;
+        if (!localStorage.getItem(rewardKey)) {
+            // Grant reward
+            let freezes = parseInt(localStorage.getItem('freezes') || '2');
+            freezes++;
+            localStorage.setItem('freezes', freezes);
+            localStorage.setItem(rewardKey, 'true');
+
+            // Update UI
+            const freezeEl = document.getElementById('freezeCount');
+            if (freezeEl) {
+                freezeEl.textContent = freezes;
+                const badge = document.getElementById('freezeBadge');
+                if (badge) badge.classList.add('frozen');
+            }
+
+            // Show celebratory toast
+            setTimeout(() => {
+                const toast = document.getElementById('toast');
+                if (toast) {
+                    toast.querySelector('span').textContent = 'مبروك أكملت الوحدة وحصلت على درع تجميد هدية ❄️🎁';
+                    toast.classList.add('show');
+                    setTimeout(() => toast.classList.remove('show'), 4000);
+                }
+                triggerConfetti();
+            }, 3500);
+        }
+    }
 }
 
 // Notes
@@ -301,7 +385,7 @@ function loadNotes() {
 function saveNotes() {
     const notes = document.getElementById('notesArea').value;
     localStorage.setItem(`notes_${courseData.id}_${currentLessonIndex}`, notes);
-    showToast();
+    showToast('تم حفظ الملاحظات بنجاح ✅');
 }
 
 // Sidebar toggle
