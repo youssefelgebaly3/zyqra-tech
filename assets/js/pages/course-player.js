@@ -91,6 +91,40 @@ function renderLessons() {
     }).join('');
 }
 
+// YouTube Player API
+let player;
+const tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+const firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+window.onYouTubeIframeAPIReady = function () {
+    const lesson = courseData.lessons[currentLessonIndex];
+    player = new YT.Player('videoPlayer', {
+        videoId: lesson.videoId,
+        playerVars: {
+            'autoplay': 0,
+            'rel': 0,
+            'showinfo': 0,
+            'modestbranding': 1,
+            'enablejsapi': 1
+        },
+        events: {
+            'onStateChange': onPlayerStateChange
+        }
+    });
+};
+
+function onPlayerStateChange(event) {
+    // If video ended (YT.PlayerState.ENDED = 0)
+    if (event.data === 0) {
+        const lesson = courseData.lessons[currentLessonIndex];
+        if (!lesson.completed) {
+            toggleComplete();
+        }
+    }
+}
+
 // Select lesson
 function selectLesson(index) {
     currentLessonIndex = index;
@@ -98,7 +132,12 @@ function selectLesson(index) {
 
     document.getElementById('currentTitle').textContent = lesson.title;
     document.getElementById('currentNum').textContent = index + 1;
-    document.getElementById('videoPlayer').src = `https://www.youtube.com/embed/${lesson.videoId}?enablejsapi=1`;
+
+    if (player && player.loadVideoById) {
+        player.loadVideoById(lesson.videoId);
+    } else {
+        document.getElementById('videoPlayer').src = `https://www.youtube.com/embed/${lesson.videoId}?enablejsapi=1`;
+    }
 
     document.getElementById('prevBtn').disabled = index === 0;
     document.getElementById('nextBtn').disabled = index === courseData.lessons.length - 1;
@@ -152,13 +191,14 @@ function toggleComplete() {
     if (lesson.completed) {
         showToast();
         triggerConfetti();
-        updateStreak();
+        updateStreak(true);
     }
 }
 
 // Toast notification
 function showToast() {
     const toast = document.getElementById('toast');
+    toast.querySelector('span').textContent = 'تم إكمال الدرس بنجاح 🎉';
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
@@ -209,17 +249,44 @@ function triggerConfetti() {
     animate();
 }
 
-// Streak management
-function updateStreak() {
-    const today = new Date().toDateString();
-    const lastVisit = localStorage.getItem('lastVisit');
+// Streak management (Duolingo-style)
+function updateStreak(isCompletion = false) {
+    const today = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD
     let streak = parseInt(localStorage.getItem('streak') || '0');
+    let lastCompletionDate = localStorage.getItem('lastCompletionDate');
 
-    if (lastVisit !== today) {
-        const yesterday = new Date(Date.now() - 86400000).toDateString();
-        streak = (lastVisit === yesterday) ? streak + 1 : 1;
-        localStorage.setItem('streak', streak);
-        localStorage.setItem('lastVisit', today);
+    if (isCompletion) {
+        if (lastCompletionDate !== today) {
+            const yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            const yesterdayStr = yesterday.toLocaleDateString('en-CA');
+
+            if (lastCompletionDate === yesterdayStr) {
+                streak++;
+            } else {
+                streak = 1;
+            }
+            localStorage.setItem('streak', streak);
+            localStorage.setItem('lastCompletionDate', today);
+
+            // Visual feedback
+            const badge = document.getElementById('streakBadge');
+            badge.classList.add('streak-up');
+            setTimeout(() => badge.classList.remove('streak-up'), 1000);
+        }
+    } else {
+        // On load: check if streak is lost
+        if (lastCompletionDate) {
+            const lastDate = new Date(lastCompletionDate);
+            const todayDate = new Date(today);
+            const diffTime = Math.abs(todayDate - lastDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+            if (diffDays > 1 && lastCompletionDate !== today) {
+                streak = 0;
+                localStorage.setItem('streak', streak);
+            }
+        }
     }
 
     document.getElementById('streakCount').textContent = streak;
@@ -280,6 +347,10 @@ function setupEventListeners() {
             document.querySelectorAll('.speed-option').forEach(o => o.classList.remove('active'));
             opt.classList.add('active');
             document.getElementById('speedBtn').innerHTML = `<span style="font-size: 0.75rem; font-weight: 700;">${playbackSpeed}x</span>`;
+
+            if (player && player.setPlaybackRate) {
+                player.setPlaybackRate(playbackSpeed);
+            }
         };
     });
 
