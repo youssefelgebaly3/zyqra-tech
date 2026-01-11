@@ -100,6 +100,8 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 window.onYouTubeIframeAPIReady = function () {
     const lesson = courseData.lessons[currentLessonIndex];
+    const savedTime = parseFloat(localStorage.getItem(`video_time_${courseData.id}_${lesson.id}`) || '0');
+
     player = new YT.Player('videoPlayer', {
         videoId: lesson.videoId,
         playerVars: {
@@ -107,13 +109,26 @@ window.onYouTubeIframeAPIReady = function () {
             'rel': 0,
             'showinfo': 0,
             'modestbranding': 1,
-            'enablejsapi': 1
+            'enablejsapi': 1,
+            'start': Math.floor(savedTime)
         },
         events: {
-            'onStateChange': onPlayerStateChange
+            'onStateChange': onPlayerStateChange,
+            'onReady': onPlayerReady
         }
     });
 };
+
+function onPlayerReady(event) {
+    // Start tracking time
+    setInterval(() => {
+        if (player && player.getPlayerState() === YT.PlayerState.PLAYING) {
+            const currentTime = player.getCurrentTime();
+            const lesson = courseData.lessons[currentLessonIndex];
+            localStorage.setItem(`video_time_${courseData.id}_${lesson.id}`, currentTime);
+        }
+    }, 5000);
+}
 
 function onPlayerStateChange(event) {
     // If video ended (YT.PlayerState.ENDED = 0)
@@ -134,9 +149,14 @@ function selectLesson(index) {
     document.getElementById('currentNum').textContent = index + 1;
 
     if (player && player.loadVideoById) {
-        player.loadVideoById(lesson.videoId);
+        const savedTime = parseFloat(localStorage.getItem(`video_time_${courseData.id}_${lesson.id}`) || '0');
+        player.loadVideoById({
+            videoId: lesson.videoId,
+            startSeconds: Math.floor(savedTime)
+        });
     } else {
-        document.getElementById('videoPlayer').src = `https://www.youtube.com/embed/${lesson.videoId}?enablejsapi=1`;
+        const savedTime = Math.floor(parseFloat(localStorage.getItem(`video_time_${courseData.id}_${lesson.id}`) || '0'));
+        document.getElementById('videoPlayer').src = `https://www.youtube.com/embed/${lesson.videoId}?enablejsapi=1&start=${savedTime}`;
     }
 
     document.getElementById('prevBtn').disabled = index === 0;
@@ -200,7 +220,7 @@ function toggleComplete() {
 function showToast(message = 'تم إكمال الدرس بنجاح 🎉') {
     const toast = document.getElementById('toast');
     if (toast) {
-        toast.querySelector('span').textContent = message;
+        toast.querySelector('span').innerHTML = message;
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 3000);
     }
@@ -366,9 +386,9 @@ function checkModuleRewards() {
             setTimeout(() => {
                 const toast = document.getElementById('toast');
                 if (toast) {
-                    toast.querySelector('span').textContent = 'مبروك أكملت الوحدة وحصلت على درع تجميد هدية ❄️🎁';
+                    toast.querySelector('span').innerHTML = 'مبروك أكملت الوحدة <br> وحصلت على درع تجميد هدية ❄️🎁';
                     toast.classList.add('show');
-                    setTimeout(() => toast.classList.remove('show'), 4000);
+                    setTimeout(() => toast.classList.remove('show'), 5000);
                 }
                 triggerConfetti();
             }, 3500);
@@ -413,6 +433,23 @@ function setupEventListeners() {
         document.getElementById('overlay').classList.add('show');
     };
     document.getElementById('overlay').onclick = closeSidebar;
+
+    // Streak & Freeze Click Explanations
+    const streakBadge = document.getElementById('streakBadge');
+    if (streakBadge) {
+        streakBadge.onclick = (e) => {
+            e.stopPropagation();
+            showToast('عدد الأيام المتتالية التي أكملت فيها درساً واحداً على الأقل 🔥');
+        };
+    }
+
+    const freezeBadge = document.getElementById('freezeBadge');
+    if (freezeBadge) {
+        freezeBadge.onclick = (e) => {
+            e.stopPropagation();
+            showToast('دروع حماية تحافظ على أيام الحماسة حتى لو غبت يوماً ❄️');
+        };
+    }
 
     // Tabs
     document.querySelectorAll('.tab-btn').forEach(btn => {

@@ -114,25 +114,26 @@ body {
 }
 
 .streak-badge {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.4rem;
-    padding: 0.4rem 0.8rem;
+    padding: 0.35rem 0.8rem;
     background: linear-gradient(135deg, #F59E0B, #D97706);
     border-radius: 20px;
     color: white;
     font-weight: 700;
     line-height: 1;
     cursor: help;
+    min-height: 32px;
 }
 
 .freeze-count {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.3rem;
-    padding: 0.4rem 0.8rem;
+    padding: 0.35rem 0.8rem;
     background: linear-gradient(135deg, #3B82F6, #2563EB);
     border-radius: 20px;
     color: white;
@@ -140,6 +141,7 @@ body {
     line-height: 1;
     cursor: help;
     transition: all 0.3s ease;
+    min-height: 32px;
 }
 
 .freeze-count.frozen {
@@ -865,14 +867,14 @@ body {
 }
 
 .lesson-num {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     border: 2px solid #d1d5db;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-weight: 700;
     color: var(--text-secondary);
     flex-shrink: 0;
@@ -1011,8 +1013,13 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    white-space: nowrap;
+    white-space: normal;
     font-size: 0.95rem;
+    text-align: center;
+}
+
+.toast-notification span {
+    line-height: 1.4;
 }
 
 .toast-notification.show {
@@ -1022,13 +1029,15 @@ body {
 
 @media (max-width: 576px) {
     .toast-notification {
-        left: 20px;
-        right: 20px;
-        bottom: 110px;
+        left: 95px;
+        right: auto;
+        bottom: 25px;
         transform: translateY(20px);
-        width: calc(100% - 40px);
+        width: auto;
+        max-width: calc(100% - 110px);
         text-align: center;
         justify-content: center;
+        padding: 0.6rem 1.2rem;
     }
 
     .toast-notification.show {
@@ -1083,9 +1092,12 @@ body {
         justify-content: center;
     }
 
-    .streak-badge {
-        padding: 0.5rem;
+    .streak-badge,
+    .freeze-count {
+        padding: 0 0.5rem;
         gap: 0.2rem;
+        min-height: 32px;
+        display: inline-flex;
     }
 
     .header-content {
@@ -1115,5 +1127,9 @@ body {
         line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
+    }
+
+    .progress-value {
+        top: 53% !important;
     }
 }
