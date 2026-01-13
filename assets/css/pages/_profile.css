@@ -406,6 +406,7 @@
     align-items: center;
     justify-content: center;
     line-height: 1;
+    transform: translateY(-1px);
 }
 
 .btn-continue,

@@ -266,10 +266,12 @@
 
 .course-meta i {
     color: var(--accent-color);
+    font-size: 0.9rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     line-height: 1;
+    transform: translateY(-1px);
 }
 
 .btn-course {
