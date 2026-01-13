@@ -565,6 +565,21 @@ body {
     line-height: 1.8;
 }
 
+/* Instructor Avatar Alignment */
+.avatar-circle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.avatar-circle i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    margin: 0;
+}
+
 /* Learning Points */
 .learning-grid {
     display: grid;
