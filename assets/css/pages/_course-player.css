@@ -143,6 +143,17 @@ body {
     align-items: center;
     justify-content: center;
     line-height: 1;
+    vertical-align: middle;
+}
+
+#streakCount {
+    font-size: 0.9rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    height: 100%;
 }
 
 .freeze-count {
@@ -167,6 +178,17 @@ body {
     align-items: center;
     justify-content: center;
     line-height: 1;
+    vertical-align: middle;
+}
+
+.freeze-count span:last-child {
+    font-size: 0.9rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    height: 100%;
 }
 
 .freeze-count.frozen {
