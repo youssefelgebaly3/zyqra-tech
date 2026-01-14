@@ -650,6 +650,12 @@ body {
     font-size: 1.3rem;
 }
 
+@media (max-width: 576px) {
+    .resource-icon i {
+        transform: translateY(2px);
+    }
+}
+
 .resource-icon.pdf {
     background: rgba(220, 38, 38, 0.15);
     color: #DC2626;

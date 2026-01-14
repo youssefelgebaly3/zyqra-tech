@@ -409,6 +409,12 @@
     transform: translateY(-1px);
 }
 
+@media (max-width: 767px) {
+    .course-meta i {
+        transform: translateY(-2.5px);
+    }
+}
+
 .btn-continue,
 .btn-certificate,
 .btn-start {

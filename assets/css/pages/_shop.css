@@ -274,6 +274,12 @@
     transform: translateY(-1px);
 }
 
+@media (max-width: 767px) {
+    .course-meta i {
+        transform: translateY(-2.5px);
+    }
+}
+
 .btn-course {
     display: inline-flex;
     align-items: center;
