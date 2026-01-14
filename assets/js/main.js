@@ -440,6 +440,85 @@
     }, 800);
   }
 
+  /*--------------------------------------------------------------
+  # Language Switcher
+  --------------------------------------------------------------*/
+  function initLanguageSwitcher() {
+    const langBtns = [
+      document.getElementById('language-toggle'),
+      document.getElementById('language-toggle-mobile')
+    ].filter(btn => btn !== null);
+
+    if (langBtns.length === 0) return;
+
+    function setLanguage(lang) {
+      const isRTL = lang === 'ar';
+      document.documentElement.lang = lang;
+      document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+      localStorage.setItem('zyqra_lang', lang);
+
+      const langCode = isRTL ? 'AR' : 'EN';
+      const langText = isRTL ? 'English' : 'العربية'; // Switch text to show target language or current? Standard is current. Let's keep consistency. Wrapper logic: if AR, shows AR. 
+      // User requested "Show Current Language". 
+      // Desktop: AR or EN
+      // Mobile: Link text.
+
+      langBtns.forEach(btn => {
+        if (btn.tagName === 'A') {
+          // Mobile menu link
+          // For mobile list, usually "Language: AR" or just "English" to switch? 
+          // Let's stick to "Language" for now or use the code. 
+          // If I use "Language", it's generic.
+          // If I use "English" (target), it's standard.
+          // If I use "AR" (current), it matches the desktop button. 
+          // Let's use "AR/EN" + "Change Language" context if space permits, or just the code?
+          // The user said "Add the button to the list".
+          // Let's simply replicate the desktop logic but with text.
+          const textToDisplay = isRTL ? 'العربية' : 'English';
+          // Wait, if I am in Arabic, I'm reading Arabic. So it says "العربية".
+          btn.innerHTML = `<i class="bi bi-globe me-2"></i> <span>${textToDisplay}</span>`;
+        } else {
+          // Desktop button
+          btn.innerHTML = `<i class="bi bi-globe"></i> <span>${langCode}</span>`;
+        }
+      });
+
+      // Update Bootstrap
+      const bootstrapLink = document.querySelector('link[href*="bootstrap.rtl.min.css"]') || document.querySelector('link[href*="bootstrap.min.css"]');
+      if (bootstrapLink) {
+        if (isRTL) {
+          if (!bootstrapLink.href.includes('rtl')) {
+            bootstrapLink.href = bootstrapLink.href.replace('bootstrap.min.css', 'bootstrap.rtl.min.css');
+          }
+        } else {
+          if (bootstrapLink.href.includes('rtl')) {
+            bootstrapLink.href = bootstrapLink.href.replace('bootstrap.rtl.min.css', 'bootstrap.min.css');
+          }
+        }
+      }
+    }
+
+    // Initialize from storage
+    const savedLang = localStorage.getItem('zyqra_lang');
+    if (savedLang) {
+      setLanguage(savedLang);
+    }
+
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const currentLang = document.documentElement.lang === 'en' ? 'en' : 'ar';
+        const newLang = currentLang === 'ar' ? 'en' : 'ar';
+        setLanguage(newLang);
+
+        // Close mobile menu if open
+        if (document.body.classList.contains('mobile-nav-active')) {
+          document.querySelector('.mobile-nav-toggle').click();
+        }
+      });
+    });
+  }
+
   function initAuth() {
     const passwordInput = document.getElementById('password');
     const strengthBar = document.querySelector('.password-strength-bar');
@@ -478,6 +557,7 @@
   // Run Initialization on Load
   document.addEventListener('DOMContentLoaded', () => {
     initTemplate();
+    initLanguageSwitcher();
     initAuth();
     initMemoryTransition();
     updateCartBadge();

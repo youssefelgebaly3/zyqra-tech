@@ -118,6 +118,38 @@
     position: relative;
 }
 
+.header .btn-language-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    height: 42px;
+    border-radius: 50px;
+    padding: 0 12px;
+    gap: 6px;
+    background: transparent;
+    color: var(--heading-color);
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    border: 1px solid color-mix(in srgb, var(--heading-color), transparent 85%);
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.header .btn-language-toggle span {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.header .btn-language-toggle:hover {
+    background: color-mix(in srgb, var(--accent-color), transparent 90%);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+    border-color: var(--accent-color);
+}
+
 .cart-badge {
     position: absolute;
     top: -5px;
@@ -485,6 +517,27 @@
     /* Keep toggle visible when scrolled */
     body.scrolled.mobile-nav-active .mobile-nav-toggle {
         top: 78px;
+    }
+
+    /* RTL Support for Mobile (HTML[dir="ltr"]) */
+    html[dir="ltr"] .header .logo {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    html[dir="ltr"] .header .logo h1 {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+
+    html[dir="ltr"] .header .header-actions {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+
+    html[dir="ltr"] .mobile-nav-active .mobile-nav-toggle {
+        left: auto;
+        right: 1px;
     }
 }
 
