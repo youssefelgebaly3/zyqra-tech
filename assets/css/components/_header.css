@@ -587,3 +587,9 @@
     transform: translateY(-5px) scale(1.15);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
+
+/* Helper to disable transitions during language switch */
+.no-transition,
+.no-transition * {
+    transition: none !important;
+}

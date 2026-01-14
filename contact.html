@@ -12,9 +12,10 @@
         rel="stylesheet">
 
     <link href="assets/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <script src="assets/js/lang-config.js?v=3.1"></script>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/css/main.css?v=2.3" rel="stylesheet">
+    <link href="assets/css/main.css?v=3.1" rel="stylesheet">
 </head>
 
 <body class="contact-page">
@@ -34,11 +35,21 @@
                     <li class="d-xl-none"><a href="signin.html"><i class="bi bi-person me-2"></i> تسجيل الدخول</a></li>
                     <li class="d-xl-none"><a href="signup.html"><i class="bi bi-person-plus me-2"></i> إنشاء حساب</a>
                     </li>
+                    <li class="d-xl-none"><a href="#" id="language-toggle-mobile"><i class="bi bi-globe me-2"></i>
+                            <span>Language</span></a></li>
+                    <li class="d-xl-none"><a href="#" id="language-toggle-mobile"></a><i class="bi bi-globe me-2"></i>
+                        <span>Language</span></a>
+                    </li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
             <div class="header-actions d-flex align-items-center gap-2">
+                <div class="d-none d-xl-flex">
+                    <button id="language-toggle" class="btn-language-toggle" title="Change Language">
+                        <i class="bi bi-globe"></i>
+                    </button>
+                </div>
                 <div class="auth-links d-none d-xl-flex align-items-center gap-2">
                     <a href="signin.html" class="auth-link login">
                         <i class="bi bi-person"></i>
@@ -327,7 +338,7 @@
 
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=3.1"></script>
 </body>
 
 </html>
