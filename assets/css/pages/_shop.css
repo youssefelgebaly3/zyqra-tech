@@ -302,7 +302,18 @@
     align-items: center;
     justify-content: center;
     line-height: 1;
-    transform: translateY(-2px);
+}
+
+@media (min-width: 769px) {
+    .btn-course i {
+        transform: translateY(1px);
+    }
+}
+
+@media (max-width: 768px) {
+    .btn-course i {
+        transform: translateY(-2px);
+    }
 }
 
 /*--------------------------------------------------------------

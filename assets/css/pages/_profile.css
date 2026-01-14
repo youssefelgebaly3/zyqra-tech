@@ -438,7 +438,24 @@
     align-items: center;
     justify-content: center;
     line-height: 1;
-    transform: translateY(-2px);
+}
+
+@media (min-width: 769px) {
+
+    .btn-continue i,
+    .btn-certificate i,
+    .btn-start i {
+        transform: translateY(1px);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .btn-continue i,
+    .btn-certificate i,
+    .btn-start i {
+        transform: translateY(-2px);
+    }
 }
 
 .btn-continue {
@@ -635,6 +652,23 @@
     cursor: pointer;
     transition: all 0.3s ease;
     border: none;
+}
+
+.btn-download i,
+.btn-share i {
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+@media (min-width: 769px) {
+
+    .btn-download i,
+    .btn-share i {
+        transform: translateY(1px);
+    }
 }
 
 .btn-download {
@@ -1034,7 +1068,22 @@
     align-items: center;
     justify-content: center;
     line-height: 1;
-    transform: translateY(-2px);
+}
+
+@media (min-width: 769px) {
+
+    .btn-logout i,
+    .btn-delete-account i {
+        transform: translateY(1px);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .btn-logout i,
+    .btn-delete-account i {
+        transform: translateY(-2px);
+    }
 }
 
 .btn-logout {
