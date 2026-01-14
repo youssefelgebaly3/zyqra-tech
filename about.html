@@ -25,7 +25,7 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Main CSS File -->
-    <link href="assets/css/main.css?v=2.3" rel="stylesheet">
+    <link href="assets/css/main.css?v=2.9" rel="stylesheet">
 </head>
 
 <body class="about-page">
@@ -45,11 +45,18 @@
                     <li class="d-xl-none"><a href="signin.html"><i class="bi bi-person me-2"></i> تسجيل الدخول</a></li>
                     <li class="d-xl-none"><a href="signup.html"><i class="bi bi-person-plus me-2"></i> إنشاء حساب</a>
                     </li>
+                    <li class="d-xl-none"><a href="#" id="language-toggle-mobile"><i class="bi bi-globe me-2"></i>
+                            <span>Language</span></a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
             <div class="header-actions d-flex align-items-center gap-2">
+                <div class="d-none d-xl-flex">
+                    <button id="language-toggle" class="btn-language-toggle" title="Change Language">
+                        <i class="bi bi-globe"></i>
+                    </button>
+                </div>
                 <div class="auth-links d-none d-xl-flex align-items-center gap-2">
                     <a href="signin.html" class="auth-link login">
                         <i class="bi bi-person"></i>

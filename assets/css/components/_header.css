@@ -535,6 +535,11 @@
         margin-right: 10px;
     }
 
+    html[dir="ltr"] .header .btn-shop-icon {
+        margin-left: 0;
+        margin-right: -115px;
+    }
+
     html[dir="ltr"] .mobile-nav-active .mobile-nav-toggle {
         left: auto;
         right: 1px;
