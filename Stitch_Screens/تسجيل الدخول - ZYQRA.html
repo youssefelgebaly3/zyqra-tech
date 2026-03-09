@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Tajawal:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#003366",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1923",
+                    },
+                    fontFamily: {
+                        "display": ["Tajawal", "Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-4">
+<div class="w-full max-w-[480px] bg-white dark:bg-slate-900/50 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="p-8">
+<!-- Logo Section -->
+<div class="flex flex-col items-center justify-center gap-4 mb-10">
+<div class="size-16 bg-primary text-white rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+<svg class="size-10" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+</svg>
+</div>
+<h1 class="text-3xl font-black text-primary dark:text-white tracking-tight">ZYQRA</h1>
+<div class="text-center">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">تسجيل الدخول</h2>
+<p class="text-slate-500 dark:text-slate-400 mt-2">مرحباً بك مجدداً! يرجى إدخال بياناتك</p>
+</div>
+</div>
+<!-- Form Section -->
+<form action="#" class="space-y-5">
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300 pr-1">البريد الإلكتروني</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">mail</span>
+<input class="w-full h-14 pr-12 pl-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="name@company.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300 pr-1">كلمة المرور</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">lock</span>
+<input class="w-full h-14 pr-12 pl-12 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="••••••••" type="password"/>
+<button class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between text-sm py-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors">تذكرني</span>
+</label>
+<a class="text-primary font-bold hover:underline" href="#">نسيت كلمة المرور؟</a>
+</div>
+<button class="w-full h-14 bg-primary text-white rounded-lg font-bold text-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2" type="submit">
+<span>تسجيل الدخول</span>
+<span class="material-symbols-outlined">login</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="relative my-8 text-center">
+<hr class="border-slate-200 dark:border-slate-800"/>
+<span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-slate-900 px-4 text-sm text-slate-400">أو عبر</span>
+</div>
+<!-- Social Logins -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 h-12 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<img alt="" class="size-5" data-alt="Google colorful logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZm_C879DwJNkz1RjFn8uTxgrGnMJbvwS7ZYLfytSb-esmHfuW2EJFHiMIeXU2tcLai2l0RKpb5PV3kJh4uFgZR39GnQl9TJMaHKxCZfM76HVCMuxa9fcirhUkcG0yxcb6Lptuj4mMdiLtaXyoeqRXATgt8bov3sHtkGz2vN5mzxRVLpDigp2XxnIZSJcYVPsv_HIUnqWceOn-XTgdyQ7CZ_OXXfMnixyQXVSQ_DTPss2DyPhp34VG0VoUUSYCgo5E9ibZetfr2yQ"/>
+<span class="text-sm font-bold">Google</span>
+</button>
+<button class="flex items-center justify-center gap-2 h-12 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<svg class="size-5 text-[#1877F2]" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+<span class="text-sm font-bold">Facebook</span>
+</button>
+</div>
+<!-- Signup Link -->
+<div class="mt-10 text-center">
+<p class="text-slate-600 dark:text-slate-400">
+                    ليس لديك حساب؟ 
+                    <a class="text-primary font-bold hover:underline px-1" href="#">إنشاء حساب جديد</a>
+</p>
+</div>
+</div>
+<!-- Footer / Decorative area -->
+<div class="bg-primary/5 dark:bg-primary/20 py-4 px-8 text-center border-t border-slate-100 dark:border-slate-800">
+<p class="text-xs text-slate-500 dark:text-slate-400">© 2024 ZYQRA. جميع الحقوق محفوظة.</p>
+</div>
+</div>
+<!-- Background Decoration Elements -->
+<div class="fixed top-0 right-0 -z-10 w-1/3 h-1/3 bg-primary/5 blur-[120px] rounded-full"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-1/4 h-1/4 bg-primary/10 blur-[100px] rounded-full"></div>
+</body></html>

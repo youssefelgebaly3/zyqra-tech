@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Tajawal:wght@300;400;500;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#003366",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1923",
+                    },
+                    fontFamily: {
+                        "display": ["Tajawal", "Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden">
+<!-- Header / Navigation -->
+<header class="flex items-center justify-between border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 md:px-20 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl">shield_person</span>
+</div>
+<h2 class="text-primary text-2xl font-bold tracking-tight">زيقرا (ZYQRA)</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary transition-colors font-medium" href="#">الرئيسية</a>
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary transition-colors font-medium" href="#">من نحن</a>
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary transition-colors font-medium" href="#">اتصل بنا</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded-xl h-10 w-10 bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</header>
+<main class="flex-1 max-w-4xl mx-auto w-full px-6 py-12">
+<!-- Hero Section -->
+<div class="mb-12">
+<nav class="flex items-center gap-2 mb-6 text-sm text-slate-500">
+<a class="hover:text-primary transition-colors" href="#">الرئيسية</a>
+<span class="material-symbols-outlined text-xs">chevron_left</span>
+<span class="text-primary font-semibold">سياسة الخصوصية</span>
+</nav>
+<h1 class="text-4xl md:text-5xl font-extrabold text-primary mb-4">سياسة الخصوصية</h1>
+<div class="flex items-center gap-2 text-slate-500">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<p class="text-base">آخر تحديث: ديسمبر 2024</p>
+</div>
+</div>
+<!-- Content Container -->
+<div class="space-y-12 bg-white dark:bg-slate-900/50 p-8 rounded-xl shadow-sm border border-primary/5">
+<!-- Section 1: Introduction -->
+<section>
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">info</span>
+<h2 class="text-2xl font-bold text-primary">1. مقدمة</h2>
+</div>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed text-lg">
+                        مرحبًا بكم في زيقرا (ZYQRA). نحن نولي أهمية قصوى لخصوصيتك وحماية بياناتك الشخصية. توضح هذه السياسة كيفية جمعنا واستخدامنا وحمايتنا لمعلوماتك عند استخدام منصتنا. من خلال استخدام خدماتنا، فإنك توافق على ممارسات البيانات الموضحة في هذه السياسة.
+                    </p>
+</section>
+<hr class="border-primary/5"/>
+<!-- Section 2: Data Collection -->
+<section>
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">database</span>
+<h2 class="text-2xl font-bold text-primary">2. جمع البيانات</h2>
+</div>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+                        نقوم بجمع أنواع مختلفة من المعلومات لتقديم وتحسين خدماتنا لك:
+                    </p>
+<ul class="list-disc list-inside space-y-2 text-slate-700 dark:text-slate-300 pr-4">
+<li>المعلومات الشخصية: مثل الاسم، البريد الإلكتروني، ورقم الهاتف عند التسجيل.</li>
+<li>بيانات الاستخدام: معلومات حول كيفية وصولك إلى الموقع وتفاعلك معه.</li>
+<li>ملفات تعريف الارتباط: نستخدم الكوكيز لتحسين تجربة المستخدم وتحليل الحركة على الموقع.</li>
+</ul>
+</section>
+<hr class="border-primary/5"/>
+<!-- Section 3: Usage -->
+<section>
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">settings_suggest</span>
+<h2 class="text-2xl font-bold text-primary">3. استخدام البيانات</h2>
+</div>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+                        نستخدم البيانات التي نجمعها للأغراض التالية:
+                    </p>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="p-4 bg-primary/5 rounded-lg border border-primary/10">
+<h3 class="font-bold text-primary mb-1">تحسين الخدمة</h3>
+<p class="text-sm">تخصيص تجربتك وتطوير ميزات جديدة تلبي احتياجاتك.</p>
+</div>
+<div class="p-4 bg-primary/5 rounded-lg border border-primary/10">
+<h3 class="font-bold text-primary mb-1">التواصل</h3>
+<p class="text-sm">إرسال التحديثات، التنبيهات الأمنية، والدعم الفني.</p>
+</div>
+</div>
+</section>
+<hr class="border-primary/5"/>
+<!-- Section 4: Data Protection -->
+<section>
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">lock</span>
+<h2 class="text-2xl font-bold text-primary">4. حماية البيانات</h2>
+</div>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                        نحن نطبق مجموعة متنوعة من الإجراءات الأمنية للحفاظ على سلامة معلوماتك الشخصية. نستخدم تقنيات التشفير المتقدمة (SSL) وبروتوكولات الأمان الصارمة لمنع الوصول غير المصرح به أو الكشف عن بياناتك.
+                    </p>
+</section>
+<hr class="border-primary/5"/>
+<!-- Section 5: User Rights -->
+<section>
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">verified_user</span>
+<h2 class="text-2xl font-bold text-primary">5. حقوق المستخدم</h2>
+</div>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+                        لديك حقوق محددة فيما يتعلق ببياناتك الشخصية، وتشمل:
+                    </p>
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+<span>حق الوصول إلى بياناتك الشخصية التي نحتفظ بها.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+<span>حق طلب تصحيح أي معلومات غير دقيقة.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+<span>حق طلب حذف بياناتك في ظروف معينة.</span>
+</li>
+</ul>
+</section>
+<!-- Contact Section -->
+<div class="mt-16 p-6 rounded-xl bg-primary text-white text-center">
+<h2 class="text-xl font-bold mb-4">هل لديك استفسارات؟</h2>
+<p class="mb-6 opacity-90">إذا كانت لديك أي أسئلة حول سياسة الخصوصية هذه، يرجى التواصل معنا عبر:</p>
+<a class="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-lg font-bold hover:bg-slate-100 transition-all" href="mailto:privacy@zyqra.com">
+<span class="material-symbols-outlined">mail</span>
+                        privacy@zyqra.com
+                    </a>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 py-10 mt-12 border-t border-white/5">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 text-white">
+<span class="material-symbols-outlined">shield_person</span>
+<span class="font-bold">زيقرا (ZYQRA)</span>
+</div>
+<div class="flex gap-8 text-sm">
+<a class="hover:text-white transition-colors" href="#">شروط الخدمة</a>
+<a class="hover:text-white transition-colors" href="#">سياسة الكوكيز</a>
+<a class="hover:text-white transition-colors" href="#">الدعم الفني</a>
+</div>
+<p class="text-xs">© 2024 زيقرا. جميع الحقوق محفوظة.</p>
+</div>
+</footer>
+</div>
+</body></html>
