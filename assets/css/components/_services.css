@@ -268,22 +268,22 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: var(--accent-color);
-    color: var(--contrast-color);
+    background: var(--surface-color);
+    color: var(--accent-color);
     padding: 10px 20px;
     border-radius: 12px;
     font-weight: 700;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    border: none;
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
     margin-top: auto;
 }
 
 .services .services-grid .service-card .btn-card:hover {
-    background: var(--heading-color);
+    background: var(--accent-color);
     color: var(--contrast-color);
-    transform: translateX(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .services .services-grid .service-card .btn-card i {

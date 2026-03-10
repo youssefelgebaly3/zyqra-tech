@@ -36,152 +36,124 @@
     margin-bottom: 0;
 }
 
-/* Dots */
-.timeline-dot {
-    width: 20px;
-    height: 20px;
-    background: var(--surface-color);
-    border: 3px solid var(--accent-color);
-    border-radius: 50%;
-    position: absolute;
-    left: 50%;
-    top: 5px;
-    transform: translateX(-50%);
-    z-index: 10;
-    box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent-color), transparent 92%);
+/* New Stitch Timeline Layout */
+.timeline-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
-/* Dates */
-.timeline-date {
-    position: absolute;
-    top: 5px;
-    line-height: 20px;
-    font-weight: 800;
-    color: var(--accent-color);
+.timeline-content-left,
+.timeline-content-right {
     width: 45%;
-    font-family: var(--heading-font);
-    font-size: 1.4rem;
-    transition: all 0.3s ease;
-    z-index: 1;
 }
 
-.timeline-item:nth-child(odd) .timeline-date {
-    right: 50%;
-    left: auto;
-    text-align: right;
-    padding-right: 25px;
+@media (min-width: 768px) {
+
+    .timeline-content-left,
+    .timeline-content-right {
+        background: var(--surface-color);
+        padding: 1.5rem;
+        border-radius: 20px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
+        border: 1px solid rgba(15, 23, 42, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .timeline-content-left.d-none,
+    .timeline-content-right.d-none {
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+    }
 }
 
-.timeline-item:nth-child(even) .timeline-date {
-    left: 50%;
-    right: auto;
-    text-align: left;
-    padding-left: 25px;
-}
-
-/* Content Cards */
-.timeline-content {
-    width: 45%;
-    padding: 25px;
-    background: var(--surface-color);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
-    position: relative;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    z-index: 2;
-}
-
-.timeline-content:hover {
+.timeline-content-left:hover,
+.timeline-content-right:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px color-mix(in srgb, var(--accent-color), transparent 90%);
-    border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+    border-color: rgba(15, 23, 42, 0.1);
 }
 
-.timeline-item:nth-child(odd) .timeline-content {
-    margin-left: auto;
-    text-align: right;
+.timeline-dot-center {
+    z-index: 10;
+    background: var(--accent-color);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--contrast-color);
+    font-weight: 700;
+    box-shadow: 0 0 0 8px var(--background-color);
+    position: relative;
 }
 
-.timeline-item:nth-child(even) .timeline-content {
-    margin-right: auto;
-    text-align: right;
+.timeline-dot-center span {
+    font-size: 1rem;
+    line-height: 1;
 }
 
-@media (max-width: 768px) {
+.timeline-content-left h3,
+.timeline-content-right h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+}
 
-    /* Keep desktop structure but scale down */
+.timeline-content-left p,
+.timeline-content-right p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--default-color);
+    margin: 0;
+}
+
+@media (max-width: 767px) {
     .timeline .timeline-container::before {
-        /* Keep centered line */
-        left: 50%;
-        width: 2px;
-        transform: translateX(-50%);
-        right: auto;
+        left: 24px;
+        transform: none;
     }
 
-    .timeline-dot {
-        width: 14px;
-        height: 14px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-width: 2px;
-        box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 92%);
-        /* Reset mobile override */
-        top: 5px;
-        right: auto;
+    .timeline-row {
+        flex-direction: column !important;
+        align-items: flex-start;
+        position: relative;
+        padding-right: 60px;
+        /* Space for the line/dot on the right (RTL) */
     }
 
-    .timeline-date {
-        font-size: 0.9rem;
-        width: 45%;
-        /* Reset mobile override */
+    .timeline-dot-center {
         position: absolute;
-        display: block;
-        margin-bottom: 0;
-        top: 2px;
+        right: 0;
+        top: 0;
+        width: 48px;
+        height: 48px;
+        box-shadow: 0 0 0 4px var(--background-color);
     }
 
-    /* Odd Items (Date Left, Content Right) */
-    .timeline-item:nth-child(odd) .timeline-date {
-        right: 53%;
-        text-align: right;
-        padding-right: 0;
-        left: auto !important;
+    .timeline-dot-center span {
+        font-size: 0.85rem;
     }
 
-    /* Even Items (Date Right, Content Left) */
-    .timeline-item:nth-child(even) .timeline-date {
-        left: 53%;
-        text-align: left;
-        padding-left: 0;
-        right: auto !important;
+    .timeline-content-left,
+    .timeline-content-right {
+        width: 100%;
+        background: var(--surface-color);
+        padding: 1.25rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        border: 1px solid rgba(15, 23, 42, 0.05);
+        margin-top: 10px;
     }
 
-    .timeline-content {
-        width: 45%;
-        padding: 12px;
-        /* Reset mobile override */
-        margin: 0;
-    }
-
-    .timeline-item:nth-child(odd) .timeline-content {
-        margin-left: auto;
-        margin-right: 0;
-    }
-
-    .timeline-item:nth-child(even) .timeline-content {
-        margin-right: auto;
-        margin-left: 0;
-    }
-
-    .timeline-content h3 {
-        font-size: 1rem;
-        margin-bottom: 6px;
-    }
-
-    .timeline-content p {
-        font-size: 0.75rem;
-        line-height: 1.4;
+    .timeline-content-left.d-none,
+    .timeline-content-right.d-none {
+        display: none !important;
     }
 }
 

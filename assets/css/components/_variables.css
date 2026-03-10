@@ -10,7 +10,7 @@
   --nav-font: "Tajawal", "Rubik", sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+/* Global Colors - Modernized for a sleek, Google Stitch-like aesthetic */
 :root {
   --background-color: #f5f7f8;
   /* Background color for the entire website, including individual sections */
@@ -48,7 +48,7 @@
   --primary-rgb: 0, 74, 153;
 }
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+/* Nav Menu Colors - Modernized */
 :root {
   --nav-color: #334155;
   /* Tailwind text-slate-700 */
@@ -56,7 +56,6 @@
   --nav-hover-color: #004a99;
   /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff;
-  /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff;
   /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #334155;
