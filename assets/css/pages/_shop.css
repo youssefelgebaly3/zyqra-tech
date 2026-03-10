@@ -1,127 +1,147 @@
-﻿/**
-* ZYQRA Shop Styles
-* Products, Courses, Search, and Details
-*/
-
-/*--------------------------------------------------------------
-# Product Cards
+﻿/*--------------------------------------------------------------
+# Product Cards (Matching Course Card Design)
 --------------------------------------------------------------*/
 .product-card {
     background: var(--surface-color);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
 }
 
 .product-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
 }
 
 .product-image {
     width: 100%;
-    height: 220px;
-    object-fit: cover;
-    background: linear-gradient(135deg, var(--accent-color), var(--heading-color));
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.5s ease;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05), inset 0 -3px 8px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.product-card:hover .product-image i {
+    transform: scale(1.1);
 }
 
 .product-image i {
-    font-size: 5rem;
+    font-size: 4rem;
     color: white;
+    transition: transform 0.4s ease;
 }
 
 .product-info {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
 }
 
 .product-category {
     display: inline-block;
     background: color-mix(in srgb, var(--accent-color), transparent 90%);
     color: var(--accent-color);
-    padding: 0.25rem 0.75rem;
+    padding: 0.35rem 0.85rem;
     border-radius: 20px;
     font-size: 0.8rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 0.85rem;
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
 }
 
 .product-title {
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--heading-color);
     margin-bottom: 0.5rem;
-}
-
-.product-subtitle {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--accent-color);
-    margin-bottom: 1rem;
+    line-height: 1.4;
 }
 
 .product-desc {
     color: var(--default-color);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-.product-price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--accent-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .product-price-wrapper {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     gap: 0.75rem;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent-color);
+}
+
+.old-price {
+    font-size: 1rem;
+    color: var(--default-color);
+    opacity: 0.5;
+    text-decoration: line-through;
+    font-weight: 500;
 }
 
 .discount-badge {
     display: inline-block;
     background: linear-gradient(135deg, #EF4444, #DC2626);
     color: white;
-    padding: 0.35rem 0.85rem;
+    padding: 0.3rem 0.75rem;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
-    animation: pulse-badge 2s ease-in-out infinite;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    animation: discountPulse 2s ease-in-out infinite;
 }
 
-@keyframes pulse-badge {
+@keyframes discountPulse {
 
     0%,
     100% {
         transform: scale(1);
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
     }
 
     50% {
-        transform: scale(1.05);
+        transform: scale(1.08);
+        box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
     }
-}
-
-.old-price {
-    font-size: 1.1rem;
-    color: var(--default-color);
-    opacity: 0.6;
-    text-decoration: line-through;
-    font-weight: 500;
 }
 
 .product-features {
     list-style: none;
     padding: 0;
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.25rem 0;
 }
 
 .product-features li {
@@ -131,55 +151,84 @@
     font-size: 0.875rem;
     color: var(--default-color);
     margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
 .product-features li i {
     color: var(--accent-color);
+    font-size: 0.95rem;
 }
 
+/* Product Meta (matches course-meta) */
+.product-meta {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--default-color);
+    font-weight: 600;
+}
+
+.product-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.product-meta i {
+    color: var(--accent-color);
+    font-size: 0.95rem;
+}
+
+/* CTA Buttons (matches btn-course pill style) */
 .btn-product {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+    gap: 10px;
     background: var(--accent-color);
     color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
+    padding: 10px 20px;
+    border-radius: 12px;
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex: 2;
+    justify-content: center;
     border: none;
     cursor: pointer;
-    width: 100%;
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-color), transparent 70%);
 }
 
 .btn-product:hover {
-    background: color-mix(in srgb, var(--accent-color), black 15%);
-    color: white;
     transform: translateY(-2px);
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--accent-color), transparent 50%);
+    background: color-mix(in srgb, var(--accent-color), black 10%);
 }
 
 .btn-details {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    background: transparent;
+    background: white;
     color: var(--accent-color);
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: 2px solid var(--accent-color);
-    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+    flex: 0 0 44px;
 }
 
 .btn-details:hover {
     background: var(--accent-color);
     color: white;
     transform: translateY(-2px);
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--accent-color), transparent 80%);
 }
 
 /*--------------------------------------------------------------
@@ -187,18 +236,21 @@
 --------------------------------------------------------------*/
 .course-card {
     background: var(--surface-color);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
     height: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
 }
 
 .course-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
 }
 
 .course-image {
@@ -209,11 +261,17 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transition: all 0.5s ease;
+}
+
+.course-card:hover .course-image i {
+    transform: scale(1.1);
 }
 
 .course-image i {
     font-size: 4rem;
     color: white;
+    transition: transform 0.4s ease;
 }
 
 .course-info {
@@ -226,47 +284,50 @@
 
 .course-badge {
     display: inline-block;
-    background: #28A745;
-    color: white;
-    padding: 0.25rem 0.75rem;
+    background: rgba(40, 167, 69, 0.1);
+    color: #28A745;
+    padding: 0.35rem 0.85rem;
     border-radius: 20px;
     font-size: 0.8rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 0.85rem;
+    border: 1px solid rgba(40, 167, 69, 0.2);
 }
 
 .course-title {
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--heading-color);
     margin-bottom: 0.5rem;
+    line-height: 1.4;
 }
 
 .course-desc {
     color: var(--default-color);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.6;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .course-meta {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    font-size: 0.875rem;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
     color: var(--default-color);
+    font-weight: 600;
 }
 
 .course-meta span {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.4rem;
     line-height: 1;
 }
 
 .course-meta i {
     color: var(--accent-color);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -283,18 +344,28 @@
 .btn-course {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;
     background: var(--accent-color);
     color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
+    padding: 12px 24px;
+    border-radius: 50px;
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     width: 100%;
     justify-content: center;
     margin-top: auto;
     line-height: 1;
+    border: none;
+    box-shadow: 0 4px 15px color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.btn-course:hover,
+.btn-course:active {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 50%);
+    color: white;
 }
 
 .btn-course i {
@@ -302,6 +373,11 @@
     align-items: center;
     justify-content: center;
     line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.btn-course:hover i {
+    transform: translateX(-4px);
 }
 
 @media (min-width: 769px) {
@@ -321,21 +397,20 @@
 --------------------------------------------------------------*/
 .skill-card {
     position: relative;
-    border-radius: 24px;
-    padding: 2px;
-    /* For gradient border */
+    border-radius: 20px;
+    background: var(--surface-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     height: 100%;
     margin-bottom: 30px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .skill-card .card-content {
-    background: var(--surface-color);
-    border-radius: 22px;
-    padding: 1.5rem 1.25rem;
-    /* Reduced from 2rem 1.5rem */
+    padding: 2rem 1.5rem;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -343,36 +418,34 @@
     text-align: center;
     z-index: 2;
     position: relative;
-}
-
-.skill-card.hard-skills {
-    background: linear-gradient(135deg, #2E86AB, #06b6d4, #1A1A2E);
-}
-
-.skill-card.soft-skills {
-    background: linear-gradient(135deg, #A23B72, #ec4899, #4a044e);
+    background: transparent;
 }
 
 .skill-card .icon-box {
     position: relative;
-    width: 65px;
-    /* Reduced from 80px */
-    height: 65px;
-    /* Reduced from 80px */
+    width: 70px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.25rem;
-    /* Reduced from 2rem */
+    margin-bottom: 1.5rem;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.skill-card.hard-skills .icon-box {
+    background: rgba(6, 182, 212, 0.1);
+    border-color: rgba(6, 182, 212, 0.2);
+}
+
+.skill-card.soft-skills .icon-box {
+    background: rgba(236, 72, 153, 0.1);
+    border-color: rgba(236, 72, 153, 0.2);
 }
 
 .skill-card .icon-box i {
     font-size: 2.2rem;
-    /* Reduced from 2.8rem */
     line-height: 1;
     display: flex;
     align-items: center;
@@ -391,22 +464,30 @@
 
 .skill-card .bg-icon {
     position: absolute;
-    font-size: 6rem !important;
-    opacity: 0.08;
+    font-size: 8rem !important;
+    opacity: 0.03;
     transform: rotate(-15deg);
     top: 50%;
     left: 50%;
-    margin-top: -3rem;
-    /* Half of font-size to center properly */
-    margin-left: -3rem;
+    margin-top: -4rem;
+    margin-left: -4rem;
     z-index: 1;
     color: inherit;
     text-shadow: none !important;
     pointer-events: none;
 }
 
+.skill-card.hard-skills .bg-icon {
+    color: #06b6d4;
+}
+
+.skill-card.soft-skills .bg-icon {
+    color: #ec4899;
+}
+
+
 .skill-card h3 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
     color: var(--heading-color);
@@ -414,30 +495,30 @@
 
 .skill-card .subtitle {
     display: block;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--default-color);
     opacity: 0.7;
 }
 
 .skill-card p {
     color: var(--default-color);
     margin-bottom: 2rem;
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 1rem;
     line-height: 1.6;
 }
 
 /* Uiverse Button Style - Premium Evolve */
 .uiverse-btn {
     margin-top: auto;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    padding: 12px 28px;
+    gap: 8px;
+    padding: 10px 24px;
     border: none;
     border-radius: 50px;
     font-family: inherit;
@@ -445,17 +526,30 @@
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background: #1a1a2e;
-    color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: var(--surface-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     position: relative;
     overflow: hidden;
     z-index: 1;
 }
 
+/* Hard Skills Default Button */
+.skill-card.hard-skills .uiverse-btn {
+    background: rgba(6, 182, 212, 0.1);
+    color: #06b6d4;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+/* Soft Skills Default Button */
+.skill-card.soft-skills .uiverse-btn {
+    background: rgba(236, 72, 153, 0.1);
+    color: #ec4899;
+    border: 1px solid rgba(236, 72, 153, 0.2);
+}
+
 .uiverse-btn svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     transition: transform 0.3s ease;
     fill: none;
     stroke: currentColor;
@@ -466,92 +560,76 @@
 
 /* Card Hover Effect */
 .skill-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
 }
 
 /* Button States (Hover & Active/Touch) */
 .uiverse-btn:hover,
 .uiverse-btn:active {
-    transform: translateY(-5px) scale(1.1);
+    transform: translateY(-3px) scale(1.05);
 }
 
 /* Hard Skills Button Hover & Active */
 .skill-card.hard-skills .uiverse-btn:hover,
 .skill-card.hard-skills .uiverse-btn:active,
 .skill-card.hard-skills .uiverse-btn:focus {
-    background: #06b6d4 !important;
-    box-shadow: 0 10px 25px rgba(6, 182, 212, 0.5);
+    background: #06b6d4;
+    color: white;
+    box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4);
+    border-color: #06b6d4;
 }
 
 /* Soft Skills Button Hover & Active */
 .skill-card.soft-skills .uiverse-btn:hover,
 .skill-card.soft-skills .uiverse-btn:active,
 .skill-card.soft-skills .uiverse-btn:focus {
-    background: #ec4899 !important;
-    box-shadow: 0 10px 25px rgba(236, 72, 153, 0.5);
+    background: #ec4899;
+    color: white;
+    box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4);
+    border-color: #ec4899;
 }
 
 .uiverse-btn:hover svg,
 .uiverse-btn:active svg {
-    transform: translateX(5px);
+    transform: translateX(3px);
 }
 
-/* Permanent Mobile Colors & Total Card Resize */
+/* Mobile Adjustments */
 @media (max-width: 991px) {
     .skill-card {
-        max-width: 310px;
+        max-width: 350px;
         margin-left: auto;
         margin-right: auto;
-        border-radius: 20px;
     }
 
     .skill-card .card-content {
-        padding: 1.25rem 1rem;
-        border-radius: 18px;
+        padding: 1.5rem 1.25rem;
     }
 
     .skill-card .icon-box {
-        width: 52px;
-        height: 52px;
-        margin-bottom: 0.85rem;
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
     }
 
     .skill-card .icon-box i {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
     }
 
     .skill-card h3 {
-        font-size: 1.35rem;
-        margin-bottom: 0.25rem;
-    }
-
-    .skill-card .subtitle {
-        font-size: 0.8rem;
-        margin-bottom: 0.75rem;
+        font-size: 1.3rem;
     }
 
     .skill-card p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .uiverse-btn {
+        padding: 8px 20px;
         font-size: 0.9rem;
-        margin-bottom: 1.25rem;
-        line-height: 1.5;
-    }
-
-    .uiverse-btn,
-    .uiverse-hero-btn {
-        padding: 9px 20px !important;
-        font-size: 0.85rem !important;
-        gap: 7px !important;
-    }
-
-    .skill-card.hard-skills .uiverse-btn {
-        background: #06b6d4 !important;
-        box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4);
-    }
-
-    .skill-card.soft-skills .uiverse-btn {
-        background: #ec4899 !important;
-        box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4);
     }
 }
 
@@ -562,7 +640,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(rgba(255, 255, 255, 0.1), transparent);
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -587,7 +665,7 @@
 }
 
 .skill-card:hover .card-glow {
-    opacity: 0.1;
+    opacity: 0.05;
 }
 
 .btn-course:hover {
@@ -858,18 +936,66 @@
 }
 
 .btn-wishlist {
-    width: 56px;
-    height: 56px;
-    border: 2px solid #e5e5e5;
-    border-radius: 12px;
-    background: white;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    /* Visual right in RTL */
+    background: rgba(0, 0, 0, 0.15);
+    /* Slightly darker as requested */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
     cursor: pointer;
-    transition: all 0.3s;
+    z-index: 10;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* For visibility on white products */
+}
+
+.btn-wishlist i {
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    /* Shadows so white icon pops on white img */
 }
 
 .btn-wishlist:hover {
-    border-color: #EF4444;
-    color: #EF4444;
+    background: rgba(0, 0, 0, 0.25);
+    transform: scale(1.1);
+}
+
+.btn-wishlist.active {
+    background: white;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+}
+
+.btn-wishlist.active i {
+    color: #dc3545;
+    /* Bootstrap danger red */
+    animation: heartBeat 0.5s ease-in-out;
+    filter: none;
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /*--------------------------------------------------------------
@@ -1332,78 +1458,386 @@
     }
 }
 
-/* Back to Paths Button - Satyam 'Shine' Design */
+/* Back to Paths Button - Modernized Design */
 .uiverse-shine-btn {
     position: relative;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-    padding: 10px 25px;
-    background-color: var(--accent-color);
-    border-radius: 9999px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 10px 24px;
+    background-color: var(--surface-color);
+    border: 1.5px solid color-mix(in srgb, var(--default-color), transparent 85%);
+    border-radius: 50px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #ffff;
-    gap: 12px;
-    font-weight: bold;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    outline: none;
-    overflow: hidden;
-    font-size: 1.1rem;
+    color: var(--heading-color);
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1rem;
     cursor: pointer;
-    font-family: var(--nav-font);
     text-decoration: none !important;
-    line-height: 1;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
 }
 
 .uiverse-shine-btn .icon {
-    width: 20px;
-    height: 20px;
-    transition: all 0.3s ease-in-out;
+    width: 18px;
+    height: 18px;
+    transition: all 0.3s ease;
     transform: scaleX(-1);
-    /* Flips the arrow direction for RTL Back */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    color: var(--default-color);
 }
 
 .uiverse-shine-btn:hover {
-    transform: scale(1.05);
-    /* Only scale, no translation as requested */
-    border-color: rgba(255, 255, 255, 0.6);
-    background-color: var(--heading-color);
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+    color: var(--accent-color);
+    border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
 }
 
-/* Shine effect */
-.uiverse-shine-btn::before {
+.uiverse-shine-btn:hover .icon {
+    color: var(--accent-color);
+    transform: scaleX(-1) translateX(-4px);
+    /* subtle arrow move on hover in RTL */
+}
+
+/*--------------------------------------------------------------
+# Courses Filter & Search
+--------------------------------------------------------------*/
+.course-filters {
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.search-box {
+    position: relative;
+    width: 100%;
+}
+
+.search-box .search-icon {
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--default-color);
+    font-size: 1.1rem;
+    opacity: 0.6;
+    z-index: 2;
+}
+
+.search-box .modern-input {
+    width: 100%;
+    padding: 14px 3rem 14px 1.5rem;
+    border-radius: 50px;
+    border: 2px solid transparent;
+    background: rgba(var(--surface-color-rgb), 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--heading-color);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.search-box .modern-input:focus {
+    outline: none;
+    border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+    background: var(--surface-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.filter-btn {
+    background: color-mix(in srgb, var(--surface-color), var(--default-color) 5%);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    color: var(--heading-color);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.filter-btn:hover {
+    background: color-mix(in srgb, var(--accent-color), transparent 90%);
+    color: var(--accent-color);
+    border-color: color-mix(in srgb, var(--accent-color), transparent 85%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.filter-btn.active {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+    box-shadow: 0 6px 20px color-mix(in srgb, var(--accent-color), transparent 60%);
+    transform: translateY(-2px);
+}
+
+/*--------------------------------------------------------------
+# Shop Sidebar (Amazon-style)
+--------------------------------------------------------------*/
+.shop-sidebar {
+    background: var(--surface-color);
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    position: sticky;
+    top: 100px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.sidebar-section {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.sidebar-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.sidebar-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sidebar-title i {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+}
+
+/* Filter Radio Buttons */
+.sidebar-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.filter-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0;
+}
+
+.filter-check:hover {
+    background: color-mix(in srgb, var(--accent-color), transparent 95%);
+}
+
+.filter-check.active {
+    background: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.filter-check input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid color-mix(in srgb, var(--default-color), transparent 70%);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.filter-check input[type="radio"]:checked {
+    border-color: var(--accent-color);
+    background: var(--accent-color);
+}
+
+.filter-check input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+}
+
+.check-label {
+    flex: 1;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--default-color);
+    transition: color 0.3s ease;
+}
+
+.filter-check.active .check-label,
+.filter-check:has(input:checked) .check-label {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.check-count {
+    background: color-mix(in srgb, var(--default-color), transparent 90%);
+    color: var(--default-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 20px;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* Price Range Slider */
+.price-range-wrapper {
+    padding: 0.25rem 0;
+}
+
+.price-slider {
+    width: 100%;
+    accent-color: var(--accent-color);
+}
+
+.price-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--default-color);
+    opacity: 0.8;
+}
+
+/* Sort Dropdown */
+.sidebar-select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--default-color), transparent 97%);
+    color: var(--heading-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: auto;
+}
+
+.sidebar-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 85%);
+}
+
+/* Responsive: Sidebar collapses on mobile */
+@media (max-width: 991px) {
+    .shop-sidebar {
+        position: relative;
+        top: 0;
+        margin-bottom: 1.5rem;
+        border-radius: 16px;
+    }
+}
+
+/*--------------------------------------------------------------
+# Shop Hero Section
+--------------------------------------------------------------*/
+.shop-hero {
+    padding: 180px 0 80px 0;
+    margin-top: -100px;
+    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.shop-hero::before {
     content: "";
     position: absolute;
-    width: 100px;
-    height: 100%;
-    background-image: linear-gradient(120deg,
-            rgba(255, 255, 255, 0) 30%,
-            rgba(255, 255, 255, 0.8),
-            rgba(255, 255, 255, 0) 70%);
-    top: 0;
-    left: -100px;
-    opacity: 0.6;
+    top: -10%;
+    right: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), transparent 90%) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
 }
 
-.uiverse-shine-btn:hover::before {
-    animation: shine-animation 1.5s ease-out infinite;
+.shop-hero::after {
+    content: "";
+    position: absolute;
+    bottom: -10%;
+    left: -5%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), transparent 92%) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
 }
 
-@keyframes shine-animation {
-    0% {
-        left: -100px;
+.shop-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.shop-hero .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: white;
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+    border-radius: 50px;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.shop-hero h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--heading-color);
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.shop-hero p {
+    font-size: 1.2rem;
+    color: color-mix(in srgb, var(--default-color), transparent 25%);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@media (max-width: 1200px) {
+    .shop-hero {
+        padding: 140px 0 80px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .shop-hero h1 {
+        font-size: 2.2rem;
     }
 
-    60% {
-        left: 100%;
-    }
-
-    to {
-        left: 100%;
+    .shop-hero p {
+        font-size: 1rem;
     }
 }

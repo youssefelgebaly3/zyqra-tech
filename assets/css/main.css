@@ -17,6 +17,7 @@
 @import "components/_timeline.css?v=1.6";
 @import "components/_team.css?v=1.6";
 @import "components/_memory-overlay.css?v=1.6";
+@import "components/_showcase_hubs.css?v=1.0";
 
 /* Pages */
 @import "pages/_auth.css?v=1.6";

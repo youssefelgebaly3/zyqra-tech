@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>لوحة التحكم - ZYQRA Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#003366",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1923",
+                    },
+                    fontFamily: {
+                        "display": ["Tajawal", "Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-72 bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 flex flex-col shrink-0">
+<div class="p-6 flex items-center gap-3 border-b border-slate-100 dark:border-slate-800">
+<div class="bg-primary p-2 rounded-lg text-white">
+<span class="material-symbols-outlined block">diamond</span>
+</div>
+<h2 class="text-xl font-bold text-primary dark:text-white">ZYQRA Admin</h2>
+</div>
+<nav class="flex-1 overflow-y-auto p-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary text-white shadow-lg shadow-primary/20" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">لوحة التحكم</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-500">group</span>
+<span class="font-medium">المستخدمين</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-500">shopping_cart</span>
+<span class="font-medium">الطلبات</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-500">book_2</span>
+<span class="font-medium">الدورات</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-500">inventory_2</span>
+<span class="font-medium">المنتجات</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-500">database</span>
+<span class="font-medium">المخزون</span>
+</a>
+<div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-500">language</span>
+<span class="font-medium">الموقع الرئيسي</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-medium">تسجيل الخروج</span>
+</a>
+</div>
+</nav>
+<div class="p-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2">
+<img class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700" data-alt="Admin profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBjJM3BpmHRupzrU0SFxiSGMO9rnW4bcHuRyvjrWVSM7NrT5tMRF6VrKnngHrhvFqnTpHRusK666l7ONQntGOmQM11godDfmGBn_wFJej1z6xtVuiiOrdPfiVtP6nmqUyzZiQiJSn9j-Aqmeg5J5rPLo0M_ic0QU4DKT3FfBal7tZsvT8_CxUpaHheREH4WfaXLmcm3z1PRff-kGTAcXJlzAE-YSdyt8VadMEtmMHtOM_T1UEFgWGOrP2v5pPxiIY6F0p_T-PLekc"/>
+<div>
+<p class="text-sm font-bold truncate">أحمد محمد</p>
+<p class="text-xs text-slate-500">مدير النظام</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark p-8">
+<header class="flex items-center justify-between mb-8">
+<div>
+<h1 class="text-3xl font-black text-slate-900 dark:text-white">لوحة التحكم</h1>
+<p class="text-slate-500 mt-1">نظرة عامة على أداء المنصة والنشاط الحالي</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<input class="w-72 bg-white dark:bg-slate-900 border-none rounded-xl pr-10 focus:ring-2 focus:ring-primary shadow-sm" placeholder="البحث في النظام..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-slate-400">search</span>
+</div>
+<button class="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 relative">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
+</button>
+</div>
+</header>
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-blue-50 dark:bg-blue-900/30 p-2 rounded-lg text-blue-600">
+<span class="material-symbols-outlined">group</span>
+</div>
+<span class="text-green-500 text-sm font-bold flex items-center">12%+ <span class="material-symbols-outlined text-sm">trending_up</span></span>
+</div>
+<p class="text-slate-500 text-sm font-medium">إجمالي المستخدمين</p>
+<p class="text-2xl font-black text-slate-900 dark:text-white mt-1">1,256</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-orange-50 dark:bg-orange-900/30 p-2 rounded-lg text-orange-600">
+<span class="material-symbols-outlined">shopping_bag</span>
+</div>
+<span class="text-green-500 text-sm font-bold flex items-center">5%+ <span class="material-symbols-outlined text-sm">trending_up</span></span>
+</div>
+<p class="text-slate-500 text-sm font-medium">طلبات جديدة</p>
+<p class="text-2xl font-black text-slate-900 dark:text-white mt-1">84</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-purple-50 dark:bg-purple-900/30 p-2 rounded-lg text-purple-600">
+<span class="material-symbols-outlined">school</span>
+</div>
+<span class="text-red-500 text-sm font-bold flex items-center">2%- <span class="material-symbols-outlined text-sm">trending_down</span></span>
+</div>
+<p class="text-slate-500 text-sm font-medium">الدورات المتاحة</p>
+<p class="text-2xl font-black text-slate-900 dark:text-white mt-1">8</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-green-50 dark:bg-green-900/30 p-2 rounded-lg text-green-600">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="text-green-500 text-sm font-bold flex items-center">18%+ <span class="material-symbols-outlined text-sm">trending_up</span></span>
+</div>
+<p class="text-slate-500 text-sm font-medium">إجمالي المبيعات</p>
+<p class="text-2xl font-black text-slate-900 dark:text-white mt-1">45,200 ج.م</p>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<section class="lg:col-span-2 space-y-8">
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center">
+<h3 class="text-lg font-bold">آخر الطلبات</h3>
+<button class="text-primary text-sm font-bold">عرض الكل</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-right border-collapse">
+<thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 text-sm font-medium">
+<tr>
+<th class="px-6 py-4">رقم الطلب</th>
+<th class="px-6 py-4">العميل</th>
+<th class="px-6 py-4">المنتج</th>
+<th class="px-6 py-4">المبلغ</th>
+<th class="px-6 py-4">الحالة</th>
+<th class="px-6 py-4">الإجراءات</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 font-bold text-slate-600 dark:text-slate-400">#4582</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">س</div>
+<span class="font-medium">سارة علي</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">دورة الذكاء الاصطناعي</td>
+<td class="px-6 py-4 font-bold">1,200 ج.م</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-lg">مكتمل</span>
+</td>
+<td class="px-6 py-4">
+<button class="material-symbols-outlined text-slate-400 hover:text-primary">visibility</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 font-bold text-slate-600 dark:text-slate-400">#4581</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">خ</div>
+<span class="font-medium">خالد محمود</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">كتاب أساسيات التصميم</td>
+<td class="px-6 py-4 font-bold">450 ج.م</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold rounded-lg">قيد المعالجة</span>
+</td>
+<td class="px-6 py-4">
+<button class="material-symbols-outlined text-slate-400 hover:text-primary">visibility</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center">
+<h3 class="text-lg font-bold">إدارة المنتجات</h3>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span> إضافة منتج
+                            </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-right border-collapse">
+<thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 text-sm font-medium">
+<tr>
+<th class="px-6 py-4">المنتج</th>
+<th class="px-6 py-4">الفئة</th>
+<th class="px-6 py-4">السعر</th>
+<th class="px-6 py-4">المخزون</th>
+<th class="px-6 py-4">الإجراءات</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuVDl9mMGTMYBXxMICSEg-Ya9Tam60lppqrXXzKUkkkDjANIzSx31V8Ph6roMXYg-Q7Igj2VmLRjQNGa8nV8YBDsZeeNgXfuFlJICdSROds_a_DQJMY1zmIsmq-aZAQONjj85Cs9d9PnFsp4VJ5UkkUojwbgrIqjCFfis7Pj0uNo79JaXpiMX1hBx2hBH8yBYKnSG1NRqZqTmzpQmsloR8IjumGsg389633V-R2Jp3XyQSQ9nnVbRi64qWyoOiMCs-iePobwQkfeY"/>
+</div>
+<span class="font-medium">كتاب احتراف التسويق</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">كتب تعليمية</td>
+<td class="px-6 py-4 font-bold">299 ج.م</td>
+<td class="px-6 py-4">
+<span class="text-green-600 font-bold">145 قطعة</span>
+</td>
+<td class="px-6 py-4 flex gap-2">
+<button class="material-symbols-outlined text-slate-400 hover:text-blue-500">edit</button>
+<button class="material-symbols-outlined text-slate-400 hover:text-red-500">delete</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="space-y-8">
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-50 dark:border-slate-800">
+<h3 class="text-lg font-bold">أكثر الدورات مبيعاً</h3>
+</div>
+<div class="p-4 space-y-4">
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<div class="w-14 h-14 rounded-lg bg-blue-100 overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Coding course thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFHgbnb-tb1iKTkcrvvRdKFMY7024uDNXdYtip-RYTbzypbaqcmSFuLOkCJlcI_31gicrnT3MnxiDZKCkzjJxuAssJx92XyAyypSCWv49n6LReNsz7uReTV1F8tZ_XRjXfu2pfryP9qMyPX4_7x1hOjw1HEdJzDWBMpFqR6UEVXAsAic56sKcjm74fjhN-3OwJwYW-JyEmTnXm3XOlEdENKoPH325mLXSTlQUIeQm6aUKDYwmNcEEPhuaZb-CG9AQRRq8Q8k2mNYI"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-bold text-sm truncate">دورة برمجة الويب الشاملة</p>
+<p class="text-xs text-slate-500">124 طالب مشترك</p>
+</div>
+<div class="text-primary font-black">4.9</div>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<div class="w-14 h-14 rounded-lg bg-purple-100 overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Design course thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADl0Ahwj3hAL7MI-mB3jnnt-sKcSGygmqdjHj7xcPdQY-CcN9bYTv9wfayjvcqTD58STpY8c4gzsWiILMPmWMT8NyrEV6oXZZX0nKIYmwD-3oZoC1NAzPmMYlhcgIrgHa35Zx6Jm-jkR6T1xtf2p5hVCg8IXz_Bp4KlxYQJEwMgH7PYZ-Jgh71W9jrJCeXRZ7iugQ_imAlkDmqqquXCmgp8yHTMJiugePqKyg-ZOYqtt67BDo09gsHInyB0l1503WlPaAaodOYZ78"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-bold text-sm truncate">تصميم تجربة المستخدم (UX)</p>
+<p class="text-xs text-slate-500">98 طالب مشترك</p>
+</div>
+<div class="text-primary font-black">4.8</div>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<div class="w-14 h-14 rounded-lg bg-orange-100 overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Marketing course thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLQE7btoeFoXA2NASCJyXAu3KwhkoGn7Sdo4V_1ucOhLGXd7E89tDIEGdB7I6brvZXoHIDUI6R5LG5zAElqfxBzMV9B9FHb1_R6cvzb4Nv9DTuAENzbuH44SXgx1TD3JcZBf-yjNfVe6ToeEnowr9yq4LNrZ7wFpEeZHIQB-HXnAbiWf8EVWbT_96SDnT1hBRGedXoPptw2CvniurSVo8tbeDC35pqq-cDPstOmPH_beMrz7SIz8wOx1iSeHLBL-rK5HsN3LiibTs"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-bold text-sm truncate">التسويق الرقمي المتقدم</p>
+<p class="text-xs text-slate-500">76 طالب مشترك</p>
+</div>
+<div class="text-primary font-black">4.7</div>
+</div>
+</div>
+<div class="p-4 border-t border-slate-50 dark:border-slate-800">
+<button class="w-full text-center py-2 text-primary font-bold text-sm">عرض كافة الإحصائيات</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm p-6">
+<h3 class="text-lg font-bold mb-6">المستخدمين النشطين</h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEa88t3YZ5126RAgcy7Fg3zMYchQj19P8alIZnGzlYly3pUBd11q-YCMwfP0LATzKYu2U9BsStredsv4dozUgo4H3vKzm50NRaTz2mO_-J9hGfEIxqNt8HygYdip-sRGSsIF9F24j-Orj-hc5kyuQR0qyrL8gArb9KIixGc4Mptc7a7jr1ymZUQnnBW-q_GmxrA0rwxIw1D6wzF2oPLtm_jt5ieb7yVRUBsetv0wQRN6hKVMrPqweK9bNzu-oZqskCJKLM2xuZKGg"/>
+<div>
+<p class="text-sm font-bold">منى إبراهيم</p>
+<p class="text-xs text-slate-500">نشط الآن</p>
+</div>
+</div>
+<span class="w-2.5 h-2.5 bg-green-500 rounded-full"></span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJSjF9nGg0I4C3eoWJ726pwtEiPiUYmGRD4slQNiNhebKGRsDaedV-E8HYY8gXz-_AJGXqL4TMb1v0cXbuPomM6qFO-YZ0iVqDMxSgisJlBMB2uj2eQdCox55S60xwvL9JdaeSWMvxWBcGSoPGjJnJSPyl5Qzrd7wDYIn4oMqzo3hnvHkweHNdq9HCHIi6uoLkiHJGcjQG2eWQ60836EpDIAyEiOTgaNp0FMRv9AnMBE7yu5DVf3z23SDcNQ-VFTXbNumH0oRJjjM"/>
+<div>
+<p class="text-sm font-bold">يوسف أيمن</p>
+<p class="text-xs text-slate-500">منذ 5 دقائق</p>
+</div>
+</div>
+<span class="w-2.5 h-2.5 bg-green-500 rounded-full"></span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVQJuMEKQUSVBlQAZNwb_6buO8TcKKhVI3VpXiU08HrGm60R1xhCE9CvJ9mMqiWcUlLDGAADp16M6s53GMnpniBT9BvHaFlb954-dkjM1EAnCCfWhRuyX1n83xm75ImYlh5A8naj7s6C_sRCD4QzvqEXMKEe6M_SiPr62WxYTeIHgvczTEaB_q5C4rM7fLUJKfeFPYE5quE6NfyiQ9wc5WlEQBJSgh_eK_5O3dBIJvTSUf8GkdHZ-cNXuDMReR-zQkVKx6siaNqao"/>
+<div>
+<p class="text-sm font-bold">هدى كامل</p>
+<p class="text-xs text-slate-500">منذ 15 دقيقة</p>
+</div>
+</div>
+<span class="w-2.5 h-2.5 bg-slate-300 dark:bg-slate-700 rounded-full"></span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>

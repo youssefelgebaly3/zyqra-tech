@@ -451,6 +451,37 @@
 
     if (langBtns.length === 0) return;
 
+    function translatePage(lang) {
+      const elements = document.querySelectorAll('[data-i18n]');
+
+      // Merge all available translation objects from window that follow the *Translations pattern
+      const combinedTranslations = {};
+      Object.keys(window).forEach(key => {
+        if (key.endsWith('Translations') && typeof window[key] === 'object') {
+          const dict = window[key][lang];
+          if (dict) {
+            Object.assign(combinedTranslations, dict);
+          }
+        }
+      });
+
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const translation = combinedTranslations[key];
+
+        if (translation) {
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.placeholder = translation;
+          } else {
+            el.innerHTML = translation;
+          }
+        }
+      });
+
+      // Special case: update copyright year or other dynamic parts if needed
+      document.dispatchEvent(new CustomEvent('zyqra_language_changed', { detail: { lang } }));
+    }
+
     function setLanguage(lang) {
       const isRTL = lang === 'ar';
 
@@ -460,6 +491,9 @@
       document.documentElement.lang = lang;
       document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
       localStorage.setItem('zyqra_lang', lang);
+
+      // Trigger translation engine
+      translatePage(lang);
 
       const langCode = isRTL ? 'AR' : 'EN';
       const textToDisplay = isRTL ? 'العربية' : 'English';

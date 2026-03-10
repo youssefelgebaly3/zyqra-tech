@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#003366",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1923",
+                    },
+                    fontFamily: {
+                        "display": ["Tajawal", "sans-serif"],
+                        "space": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Tajawal', sans-serif; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-4 md:px-20 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-10">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined text-2xl">shield_lock</span>
+</div>
+<h1 class="text-primary dark:text-slate-100 text-2xl font-black tracking-tight font-space">ZYQRA</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white font-medium transition-colors" href="#">الرئيسية</a>
+<a class="text-primary dark:text-white font-bold transition-colors" href="#">المنتجات</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white font-medium transition-colors" href="#">عن الشركة</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white font-medium transition-colors" href="#">اتصل بنا</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="bg-slate-200/50 dark:bg-slate-800/50 border-none rounded-xl pr-10 pl-4 py-2 focus:ring-2 focus:ring-primary w-64 text-sm" placeholder="ابحث عن منتج..." type="text"/>
+</div>
+<button class="p-2 hover:bg-primary/10 rounded-xl transition-colors relative">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">shopping_cart</span>
+<span class="absolute top-1 right-1 bg-primary text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">0</span>
+</button>
+<button class="p-2 hover:bg-primary/10 rounded-xl transition-colors">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 py-8">
+<!-- Hero Category Section -->
+<section class="mb-12">
+<div class="relative h-[300px] rounded-3xl overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-l from-primary/90 via-primary/40 to-transparent z-10"></div>
+<img alt="Products Banner" class="absolute inset-0 w-full h-full object-cover" data-alt="Modern motorcycle with smart lock system" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlYjMsB6skD79Fu1cnFDiKZekRjAzScRN-Rcl0bq2FEiVaqZuTPqo6L5J3f0JKTj2NUQCe3J3rAOb4mPVzGtpheBqRABg5vBZRBhoMXIH4ukBaWrOSE12a_Mowh4pCHd6s3vTy1PYAIn8iI7N78QI_IZcLjM59FstaRCsooncpYv1zRvY1EDwgZ0zagHqIIjSdDPJUR874MiZZf0R8j5oQBWh3xnMBhaSVsEkc067yWQ6PQPodifnEdr6memRdPpr-_pCrQaATvp4"/>
+<div class="relative z-20 h-full flex flex-col justify-center px-10 max-w-2xl">
+<span class="bg-white/20 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full w-fit mb-4">تشكيلة 2024</span>
+<h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">منتجاتنا الذكية</h2>
+<p class="text-slate-100 text-lg opacity-90">حلول أمان متطورة تمنحك راحة البال والتحكم الكامل من هاتفك.</p>
+</div>
+</div>
+</section>
+<!-- Filter Tabs -->
+<div class="flex gap-3 mb-10 overflow-x-auto pb-4 no-scrollbar">
+<button class="px-6 py-2.5 rounded-full bg-primary text-white font-bold text-sm whitespace-nowrap">الكل</button>
+<button class="px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium text-sm whitespace-nowrap hover:bg-primary/5 transition-colors">أنظمة أمان الدراجات</button>
+<button class="px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium text-sm whitespace-nowrap hover:bg-primary/5 transition-colors">إكسسوارات ذكية</button>
+<button class="px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium text-sm whitespace-nowrap hover:bg-primary/5 transition-colors">الأكثر مبيعاً</button>
+</div>
+<!-- Featured Product: MotoLock -->
+<section class="mb-16">
+<div class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl border border-primary/5 group hover:shadow-2xl transition-all duration-500">
+<div class="flex flex-col lg:flex-row">
+<!-- Product Image -->
+<div class="lg:w-1/2 relative overflow-hidden h-80 lg:h-auto">
+<img alt="MotoLock" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="MotoLock smart security device for motorcycles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbZsJBbLajokSAV1tFm0UEEwCuGBHLtfsIEoxbcxaLeZ3At3deeww9QVBsFxfr8rtEM4eJC3gjvRI5rRgs3kXGpZHAHunZcEHL3RvBDnEc0Ia3ZFi0xSWC2R6BjBe7k1QGf_yLiAbiAin7pSBzszLd0QQ3PkX0_A8qIJkQhZNbN6VnKXtEL0RYiZPyVtxRNUGx1a2fvTrR-mp_sNLDAbtGxP34PEgRpYjyL_vLzk98jg8RTYqRzSQQZ900brnqTyPBR67TxFUVe1Q"/>
+<div class="absolute top-6 right-6 flex flex-col gap-2">
+<span class="bg-red-500 text-white text-sm font-bold px-4 py-1.5 rounded-full shadow-lg">خصم 33%</span>
+<span class="bg-primary text-white text-sm font-bold px-4 py-1.5 rounded-full shadow-lg">مميز</span>
+</div>
+</div>
+<!-- Product Content -->
+<div class="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-yellow-400 fill-current">star</span>
+<span class="material-symbols-outlined text-yellow-400 fill-current">star</span>
+<span class="material-symbols-outlined text-yellow-400 fill-current">star</span>
+<span class="material-symbols-outlined text-yellow-400 fill-current">star</span>
+<span class="material-symbols-outlined text-yellow-400">star</span>
+<span class="text-slate-400 text-xs mr-2">(124 تقييم)</span>
+</div>
+<h3 class="text-4xl font-black text-primary dark:text-white mb-4">MotoLock</h3>
+<p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">
+                            نظام أمان ذكي للدراجات النارية يحول هاتفك إلى مفتاح كامل. وداعاً للمفاتيح التقليدية ومرحباً بالجيل الجديد من الحماية.
+                        </p>
+<!-- Features Grid -->
+<div class="grid grid-cols-2 gap-4 mb-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-slate-300">location_on</span>
+<span class="text-sm font-medium">تتبع GPS حي</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-slate-300">notifications_active</span>
+<span class="text-sm font-medium">تنبيهات الحركة</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-slate-300">smartphone</span>
+<span class="text-sm font-medium">تحكم كامل بالتطبيق</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-slate-300">verified</span>
+<span class="text-sm font-medium">ضمان لمدة عام</span>
+</div>
+</div>
+<!-- Price and Action -->
+<div class="flex items-center justify-between gap-6 pt-6 border-t border-slate-100 dark:border-slate-700">
+<div>
+<span class="text-3xl font-black text-primary dark:text-white">1,000 ج.م</span>
+<span class="block text-slate-400 line-through text-lg font-medium">1,500 ج.م</span>
+</div>
+<button class="flex-1 bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-2xl flex items-center justify-center gap-3 transition-all transform active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                                أضف إلى العربة
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Other Products Grid -->
+<section class="mb-20">
+<h4 class="text-2xl font-bold mb-8 flex items-center gap-3">
+<span class="w-1 h-8 bg-primary rounded-full"></span>
+                منتجات أخرى قد تعجبك
+            </h4>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Product Card 2 -->
+<div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 group hover:border-primary/50 transition-all hover:shadow-xl">
+<div class="h-48 overflow-hidden relative">
+<img alt="Sensor" class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="Smart alarm sensor for doors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaetMTRrfN0Iwr6KTzTLx6RKVKC5edK8tJN0ESyWCMsJE-KDFfHkoGFCplat2NuLUdyrcQL2-w6LM4F28TI6DO8e-a68WUqDEag7eaFelShI9Azerxco18O5OGRAfmZuODaVctixFGQSW0uL2Mbw_AkNTjFa8mSpVsPxUC4AlcGy-CZMLDTse4Ez615RdY9tjHCFXVwnSIBhsDpqhkSLN1lmkN5dMyL0k7B3JcNHmmbx9S85vfnFxZ2aDaWeuTrC8tXzD1nvWHV_k"/>
+<button class="absolute top-3 left-3 bg-white/80 backdrop-blur p-2 rounded-full text-slate-700 hover:text-red-500">
+<span class="material-symbols-outlined text-lg">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<h5 class="font-bold text-lg mb-2">SmartGuard Pro</h5>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-4 line-clamp-2">حساس حركة ذكي للمنازل والمكاتب بتنبيهات فورية.</p>
+<div class="flex items-center justify-between">
+<span class="font-black text-primary dark:text-white">750 ج.م</span>
+<button class="p-2 bg-slate-100 dark:bg-slate-700 rounded-lg hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 group hover:border-primary/50 transition-all hover:shadow-xl">
+<div class="h-48 overflow-hidden relative">
+<img alt="Tracker" class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="Bike GPS security tracker" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn91jEckPcfdUdnmiBh9nMwSLRKSaU6uy9VYYDzwjRrTUWasPbjqtP9zuwTFm5VAkqZc1GtqC6858U_q18Xh3zc9pU1gOf_EbEexOzm_KHrNs3xDvbcBgVEIWZD_4ZsK3NmIuYUeqO2mfJ2T_ujF2lwAzC1V7WtCHg-ID2d5T31tD501Sn5jxgost-djX9e-2QGOcP-ZcW88rubfeVdAYRVzUsuf3y4lho97m4yUkLS2_ZXzOnvGruV1Fo0WeFtiDn077K1gL7AUo"/>
+</div>
+<div class="p-5">
+<h5 class="font-bold text-lg mb-2">Zyqra Tracker X</h5>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-4 line-clamp-2">متتبع GPS مخفي صغير الحجم مع بطارية تدوم 30 يوم.</p>
+<div class="flex items-center justify-between">
+<span class="font-black text-primary dark:text-white">1,200 ج.م</span>
+<button class="p-2 bg-slate-100 dark:bg-slate-700 rounded-lg hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 group hover:border-primary/50 transition-all hover:shadow-xl">
+<div class="h-48 overflow-hidden relative">
+<img alt="Keyfob" class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="Smart security key fob" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvCU-rAUYoA9qEseaLVNBRhae3FN3p3__LBvkBZPFifx9K1-pGJiONW4NrAwc_dzQNu57zmfzecadaJJ1Ufsphj9R3dIskXtXWu8-eBHjkD01gqBeFQlojnuUT_wrBZuwwFladhMTsi10uQPJE0YvyLhuHhYjAdZDz8QzD1dU_S7PVHNZUW-MCKxB5cM9cSYxYP6SUD6XSgMCD1byXHzCdFJfsrvoHtuV1efx6JJJyTH9m3TdcSe2PySi-a8l2UnSYHO1FrUlKFbU"/>
+</div>
+<div class="p-5">
+<h5 class="font-bold text-lg mb-2">SafeTouch Fob</h5>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-4 line-clamp-2">ميدالية ذكية تدعم NFC لفتح الأبواب والتحكم عن بعد.</p>
+<div class="flex items-center justify-between">
+<span class="font-black text-primary dark:text-white">450 ج.م</span>
+<button class="p-2 bg-slate-100 dark:bg-slate-700 rounded-lg hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 group hover:border-primary/50 transition-all hover:shadow-xl">
+<div class="h-48 overflow-hidden relative">
+<img alt="Lock" class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="Security helmet lock" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPWpF7dzexMAbzPt7751XwfSfk_xNaQreQV1I0Oob-RN-p75LaMl8CddHqejyMwaH-hF_9N6SruaC50wnVwcjJvXNgdQzeJtznH-aKPYaKM1QMG-bdQ3_KPw7YtbqyHMGEWRzXhC3P8ZCqF5IPFwFX_vNArRWzmKj_lyTPj4fy8t18p6dc5HkRzkmCndkjnv_gGjawPJgu0SutDVD6S5CNqSmEgfWxJ7zhxTWw4SoKBNM8BFZhmKVY6leow_kkXluiwMewa5HkBdc"/>
+</div>
+<div class="p-5">
+<h5 class="font-bold text-lg mb-2">Helmet Guard</h5>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-4 line-clamp-2">قفل ذكي للخوذة مع حساس تنبيه محاولة السرقة.</p>
+<div class="flex items-center justify-between">
+<span class="font-black text-primary dark:text-white">600 ج.م</span>
+<button class="p-2 bg-slate-100 dark:bg-slate-700 rounded-lg hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Help Section -->
+<section class="mb-12">
+<div class="bg-primary/5 dark:bg-primary/10 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between border border-primary/10">
+<div class="mb-8 md:mb-0 max-w-lg">
+<h3 class="text-3xl font-black text-primary dark:text-white mb-4">تحتاج مساعدة في الاختيار؟</h3>
+<p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                        فريق خبراء ZYQRA متاح دائماً لمساعدتك في اختيار النظام الأنسب لدراجتك ولاحتياجاتك الشخصية. تواصل معنا الآن للحصول على استشارة مجانية.
+                    </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+<button class="flex items-center justify-center gap-3 bg-primary text-white font-bold py-4 px-10 rounded-2xl transition-all hover:shadow-xl hover:-translate-y-1">
+<span class="material-symbols-outlined">call</span>
+                        اتصل بنا
+                    </button>
+<button class="flex items-center justify-center gap-3 bg-white dark:bg-slate-800 text-primary dark:text-white border border-primary/20 font-bold py-4 px-10 rounded-2xl transition-all hover:shadow-xl hover:-translate-y-1">
+<span class="material-symbols-outlined text-green-500">chat</span>
+                        واتساب
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-900 pt-16 pb-8 border-t border-slate-100 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined text-xl">shield_lock</span>
+</div>
+<h1 class="text-primary dark:text-slate-100 text-xl font-black tracking-tight font-space">ZYQRA</h1>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                    نحن نسعى لتقديم أفضل تقنيات الأمان الذكية في مصر، لنضمن لك تجربة استخدام سهلة وآمنة لدراجتك النارية.
+                </p>
+</div>
+<div>
+<h6 class="font-bold mb-6">روابط سريعة</h6>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">عن الشركة</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">منتجاتنا</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">الأسئلة الشائعة</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">المدونة</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-bold mb-6">الدعم والخصوصية</h6>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">سياسة الخصوصية</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">الشروط والأحكام</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">سياسة الاسترجاع</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">الدعم الفني</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-bold mb-6">اشترك في نشرتنا</h6>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-4">احصل على آخر التحديثات والعروض الحصرية.</p>
+<div class="flex gap-2">
+<input class="bg-slate-100 dark:bg-slate-800 border-none rounded-xl px-4 py-2 text-sm w-full" placeholder="بريدك الإلكتروني" type="email"/>
+<button class="bg-primary text-white p-2 rounded-xl">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-4 pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-slate-400">© 2024 ZYQRA TECH. جميع الحقوق محفوظة.</p>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-primary" href="#"><span class="material-symbols-outlined text-lg">public</span></a>
+<a class="text-slate-400 hover:text-primary" href="#"><span class="material-symbols-outlined text-lg">share</span></a>
+<a class="text-slate-400 hover:text-primary" href="#"><span class="material-symbols-outlined text-lg">smart_display</span></a>
+</div>
+</div>
+</footer>
+</body></html>

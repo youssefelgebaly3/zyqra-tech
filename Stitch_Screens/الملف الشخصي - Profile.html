@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>الملف الشخصي - ZYQRA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Tajawal:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#003366",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1923",
+                    },
+                    fontFamily: {
+                        "display": ["Tajawal", "Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-4 lg:px-20 py-3">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary dark:text-blue-400">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">fitbit_circuit_training</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">ZYQRA</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 text-sm font-bold transition-colors" href="#">الرئيسية</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 text-sm font-bold transition-colors" href="#">الدورات</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 text-sm font-bold transition-colors" href="#">المتجر</a>
+</nav>
+</div>
+<div class="flex items-center gap-4 lg:gap-6">
+<div class="hidden sm:flex items-center bg-slate-100 dark:bg-slate-800 rounded-xl px-3 py-1.5 border border-transparent focus-within:border-primary/30 transition-all">
+<span class="material-symbols-outlined text-slate-400 text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-40 lg:w-60 placeholder:text-slate-400" placeholder="بحث عن دورة..." type="text"/>
+</div>
+<button class="relative p-2 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-white dark:border-background-dark"></span>
+</button>
+<div class="size-10 rounded-full bg-primary/10 border-2 border-primary/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar of Ahmed Mohamed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3WataGqV9bgz_ZI-Goa-FTGT5XFsnQXzd3loPx2n5_XPyGEJEbOcwaUg7bewJ6H93ksnEjXhcXvNisujI6tD1hmOLqB9VLLt6Aumambpj3tT4qLOiOBns0XB2Ilcw9CRsQei0xEbBgJFurFeucGYrHt7NaMccyLrT2_muF20ho7A2VNhViymaumH_nHHFzHWFdOTdN4i-fWkO1syHCdR-Azw5NB2x8mruyRYMsrdV6PbjlvnddlkkMgMCQxUNV0F8RB3imUd_Bog"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full max-w-7xl mx-auto px-4 lg:px-20 py-8">
+<!-- Profile Header Section -->
+<section class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 lg:p-8 mb-8">
+<div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+<div class="relative group">
+<div class="size-32 lg:size-40 rounded-full border-4 border-primary/10 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Student profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwQhFqEa-EVcHB1QCJNdBUyYZghyBB_QvRtXkbA8Of3bTLnQTDZf3rxhrmEsw_BCI8VP-T6QHWvWP_sKkDVoCpGR2lYgh20tLWO9pfNbfw_sRhNal2AXc1GP1maGPBxpQ7wEZajr435O3F46uoymubPiJ_kjkAbGEcw7jjkjn5_p4y37YbMhbqdsOh-Uut7tHuIrxhqzwCYAcADgLmB_j397t_V6eSSomGm28hV_NzRiydDngUg33kRQGiqbsQ-CmU157QVLgWpNY"/>
+</div>
+<button class="absolute bottom-1 right-1 bg-primary text-white p-2 rounded-full shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+</button>
+</div>
+<div class="flex-1 text-center md:text-right space-y-2">
+<div class="flex flex-col md:flex-row md:items-center gap-3 justify-center md:justify-start">
+<h1 class="text-3xl font-extrabold text-slate-900 dark:text-white">أحمد محمد</h1>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20 w-fit mx-auto md:mx-0">طالب</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 max-w-lg">طالب هندسة إلكترونيات، مهتم بتطوير الأنظمة المدمجة والدوائر الكهربائية. أسعى لتطوير مهاراتي التقنية من خلال منصة ZYQRA.</p>
+<div class="flex items-center justify-center md:justify-start gap-4 pt-4 text-slate-400 text-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">calendar_today</span>
+<span>عضو منذ أكتوبر 2023</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>القاهرة، مصر</span>
+</div>
+</div>
+</div>
+<div class="flex gap-3 w-full md:w-auto">
+<div class="flex-1 md:w-28 bg-background-light dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800 text-center">
+<p class="text-2xl font-black text-primary dark:text-blue-400">3</p>
+<p class="text-xs text-slate-500 font-bold">دورات</p>
+</div>
+<div class="flex-1 md:w-28 bg-background-light dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800 text-center">
+<p class="text-2xl font-black text-primary dark:text-blue-400">5</p>
+<p class="text-xs text-slate-500 font-bold">شهادات</p>
+</div>
+<div class="flex-1 md:w-28 bg-background-light dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800 text-center">
+<p class="text-2xl font-black text-primary dark:text-blue-400">2</p>
+<p class="text-xs text-slate-500 font-bold">طلبات</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Navigation Tabs -->
+<div class="flex items-center gap-2 mb-6 overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-6 py-2.5 rounded-lg bg-primary text-white font-bold text-sm whitespace-nowrap">دوراتي</button>
+<button class="px-6 py-2.5 rounded-lg bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 font-bold text-sm border border-slate-200 dark:border-slate-800 hover:bg-slate-50 transition-colors whitespace-nowrap">شهاداتي</button>
+<button class="px-6 py-2.5 rounded-lg bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 font-bold text-sm border border-slate-200 dark:border-slate-800 hover:bg-slate-50 transition-colors whitespace-nowrap">طلباتي</button>
+<button class="px-6 py-2.5 rounded-lg bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 font-bold text-sm border border-slate-200 dark:border-slate-800 hover:bg-slate-50 transition-colors whitespace-nowrap">الإعدادات</button>
+</div>
+<!-- Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left/Main Column: Courses -->
+<div class="lg:col-span-2 space-y-6">
+<h3 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">menu_book</span>
+                        دوراتي الحالية
+                    </h3>
+<!-- Course Card 1 -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row gap-5 hover:shadow-md transition-shadow">
+<div class="w-full sm:w-40 h-24 rounded-lg overflow-hidden bg-slate-100">
+<img class="w-full h-full object-cover" data-alt="Electronics hardware components on desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB0XhkZiv67vowCB2S1Ax_bNoFSmz75dOjOUAEZZULn8VyUFo4Bqizmdhc4CDFzw9Y_d6L2_aWSloZefG-15Hz3-huCs_x7uxs154Q93nsMPlo7WVNZL3iyjDNHTh-LS8huUlGluocmNU8pLTfqQr7Y_u5XvgzGCy34X8cC4PwR_4Gsm37XEhDrtCT47-TkZI9ASiEzHX4IfTzO-01BIgfhGynrEDc0l2Q7ZYKXpSrFJ_zMibD1sbOttAToEo_ZkYzInlYCepUBU0"/>
+</div>
+<div class="flex-1 space-y-3">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-lg">أساسيات الإلكترونيات - Basic Electronics</h4>
+<p class="text-xs text-slate-500">المحاضر: م. خالد عبدالله</p>
+</div>
+<span class="text-primary font-bold">65%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 65%"></div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<span class="text-xs text-slate-400">آخر نشاط: منذ يومين</span>
+<button class="text-primary font-bold text-sm flex items-center gap-1 hover:underline">
+                                    متابعة التعلم
+                                    <span class="material-symbols-outlined text-base">arrow_back</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row gap-5 opacity-90">
+<div class="w-full sm:w-40 h-24 rounded-lg overflow-hidden bg-slate-100">
+<img class="w-full h-full object-cover" data-alt="Microchip and circuit board details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS1HakLvK5p5zWvDiyVdHeLSIaQJ-IpWlWZTHQyBfGeWleq5wkJo-DfowxpTjTUDGXcr8ha9nfU15cxVEV-902nvC7rB_2Xu2EXTkKx-23jFVyimFqRNROCJZV7yUf4SDFCvOnlXw1I79EBzfaMVv7ZI2t0HvcaD6MELLlbe8kRei7cfyTRrqaudetKf767cosLLqQFnpyd2GzUu-037m0905MWv_CQ_JUznsquVHcArNlukG1KTySSGyg3QUTCEMkLykXnjuTwzE"/>
+</div>
+<div class="flex-1 space-y-3">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-lg">الأنظمة المدمجة - Embedded Systems</h4>
+<p class="text-xs text-slate-500">المحاضر: د. سارة علي</p>
+</div>
+<span class="text-green-600 font-bold flex items-center gap-1 text-sm">
+<span class="material-symbols-outlined text-base">check_circle</span>
+                                    مكتمل
+                                </span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2">
+<div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<span class="text-xs text-slate-400">تم الإكمال في 12 سبتمبر 2023</span>
+<button class="bg-primary/10 text-primary px-4 py-1.5 rounded-lg font-bold text-xs hover:bg-primary/20 transition-colors">عرض الشهادة</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Stats & Recent Activities -->
+<div class="space-y-8">
+<!-- Certificates Sidebar -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">workspace_premium</span>
+                            أحدث الشهادات
+                        </h3>
+<div class="space-y-4">
+<div class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+<div class="size-10 rounded bg-red-50 dark:bg-red-900/20 text-red-600 flex items-center justify-center">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold truncate">Embedded Systems Cert.</p>
+<p class="text-[10px] text-slate-400 uppercase">PDF • 2.4 MB</p>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-primary">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+<div class="size-10 rounded bg-red-50 dark:bg-red-900/20 text-red-600 flex items-center justify-center">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold truncate">IoT Advanced Workshop</p>
+<p class="text-[10px] text-slate-400 uppercase">PDF • 1.8 MB</p>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-primary">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+<button class="w-full mt-4 py-2 border border-dashed border-slate-300 dark:border-slate-700 rounded-lg text-slate-400 text-sm font-bold hover:text-primary hover:border-primary transition-all">
+                            مشاهدة الكل
+                        </button>
+</div>
+<!-- Recent Orders Sidebar -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+                            آخر الطلبات
+                        </h3>
+<div class="space-y-4">
+<div class="border-b border-slate-100 dark:border-slate-800 pb-3">
+<div class="flex justify-between text-sm mb-1">
+<span class="font-bold">طلب #ZY-8842</span>
+<span class="text-green-600 font-bold">مكتمل</span>
+</div>
+<div class="flex justify-between text-[11px] text-slate-400">
+<span>24 نوفمبر 2023</span>
+<span>240.00 ج.م</span>
+</div>
+</div>
+<div class="pb-1">
+<div class="flex justify-between text-sm mb-1">
+<span class="font-bold">طلب #ZY-7910</span>
+<span class="text-amber-600 font-bold">قيد التنفيذ</span>
+</div>
+<div class="flex justify-between text-[11px] text-slate-400">
+<span>10 نوفمبر 2023</span>
+<span>150.00 ج.م</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Settings Section -->
+<section class="mt-12 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="border-b border-slate-100 dark:border-slate-800 p-6">
+<h3 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">settings</span>
+                        إعدادات الحساب
+                    </h3>
+</div>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+<div class="space-y-6">
+<h4 class="font-bold text-slate-500 text-sm border-r-4 border-primary pr-3">المعلومات الأساسية</h4>
+<div class="grid gap-4">
+<div class="space-y-1.5">
+<label class="text-sm font-bold">الاسم الكامل</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-800 dark:bg-slate-800/50 focus:border-primary focus:ring-primary/20 transition-all" type="text" value="أحمد محمد"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-bold">البريد الإلكتروني</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-800 dark:bg-slate-800/50 focus:border-primary focus:ring-primary/20 transition-all" type="email" value="ahmed.m@example.com"/>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold text-slate-500 text-sm border-r-4 border-primary pr-3">الأمان والإشعارات</h4>
+<div class="space-y-4">
+<button class="w-full flex items-center justify-between p-3 rounded-lg border border-slate-100 dark:border-slate-800 hover:bg-slate-50 transition-colors text-sm font-bold">
+<span>تغيير كلمة المرور</span>
+<span class="material-symbols-outlined text-slate-400">lock_reset</span>
+</button>
+<div class="flex items-center justify-between p-3 rounded-lg border border-slate-100 dark:border-slate-800">
+<div>
+<p class="text-sm font-bold">إشعارات البريد</p>
+<p class="text-[10px] text-slate-400">تلقي تحديثات الدورات الجديدة</p>
+</div>
+<div class="relative inline-block w-10 h-6">
+<input checked="" class="peer sr-only" type="checkbox"/>
+<div class="w-10 h-6 bg-slate-200 dark:bg-slate-700 rounded-full peer-checked:bg-primary transition-colors"></div>
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full peer-checked:translate-x-4 transition-transform"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 p-6 flex justify-end gap-3">
+<button class="px-6 py-2 rounded-lg text-slate-500 font-bold text-sm">إلغاء</button>
+<button class="px-8 py-2 rounded-lg bg-primary text-white font-bold text-sm shadow-md hover:shadow-lg transition-all">حفظ التغييرات</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 py-10 mt-auto">
+<div class="max-w-7xl mx-auto px-4 lg:px-20">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-3 text-slate-400">
+<div class="size-6 bg-slate-200 dark:bg-slate-800 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">fitbit_circuit_training</span>
+</div>
+<span class="text-sm font-bold">ZYQRA © 2024. جميع الحقوق محفوظة.</span>
+</div>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">hub</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">language</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

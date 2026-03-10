@@ -68,4 +68,78 @@
         }
     });
 
+    /**
+     * Wishlist Persistence Logic
+     */
+    const WISHLIST_KEY = 'zyqra_wishlist_products';
+
+    function getWishlist() {
+        const saved = localStorage.getItem(WISHLIST_KEY);
+        return saved ? JSON.parse(saved) : [];
+    }
+
+    function updateWishlist(productId, isActive) {
+        let wishlist = getWishlist();
+        if (isActive) {
+            if (!wishlist.includes(productId)) wishlist.push(productId);
+        } else {
+            wishlist = wishlist.filter(id => id !== productId);
+        }
+        localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
+    }
+
+    function initWishlist() {
+        const wishlist = getWishlist();
+        const productItems = document.querySelectorAll('.product-item');
+
+        productItems.forEach(item => {
+            const productId = item.getAttribute('data-product-id');
+            if (productId && wishlist.includes(productId)) {
+                const btn = item.querySelector('.btn-wishlist');
+                if (btn) {
+                    btn.classList.add('active');
+                    const icon = btn.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('bi-heart');
+                        icon.classList.add('bi-heart-fill');
+                    }
+                }
+            }
+        });
+    }
+
+    // Initialize Event Listeners on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initial load of wishlist state
+        initWishlist();
+
+        // Wishlist toggle logic with persistence
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('.btn-wishlist');
+            if (btn) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const productItem = btn.closest('.product-item');
+                const productId = productItem ? productItem.getAttribute('data-product-id') : null;
+
+                btn.classList.toggle('active');
+                const isActive = btn.classList.contains('active');
+                const icon = btn.querySelector('i');
+
+                if (isActive) {
+                    icon.classList.remove('bi-heart');
+                    icon.classList.add('bi-heart-fill');
+                } else {
+                    icon.classList.remove('bi-heart-fill');
+                    icon.classList.add('bi-heart');
+                }
+
+                if (productId) {
+                    updateWishlist(productId, isActive);
+                }
+            }
+        });
+    });
+
 })();

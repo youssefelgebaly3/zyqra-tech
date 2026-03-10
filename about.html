@@ -27,6 +27,10 @@
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css?v=3.1" rel="stylesheet">
+
+    <!-- Translation Files -->
+    <script src="assets/js/translations/common.js"></script>
+    <script src="assets/js/translations/about.js"></script>
 </head>
 
 <body class="about-page">
@@ -34,20 +38,21 @@
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container position-relative d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-                <h1 class="sitename">ZYQRA</h1>
+                <h1><span>Z</span><span>Y</span><span>Q</span><span>R</span><span>A</span></h1>
             </a>
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="products.html">المنتجات</a></li>
-                    <li><a href="courses.html">الدورات</a></li>
-                    <li><a href="about.html" class="active">من نحن</a></li>
-                    <li><a href="contact.html">تواصل معنا</a></li>
+                    <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="products.html" data-i18n="nav_products">المنتجات</a></li>
+                    <li><a href="courses.html" data-i18n="nav_courses">الدورات</a></li>
+                    <li><a href="about.html" class="active" data-i18n="nav_about">من نحن</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
                     <li class="d-xl-none"><a href="signin.html"><i class="bi bi-person me-2"></i> تسجيل الدخول</a></li>
-                    <li class="d-xl-none"><a href="signup.html"><i class="bi bi-person-plus me-2"></i> إنشاء حساب</a>
+                    <li class="d-xl-none"><a href="signup.html"><i class="bi bi-person-plus me-2"></i> <span
+                                data-i18n="nav_signup">إنشاء حساب</span></a>
                     </li>
                     <li class="d-xl-none"><a href="#" id="language-toggle-mobile"><i class="bi bi-globe me-2"></i>
-                            <span>Language</span></a></li>
+                            <span data-i18n="nav_lang">Language</span></a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -61,11 +66,11 @@
                 <div class="auth-links d-none d-xl-flex align-items-center gap-2">
                     <a href="signin.html" class="auth-link login">
                         <i class="bi bi-person"></i>
-                        <span>تسجيل الدخول</span>
+                        <span data-i18n="nav_login">تسجيل الدخول</span>
                     </a>
                     <a href="signup.html" class="auth-link signup">
                         <i class="bi bi-person-plus"></i>
-                        <span>إنشاء حساب</span>
+                        <span data-i18n="nav_signup">إنشاء حساب</span>
                     </a>
                 </div>
                 <a class="btn-shop-icon" href="cart.html" title="السلة">
@@ -82,34 +87,59 @@
 
 
 
-        <!-- About Section -->
+
         <section id="about" class="about section">
             <div class="container" data-aos="fade-up" data-aos-delay="100">
                 <div class="row gy-5 align-items-center">
-                    <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+                    <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-delay="200">
                         <div class="content-wrapper">
-                            <div class="section-header">
-                                <span class="section-badge">قصتنا</span>
-                                <h2>بدأت ZYQRA من فكرة بسيطة</h2>
+                            <h2 class="about-title mb-4" data-i18n="about_title">بدأت <span
+                                    class="gradient-text">ZYQRA</span> من فكرة بسيطة</h2>
+                            <p class="description-text mb-4" data-i18n="about_p1">بدأت Zyqra من فكرة بسيطة… فكرة بتحاول
+                                تحل مشكلة حقيقية بيقابلها ملايين من الناس كل يوم. لكن مع الوقت، الفكرة الصغيرة دي كبرت…
+                                وبقت مشروع، وبعدين رؤية، وبعدين بداية لشركة تكنولوجية هدفها الأول: إن التكنولوجيا تخدم
+                                الإنسان… مش تعقّد حياته.</p>
+                            <p class="description-text mb-4" data-i18n="about_p2">من أول لحظة، كان هدفنا إننا نبتكر حلول
+                                بسيطة، ذكية، وسهلة الاستخدام، تخلي حياة الناس أكثر أمانًا، وأكثر راحة، وأكثر تحكمًا.
+                                ابتدينا رحلتنا بتطوير أول منتج ذكي في مجال الموتسيكلات، منتج يخلي الموبايل يتحول لمفتاح
+                                كامل… يفتح، يقفل، يشغل، ويأمّن الموتسيكل.</p>
+                            <p class="description-text mb-5" data-i18n="about_p3">ومع توسّع الفكرة… اكتشفنا إن دورنا مش
+                                بس إننا نبني منتجات، لكن إننا كمان نبني فرص… ونشارك معرفة… ونسيب أثر. ومن هنا اتولد قسم
+                                Zyqra El-Khair، قسم مجاني بالكامل لتقديم كورسات في الإلكترونيات، الـEmbedded Systems،
+                                والـIoT، وبعض مهارات الـSoft Skills. لأننا مؤمنين إن “ذكاة العلم… نشره”، وإن كل معرفة
+                                بنشاركها… بترجع لنا في شكل أثر جميل في المجتمع.</p>
+
+                            <div class="modern-stats">
+                                <div class="modern-stat" data-aos="fade-up" data-aos-delay="400">
+                                    <div class="stat-icon">
+                                        <i class="bi bi-rocket-takeoff"></i>
+                                    </div>
+                                    <div class="stat-details">
+                                        <div class="stat-number" data-i18n="stat_projects_num">+150</div>
+                                        <div class="stat-label" data-i18n="stat_projects_label">مشروع وتطبيق</div>
+                                    </div>
+                                </div>
+                                <div class="modern-stat" data-aos="fade-up" data-aos-delay="500">
+                                    <div class="stat-icon">
+                                        <i class="bi bi-person-check"></i>
+                                    </div>
+                                    <div class="stat-details">
+                                        <div class="stat-number" data-i18n="stat_experts_num">+50</div>
+                                        <div class="stat-label" data-i18n="stat_experts_label">متدرب وخبير</div>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="lead-text">بدأت Zyqra من فكرة بسيطة… فكرة بتحاول تحل مشكلة حقيقية بيقابلها ملايين
-                                من الناس كل يوم. لكن مع الوقت، الفكرة الصغيرة دي كبرت… وبقت مشروع، وبعدين رؤية، وبعدين
-                                بداية لشركة تكنولوجية هدفها الأول: إن التكنولوجيا تخدم الإنسان… مش تعقّد حياته.</p>
-                            <p class="lead-text">من أول لحظة، كان هدفنا إننا نبتكر حلول بسيطة، ذكية، وسهلة الاستخدام،
-                                تخلي حياة الناس أكثر أمانًا، وأكثر راحة، وأكثر تحكمًا. ابتدينا رحلتنا بتطوير أول منتج
-                                ذكي في مجال الموتسيكلات، منتج يخلي الموبايل يتحول لمفتاح كامل… يفتح، يقفل، يشغل، ويأمّن
-                                الموتسيكل.</p>
-                            <p class="lead-text">ومع توسّع الفكرة… اكتشفنا إن دورنا مش بس إننا نبني منتجات، لكن إننا
-                                كمان نبني فرص… ونشارك معرفة… ونسيب أثر. ومن هنا اتولد قسم Zyqra El-Khair، قسم مجاني
-                                بالكامل لتقديم كورسات في الإلكترونيات، الـEmbedded Systems، والـIoT، وبعض مهارات الـSoft
-                                Skills. لأننا مؤمنين إن “ذكاة العلم… نشره”، وإن كل معرفة بنشاركها… بترجع لنا في شكل أثر
-                                جميل في المجتمع.</p>
                         </div>
                     </div>
-                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-                        <div class="visual-section">
+                    <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="300">
+                        <div class="modern-visual">
                             <div class="main-image-container">
-                                <img src="assets/img/about/about-8.webp" alt="فريق ZYQRA" class="img-fluid main-visual">
+                                <img src="assets/img/about/about-8.webp" alt="فريق ZYQRA"
+                                    class="img-fluid main-visual rounded-4 shadow">
+                                <div class="floating-badge badge-br">
+                                    <div class="badge-icon"><i class="bi bi-patch-check-fill"></i></div>
+                                    <div class="badge-text" data-i18n="about_badge_text">ابتكار بلا حدود</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -120,69 +150,59 @@
         <!-- Features 2 Section - Vision Mission Values -->
         <section id="vision" class="features-2 section light-background">
             <div class="container section-title" data-aos="fade-up">
-
-                <h2>ما يميزنا</h2>
-                <p>نسعى لتحقيق تأثير إيجابي من خلال التكنولوجيا والتعليم</p>
+                <h2 data-i18n="features_title">ما يميزنا</h2>
+                <p data-i18n="features_subtitle">نسعى لتحقيق تأثير إيجابة من خلال التكنولوجيا والتعليم</p>
             </div>
             <div class="container">
                 <div class="row gy-4">
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="cyber-card vision-card">
-                            <div class="card-glow"></div>
-                            <div class="card-corner"></div>
                             <div class="card-content">
                                 <div class="card-title-wrapper">
                                     <div class="icon-wrapper">
                                         <div class="icon-inner">
                                             <i class="bi bi-eye"></i>
                                         </div>
-                                        <div class="icon-glow"></div>
                                     </div>
-                                    <h3>رؤيتنا</h3>
+                                    <h3 data-i18n="vision_title">رؤيتنا</h3>
                                 </div>
-                                <p>أن نكون الرائدين في مجال التكنولوجيا والتعليم في المنطقة، من خلال تقديم حلول مبتكرة
+                                <p data-i18n="vision_text">أن نكون الرائدين في مجال التكنولوجيا والتعليم في المنطقة، من
+                                    خلال تقديم حلول مبتكرة
                                     تساهم في تطوير المجتمعات وتمكين الأفراد.</p>
-                                <div class="card-footer-line"></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="cyber-card mission-card">
-                            <div class="card-glow"></div>
-                            <div class="card-corner"></div>
                             <div class="card-content">
                                 <div class="card-title-wrapper">
                                     <div class="icon-wrapper">
                                         <div class="icon-inner">
                                             <i class="bi bi-bullseye"></i>
                                         </div>
-                                        <div class="icon-glow"></div>
                                     </div>
-                                    <h3>رسالتنا</h3>
+                                    <h3 data-i18n="mission_title">رسالتنا</h3>
                                 </div>
-                                <p>تقديم منتجات تكنولوجية عالية الجودة ودورات تعليمية متخصصة لتطوير مهارات الأفراد
+                                <p data-i18n="mission_text">تقديم منتجات تكنولوجية عالية الجودة ودورات تعليمية متخصصة
+                                    لتطوير مهارات الأفراد
                                     وتمكينهم من تحقيق طموحاتهم.</p>
-                                <div class="card-footer-line"></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="cyber-card values-card">
-                            <div class="card-glow"></div>
-                            <div class="card-corner"></div>
                             <div class="card-content">
                                 <div class="card-title-wrapper">
                                     <div class="icon-wrapper">
                                         <div class="icon-inner">
                                             <i class="bi bi-gem"></i>
                                         </div>
-                                        <div class="icon-glow"></div>
                                     </div>
-                                    <h3>قيمنا</h3>
+                                    <h3 data-i18n="values_title">قيمنا</h3>
                                 </div>
-                                <p>الابتكار، الجودة، الشفافية، المسؤولية الاجتماعية، العمل الجماعي، والتميز في تقديم
+                                <p data-i18n="values_text">الابتكار، الجودة، الشفافية، المسؤولية الاجتماعية، العمل
+                                    الجماعي، والتميز في تقديم
                                     الخدمات.</p>
-                                <div class="card-footer-line"></div>
                             </div>
                         </div>
                     </div>
@@ -192,12 +212,12 @@
 
 
         <!-- Stats Section -->
-        <section id="stats" class="stats section">
+        <section id="stats" class="about-stats section">
             <div class="container" data-aos="fade-up" data-aos-delay="100">
                 <div class="row">
                     <div class="col-lg-8 mx-auto text-center mb-5">
-                        <h3 class="main-headline">إنجازاتنا بالأرقام</h3>
-                        <p class="main-description">نفخر بما حققناه ونسعى دائماً للمزيد</p>
+                        <h2 class="stats-title" data-i18n="stats_main_title">إنجازاتنا بالأرقام</h2>
+                        <div class="stats-divider"></div>
                     </div>
                 </div>
 
@@ -210,11 +230,12 @@
                                 </div>
                                 <div class="stat-number"><span class="purecounter" data-purecounter-start="0"
                                         data-purecounter-end="100" data-purecounter-duration="1">0</span>+</div>
-                                <span class="stat-label">عميل سعيد</span>
+                                <span class="stat-label" data-i18n="stat_happy_clients">عميل سعيد</span>
                                 <div class="stat-growth">
                                     <i class="bi bi-graph-up-arrow"></i>
                                     <span><span class="purecounter" data-purecounter-start="0" data-purecounter-end="20"
-                                            data-purecounter-duration="1">0</span>%+ هذا العام</span>
+                                            data-purecounter-duration="1">0</span>%+ <span
+                                            data-i18n="stat_this_year">هذا العام</span></span>
                                 </div>
                             </div>
                         </div>
@@ -226,11 +247,12 @@
                                 </div>
                                 <div class="stat-number"><span class="purecounter" data-purecounter-start="0"
                                         data-purecounter-end="100" data-purecounter-duration="1">0</span>%</div>
-                                <span class="stat-label">نسبة الرضا</span>
+                                <span class="stat-label" data-i18n="stat_satisfaction_rate">نسبة الرضا</span>
                                 <div class="stat-growth">
                                     <i class="bi bi-graph-up-arrow"></i>
                                     <span><span class="purecounter" data-purecounter-start="0" data-purecounter-end="5"
-                                            data-purecounter-duration="1">0</span>%+ تحسن</span>
+                                            data-purecounter-duration="1">0</span>%+ <span
+                                            data-i18n="stat_improvement">تحسن</span></span>
                                 </div>
                             </div>
                         </div>
@@ -241,11 +263,12 @@
                                     <i class="bi bi-box-seam"></i>
                                 </div>
                                 <div class="stat-number">1+</div>
-                                <span class="stat-label">منتج متاح</span>
+                                <span class="stat-label" data-i18n="stat_available_products">منتج متاح</span>
                                 <div class="stat-growth">
                                     <i class="bi bi-plus-circle"></i>
                                     <span><span class="purecounter" data-purecounter-start="0" data-purecounter-end="1"
-                                            data-purecounter-duration="1">0</span>+ منتج جديد</span>
+                                            data-purecounter-duration="1">0</span>+ <span data-i18n="stat_new">منتج
+                                            جديد</span></span>
                                 </div>
                             </div>
                         </div>
@@ -257,11 +280,12 @@
                                 </div>
                                 <div class="stat-number"><span class="purecounter" data-purecounter-start="0"
                                         data-purecounter-end="3" data-purecounter-duration="1">0</span>+</div>
-                                <span class="stat-label">دورة تعليمية</span>
+                                <span class="stat-label" data-i18n="stat_courses_num">دورة تعليمية</span>
                                 <div class="stat-growth">
                                     <i class="bi bi-plus-circle"></i>
                                     <span><span class="purecounter" data-purecounter-start="0" data-purecounter-end="1"
-                                            data-purecounter-duration="1">0</span>+ دورات جديدة</span>
+                                            data-purecounter-duration="1">0</span>+ <span data-i18n="stat_new">دورات
+                                            جديدة</span></span>
                                 </div>
                             </div>
                         </div>
@@ -271,41 +295,41 @@
         </section>
 
         <!-- Timeline Section -->
-        <section id="timeline" class="timeline section">
+        <section id="timeline" class="about-timeline section light-background">
             <div class="container section-title" data-aos="fade-up">
-                <h2>رحلتنا عبر الزمن</h2>
-                <p>محطات هامة في مسيرة ZYQRA نحو الابتكار والتأثير</p>
+                <h2 data-i18n="timeline_title">رحلتنا عبر الزمن</h2>
+                <p data-i18n="timeline_subtitle">محطات هامة في مسيرة ZYQRA نحو الابتكار والتأثير</p>
             </div>
 
             <div class="container">
                 <div class="timeline-container">
-                    <!-- Item 2022 -->
+                    <!-- Item 2021 -->
                     <div class="timeline-item" data-aos="fade-up">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2025/8/16</div>
+                        <div class="timeline-badge">2021</div>
                         <div class="timeline-content">
-                            <h3>تأسيس ZYQRA</h3>
-                            <p>بدأنا رحلتنا بفريق صغير وحلم كبير لتغيير مشهد التعليم التقني في المنطقة</p>
+                            <h3 data-i18n="timeline_2021_title">تأسيس ZYQRA</h3>
+                            <p data-i18n="timeline_2021_text">بدأنا رحلتنا بفريق صغير وحلم كبير لتغيير مشهد التعليم
+                                التقني في المنطقة</p>
                         </div>
                     </div>
 
-                    <!-- Item 2025/8 -->
+                    <!-- Item 2024 -->
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2025/9/29</div>
+                        <div class="timeline-badge">2024</div>
                         <div class="timeline-content">
-                            <h3>تصنيع أول منتج</h3>
-                            <p>قدمنا أول منتج تقني - نظام الأمان الذكي MotoLock للدراجات النارية</p>
+                            <h3 data-i18n="timeline_2024_title">تصنيع أول منتج</h3>
+                            <p data-i18n="timeline_2024_text">قدمنا أول منتج تقني - نظام الأمان الذكي MotoLock للدراجات
+                                النارية</p>
                         </div>
                     </div>
 
-                    <!-- Item 2025/9 -->
+                    <!-- Item 2025 -->
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2025/12/4</div>
+                        <div class="timeline-badge">2025</div>
                         <div class="timeline-content">
-                            <h3>إطلاق Zyqra El-Khair</h3>
-                            <p>توسيع رؤيتنا مؤخراً من خلال إطلاق قسم الدورات التعليمية المجانية لمشاركة المعرفة مع
+                            <h3 data-i18n="timeline_2025_title">إطلاق Zyqra El-Khair</h3>
+                            <p data-i18n="timeline_2025_text">توسيع رؤيتنا مؤخراً من خلال إطلاق قسم الدورات التعليمية
+                                المجانية لمشاركة المعرفة مع
                                 الجميع</p>
                         </div>
                     </div>
@@ -313,57 +337,78 @@
             </div>
         </section><!-- /Timeline Section -->
         <!-- Team Section -->
-        <section id="team" class="testimonials section light-background">
+        <section id="team" class="about-team section">
             <div class="container section-title" data-aos="fade-up">
-
-                <h2>فريق العمل</h2>
-                <p>فريق من الخبراء والمتحمسين الذين يعملون معاً لتحقيق رؤيتنا</p>
+                <h2 data-i18n="team_title">فريق القيادة</h2>
+                <p data-i18n="team_subtitle">العقول المدبرة وراء رؤية ZYQRA</p>
             </div>
             <div class="container">
-                <div class="row gy-4">
+                <div class="row gy-5 justify-content-center">
                     <!-- Member 1 -->
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="team-item">
-                            <div class="team-image">
-                                <img src="assets/img/team/youssef_suit.png" alt="م. يوسف الجبالى">
+                        <div class="team-member-card">
+                            <div class="member-image-wrapper">
+                                <img src="assets/img/team/youssef_suit.png" alt="م. يوسف الجبالى" class="img-fluid">
                             </div>
-                            <div class="team-content">
-                                <h3>م. يوسف الجبالى</h3>
-                                <span class="position">المؤسس والرئيس التنفيذي</span>
-                                <p>خبير في الأنظمة المدمجة مع خبرة واسعة في مجال التكنولوجيا والتعليم. يقود الشركة نحو
-                                    تحقيق رؤيتها في التأثير الاجتماعي الإيجابي.</p>
+                            <div class="member-info">
+                                <h3 data-i18n="team_member_1_name">م. يوسف الجبالى</h3>
+                                <span data-i18n="team_member_1_role">المؤسس والرئيس التنفيذي</span>
+                                <div class="member-socials">
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Member 2 -->
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="team-item">
-                            <div class="team-image">
-                                <img src="assets/img/team/diaa_suit.png" alt="م. ضياء الجبالى">
+                        <div class="team-member-card">
+                            <div class="member-image-wrapper">
+                                <img src="assets/img/team/diaa_suit.png" alt="م. ضياء الجبالى" class="img-fluid">
                             </div>
-                            <div class="team-content">
-                                <h3>م. ضياء الجبالى</h3>
-                                <span class="position">المدير التقني</span>
-                                <p>متخصص في تطوير الأنظمة الإلكترونية والحلول الذكية. يشرف على تطوير جميع المنتجات
-                                    التقنية في الشركة.</p>
+                            <div class="member-info">
+                                <h3 data-i18n="team_member_2_name">م. ضياء الجبالى</h3>
+                                <span data-i18n="team_member_2_role">المدير التقني</span>
+                                <div class="member-socials">
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Member 3 -->
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="team-item">
-                            <div class="team-image">
-                                <img src="assets/img/team/team.png" alt="فريق التطوير">
+                        <div class="team-member-card">
+                            <div class="member-image-wrapper">
+                                <img src="assets/img/team/team.png" alt="فريق التطوير" class="img-fluid">
                             </div>
-                            <div class="team-content">
-                                <h3>فريق التطوير</h3>
-                                <span class="position">مهندسون ومطورون</span>
-                                <p>فريق متخصص من المهندسين والمطورين يعملون على تقديم أفضل المنتجات والخدمات لعملائنا.
-                                </p>
+                            <div class="member-info">
+                                <h3 data-i18n="team_member_3_name">فريق التطوير</h3>
+                                <span data-i18n="team_member_3_role">مهندسون ومطورون</span>
+                                <div class="member-socials">
+                                    <a href="#"><i class="bi bi-envelope"></i></a>
+                                    <a href="#"><i class="bi bi-link-45deg"></i></a>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="about-cta section">
+            <div class="container" data-aos="zoom-in">
+                <div class="about-cta-wrapper">
+                    <h2 data-i18n="cta_title">هل أنت جاهز لبدء رحلتك التقنية معنا؟</h2>
+                    <p data-i18n="cta_text">فريقنا متحمس لسماع فكرتك القادمة وتحويلها إلى واقع رقمي مذهل.</p>
+                    <div class="cta-btns mt-4">
+                        <a href="contact.html" class="cta-btn cta-btn-primary" data-i18n="cta_btn_contact">تواصل معنا
+                            الآن</a>
+                        <a href="portfolio.html" class="cta-btn cta-btn-secondary" data-i18n="cta_btn_browse">تصفح
+                            أعمالنا</a>
                     </div>
                 </div>
             </div>
@@ -378,7 +423,8 @@
                     <a href="index.html" class="logo d-flex align-items-center">
                         <span class="sitename">ZYQRA</span>
                     </a>
-                    <p>نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز.</p>
+                    <p data-i18n="footer_desc">نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي
+                        المتميز.</p>
                     <div class="social-links d-flex mt-4">
                         <a href="https://api.whatsapp.com/send?phone=201033624387" target="_blank"><i
                                 class="bi bi-whatsapp"></i></a>
@@ -391,19 +437,19 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-6 footer-links">
-                    <h4>روابط مفيدة</h4>
+                    <h4 data-i18n="footer_links_title">روابط مفيدة</h4>
                     <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="products.html">المنتجات</a></li>
-                        <li><a href="about.html">من نحن</a></li>
-                        <li><a href="contact.html">تواصل معنا</a></li>
+                        <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                        <li><a href="products.html" data-i18n="nav_products">المنتجات</a></li>
+                        <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
+                        <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
                         <li><a href="terms.html">الشروط والأحكام</a></li>
                         <li><a href="privacy.html">سياسة الخصوصية</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
-                    <h4>خدماتنا</h4>
+                    <h4 data-i18n="footer_services_title">خدماتنا</h4>
                     <ul>
                         <li><a href="products.html">المنتجات الذكية</a></li>
                         <li><a href="courses.html">الدورات التعليمية</a></li>
@@ -413,16 +459,18 @@
                 </div>
 
                 <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                    <h4>تواصل معنا</h4>
-                    <p>طنطا، الغربية</p>
-                    <p>مصر</p>
-                    <p class="mt-4"><strong>الهاتف:</strong> <span dir="ltr">+201033624387</span></p>
-                    <p><strong>البريد:</strong> <span>info@zyqra.com</span></p>
+                    <h4 data-i18n="footer_contact_title">تواصل معنا</h4>
+                    <p data-i18n="footer_city">طنطا، الغربية</p>
+                    <p data-i18n="footer_country">مصر</p>
+                    <p class="mt-4"><strong data-i18n="footer_phone">الهاتف:</strong> <span
+                            dir="ltr">+201033624387</span></p>
+                    <p><strong data-i18n="footer_email">البريد:</strong> <span>info@zyqra.com</span></p>
                 </div>
             </div>
         </div>
-        <div class="container copyright text-center mt-4">
-            <p>© <span>حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong> <span>جميع الحقوق محفوظة</span>
+        <div class="container copyright text-center mt-3">
+            <p>© <span data-i18n="footer_copy_label">حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong>
+                <span data-i18n="footer_copyright">جميع الحقوق محفوظة</span>
             </p>
         </div>
     </footer>

@@ -1,0 +1,220 @@
+/*--------------------------------------------------------------
+# Showcase Hubs - Premium Products & Courses
+--------------------------------------------------------------*/
+.showcase-hubs {
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.showcase-hubs .hub-card {
+    position: relative;
+    border-radius: 30px;
+    padding: 40px 35px;
+    height: 100%;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.showcase-hubs .hub-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, var(--hub-glow) 0%, transparent 70%);
+    opacity: 0.4;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    /* Let clicks pass through to child elements */
+}
+
+.showcase-hubs .hub-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 40px 80px rgba(0, 74, 153, 0.08);
+    /* Unified the shadow color a bit */
+    border-color: var(--hub-accent);
+}
+
+.showcase-hubs .hub-card:hover::before {
+    opacity: 0.8;
+}
+
+/* Hub Types */
+.hub-products {
+    --hub-accent: #006aff;
+    --hub-accent-rgb: 0, 106, 255;
+    --hub-glow: rgba(0, 106, 255, 0.1);
+}
+
+.hub-courses {
+    --hub-accent: #ff7b00;
+    --hub-accent-rgb: 255, 123, 0;
+    --hub-glow: rgba(255, 123, 0, 0.1);
+}
+
+/* Hub Icon Stage */
+.showcase-hubs .hub-visual {
+    margin-bottom: 25px;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid rgba(var(--hub-accent-rgb), 0.12);
+    /* Subtle frame */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02);
+    transition: all 0.5s ease;
+}
+
+.showcase-hubs .hub-card:hover .hub-visual {
+    border-color: var(--hub-accent);
+    box-shadow: 0 15px 30px rgba(var(--hub-accent-rgb), 0.1);
+}
+
+.showcase-hubs .hub-icon {
+    font-size: 40px;
+    color: var(--hub-accent);
+    z-index: 2;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.showcase-hubs .hub-card:hover .hub-icon {
+    transform: scale(1.2);
+    /* Scale up ONLY, no rotate */
+}
+
+.showcase-hubs .hub-stage {
+    position: absolute;
+    bottom: 0px;
+    width: 60px;
+    height: 15px;
+    background: var(--hub-accent);
+    filter: blur(20px);
+    opacity: 0.3;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Hub Typography */
+.showcase-hubs .hub-badge {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background: rgba(var(--primary-rgb), 0.05);
+    color: var(--hub-accent);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    border: 1px solid rgba(var(--primary-rgb), 0.08);
+}
+
+.showcase-hubs h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--heading-color);
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.showcase-hubs p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #475569;
+    margin-bottom: 30px;
+    max-width: 95%;
+}
+
+/* Hub List */
+.showcase-hubs .hub-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 35px 0;
+}
+
+.showcase-hubs .hub-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--heading-color);
+    font-size: 0.9rem;
+}
+
+.showcase-hubs .hub-list li i {
+    color: var(--hub-accent);
+    font-size: 18px;
+}
+
+/* Hub Action */
+.showcase-hubs .hub-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(var(--hub-accent-rgb), 0.08);
+    /* Subtle default background */
+    color: var(--hub-accent) !important;
+    padding: 14px 30px;
+    border-radius: 18px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    width: fit-content;
+    align-self: center;
+    /* ONLY center the button */
+    box-shadow: none;
+    position: relative;
+    z-index: 5;
+    border: 1px solid rgba(var(--hub-accent-rgb), 0.1);
+}
+
+.showcase-hubs .hub-btn:hover {
+    background: var(--hub-accent);
+    /* Solid color on hover */
+    color: #ffffff !important;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(var(--hub-accent-rgb), 0.2);
+}
+
+.showcase-hubs .hub-btn i {
+    transition: transform 0.4s ease;
+}
+
+.showcase-hubs .hub-btn:hover i {
+    transform: translateX(-5px);
+}
+
+/* Decoration */
+.showcase-hubs .hub-decor {
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, var(--hub-glow) 0%, transparent 70%);
+    z-index: -1;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .showcase-hubs .hub-card {
+        padding: 45px 30px;
+        border-radius: 30px;
+    }
+
+    .showcase-hubs h3 {
+        font-size: 1.8rem;
+    }
+}

@@ -80,18 +80,20 @@
 }
 
 .services .services-grid .service-card {
-    background: var(--surface-color);
-    padding: 2rem;
-    border-radius: 15px;
+    background: rgba(var(--primary-rgb), 0.05);
+    /* Slightly darker for contrast */
+    padding: 2.2rem 2rem;
+    border-radius: 24px;
     height: 100%;
-    transition: all 0.3s ease;
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    border: 1px solid rgba(0, 0, 0, 0.04);
     position: relative;
     overflow: hidden;
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 1rem 1.5rem;
+    gap: 1.2rem 1.5rem;
     align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
 }
 
 .services .services-grid .service-card::before {
@@ -103,13 +105,16 @@
     height: 4px;
     background: var(--accent-color);
     transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
+    transform-origin: center;
+    /* Changed from left to center */
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .services .services-grid .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px color-mix(in srgb, var(--default-color), transparent 80%);
+    transform: translateY(-12px);
+    box-shadow: 0 40px 80px rgba(0, 51, 102, 0.08);
+    /* Premium shadow */
+    border-color: rgba(var(--accent-rgb), 0.1);
 }
 
 .services .services-grid .service-card:hover::before {

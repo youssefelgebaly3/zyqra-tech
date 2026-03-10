@@ -16,6 +16,7 @@
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/css/main.css?v=3.1" rel="stylesheet">
+    <link href="assets/css/components/_courses.css" rel="stylesheet">
 </head>
 
 <body class="courses-page">
@@ -23,20 +24,22 @@
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container position-relative d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-                <h1 class="sitename">ZYQRA</h1>
+                <h1><span>Z</span><span>Y</span><span>Q</span><span>R</span><span>A</span></h1>
             </a>
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="products.html">المنتجات</a></li>
-                    <li><a href="courses.html" class="active">الدورات</a></li>
-                    <li><a href="about.html">من نحن</a></li>
-                    <li><a href="contact.html">تواصل معنا</a></li>
-                    <li class="d-xl-none"><a href="signin.html"><i class="bi bi-person me-2"></i> تسجيل الدخول</a></li>
-                    <li class="d-xl-none"><a href="signup.html"><i class="bi bi-person-plus me-2"></i> إنشاء حساب</a>
+                    <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="products.html" data-i18n="nav_products">المنتجات</a></li>
+                    <li><a href="courses.html" class="active" data-i18n="nav_courses">الدورات</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+                    <li class="d-xl-none"><a href="signin.html" data-i18n="nav_login"><i class="bi bi-person me-2"></i>
+                            تسجيل الدخول</a></li>
+                    <li class="d-xl-none"><a href="signup.html" data-i18n="nav_signup"><i
+                                class="bi bi-person-plus me-2"></i> إنشاء حساب</a>
                     </li>
                     <li class="d-xl-none"><a href="#" id="language-toggle-mobile"><i class="bi bi-globe me-2"></i>
-                            <span>Language</span></a></li>
+                            <span data-i18n="nav_lang">Language</span></a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -50,11 +53,11 @@
                 <div class="auth-links d-none d-xl-flex align-items-center gap-2">
                     <a href="signin.html" class="auth-link login">
                         <i class="bi bi-person"></i>
-                        <span>تسجيل الدخول</span>
+                        <span data-i18n="nav_login">تسجيل الدخول</span>
                     </a>
                     <a href="signup.html" class="auth-link signup">
                         <i class="bi bi-person-plus"></i>
-                        <span>إنشاء حساب</span>
+                        <span data-i18n="nav_signup">إنشاء حساب</span>
                     </a>
                 </div>
                 <a class="btn-shop-icon" href="cart.html" title="السلة">
@@ -69,43 +72,46 @@
 
 
 
-        <!-- About Courses Section -->
-        <!-- ZYQRA El-Khair Section -->
-        <section id="el-khair" class="el-khair-section mt-0">
+        <!-- ZYQRA El-Khair Hero Section -->
+        <section id="el-khair" class="el-khair-hero mt-0">
             <div class="container" data-aos="fade-up">
-                <div class="row align-items-center gy-4">
-                    <div class="col-lg-6 order-2 order-lg-1">
-                        <div class="el-khair-content">
-                            <div class="section-badge mb-3">
+                <div class="row align-items-center gy-5">
+                    <div class="col-lg-6">
+                        <div class="hero-content" data-aos="fade-right">
+                            <div class="section-badge">
                                 <i class="bi bi-heart-fill"></i>
-                                <span>مبادرة مجتمعية</span>
+                                <span data-i18n="courses_badge">مبادرة مجتمعية تعليمية</span>
                             </div>
-                            <h2 class="section-heading mb-3">ZYQRA El-Khair</h2>
-                            <h4 class="text-accent mb-4">"زكاة العلم... نشره"</h4>
-                            <p class="lead mb-4">نؤمن بأن المعرفة حق للجميع،<br class="d-none d-md-block">لذلك نقدم
-                                دورات مجانية بالكامل إيمانًا منا<br class="d-none d-md-block">بدور العلم في بناء الإنسان
-                                والمجتمع.</p>
-
-
-                            <p class="text-muted mb-4 fw-bold">كل معرفة نشاركها تعود علينا وعليكم بأثر طيب،<br
-                                    class="d-none d-md-block">وتساهم في
-                                صناعة
-                                مستقبل أفضل للجميع.<br><br>انضم إلينا، تعلّم، وكن جزءًا من التغيير.</p>
-
-                            <div class="d-flex justify-content-center justify-content-lg-start">
+                            <h1 class="hero-title" data-i18n="courses_hero_title">ZYQRA El-Khair</h1>
+                            <span class="slogan-text" data-i18n="courses_hero_slogan">"زكاة العلم... نشره"</span>
+                            <div class="description">
+                                <p data-i18n="courses_hero_p1">نؤمن بأن المعرفة حق للجميع، لذلك نقدم دورات مجانية
+                                    بالكامل إيمانًا منا بدور العلم في بناء الإنسان والمجتمع.</p>
+                                <p data-i18n="courses_hero_p2">كل معرفة نشاركها تعود علينا وعليكم بأثر طيب، وتساهم في
+                                    صناعة مستقبل أفضل للجميع. انضم إلينا لتعلم المهارات التقنية والحياتية مجاناً.</p>
+                            </div>
+                            <div class="hero-actions">
                                 <a href="#course-categories" class="uiverse-hero-btn">
-                                    <span class="text">تصفح المسارات</span>
+                                    <span class="text" data-i18n="courses_hero_btn">ابدأ التعلم</span>
                                     <span class="svg">
-                                        <i class="bi bi-chevron-down"></i>
+                                        <i class="bi bi-rocket-takeoff-fill"></i>
                                     </span>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 order-1 order-lg-2">
-                        <div class="el-khair-image">
+                    <div class="col-lg-6">
+                        <div class="visual-wrapper" data-aos="zoom-in" data-aos-delay="200">
                             <img src="assets/img/illustration/zyqra-el-khair.png" alt="ZYQRA El-Khair"
-                                class="img-fluid rounded-4 shadow-lg">
+                                class="img-fluid main-img">
+                            <div class="floating-node node-1">
+                                <i class="bi bi-cpu"></i>
+                                <span data-i18n="cat_hard_subtitle">Hard Skills</span>
+                            </div>
+                            <div class="floating-node node-2">
+                                <i class="bi bi-people"></i>
+                                <span data-i18n="cat_soft_subtitle">Soft Skills</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -120,8 +126,8 @@
         <section id="course-categories" class="features-cards section light-background">
             <div class="container section-title" data-aos="fade-up">
 
-                <h2>اختر مسارك التعليمي</h2>
-                <p>حدد المجال الذي ترغب في تطوير مهاراتك فيه</p>
+                <h2 data-i18n="courses_cat_title">اختر مسارك التعليمي</h2>
+                <p data-i18n="courses_cat_subtitle">حدد المجال الذي ترغب في تطوير مهاراتك فيه</p>
             </div>
             <div class="container" data-aos="fade-up">
                 <div class="row gy-3 gy-md-5 justify-content-center">
@@ -134,12 +140,13 @@
                                     <i class="bi bi-cpu"></i>
                                 </div>
                                 <div class="text-content">
-                                    <h3>المهارات التقنية</h3>
-                                    <span class="subtitle">Hard Skills</span>
-                                    <p>دورات في الإلكترونيات، البرمجة، الأنظمة المدمجة، وإنترنت الأشياء.</p>
+                                    <h3 data-i18n="cat_hard_title">المهارات التقنية</h3>
+                                    <span class="subtitle" data-i18n="cat_hard_subtitle">Hard Skills</span>
+                                    <p data-i18n="cat_hard_desc">دورات في الإلكترونيات، البرمجة، الأنظمة المدمجة،
+                                        وإنترنت الأشياء.</p>
                                 </div>
                                 <button class="uiverse-btn" onclick="showCourses('hard-skills')">
-                                    <span>استعراض الدورات</span>
+                                    <span data-i18n="cat_browse_btn">استعراض الدورات</span>
                                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                                         <path d="M1,5 L11,5"></path>
                                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -158,12 +165,13 @@
                                     <i class="bi bi-people"></i>
                                 </div>
                                 <div class="text-content">
-                                    <h3>المهارات الشخصية</h3>
-                                    <span class="subtitle">Soft Skills</span>
-                                    <p>دورات في التواصل، القيادة، العرض التقديمي، وإدارة الوقت.</p>
+                                    <h3 data-i18n="cat_soft_title">المهارات الشخصية</h3>
+                                    <span class="subtitle" data-i18n="cat_soft_subtitle">Soft Skills</span>
+                                    <p data-i18n="cat_soft_desc">دورات في التواصل، القيادة، العرض التقديمي، وإدارة
+                                        الوقت.</p>
                                 </div>
                                 <button class="uiverse-btn" onclick="showCourses('soft-skills')">
-                                    <span>استعراض الدورات</span>
+                                    <span data-i18n="cat_browse_btn">استعراض الدورات</span>
                                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                                         <path d="M1,5 L11,5"></path>
                                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -181,9 +189,10 @@
             <div class="container mb-4" data-aos="fade-up">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
                     <h2 id="grid-title" class="m-0 text-center text-md-start"
-                        style="font-size: 2rem; font-weight: 800; color: var(--heading-color);">الدورات المتاحة</h2>
+                        style="font-size: 2rem; font-weight: 800; color: var(--heading-color);" data-i18n="grid_title">
+                        الدورات المتاحة</h2>
                     <button onclick="showCategories()" class="uiverse-shine-btn" type="button">
-                        العودة للمسارات
+                        <span data-i18n="grid_back_btn">العودة للمسارات</span>
                         <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                             <path fill-rule="evenodd"
                                 d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
@@ -191,168 +200,356 @@
                         </svg>
                     </button>
                 </div>
+
+                <!-- Search and Filter Bar -->
+                <div class="course-filters mt-4">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-lg-5">
+                            <div class="search-box">
+                                <i class="bi bi-search search-icon"></i>
+                                <input type="text" id="courseSearch" class="form-control modern-input"
+                                    placeholder="ابحث عن دورة..." data-i18n-placeholder="search_course_placeholder">
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="filter-pills d-flex flex-wrap gap-2 justify-content-lg-end">
+                                <button class="filter-btn active" data-filter="all">الكل</button>
+                                <button class="filter-btn" data-filter="beginner">مبتدئ</button>
+                                <button class="filter-btn" data-filter="medium">متوسط</button>
+                                <button class="filter-btn" data-filter="short">أقل من 10 ساعات</button>
+                                <button class="filter-btn" data-filter="long">10 ساعات فأكثر</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="container" data-aos="fade-up">
-                <div class="row gy-4">
+                <div class="row gy-4" id="coursesList">
 
                     <!-- Hard Skills -->
-                    <div class="col-lg-4 col-md-6 course-item" data-category="hard-skills" data-aos="fade-up">
+                    <div class="col-lg-4 col-md-6 course-item" data-course-id="electronics" data-category="hard-skills"
+                        data-level="beginner" data-duration="long" data-aos="fade-up">
                         <div class="course-card">
                             <div class="course-image" style="background: linear-gradient(135deg, #2E86AB, #1A1A2E);">
                                 <i class="bi bi-cpu" style="font-size: 4rem; color: white;"></i>
+                                <button class="btn-wishlist" title="أضف للمفضلة"><i class="bi bi-heart"></i></button>
                             </div>
                             <div class="course-info">
-                                <span class="course-badge">مجاني</span>
-                                <h3 class="course-title">أساسيات الإلكترونيات</h3>
-                                <p class="course-desc">تعلم أساسيات الإلكترونيات من الصفر - المكونات الإلكترونية،
+                                <span class="course-badge" data-i18n="course_free">مجاني</span>
+                                <h3 class="course-title" data-i18n="course_electronics_title">أساسيات الإلكترونيات</h3>
+                                <div class="course-rating">
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-half text-warning"></i>
+                                    </div>
+                                    <span class="rating-value">4.8</span>
+                                    <span class="rating-count">(120)</span>
+                                </div>
+                                <p class="course-desc" data-i18n="course_electronics_desc">تعلم أساسيات الإلكترونيات من
+                                    الصفر - المكونات الإلكترونية،
                                     الدوائر، والقياسات.</p>
+                                <div class="course-instructor">
+                                    <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
+                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                </div>
                                 <div class="course-meta">
-                                    <span><i class="bi bi-clock"></i> 12 ساعة</span>
-                                    <span><i class="bi bi-person"></i> مبتدئ</span>
+                                    <span><i class="bi bi-clock"></i> 12 <span
+                                            data-i18n="course_hours">ساعة</span></span>
+                                    <span><i class="bi bi-bar-chart-fill"></i> <span
+                                            data-i18n="course_level_beginner">مبتدئ</span></span>
                                 </div>
                                 <a href="course-electronics.html" class="btn-course"><i class="bi bi-play-fill"></i>
-                                    ابدأ
-                                    الآن</a>
+                                    <span data-i18n="course_start">ابدأ الآن</span></a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 course-item" data-category="hard-skills" data-aos="fade-up">
+                    <div class="col-lg-4 col-md-6 course-item" data-course-id="embedded" data-category="hard-skills"
+                        data-level="medium" data-duration="long" data-aos="fade-up">
                         <div class="course-card">
                             <div class="course-image" style="background: linear-gradient(135deg, #A23B72, #2E86AB);">
                                 <i class="bi bi-motherboard" style="font-size: 4rem; color: white;"></i>
+                                <button class="btn-wishlist" title="أضف للمفضلة"><i class="bi bi-heart"></i></button>
                             </div>
                             <div class="course-info">
-                                <span class="course-badge">مجاني</span>
-                                <h3 class="course-title">Embedded Systems</h3>
-                                <p class="course-desc">دورة شاملة في الأنظمة المدمجة - برمجة الميكروكنترولر وتطوير
-                                    المشاريع.</p>
-                                <div class="course-meta">
-                                    <span><i class="bi bi-clock"></i> 20 ساعة</span>
-                                    <span><i class="bi bi-person"></i> متوسط</span>
+                                <span class="course-badge" data-i18n="course_free">مجاني</span>
+                                <h3 class="course-title" data-i18n="course_embedded_title">Embedded Systems</h3>
+                                <div class="course-rating">
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    </div>
+                                    <span class="rating-value">4.9</span>
+                                    <span class="rating-count">(85)</span>
                                 </div>
-                                <a href="course-embedded.html" class="btn-course"><i class="bi bi-play-fill"></i> ابدأ
-                                    الآن</a>
+                                <p class="course-desc" data-i18n="course_embedded_desc">دورة شاملة في الأنظمة المدمجة -
+                                    برمجة الميكروكنترولر وتطوير
+                                    المشاريع.</p>
+                                <div class="course-instructor">
+                                    <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
+                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                </div>
+                                <div class="course-meta">
+                                    <span><i class="bi bi-clock"></i> 20 <span
+                                            data-i18n="course_hours">ساعة</span></span>
+                                    <span><i class="bi bi-bar-chart-fill"></i> <span
+                                            data-i18n="course_level_medium">متوسط</span></span>
+                                </div>
+                                <a href="course-embedded.html" class="btn-course"><i class="bi bi-play-fill"></i> <span
+                                        data-i18n="course_start">ابدأ الآن</span></a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 course-item" data-category="hard-skills" data-aos="fade-up">
+                    <div class="col-lg-4 col-md-6 course-item" data-course-id="iot" data-category="hard-skills"
+                        data-aos="fade-up">
                         <div class="course-card">
                             <div class="course-image" style="background: linear-gradient(135deg, #F18F01, #2E86AB);">
                                 <i class="bi bi-wifi" style="font-size: 4rem; color: white;"></i>
+                                <button class="btn-wishlist" title="أضف للمفضلة"><i class="bi bi-heart"></i></button>
                             </div>
                             <div class="course-info">
-                                <span class="course-badge">مجاني</span>
-                                <h3 class="course-title">IoT - إنترنت الأشياء</h3>
-                                <p class="course-desc">تعلم بناء مشاريع إنترنت الأشياء - الحساسات، الاتصال، والتطبيقات
-                                    العملية.</p>
-                                <div class="course-meta">
-                                    <span><i class="bi bi-clock"></i> 15 ساعة</span>
-                                    <span><i class="bi bi-person"></i> متوسط</span>
+                                <span class="course-badge" data-i18n="course_free">مجاني</span>
+                                <h3 class="course-title" data-i18n="course_iot_title">IoT - إنترنت الأشياء</h3>
+                                <div class="course-rating">
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-half text-warning"></i>
+                                    </div>
+                                    <span class="rating-value">4.7</span>
+                                    <span class="rating-count">(64)</span>
                                 </div>
-                                <a href="course-iot.html" class="btn-course"><i class="bi bi-play-fill"></i> ابدأ
-                                    الآن</a>
+                                <p class="course-desc" data-i18n="course_iot_desc">تعلم بناء مشاريع إنترنت الأشياء -
+                                    الحساسات، الاتصال، والتطبيقات
+                                    العملية.</p>
+                                <div class="course-instructor">
+                                    <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
+                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                </div>
+                                <div class="course-meta">
+                                    <span><i class="bi bi-clock"></i> 15 <span
+                                            data-i18n="course_hours">ساعة</span></span>
+                                    <span><i class="bi bi-bar-chart-fill"></i> <span
+                                            data-i18n="course_level_medium">متوسط</span></span>
+                                </div>
+                                <a href="course-iot.html" class="btn-course"><i class="bi bi-play-fill"></i> <span
+                                        data-i18n="course_start">ابدأ الآن</span></a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 course-item" data-category="hard-skills" data-aos="fade-up">
+                    <div class="col-lg-4 col-md-6 course-item" data-course-id="arduino" data-category="hard-skills"
+                        data-level="beginner" data-duration="short" data-aos="fade-up">
                         <div class="course-card">
                             <div class="course-image" style="background: linear-gradient(135deg, #6366F1, #2E86AB);">
                                 <i class="bi bi-lightning-charge" style="font-size: 4rem; color: white;"></i>
+                                <button class="btn-wishlist" title="أضف للمفضلة"><i class="bi bi-heart"></i></button>
                             </div>
                             <div class="course-info">
-                                <span class="course-badge">مجاني</span>
-                                <h3 class="course-title">Arduino Projects</h3>
-                                <p class="course-desc">مشاريع عملية باستخدام Arduino - من الفكرة إلى التنفيذ.</p>
-                                <div class="course-meta">
-                                    <span><i class="bi bi-clock"></i> 8 ساعة</span>
-                                    <span><i class="bi bi-person"></i> مبتدئ</span>
+                                <span class="course-badge" data-i18n="course_free">مجاني</span>
+                                <h3 class="course-title" data-i18n="course_arduino_title">Arduino Projects</h3>
+                                <div class="course-rating">
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    </div>
+                                    <span class="rating-value">5.0</span>
+                                    <span class="rating-count">(215)</span>
                                 </div>
-                                <a href="course-arduino.html" class="btn-course"><i class="bi bi-play-fill"></i> ابدأ
-                                    الآن</a>
+                                <p class="course-desc" data-i18n="course_arduino_desc">مشاريع عملية باستخدام Arduino -
+                                    من الفكرة إلى التنفيذ.</p>
+                                <div class="course-instructor">
+                                    <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
+                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                </div>
+                                <div class="course-meta mb-2">
+                                    <span><i class="bi bi-clock"></i> 8 <span
+                                            data-i18n="course_hours">ساعة</span></span>
+                                    <span><i class="bi bi-bar-chart-fill"></i> <span
+                                            data-i18n="course_level_beginner">مبتدئ</span></span>
+                                </div>
+                                <div class="course-progress mb-3">
+                                    <div class="progress-info d-flex justify-content-between align-items-center mb-1">
+                                        <span class="small text-muted fw-bold">مكتمل</span>
+                                        <span class="small fw-bold text-accent">40%</span>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 40%;"
+                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <a href="course-arduino.html" class="btn-course btn-resume"><i
+                                        class="bi bi-play-circle me-1"></i> <span data-i18n="course_resume">متابعة
+                                        التعلم</span></a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Soft Skills -->
-                    <div class="col-lg-4 col-md-6 course-item" data-category="soft-skills" data-aos="fade-up">
+                    <div class="col-lg-4 col-md-6 course-item" data-course-id="communication"
+                        data-category="soft-skills" data-level="all" data-duration="short" data-aos="fade-up">
                         <div class="course-card">
                             <div class="course-image" style="background: linear-gradient(135deg, #EC4899, #2E86AB);">
                                 <i class="bi bi-people" style="font-size: 4rem; color: white;"></i>
+                                <button class="btn-wishlist" title="أضف للمفضلة"><i class="bi bi-heart"></i></button>
                             </div>
                             <div class="course-info">
-                                <span class="course-badge">مجاني</span>
-                                <h3 class="course-title">مهارات التواصل الفعال</h3>
-                                <p class="course-desc">كيف تتواصل بوضوح وثقة مع الآخرين في بيئة العمل والحياة.</p>
+                                <span class="course-badge" data-i18n="course_free">مجاني</span>
+                                <h3 class="course-title" data-i18n="course_comm_title">مهارات التواصل الفعال</h3>
+                                <div class="course-rating">
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-half text-warning"></i>
+                                    </div>
+                                    <span class="rating-value">4.8</span>
+                                    <span class="rating-count">(310)</span>
+                                </div>
+                                <p class="course-desc" data-i18n="course_comm_desc">كيف تتواصل بوضوح وثقة مع الآخرين في
+                                    بيئة العمل والحياة.</p>
+                                <div class="course-instructor">
+                                    <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
+                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                </div>
                                 <div class="course-meta">
-                                    <span><i class="bi bi-clock"></i> 6 ساعة</span>
-                                    <span><i class="bi bi-person"></i> الكل</span>
+                                    <span><i class="bi bi-clock"></i> 6 <span
+                                            data-i18n="course_hours">ساعة</span></span>
+                                    <span><i class="bi bi-bar-chart-fill"></i> <span
+                                            data-i18n="course_level_all">الكل</span></span>
                                 </div>
                                 <a href="course-soft-skills.html" class="btn-course"><i class="bi bi-play-fill"></i>
-                                    ابدأ
-                                    الآن</a>
+                                    <span data-i18n="course_start">ابدأ الآن</span></a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 course-item" data-category="soft-skills" data-aos="fade-up">
+                    <div class="col-lg-4 col-md-6 course-item" data-course-id="leadership" data-category="soft-skills"
+                        data-level="all" data-duration="short" data-aos="fade-up">
                         <div class="course-card">
                             <div class="course-image" style="background: linear-gradient(135deg, #8B5CF6, #4C1D95);">
                                 <i class="bi bi-briefcase" style="font-size: 4rem; color: white;"></i>
+                                <button class="btn-wishlist" title="أضف للمفضلة"><i class="bi bi-heart"></i></button>
                             </div>
                             <div class="course-info">
-                                <span class="course-badge">مجاني</span>
-                                <h3 class="course-title">مهارات القيادة</h3>
-                                <p class="course-desc">أساسيات القيادة الناجحة وكيفية تحفيز فريق العمل وإدارته.</p>
+                                <span class="course-badge" data-i18n="course_free">مجاني</span>
+                                <h3 class="course-title" data-i18n="course_lead_title">مهارات القيادة</h3>
+                                <div class="course-rating">
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-half text-warning"></i>
+                                    </div>
+                                    <span class="rating-value">4.7</span>
+                                    <span class="rating-count">(155)</span>
+                                </div>
+                                <p class="course-desc" data-i18n="course_lead_desc">أساسيات القيادة الناجحة وكيفية تحفيز
+                                    فريق العمل وإدارته.</p>
+                                <div class="course-instructor">
+                                    <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
+                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                </div>
                                 <div class="course-meta">
-                                    <span><i class="bi bi-clock"></i> 8 ساعة</span>
-                                    <span><i class="bi bi-person"></i> الكل</span>
+                                    <span><i class="bi bi-clock"></i> 8 <span
+                                            data-i18n="course_hours">ساعة</span></span>
+                                    <span><i class="bi bi-bar-chart-fill"></i> <span
+                                            data-i18n="course_level_all">الكل</span></span>
                                 </div>
                                 <a href="course-soft-skills.html" class="btn-course"><i class="bi bi-play-fill"></i>
-                                    ابدأ
-                                    الآن</a>
+                                    <span data-i18n="course_start">ابدأ الآن</span></a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 course-item" data-category="soft-skills" data-aos="fade-up">
+                    <div class="col-lg-4 col-md-6 course-item" data-course-id="time-management"
+                        data-category="soft-skills" data-aos="fade-up">
                         <div class="course-card">
                             <div class="course-image" style="background: linear-gradient(135deg, #10B981, #064E3B);">
                                 <i class="bi bi-hourglass-split" style="font-size: 4rem; color: white;"></i>
+                                <button class="btn-wishlist" title="أضف للمفضلة"><i class="bi bi-heart"></i></button>
                             </div>
                             <div class="course-info">
-                                <span class="course-badge">مجاني</span>
-                                <h3 class="course-title">إدارة الوقت والإنتاجية</h3>
-                                <p class="course-desc">طرق عملية لزيادة إنتاجيتك وتنظيم وقتك بفعالية.</p>
+                                <span class="course-badge" data-i18n="course_free">مجاني</span>
+                                <h3 class="course-title" data-i18n="course_time_title">إدارة الوقت والإنتاجية</h3>
+                                <div class="course-rating">
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    </div>
+                                    <span class="rating-value">4.9</span>
+                                    <span class="rating-count">(420)</span>
+                                </div>
+                                <p class="course-desc" data-i18n="course_time_desc">طرق عملية لزيادة إنتاجيتك وتنظيم
+                                    وقتك بفعالية.</p>
+                                <div class="course-instructor">
+                                    <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
+                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                </div>
                                 <div class="course-meta">
-                                    <span><i class="bi bi-clock"></i> 5 ساعة</span>
-                                    <span><i class="bi bi-person"></i> الكل</span>
+                                    <span><i class="bi bi-clock"></i> 5 <span
+                                            data-i18n="course_hours">ساعة</span></span>
+                                    <span><i class="bi bi-bar-chart-fill"></i> <span
+                                            data-i18n="course_level_all">الكل</span></span>
                                 </div>
                                 <a href="course-soft-skills.html" class="btn-course"><i class="bi bi-play-fill"></i>
-                                    ابدأ
-                                    الآن</a>
+                                    <span data-i18n="course_start">ابدأ الآن</span></a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 course-item" data-category="soft-skills" data-aos="fade-up">
+                    <div class="col-lg-4 col-md-6 course-item" data-course-id="presentation" data-category="soft-skills"
+                        data-aos="fade-up">
                         <div class="course-card">
                             <div class="course-image" style="background: linear-gradient(135deg, #F59E0B, #B45309);">
                                 <i class="bi bi-easel" style="font-size: 4rem; color: white;"></i>
+                                <button class="btn-wishlist" title="أضف للمفضلة"><i class="bi bi-heart"></i></button>
                             </div>
                             <div class="course-info">
-                                <span class="course-badge">مجاني</span>
-                                <h3 class="course-title">مهارات العرض التقديمي</h3>
-                                <p class="course-desc">كيف تقدم عروضاً تقديمية مبهرة وتجذب انتباه الجمهور.</p>
+                                <span class="course-badge" data-i18n="course_free">مجاني</span>
+                                <h3 class="course-title" data-i18n="course_pres_title">مهارات العرض التقديمي</h3>
+                                <div class="course-rating">
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-half text-warning"></i>
+                                    </div>
+                                    <span class="rating-value">4.6</span>
+                                    <span class="rating-count">(98)</span>
+                                </div>
+                                <p class="course-desc" data-i18n="course_pres_desc">كيف تقدم عروضاً تقديمية مبهرة وتجذب
+                                    انتباه الجمهور.</p>
+                                <div class="course-instructor">
+                                    <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
+                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                </div>
                                 <div class="course-meta">
-                                    <span><i class="bi bi-clock"></i> 7 ساعة</span>
-                                    <span><i class="bi bi-person"></i> الكل</span>
+                                    <span><i class="bi bi-clock"></i> 7 <span
+                                            data-i18n="course_hours">ساعة</span></span>
+                                    <span><i class="bi bi-bar-chart-fill"></i> <span
+                                            data-i18n="course_level_all">الكل</span></span>
                                 </div>
                                 <a href="course-soft-skills.html" class="btn-course"><i class="bi bi-play-fill"></i>
-                                    ابدأ
-                                    الآن</a>
+                                    <span data-i18n="course_start">ابدأ الآن</span></a>
                             </div>
                         </div>
                     </div>
@@ -371,7 +568,8 @@
                     <a href="index.html" class="logo d-flex align-items-center">
                         <span class="sitename">ZYQRA</span>
                     </a>
-                    <p>نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز، نسعى لتحقيق
+                    <p data-i18n="footer_description">نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى
+                        التعليمي المتميز، نسعى لتحقيق
                         تأثير
                         اجتماعي إيجابي من خلال الابتكار.</p>
                     <div class="social-links d-flex mt-4">
@@ -386,39 +584,41 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-6 footer-links">
-                    <h4>روابط مفيدة</h4>
+                    <h4 data-i18n="footer_links_title">روابط مفيدة</h4>
                     <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="products.html">المنتجات</a></li>
-                        <li><a href="courses.html">الدورات</a></li>
-                        <li><a href="about.html">من نحن</a></li>
-                        <li><a href="contact.html">تواصل معنا</a></li>
+                        <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                        <li><a href="products.html" data-i18n="nav_products">المنتجات</a></li>
+                        <li><a href="courses.html" data-i18n="nav_courses">الدورات</a></li>
+                        <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
+                        <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
                         <li><a href="terms.html">الشروط والأحكام</a></li>
                         <li><a href="privacy.html">سياسة الخصوصية</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
-                    <h4>خدماتنا</h4>
+                    <h4 data-i18n="footer_services_title">خدماتنا</h4>
                     <ul>
-                        <li><a href="products.html">المنتجات الذكية</a></li>
-                        <li><a href="courses.html">الدورات التعليمية</a></li>
-                        <li><a href="contact.html">الدعم الفني</a></li>
-                        <li><a href="contact.html">الاستشارات</a></li>
+                        <li><a href="products.html" data-i18n="nav_products">المنتجات الذكية</a></li>
+                        <li><a href="courses.html" data-i18n="nav_courses">الدورات التعليمية</a></li>
+                        <li><a href="contact.html" data-i18n="footer_support">الدعم الفني</a></li>
+                        <li><a href="contact.html" data-i18n="footer_consult">الاستشارات</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                    <h4>تواصل معنا</h4>
-                    <p>طنطا، الغربية</p>
-                    <p>مصر</p>
-                    <p class="mt-4"><strong>الهاتف:</strong> <span dir="ltr">+201033624387</span></p>
-                    <p><strong>البريد:</strong> <span>info@zyqra.com</span></p>
+                    <h4 data-i18n="footer_contact_title">تواصل معنا</h4>
+                    <p data-i18n="footer_address">طنطا، الغربية</p>
+                    <p data-i18n="footer_country">مصر</p>
+                    <p class="mt-4"><strong data-i18n="footer_phone_label">الهاتف:</strong> <span
+                            dir="ltr">+201033624387</span></p>
+                    <p><strong data-i18n="footer_email_label">البريد:</strong> <span>info@zyqra.com</span></p>
                 </div>
             </div>
         </div>
-        <div class="container copyright text-center mt-4">
-            <p>© <span>حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong> <span>جميع الحقوق محفوظة</span>
+        <div class="container copyright text-center mt-3">
+            <p>© <span data-i18n="footer_copyright_text">حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong>
+                <span data-i18n="footer_rights">جميع الحقوق محفوظة</span>
             </p>
         </div>
     </footer>
@@ -428,9 +628,10 @@
 
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/js/translations/common.js"></script>
+    <script src="assets/js/translations/courses.js"></script>
     <script src="assets/js/main.js?v=3.1"></script>
     <script src="assets/js/courses.js"></script>
-
 </body>
 
 </html>

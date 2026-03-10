@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#003366",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1923",
+                    },
+                    fontFamily: {
+                        "display": ["Tajawal", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Tajawal', sans-serif; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 lg:px-40 py-4 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-4 text-primary dark:text-slate-100">
+<div class="size-8 flex items-center justify-center bg-primary rounded-lg text-white">
+<span class="material-symbols-outlined">rocket_launch</span>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight">ZYQRA</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+<nav class="flex items-center gap-9">
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#">الرئيسية</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary" href="#">من نحن</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#">خدماتنا</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#">أعمالنا</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#">تواصل معنا</a>
+</nav>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-xl h-11 px-5 bg-primary text-white text-sm font-bold hover:opacity-90 transition-opacity">
+<span>ابدأ الآن</span>
+</button>
+</div>
+<button class="md:hidden p-2 text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<section class="px-6 lg:px-40 py-12">
+<div class="relative overflow-hidden rounded-3xl min-h-[400px] flex flex-col justify-end p-8 lg:p-16 bg-primary" data-alt="Modern team working together in a sleek office environment" style='background-image: linear-gradient(to top, rgba(0, 51, 102, 0.9) 0%, rgba(0, 51, 102, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBGEQOofyAJmKjrtS9bZxncbFWGZq1FeCSPhYLxrQ3vCOG9dwQ54H4moxjmMTjYDcVfEvCO4GVO_WMmccpyIv9WnkcXzjQ4xB6YrTIda7RgLRv_L2LawKyWC-4a8sB3Bg8PSo36UlfL26K6L8yVudjRDLyligxEiIKgoyxg_iH9xivcWD9rhBGxokOKepLK7SLHz7TrTerM-66VUBYR2INvcU8tAOMTLSwUGcNzBoeJCP5HQa5NON2d7YhrPs53JBKGVgxw7aiZfcw"); background-size: cover; background-position: center;'>
+<div class="max-w-2xl">
+<h1 class="text-white text-4xl lg:text-6xl font-black leading-tight mb-4">من نحن</h1>
+<p class="text-slate-200 text-lg lg:text-xl font-medium max-w-xl">
+                                نسعى لتحويل الأفكار الطموحة إلى واقع ملموس من خلال الابتكار والتميز التقني والحلول البرمجية المتطورة.
+                            </p>
+</div>
+</div>
+</section>
+<!-- Story Section -->
+<section class="px-6 lg:px-40 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary w-fit">
+<span class="material-symbols-outlined text-sm">history_edu</span>
+<span class="text-xs font-bold uppercase tracking-wider">قصتنا</span>
+</div>
+<h2 class="text-primary dark:text-white text-4xl font-black leading-tight">بدأت ZYQRA من فكرة بسيطة</h2>
+<p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                            انطلقت شركتنا من شغف عميق بتطوير الحلول التقنية التي تسد الفجوة بين التعقيد البرمجي وسهولة الاستخدام. نحن نؤمن بأن التكنولوجيا يجب أن تكون أداة للتمكين والنمو، وليست عائقاً. ومن هنا بدأنا رحلتنا في بناء منصة تقنية متكاملة تخدم رواد الأعمال والشركات الناشئة.
+                        </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 rounded-2xl bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-primary text-3xl mb-2">trending_up</span>
+<p class="font-bold text-xl">+150</p>
+<p class="text-sm text-slate-500">مشروع ناجح</p>
+</div>
+<div class="p-4 rounded-2xl bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-primary text-3xl mb-2">groups</span>
+<p class="font-bold text-xl">+50</p>
+<p class="text-sm text-slate-500">خبير تقني</p>
+</div>
+</div>
+</div>
+<div class="rounded-3xl overflow-hidden aspect-video lg:aspect-square bg-slate-200 dark:bg-slate-800 shadow-xl" data-alt="Group of developers collaborating around a laptop" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCvYfu8gjtBHbhFVkgobMjvnIbwF3ncIeOei_o95Y2svlk0Pprx_2yaRl4Q0WS0b4lN-q5ZprGreutZCqaMlDHTzk9f082g5HjWsFnYGTLFlcFlh8NygQ3uzzeXguY5odeZ0cD3_VXlPiNcgwLC-x2Gc5HF_s0U7Ra4PxNZvN0m0rBFU0GbgF03w3K_gRjH2CAKwO-wQ2m6D4ReBOtaRf_0aNRR9NcFmZPN8bkJmiTif0c3yHqDMKpTh_P3hXwO-SCI8LftoX7lrY"); background-size: cover; background-position: center;'>
+</div>
+</section>
+<!-- Tabs: Vision, Mission, Values -->
+<section class="px-6 lg:px-40 py-16 bg-white dark:bg-background-dark/50">
+<div class="flex flex-col items-center text-center mb-12">
+<h2 class="text-3xl font-black text-primary dark:text-white mb-4">هويتنا الجوهرية</h2>
+<div class="h-1.5 w-20 bg-primary rounded-full"></div>
+</div>
+<div class="max-w-4xl mx-auto">
+<div class="flex overflow-x-auto border-b border-slate-200 dark:border-slate-800 mb-8 justify-center gap-4 lg:gap-12 scrollbar-hide">
+<button class="flex flex-col items-center pb-4 border-b-2 border-primary text-primary font-bold transition-all min-w-[100px]">
+<span class="material-symbols-outlined mb-1">visibility</span>
+<span>رؤيتنا</span>
+</button>
+<button class="flex flex-col items-center pb-4 border-b-2 border-transparent text-slate-500 hover:text-primary transition-all min-w-[100px]">
+<span class="material-symbols-outlined mb-1">rocket</span>
+<span>رسالتنا</span>
+</button>
+<button class="flex flex-col items-center pb-4 border-b-2 border-transparent text-slate-500 hover:text-primary transition-all min-w-[100px]">
+<span class="material-symbols-outlined mb-1">diamond</span>
+<span>قيمنا</span>
+</button>
+<button class="flex flex-col items-center pb-4 border-b-2 border-transparent text-slate-500 hover:text-primary transition-all min-w-[100px]">
+<span class="material-symbols-outlined mb-1">auto_awesome</span>
+<span>ما يميزنا</span>
+</button>
+</div>
+<div class="bg-background-light dark:bg-slate-800/50 p-8 rounded-3xl text-center">
+<p class="text-xl leading-relaxed text-slate-700 dark:text-slate-300">
+                                نهدف لأن نكون الشركة الرائدة عالمياً في تقديم الحلول التقنية المبتكرة التي تساهم في التحول الرقمي الشامل، مع الالتزام بأعلى معايير الجودة والاستدامة في كل كود نكتبه.
+                            </p>
+</div>
+</div>
+</section>
+<!-- Founders Section -->
+<section class="px-6 lg:px-40 py-20">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-black text-primary dark:text-white mb-4">فريق القيادة</h2>
+<p class="text-slate-600 dark:text-slate-400">العقول المدبرة وراء رؤية ZYQRA</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+<div class="flex flex-col items-center group">
+<div class="relative w-full aspect-[4/5] rounded-3xl overflow-hidden mb-6 shadow-lg transform transition-transform group-hover:-translate-y-2" data-alt="Portrait of Youssef El Gibali, Founder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCuAAjqDTHlt-sVba8IXYlHqlrbgC6OMIDrXMGwWivjmhWEpOu_mY2LhlCEAJvzS-LkOx61cGzZ8jnolik0tpR3H-FKh4-EwBt742VKqlkWezUtMmdHUZRHudfo1ZYhNgjXF7ivypxGf8RvTjVIvfv3fjIIyaRoXinQeNPcEOTajjwFmtXgGMrXFywm0dGJqlOAdcmbLHL6VWxb4KgxQlEebpobHvbV0Ca1uAEPkSIgWjTQb8zJW3puH8KOnRhYZOxuS7EKESigvNM"); background-size: cover; background-position: center;'>
+</div>
+<h3 class="text-2xl font-bold text-primary dark:text-white">م. يوسف الجبالى</h3>
+<p class="text-slate-500 font-medium">المؤسس والشريك التنفيذي</p>
+<div class="flex gap-4 mt-4">
+<a class="text-slate-400 hover:text-primary" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="text-slate-400 hover:text-primary" href="#"><span class="material-symbols-outlined">link</span></a>
+</div>
+</div>
+<div class="flex flex-col items-center group">
+<div class="relative w-full aspect-[4/5] rounded-3xl overflow-hidden mb-6 shadow-lg transform transition-transform group-hover:-translate-y-2" data-alt="Portrait of Diaa El Gibali, Founder and CTO" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbXzXl92rxcp5EpDzMVTM7TK89PmV_6PanZdPV-La1e-CnHZG-ATPEmSSHv59zzp3FuL5WFkkVoNMIwwdOIdB-igtlQk2sUF90vJkXcdJS42J7lidIpSSDeogipTQgZ2C4YuvJZgRupL_59ySWCcgHBRK9YG1OIgni4HrC3a35QBCxjfHhflwqBry2Ts5alPATBWAPYiVb6OJB7YJ5V6gHSv4j4eKU_uAJDni-3cPOG_GR6uWY5LqBzgXH6vt9OtGdcfLxwVA-P9s"); background-size: cover; background-position: center;'>
+</div>
+<h3 class="text-2xl font-bold text-primary dark:text-white">م. ضياء الجبالى</h3>
+<p class="text-slate-500 font-medium">المؤسس والمدير التقني</p>
+<div class="flex gap-4 mt-4">
+<a class="text-slate-400 hover:text-primary" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="text-slate-400 hover:text-primary" href="#"><span class="material-symbols-outlined">link</span></a>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats: Achievements -->
+<section class="bg-primary py-20 px-6 lg:px-40 text-white">
+<div class="text-center mb-12">
+<h2 class="text-3xl lg:text-4xl font-black mb-4">إنجازاتنا بالأرقام</h2>
+<div class="h-1 w-20 bg-white/30 mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="text-center">
+<p class="text-5xl font-black mb-2 tracking-tighter">98%</p>
+<p class="text-slate-300 font-medium">رضا العملاء</p>
+</div>
+<div class="text-center">
+<p class="text-5xl font-black mb-2 tracking-tighter">24/7</p>
+<p class="text-slate-300 font-medium">دعم فني متواصل</p>
+</div>
+<div class="text-center">
+<p class="text-5xl font-black mb-2 tracking-tighter">+12</p>
+<p class="text-slate-300 font-medium">دولة نخدمها</p>
+</div>
+<div class="text-center">
+<p class="text-5xl font-black mb-2 tracking-tighter">500M</p>
+<p class="text-slate-300 font-medium">طلبات برمجية شهرياً</p>
+</div>
+</div>
+</section>
+<!-- Timeline -->
+<section class="px-6 lg:px-40 py-24 bg-white dark:bg-background-dark">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-black text-primary dark:text-white mb-4">رحلتنا عبر الزمن</h2>
+<p class="text-slate-500">من البدايات المتواضعة إلى الريادة التقنية</p>
+</div>
+<div class="relative max-w-4xl mx-auto">
+<!-- Vertical Line -->
+<div class="absolute right-1/2 translate-x-1/2 w-1 h-full bg-slate-200 dark:bg-slate-800 rounded-full"></div>
+<div class="space-y-24 relative">
+<!-- Timeline Item 1 -->
+<div class="flex items-center justify-between w-full flex-row-reverse md:flex-row">
+<div class="w-[45%] hidden md:block"></div>
+<div class="z-10 bg-primary w-10 h-10 rounded-full flex items-center justify-center text-white font-bold ring-8 ring-background-light dark:ring-background-dark">
+<span>2021</span>
+</div>
+<div class="w-[45%] bg-background-light dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+<h4 class="font-bold text-primary dark:text-white text-lg mb-2">التأسيس</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">انطلاق ZYQRA كفريق تطوير مستقل يركز على الحلول السحابية.</p>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="flex items-center justify-between w-full flex-row">
+<div class="w-[45%] bg-background-light dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 text-left">
+<h4 class="font-bold text-primary dark:text-white text-lg mb-2">التوسع الإقليمي</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">افتتاح أول فرع إقليمي وتقديم خدماتنا لأكثر من 50 عميل في الشرق الأوسط.</p>
+</div>
+<div class="z-10 bg-primary w-10 h-10 rounded-full flex items-center justify-center text-white font-bold ring-8 ring-background-light dark:ring-background-dark">
+<span>2022</span>
+</div>
+<div class="w-[45%] hidden md:block"></div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="flex items-center justify-between w-full flex-row-reverse md:flex-row">
+<div class="w-[45%] hidden md:block"></div>
+<div class="z-10 bg-primary w-10 h-10 rounded-full flex items-center justify-center text-white font-bold ring-8 ring-background-light dark:ring-background-dark">
+<span>2023</span>
+</div>
+<div class="w-[45%] bg-background-light dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+<h4 class="font-bold text-primary dark:text-white text-lg mb-2">التميز التقني</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">إطلاق منصة تطوير متكاملة تعتمد على الذكاء الاصطناعي لتسريع بناء التطبيقات.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="px-6 lg:px-40 pb-20">
+<div class="bg-gradient-to-r from-primary to-primary/80 rounded-[2.5rem] p-12 text-center text-white">
+<h2 class="text-3xl lg:text-4xl font-black mb-6">هل أنت جاهز لبدء رحلتك التقنية معنا؟</h2>
+<p class="text-slate-200 text-lg mb-10 max-w-2xl mx-auto">فريقنا متحمس لسماع فكرتك القادمة وتحويلها إلى واقع رقمي مذهل.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="px-10 py-4 bg-white text-primary font-bold rounded-xl hover:bg-slate-100 transition-colors">تواصل معنا الآن</button>
+<button class="px-10 py-4 border-2 border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-colors">تصفح أعمالنا</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 px-6 lg:px-40 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 text-primary dark:text-white mb-6">
+<span class="material-symbols-outlined text-3xl">rocket_launch</span>
+<span class="text-2xl font-black">ZYQRA</span>
+</div>
+<p class="text-slate-500 text-sm leading-relaxed">نحن نصنع المستقبل التقني بأيدٍ مبدعة ورؤية عالمية.</p>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-6">الروابط</h4>
+<ul class="space-y-4 text-slate-500 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">من نحن</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">خدماتنا</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">المدونة</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">الوظائف</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-6">الدعم</h4>
+<ul class="space-y-4 text-slate-500 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">مركز المساعدة</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">سياسة الخصوصية</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">الشروط والأحكام</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-6">تابعنا</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-100 dark:border-slate-800 text-center text-slate-400 text-xs">
+<p>© 2024 ZYQRA. جميع الحقوق محفوظة.</p>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

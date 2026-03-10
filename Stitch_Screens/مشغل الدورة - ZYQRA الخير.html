@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#003366",
+              "background-light": "#f5f7f8",
+              "background-dark": "#0f1923",
+            },
+            fontFamily: {
+              "display": ["Tajawal", "Space Grotesk", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Tajawal', sans-serif; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex min-h-screen flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark px-4 md:px-10 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">memory</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-primary dark:text-white">ZYQRA</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">الرئيسية</a>
+<a class="text-sm font-bold text-primary border-b-2 border-primary" href="#">دوراتي</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">المتجر</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center bg-slate-100 dark:bg-slate-800 rounded-xl px-3 py-1.5">
+<span class="material-symbols-outlined text-slate-500 text-lg">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-32 lg:w-48 placeholder:text-slate-400" placeholder="بحث عن درس..." type="text"/>
+</div>
+<button class="p-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="size-10 rounded-full border-2 border-primary/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbLG79LtY6EwrTv-dw-D_-5mbYA69ghB7JygJ1lEr3DlGMLjpkMxUsHjFa5-40rJvmhOvDah9ftsssMrTGlv8zvm1BHF4_7f0CL-4DWiROI-y2kzcB2HWKzBOeHZUJ2kqiwkgv-a5bO_wySSUhwQPFSqrUoFTxb21Ny1trvtqzRqedzFzxSOo85DEROtZaK2fQVAPJfCYwo91Bi9EFwA1Wnt7T1zRv2u3Bmn1uD-1D4fkTJyoCjFYNHIDxb2YSgC8ViAgEQTfT8kI"/>
+</div>
+</div>
+</header>
+<main class="flex flex-1 flex-col lg:flex-row overflow-hidden">
+<!-- Content Area -->
+<div class="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 space-y-6">
+<!-- Breadcrumbs / Meta -->
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-2 text-sm text-slate-500">
+<a class="hover:text-primary" href="#">دورات الإلكترونيات</a>
+<span class="material-symbols-outlined text-xs">chevron_left</span>
+<span class="text-slate-900 dark:text-slate-100 font-medium">دورة الأردوينو الشاملة</span>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">مجاني</span>
+<span class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full">مستوى مبتدئ</span>
+</div>
+</div>
+<!-- Video Player -->
+<div class="relative aspect-video w-full overflow-hidden rounded-xl bg-black shadow-2xl group">
+<div class="absolute inset-0 flex items-center justify-center bg-cover bg-center opacity-60 group-hover:opacity-40 transition-opacity" data-alt="Arduino board with electronic components background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCaUN7iDJR1Nq6JXv_aTv7x1QnyqISzJQIa6pmnEWAuMJH6Noj2FTYb4WvhieeukDpkhRQ_o7CCZfidRgeP_YLCZ5wPNss_6Z8W23-FTwHVHTRNlZPK_c1gRC19T1shMxfi8vFWoXB62MWvqWSzWVWmNU4yfocHqRXvJiyGrMW2LJT5K3N2cu6ehiKEC8BcDdZi7mfwbd00tA8Pt4TEkQHgmNuMD6yXVsoH56drj2yqnZ7NO5ShnZQ5Ya_z_e0pi8A_YdTqsB0SqYE');">
+</div>
+<button class="relative z-10 flex size-20 items-center justify-center rounded-full bg-primary text-white shadow-lg transform transition-transform hover:scale-110">
+<span class="material-symbols-outlined !text-4xl">play_arrow</span>
+</button>
+<!-- Video Controls Overlay (Simulation) -->
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+<div class="mb-2 h-1.5 w-full rounded-full bg-white/20">
+<div class="h-full w-1/4 rounded-full bg-primary"></div>
+</div>
+<div class="flex items-center justify-between text-white text-xs">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer">play_arrow</span>
+<span class="material-symbols-outlined cursor-pointer">volume_up</span>
+<span>05:20 / 22:15</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer">settings</span>
+<span class="material-symbols-outlined cursor-pointer">fullscreen</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Lesson Header & Actions -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h1 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">1. مقدمة في الإلكترونيات</h1>
+<p class="text-slate-500 mt-1">تاريخ الإلكترونيات والمكونات الأساسية للدوائر الكهربائية.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">navigate_next</span>
+<span>السابق</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+<span>التالي</span>
+<span class="material-symbols-outlined">navigate_before</span>
+</button>
+</div>
+</div>
+<!-- Tabs Section -->
+<div class="space-y-4">
+<div class="flex border-b border-slate-200 dark:border-slate-800 gap-8 overflow-x-auto no-scrollbar">
+<button class="pb-3 text-sm font-bold text-primary border-b-2 border-primary whitespace-nowrap">نظرة عامة</button>
+<button class="pb-3 text-sm font-medium text-slate-500 hover:text-primary whitespace-nowrap">المصادر (PDF)</button>
+<button class="pb-3 text-sm font-medium text-slate-500 hover:text-primary whitespace-nowrap">المهام المطلوبة</button>
+<button class="pb-3 text-sm font-medium text-slate-500 hover:text-primary whitespace-nowrap">ملاحظاتي</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 space-y-6">
+<div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed">
+<p>في هذا الدرس، سنبدأ رحلتنا في عالم الأردوينو من خلال فهم الأساسيات. سنتعرف على التيار، الجهد، والمقاومة، وكيفية قراءة المخططات البسيطة قبل البدء في البرمجة الفعلية.</p>
+<ul class="list-disc pr-5 mt-4 space-y-2">
+<li>ما هي الإلكترونيات؟</li>
+<li>الفرق بين التيار المتردد والمستمر.</li>
+<li>المكونات النشطة وغير النشطة.</li>
+<li>مقدمة في قانون أوم.</li>
+</ul>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-red-100 flex items-center justify-center text-red-600">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<p class="font-bold text-sm">ملخص الدرس الأول</p>
+<p class="text-xs text-slate-500">PDF • 2.4 MB</p>
+</div>
+</div>
+<button class="p-2 text-primary hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+<div class="space-y-6">
+<!-- Instructor Info -->
+<div class="p-5 border border-slate-200 dark:border-slate-800 rounded-xl space-y-4">
+<h3 class="font-bold text-sm text-slate-400 uppercase tracking-wider">المدرب</h3>
+<div class="flex items-center gap-4">
+<img class="size-14 rounded-full object-cover" data-alt="Portrait of instructor Youssef El-Gabaly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9xwYfLRhgvAV2twbokE_VfyzHBztQPAmz2RuW0oH-S2FU02MBZdXGxYP4WFyMvWWkfGI9ABksquVbU-6Vj0MffFCpRENaoM9h_PXk7cb6f5wjCgFPGZ2QxGKruOeDfpb8rMZPY-UfcsKWvftZfz_azvYFK4Xb7Q1XG1Y8nHVN7fM6c94qhegR0GOAopoh6eF06zbe6pSUmGoyFiEMS6hoFpMqbyXYlE6RlkpxOu538nBJ_kEcPs9qlzGFr-xMMAyOv2k7zlboJUw"/>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">م. يوسف الجبالى</h4>
+<p class="text-xs text-slate-500">خبير أنظمة مدمجة وروبوتات</p>
+</div>
+</div>
+<p class="text-xs text-slate-600 dark:text-slate-400">ساعد أكثر من 5000 طالب في بدء مسيرتهم في مجال الإلكترونيات والذكاء الاصطناعي.</p>
+</div>
+<!-- Course Quick Stats -->
+<div class="grid grid-cols-2 gap-3">
+<div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg text-center">
+<span class="material-symbols-outlined text-primary mb-1">schedule</span>
+<p class="text-[10px] text-slate-500">المدة</p>
+<p class="text-sm font-bold">8 ساعات</p>
+</div>
+<div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg text-center">
+<span class="material-symbols-outlined text-primary mb-1">bar_chart</span>
+<p class="text-[10px] text-slate-500">المستوى</p>
+<p class="text-sm font-bold">مبتدئ</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar: Curriculum -->
+<aside class="w-full lg:w-96 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark flex flex-col h-full">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold">محتوى الدورة</h3>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">20% مكتمل</span>
+</div>
+<div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 20%"></div>
+</div>
+<p class="text-xs text-slate-500 mt-2">1 من 5 دروس مكتملة</p>
+</div>
+<div class="flex-1 overflow-y-auto">
+<!-- Lesson Items -->
+<div class="p-2 space-y-1">
+<!-- Lesson 1 (Active/Current) -->
+<div class="group flex items-start gap-4 p-4 rounded-xl bg-primary/5 border border-primary/20">
+<div class="mt-1 flex-shrink-0 size-6 flex items-center justify-center rounded-full bg-primary text-white">
+<span class="material-symbols-outlined text-sm">play_arrow</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-primary">1. مقدمة في الإلكترونيات</h4>
+<div class="flex items-center gap-3 mt-1 text-[11px] text-slate-500">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">timer</span> 22:15</span>
+<span class="px-1.5 py-0.5 bg-primary/10 rounded text-primary">جاري المشاهدة</span>
+</div>
+</div>
+</div>
+<!-- Lesson 2 -->
+<div class="group flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer transition-colors">
+<div class="mt-1 flex-shrink-0 size-6 flex items-center justify-center rounded-full border-2 border-slate-300 dark:border-slate-700 text-slate-400">
+<span class="material-symbols-outlined text-sm">lock_open</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">2. أساسيات الأردوينو</h4>
+<div class="flex items-center gap-3 mt-1 text-[11px] text-slate-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">timer</span> 45:30</span>
+</div>
+</div>
+</div>
+<!-- Lesson 3 -->
+<div class="group flex items-start gap-4 p-4 rounded-xl opacity-60">
+<div class="mt-1 flex-shrink-0 size-6 flex items-center justify-center rounded-full border-2 border-slate-300 dark:border-slate-700 text-slate-400">
+<span class="material-symbols-outlined text-sm">lock</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-medium text-slate-700 dark:text-slate-300">3. المستشعرات والمشغلات</h4>
+<div class="flex items-center gap-3 mt-1 text-[11px] text-slate-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">timer</span> 58:00</span>
+</div>
+</div>
+</div>
+<!-- Lesson 4 -->
+<div class="group flex items-start gap-4 p-4 rounded-xl opacity-60">
+<div class="mt-1 flex-shrink-0 size-6 flex items-center justify-center rounded-full border-2 border-slate-300 dark:border-slate-700 text-slate-400">
+<span class="material-symbols-outlined text-sm">lock</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-medium text-slate-700 dark:text-slate-300">4. البرمجة المتقدمة</h4>
+<div class="flex items-center gap-3 mt-1 text-[11px] text-slate-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">timer</span> 1:20:00</span>
+</div>
+</div>
+</div>
+<!-- Lesson 5 -->
+<div class="group flex items-start gap-4 p-4 rounded-xl opacity-60">
+<div class="mt-1 flex-shrink-0 size-6 flex items-center justify-center rounded-full border-2 border-slate-300 dark:border-slate-700 text-slate-400">
+<span class="material-symbols-outlined text-sm">lock</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-medium text-slate-700 dark:text-slate-300">5. المشروع النهائي</h4>
+<div class="flex items-center gap-3 mt-1 text-[11px] text-slate-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">assignment</span> مشروع عملي</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-slate-50 dark:bg-slate-800/30">
+<button class="w-full py-3 bg-white dark:bg-slate-800 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed" disabled="">
+                    تحميل الشهادة
+                </button>
+<p class="text-[10px] text-center text-slate-400 mt-2">يجب إكمال 100% للحصول على الشهادة</p>
+</div>
+</aside>
+</main>
+</div>
+</body></html>

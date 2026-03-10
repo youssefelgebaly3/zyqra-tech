@@ -18,6 +18,8 @@
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/css/main.css?v=3.1" rel="stylesheet">
+    <link href="assets/css/pages/_shop.css" rel="stylesheet">
+    <link href="assets/css/components/_about.css" rel="stylesheet">
 </head>
 
 <body class="products-page">
@@ -25,7 +27,8 @@
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container position-relative d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-                <h1 class="sitename">ZYQRA</h1>
+                <img src="assets/img/logo.png" alt="">
+                <h1><span>Z</span><span>Y</span><span>Q</span><span>R</span><span>A</span></h1>
             </a>
             <nav id="navmenu" class="navmenu">
                 <ul>
@@ -69,64 +72,161 @@
 
     <main class="main">
 
+        <!-- Shop Hero Section -->
+        <section class="shop-hero">
+            <div class="container" data-aos="fade-up">
+                <div class="hero-badge">
+                    <i class="bi bi-stars"></i>
+                    <span>ابتكارات ذكية لحياة أفضل</span>
+                </div>
+                <h1>منتجاتنا الذكية</h1>
+                <p>اكتشف أحدث الابتكارات التقنية والمنتجات الذكية المصممة لتطوير حياتك اليومية وتحويل منزلك إلى بيئة
+                    ذكية متكاملة.</p>
+            </div>
+        </section>
+
         <!-- Products Section -->
-        <section id="products" class="features-cards section">
+        <section id="products-content" class="features-cards section light-background" style="padding-top: 40px;">
 
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="container" data-aos="fade-up">
+                <div class="row gy-4">
 
+                    <!-- Sidebar Filters -->
+                    <div class="col-lg-3">
+                        <div class="shop-sidebar" data-aos="fade-up">
 
-
-                <div class="row gy-4" id="productsGrid">
-
-                    <!-- MotoLock -->
-                    <div class="col-lg-6 product-item" data-category="security" data-aos="flip-left"
-                        data-aos-delay="100">
-                        <div class="product-card">
-                            <div class="product-image"
-                                style="display: flex; align-items: center; justify-content: center;">
-                                <i class="bi bi-shield-lock" style="font-size: 5rem; color: white;"></i>
-                            </div>
-                            <div class="product-info">
-                                <span class="product-category">أنظمة الأمان</span>
-                                <h3 class="product-title">MotoLock</h3>
-                                <p class="product-desc">نظام أمان ذكي للدراجات النارية يحول هاتفك إلى مفتاح كامل مع تتبع
-                                    GPS وتنبيهات فورية.</p>
-                                <div class="product-price-wrapper">
-                                    <span class="discount-badge">خصم 33%</span>
-                                    <div class="product-price">1,000 ج.م</div>
-                                    <div class="old-price">1,500 ج.م</div>
-                                </div>
-                                <ul class="product-features">
-                                    <li><i class="bi bi-check-circle-fill"></i> تتبع GPS مباشر</li>
-                                    <li><i class="bi bi-check-circle-fill"></i> تنبيهات فورية عند الحركة</li>
-                                    <li><i class="bi bi-check-circle-fill"></i> تحكم عبر التطبيق</li>
-                                    <li><i class="bi bi-check-circle-fill"></i> ضمان سنة كاملة</li>
-                                </ul>
-                                <div class="d-flex gap-2">
-                                    <button class="btn-product flex-grow-1" onclick="addToCart('MotoLock', 1000)">
-                                        <i class="bi bi-cart-plus"></i> أضف للسلة
-                                    </button>
-                                    <a href="product-details.html" class="btn-details">
-                                        تفاصيل
-                                    </a>
+                            <!-- Search -->
+                            <div class="sidebar-search mb-4">
+                                <div class="search-box">
+                                    <i class="bi bi-search search-icon"></i>
+                                    <input type="text" id="productSearch" class="form-control modern-input"
+                                        placeholder="ابحث عن منتج...">
                                 </div>
                             </div>
+
+                            <!-- Categories -->
+                            <div class="sidebar-section">
+                                <h5 class="sidebar-title"><i class="bi bi-grid"></i> التصنيفات</h5>
+                                <div class="sidebar-filters">
+                                    <label class="filter-check active">
+                                        <input type="radio" name="category" value="all" checked>
+                                        <span class="check-label">كل المنتجات</span>
+                                        <span class="check-count">1</span>
+                                    </label>
+                                    <label class="filter-check">
+                                        <input type="radio" name="category" value="security">
+                                        <span class="check-label">أنظمة الأمان</span>
+                                        <span class="check-count">1</span>
+                                    </label>
+                                    <label class="filter-check">
+                                        <input type="radio" name="category" value="iot">
+                                        <span class="check-label">إنترنت الأشياء</span>
+                                        <span class="check-count">0</span>
+                                    </label>
+                                    <label class="filter-check">
+                                        <input type="radio" name="category" value="smart-home">
+                                        <span class="check-label">المنزل الذكي</span>
+                                        <span class="check-count">0</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Price Range -->
+                            <div class="sidebar-section">
+                                <h5 class="sidebar-title"><i class="bi bi-currency-dollar"></i> السعر</h5>
+                                <div class="price-range-wrapper">
+                                    <input type="range" class="form-range price-slider" min="0" max="5000" value="5000"
+                                        id="priceRange">
+                                    <div class="price-labels">
+                                        <span>0 ج.م</span>
+                                        <span id="priceValue">5,000 ج.م</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sort -->
+                            <div class="sidebar-section">
+                                <h5 class="sidebar-title"><i class="bi bi-sort-down"></i> ترتيب حسب</h5>
+                                <select class="sidebar-select" id="sortProducts">
+                                    <option value="newest">الأحدث</option>
+                                    <option value="price-low">السعر: الأقل أولاً</option>
+                                    <option value="price-high">السعر: الأعلى أولاً</option>
+                                    <option value="popular">الأكثر مبيعاً</option>
+                                </select>
+                            </div>
+
                         </div>
                     </div>
 
+                    <!-- Product Grid -->
+                    <div class="col-lg-9">
+                        <div class="row gy-4" id="productsGrid">
 
-                    <!-- CTA Section -->
-                    <section class="call-to-action section">
-                        <div class="container" data-aos="fade-up">
-                            <div class="row align-items-center">
-                                <div class="col-lg-8 mx-auto text-center">
-                                    <h2>تحتاج مساعدة في الاختيار؟</h2>
-                                    <p>فريقنا جاهز لمساعدتك في اختيار المنتج المناسب لاحتياجاتك</p>
-                                    <a href="contact.html" class="btn-cta">تواصل معنا</a>
+                            <!-- MotoLock -->
+                            <div class="col-lg-6 col-md-6 product-item" data-product-id="motolock"
+                                data-category="security" data-aos="fade-up">
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <img src="assets/img/products/motolock.png" alt="MotoLock" class="img-fluid"
+                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                        <button class="btn-wishlist" title="أضف للمفضلة"><i
+                                                class="bi bi-heart"></i></button>
+                                    </div>
+                                    <div class="product-info">
+                                        <span class="product-category">أنظمة الأمان</span>
+                                        <h3 class="product-title">MotoLock</h3>
+                                        <p class="product-desc">نظام أمان ذكي للدراجات النارية يحول هاتفك إلى مفتاح
+                                            كامل
+                                            وتنبيهات فورية.</p>
+                                        <div class="product-price-wrapper">
+                                            <div class="product-price">1,000 ج.م</div>
+                                            <div class="old-price">1,500 ج.م</div>
+                                            <span class="discount-badge">خصم 33%</span>
+                                        </div>
+                                        <div class="product-meta">
+                                            <span><i class="bi bi-box-seam"></i> متوفر</span>
+                                            <span><i class="bi bi-shield-check"></i> ضمان سنة</span>
+                                            <span><i class="bi bi-archive"></i> المخزون: 50 قطعة</span>
+                                        </div>
+                                        <ul class="product-features">
+                                            <li><i class="bi bi-check-circle-fill"></i> تنبيهات فورية عند الحركة
+                                            </li>
+                                            <li><i class="bi bi-check-circle-fill"></i> تحكم عبر التطبيق</li>
+                                            <li><i class="bi bi-check-circle-fill"></i> ضمان سنة كاملة</li>
+                                        </ul>
+                                        <div class="d-flex gap-2 w-100 mt-3">
+                                            <button class="btn-product" onclick="addToCart('MotoLock', 1000)">
+                                                <i class="bi bi-cart-plus"></i> أضف للسلة
+                                            </button>
+                                            <a href="product-details.html" class="btn-details">
+                                                <i class="bi bi-eye"></i>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
-                    </section>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <div class="about-cta bg-white">
+            <div class="container" data-aos="zoom-in">
+                <div class="about-cta-wrapper">
+                    <h2>تحتاج مساعدة في الاختيار؟</h2>
+                    <p>فريقنا جاهز لمساعدتك في اختيار المنتج المناسب لاحتياجاتك</p>
+                    <div class="cta-btns mt-4">
+                        <a href="contact.html" class="cta-btn cta-btn-primary">
+                            <i class="bi bi-chat-dots me-2"></i> تواصل معنا
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </main>
 
@@ -184,7 +284,7 @@
             </div>
         </div>
 
-        <div class="container copyright text-center mt-4">
+        <div class="container copyright text-center mt-3">
             <p>© <span>حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong> <span>جميع الحقوق محفوظة</span>
             </p>
         </div>
