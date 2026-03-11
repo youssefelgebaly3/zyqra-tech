@@ -120,9 +120,6 @@
                                 <button class="btn-add-cart" onclick="addDetailsToCart('MotoLock', 1000)">
                                     <i class="bi bi-cart-plus"></i> أضف للسلة
                                 </button>
-                                <button class="btn-wishlist">
-                                    <i class="bi bi-heart"></i>
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -131,39 +128,60 @@
 
                 <!-- Tabs -->
                 <div class="tabs-section" data-aos="fade-up">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <button class="nav-link active" data-bs-toggle="tab"
-                                data-bs-target="#specs">المواصفات</button>
+                    <ul class="nav nav-tabs custom-tabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#specs" type="button"
+                                role="tab"><i class="bi bi-list-check me-2"></i>المواصفات</button>
                         </li>
-                        <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews">التقييمات</button>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews" type="button"
+                                role="tab"><i class="bi bi-star-half me-2"></i>التقييمات</button>
                         </li>
-                        <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#shipping">الشحن</button>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#shipping" type="button"
+                                role="tab"><i class="bi bi-truck me-2"></i>الشحن</button>
                         </li>
                     </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="specs">
-                            <h5>المواصفات التقنية</h5>
-                            <ul>
-                                <li>بطارية: ليثيوم 3.7V 2000mAh</li>
-                                <li>اتصال: Bluetooth 5.0 + GSM</li>
-                                <li>تتبع: GPS عالي الدقة</li>
-                                <li>مقاومة: IP67 (مقاوم للماء والغبار)</li>
-                                <li>التوافق: Android 6.0+ / iOS 12+</li>
-                            </ul>
+                    <div class="tab-content custom-tab-content">
+                        <!-- Specs Tab -->
+                        <div class="tab-pane fade show active" id="specs" role="tabpanel">
+                            <div class="tab-card">
+                                <h5>المواصفات التقنية</h5>
+                                <ul class="modern-list">
+                                    <li><i class="bi bi-battery-charging"></i><span><strong>بطارية:</strong> ليثيوم 3.7V
+                                            2000mAh</span></li>
+                                    <li><i class="bi bi-bluetooth"></i><span><strong>اتصال:</strong> Bluetooth 5.0 +
+                                            GSM</span></li>
+                                    <li><i class="bi bi-geo-alt"></i><span><strong>تتبع:</strong> GPS عالي الدقة</span>
+                                    </li>
+                                    <li><i class="bi bi-droplet-half"></i><span><strong>مقاومة:</strong> IP67 (مقاوم
+                                            للماء والغبار)</span></li>
+                                    <li><i class="bi bi-phone"></i><span><strong>التوافق:</strong> Android 6.0+ / iOS
+                                            12+</span></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="tab-pane fade" id="reviews">
-                            <p>لا توجد تقييمات حتى الآن. كن أول من يقيم هذا المنتج!</p>
+                        <!-- Reviews Tab -->
+                        <div class="tab-pane fade" id="reviews" role="tabpanel">
+                            <div class="tab-card text-center p-5">
+                                <div class="empty-state">
+                                    <i class="bi bi-chat-square-text text-muted mb-3"
+                                        style="font-size: 3rem; opacity: 0.5;"></i>
+                                    <p class="text-muted">لا توجد تقييمات حتى الآن. كن أول من يقيم هذا المنتج!</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="tab-pane fade" id="shipping">
-                            <h5>معلومات الشحن</h5>
-                            <ul>
-                                <li>الشحن خلال 2-5 أيام عمل</li>
-                                <li>الشحن مجاني للطلبات فوق 1000 ج.م</li>
-                                <li>رسوم الشحن: 50 ج.م</li>
-                            </ul>
+                        <!-- Shipping Tab -->
+                        <div class="tab-pane fade" id="shipping" role="tabpanel">
+                            <div class="tab-card">
+                                <h5>معلومات الشحن</h5>
+                                <ul class="modern-list">
+                                    <li><i class="bi bi-clock-history"></i><span>الشحن خلال 2-5 أيام عمل</span></li>
+                                    <li><i class="bi bi-box-seam"></i><span>الشحن مجاني للطلبات فوق 1000 ج.م</span></li>
+                                    <li><i class="bi bi-cash-coin"></i><span>رسوم الشحن: 50 ج.م للطلبات العادية</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
