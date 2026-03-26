@@ -1,0 +1,297 @@
+/*--------------------------------------------------------------
+# Pricing Section
+--------------------------------------------------------------*/
+.pricing {
+    --card-radius: 16px;
+    --card-shadow: 0 10px 30px color-mix(in srgb, var(--default-color), transparent 92%);
+    --muted: color-mix(in srgb, var(--default-color), transparent 55%);
+    --line: color-mix(in srgb, var(--default-color), transparent 85%);
+    --accent-soft: color-mix(in srgb, var(--accent-color), transparent 85%);
+    --accent-strong: color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.pricing .pricing-toggle-container {
+    text-align: center;
+}
+
+.pricing .pricing-toggle-container .pricing-toggle {
+    background: color-mix(in srgb, var(--accent-color), transparent 92%);
+    border: 1px solid var(--accent-soft);
+}
+
+.pricing .pricing-toggle-container .pricing-toggle .monthly,
+.pricing .pricing-toggle-container .pricing-toggle .yearly {
+    font-weight: 600;
+    color: var(--default-color);
+    opacity: 0.7;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.pricing .pricing-toggle-container .pricing-toggle .monthly.active,
+.pricing .pricing-toggle-container .pricing-toggle .yearly.active {
+    color: var(--heading-color);
+    opacity: 1;
+}
+
+.pricing .pricing-toggle-container .pricing-toggle .switch {
+    position: relative;
+    display: inline-block;
+    width: 54px;
+    height: 28px;
+}
+
+.pricing .pricing-toggle-container .pricing-toggle .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.pricing .pricing-toggle-container .pricing-toggle .switch .slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: var(--accent-soft);
+    transition: 0.3s;
+    border-radius: 999px;
+}
+
+.pricing .pricing-toggle-container .pricing-toggle .switch .slider::before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    top: 3px;
+    background-color: var(--surface-color);
+    transition: 0.3s;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.pricing .pricing-toggle-container .pricing-toggle .switch input:checked+.slider {
+    background: var(--accent-color);
+}
+
+.pricing .pricing-toggle-container .pricing-toggle .switch input:checked+.slider::before {
+    transform: translateX(26px);
+}
+
+.pricing .pricing-toggle-container .hint {
+    color: var(--muted);
+}
+
+.pricing .price-card {
+    background: var(--surface-color);
+    border: 1px solid var(--line);
+    border-radius: var(--card-radius);
+    padding: 28px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+}
+
+.pricing .price-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px color-mix(in srgb, var(--default-color), transparent 88%);
+    border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.pricing .price-card.featured {
+    border-color: var(--accent-strong);
+    box-shadow: 0 16px 44px color-mix(in srgb, var(--accent-color), transparent 80%);
+    position: relative;
+    background: radial-gradient(1200px 1200px at 110% -10%, color-mix(in srgb, var(--accent-color), transparent 92%) 0%, transparent 50%) no-repeat, var(--surface-color);
+}
+
+.pricing .price-card.featured .btn-choose {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+}
+
+.pricing .price-card.featured .btn-choose:hover {
+    background-color: color-mix(in srgb, var(--accent-color), black 8%);
+    color: var(--contrast-color);
+}
+
+.pricing .price-card .ribbon {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: var(--accent-color);
+    color: var(--contrast-color);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 6px 18px color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.pricing .price-card .ribbon i {
+    font-size: 12px;
+}
+
+.pricing .price-card .card-head {
+    margin-bottom: 18px;
+}
+
+.pricing .price-card .card-head .badge-title {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 90%);
+    border: 1px solid var(--accent-soft);
+    padding: 6px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+}
+
+.pricing .price-card .card-head .title {
+    font-size: 22px;
+    margin: 2px 0 8px;
+}
+
+.pricing .price-card .card-head .subtitle {
+    color: var(--muted);
+    margin: 0 0 14px;
+}
+
+.pricing .price-card .card-head .price-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.pricing .price-card .card-head .price-wrap .price {
+    font-family: var(--heading-font);
+    color: var(--heading-color);
+    font-weight: 800;
+    line-height: 1;
+    display: none;
+}
+
+.pricing .price-card .card-head .price-wrap .price sup {
+    font-size: 18px;
+    top: -0.6em;
+    position: relative;
+    margin-right: 2px;
+}
+
+.pricing .price-card .card-head .price-wrap .price.price-monthly,
+.pricing .price-card .card-head .price-wrap .price.price-yearly {
+    font-size: 40px;
+}
+
+.pricing .price-card .card-head .price-wrap .price .period {
+    font-size: 14px;
+    color: var(--muted);
+    margin-left: 6px;
+    font-weight: 600;
+}
+
+.pricing .price-card .feature-list {
+    border-top: 1px dashed var(--line);
+    padding-top: 16px;
+}
+
+.pricing .price-card .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    color: var(--default-color);
+}
+
+.pricing .price-card .feature-list li i {
+    color: var(--accent-color);
+    font-size: 18px;
+}
+
+.pricing .price-card .feature-list li.muted {
+    color: var(--muted);
+}
+
+.pricing .price-card .feature-list li.muted i {
+    color: var(--muted);
+}
+
+.pricing .price-card .cta {
+    margin-top: auto;
+}
+
+.pricing .price-card .cta .btn-choose {
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    background: transparent;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.pricing .price-card .cta .btn-choose:hover {
+    background: var(--accent-color);
+    color: var(--contrast-color);
+}
+
+.pricing .pricing-toggle-container~.row .price-card .price-monthly {
+    display: inline-flex;
+}
+
+.pricing .pricing-toggle-container~.row .price-card .price-yearly {
+    display: none;
+}
+
+@supports (selector(:has(*))) {
+    .pricing .pricing-toggle-container:has(.switch input:checked)~.row .price-card .price-monthly {
+        display: none;
+    }
+
+    .pricing .pricing-toggle-container:has(.switch input:checked)~.row .price-card .price-yearly {
+        display: inline-flex;
+    }
+
+    .pricing .pricing-toggle-container:has(.switch input:checked)~.row .pricing-toggle .monthly {
+        opacity: 0.6;
+    }
+
+    .pricing .pricing-toggle-container:has(.switch input:checked)~.row .pricing-toggle .yearly {
+        opacity: 1;
+        color: var(--heading-color);
+    }
+}
+
+@supports not (selector(:has(*))) {
+    .pricing .pricing-toggle-container .yearly::after {
+        content: " ";
+    }
+}
+
+@media (max-width: 992px) {
+
+    .pricing .price-card .card-head .price-wrap .price.price-monthly,
+    .pricing .price-card .card-head .price-wrap .price.price-yearly {
+        font-size: 36px;
+    }
+
+    .pricing .price-card .card-head .price-wrap .price sup {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .pricing .price-card {
+        padding: 22px;
+    }
+
+    .pricing .pricing-toggle-container .pricing-toggle {
+        gap: 10px;
+    }
+}

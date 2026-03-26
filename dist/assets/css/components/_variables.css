@@ -1,0 +1,88 @@
+/*--------------------------------------------------------------
+# Font & Color Variables
+# Help: https://bootstrapmade.com/color-system/
+--------------------------------------------------------------*/
+
+/* Fonts */
+:root {
+  --default-font: "Tajawal", "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --heading-font: "Tajawal", "Ubuntu", sans-serif;
+  --nav-font: "Tajawal", "Rubik", sans-serif;
+}
+
+/* Global Colors - Modernized for a sleek, Google Stitch-like aesthetic */
+:root {
+  --background-color: #f5f7f8;
+  /* Background color for the entire website, including individual sections */
+  --default-color: #0f172a;
+  /* Tailwind text-slate-900 */
+  /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #004a99;
+  /* Lightened Primary from #003366 */
+  /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #004a99;
+  /* Lightened Primary from #003366 */
+  /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff;
+  /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff;
+  /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+
+  /* Elevation & Depth */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Modern Border Radii */
+  --radius-sm: 0.5rem;
+  /* 8px */
+  --radius-md: 1rem;
+  /* 16px */
+  --radius-lg: 1.5rem;
+  /* 24px */
+  --radius-xl: 2rem;
+  /* 32px */
+  --radius-pill: 9999px;
+
+  --primary-rgb: 0, 74, 153;
+}
+
+/* Nav Menu Colors - Modernized */
+:root {
+  --nav-color: #334155;
+  /* Tailwind text-slate-700 */
+  /* The default color of the main navmenu links */
+  --nav-hover-color: #004a99;
+  /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #334155;
+  /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #004a99;
+  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+  --background-color: #ffffff;
+  --surface-color: #f5f7f8;
+}
+
+.dark-background {
+  --background-color: #132c4d;
+  /* Slightly lighter, more modern navy */
+  --default-color: #cbd5e1;
+  /* text-slate-300 */
+  --heading-color: #ffffff;
+  --surface-color: #1c375a;
+  /* Slightly lighter navy for cards */
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}

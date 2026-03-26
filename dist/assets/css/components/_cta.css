@@ -1,0 +1,194 @@
+/*--------------------------------------------------------------
+# Call To Action Section - Stitch Modern
+--------------------------------------------------------------*/
+.call-to-action {
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.call-to-action .container {
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.95) 0%, #002d5a 100%);
+    border-radius: 40px;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 74, 153, 0.2);
+}
+
+.call-to-action .container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    transform: rotate(-15deg);
+    z-index: 1;
+}
+
+.call-to-action .image-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+.call-to-action .image-wrapper .main-image {
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease;
+}
+
+.call-to-action .image-wrapper .main-image:hover {
+    transform: translateY(-10px);
+}
+
+.call-to-action .image-wrapper .floating-card {
+    position: absolute;
+    top: 50%;
+    right: -30px;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 24px;
+    max-width: 280px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 3;
+}
+
+.call-to-action .image-wrapper .floating-card i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+    color: #60a5fa;
+    /* Light blue accent */
+}
+
+.call-to-action .image-wrapper .floating-card h4 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.call-to-action .image-wrapper .floating-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.call-to-action .content-area {
+    padding-left: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.call-to-action .content-area h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: #ffffff;
+}
+
+.call-to-action .content-area>p {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.call-to-action .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+}
+
+.call-to-action .feature-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.call-to-action .feature-list li i {
+    color: #10b981;
+    /* Success green */
+    font-size: 1.25rem;
+    margin-left: 15px;
+    /* RTL adjustment */
+    background: rgba(16, 185, 129, 0.2);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.call-to-action .btn-cta {
+    background: #ffffff;
+    color: var(--accent-color);
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.call-to-action .btn-cta:hover {
+    background: #f8fafc;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 991px) {
+    .call-to-action .container {
+        padding: 40px 20px;
+    }
+
+    .call-to-action .content-area {
+        padding-left: 0;
+        margin-top: 50px;
+    }
+
+    .call-to-action .content-area h2 {
+        font-size: 2rem;
+    }
+
+    .call-to-action .image-wrapper .floating-card {
+        right: auto;
+        left: 20px;
+        transform: translateY(-30%);
+        max-width: 260px;
+    }
+}
+
+@media (max-width: 576px) {
+    .call-to-action {
+        padding: 60px 0;
+    }
+
+    .call-to-action .container {
+        border-radius: 24px;
+        padding: 30px 20px;
+    }
+
+    .call-to-action .image-wrapper .floating-card {
+        position: relative;
+        right: auto;
+        left: auto;
+        transform: none;
+        margin-top: 20px;
+        max-width: 100%;
+    }
+}
