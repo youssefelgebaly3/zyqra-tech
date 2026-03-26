@@ -196,6 +196,27 @@
     margin-bottom: 40px;
 }
 
+@media (max-width: 768px) {
+    .features .feature-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .features .feature-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px 10px;
+        gap: 8px;
+    }
+    .features .feature-item i {
+        font-size: 24px;
+        margin-bottom: 4px;
+    }
+    .features .feature-item span {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+}
+
 .features .feature-item {
     display: flex;
     align-items: center;

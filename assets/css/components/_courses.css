@@ -203,7 +203,7 @@ body.courses-page .main {
 
 @media (max-width: 992px) {
     .el-khair-hero {
-        padding: 120px 0 60px 0;
+        padding: 110px 0 60px 0;
         text-align: center;
     }
 
@@ -217,7 +217,7 @@ body.courses-page .main {
     }
 
     .el-khair-hero .visual-wrapper {
-        margin-top: 4rem;
+        margin-top: 0;
     }
 }
 
@@ -226,6 +226,43 @@ body.courses-page .main {
         font-size: 2.5rem;
     }
 
+    .el-khair-hero .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .el-khair-hero .hero-actions .btn-primary,
+    .el-khair-hero .hero-actions .btn-secondary,
+    .el-khair-hero .hero-actions .btn {
+        width: 85%;
+        max-width: 320px;
+    }
+
+    .el-khair-hero .floating-node {
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        gap: 0.5rem;
+    }
+
+    .el-khair-hero .floating-node i {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+
+    .el-khair-hero .floating-node span {
+        font-size: 0.75rem;
+    }
+
+    .el-khair-hero .node-1 {
+        right: 5px;
+    }
+
+    .el-khair-hero .node-2 {
+        left: 5px;
+    }
 }
 
 /*--------------------------------------------------------------

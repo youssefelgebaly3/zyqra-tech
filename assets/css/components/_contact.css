@@ -412,6 +412,9 @@ body.contact-page .main {
 
 /* Responsive Adjustments */
 @media (max-width: 991px) {
+    .contact-hero {
+        padding-top: 230px;
+    }
 
     .modern-form-header,
     .modern-form-body {

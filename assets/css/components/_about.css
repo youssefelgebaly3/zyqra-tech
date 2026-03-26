@@ -293,16 +293,60 @@
 
 /* Responsive */
 @media (max-width: 991px) {
+    .about {
+        padding-top: 30px;
+    }
+
     .about h2 {
         font-size: 2.2rem;
     }
 
     .modern-stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .modern-stat {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .modern-stat .stat-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+        border-radius: 10px;
+    }
+
+    .modern-stat .stat-number {
+        font-size: 1.1rem;
+    }
+
+    .modern-stat .stat-label {
+        font-size: 0.75rem;
     }
 
     .modern-visual {
-        margin-top: 40px;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .modern-box {
+        padding: 25px 20px;
+    }
+    .modern-box .feature-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+    .modern-box h5 {
+        font-size: 1.15rem;
+        margin-bottom: 10px;
+    }
+    .modern-box p {
+        font-size: 0.95rem;
     }
 }
 
@@ -482,6 +526,37 @@
 
 .cyber-card:hover::before {
     transform: scaleX(1);
+}
+
+@media (max-width: 768px) {
+    .cyber-card {
+        padding: 1.5rem 1.25rem;
+        border-radius: 16px;
+    }
+    
+    .cyber-card .card-title-wrapper {
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .cyber-card .icon-wrapper {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .cyber-card .icon-inner {
+        font-size: 1.15rem;
+        border-radius: 12px;
+    }
+    
+    .cyber-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .cyber-card p {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
 }
 
 .vision-card .icon-inner {
@@ -684,6 +759,34 @@
     color: #4ade80;
 }
 
+@media (max-width: 768px) {
+    .about-stats .col-6 {
+        flex: 0 0 50%;
+        width: 50%;
+    }
+    .about-stats .stat-item {
+        padding: 1rem 0.5rem;
+    }
+    .about-stats .stat-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+    .about-stats .stat-number {
+        font-size: 1.75rem;
+    }
+    .about-stats .stat-label {
+        font-size: 0.85rem;
+    }
+    .about-stats .stat-growth {
+        font-size: 0.65rem;
+        padding: 0.35rem 0.75rem;
+        flex-direction: row;
+        gap: 4px;
+    }
+}
+
 /*--------------------------------------------------------------
 # About Team Section
 --------------------------------------------------------------*/
@@ -755,6 +858,20 @@
 
 .about-team .member-socials a:hover {
     color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .about-team .team-member-card {
+        max-width: 220px;
+    }
+    
+    .about-team .member-info h3 {
+        font-size: 1.25rem;
+    }
+    
+    .about-team .member-info span {
+        font-size: 0.9rem;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -865,27 +982,25 @@
 }
 
 @media (max-width: 768px) {
-    .about-timeline .timeline-container::before {
-        left: 30px;
-        transform: none;
-    }
-
     .about-timeline .timeline-badge {
-        left: 30px;
-        transform: translateX(-50%);
-        width: 50px;
-        height: 50px;
-        font-size: 1rem;
+        width: 45px;
+        height: 45px;
+        font-size: 0.9rem;
     }
 
     .about-timeline .timeline-content {
-        width: calc(100% - 70px);
-        margin-left: auto !important;
-        margin-right: 0 !important;
+        width: 42%;
+        padding: 1rem 0.75rem;
+        border-radius: 1rem;
     }
 
-    .about-timeline .timeline-item {
-        flex-direction: row !important;
+    .about-timeline .timeline-content h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .about-timeline .timeline-content p {
+        font-size: 0.75rem;
     }
 }
 
@@ -984,10 +1099,27 @@
 
 @media (max-width: 992px) {
     .about-cta h2 {
-        font-size: 2rem;
+        font-size: 1.6rem;
+    }
+
+    .about-cta p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
     }
 
     .about-cta-wrapper {
-        padding: 3rem 1.5rem;
+        padding: 2rem 1rem;
+    }
+
+    .cta-btns {
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+
+    .cta-btn {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.95rem;
+        width: 50%;
+        text-align: center;
     }
 }
