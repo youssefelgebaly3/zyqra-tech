@@ -274,6 +274,12 @@ body.courses-page .main {
     /* ensure the footer stays low */
 }
 
+@media (max-width: 991px) {
+    #courses-grid {
+        padding-top: 110px;
+    }
+}
+
 /*--------------------------------------------------------------
 # Courses Card LMS Enhancements
 --------------------------------------------------------------*/

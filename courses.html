@@ -198,11 +198,13 @@
         <!-- Courses Grid (Hidden by default) -->
         <section id="courses-grid" class="features-cards section light-background" style="display: none;">
             <div class="container mb-4" data-aos="fade-up">
-                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-                    <h2 id="grid-title" class="m-0 text-center text-md-start"
-                        style="font-size: 2rem; font-weight: 800; color: var(--heading-color);" data-i18n="grid_title">
+                <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
+                    <h2 id="grid-title" class="m-0 text-md-start"
+                        style="font-size: 1.5rem; font-weight: 800; color: var(--heading-color); flex: 1;"
+                        data-i18n="grid_title">
                         الدورات المتاحة</h2>
-                    <button onclick="showCategories()" class="uiverse-shine-btn" type="button">
+                    <button onclick="showCategories()" class="uiverse-shine-btn" type="button"
+                        style="z-index: 100; position: relative;">
                         <span data-i18n="grid_back_btn">العودة للمسارات</span>
                         <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                             <path fill-rule="evenodd"
@@ -223,7 +225,7 @@
                             </div>
                         </div>
                         <div class="col-lg-7">
-                            <div class="filter-pills d-flex flex-wrap gap-2 justify-content-lg-end">
+                            <div class="filter-pills d-flex flex-wrap gap-2 justify-content-center justify-content-lg-end">
                                 <button class="filter-btn active" data-filter="all">الكل</button>
                                 <button class="filter-btn" data-filter="beginner">مبتدئ</button>
                                 <button class="filter-btn" data-filter="medium">متوسط</button>

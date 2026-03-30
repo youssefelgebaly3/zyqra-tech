@@ -401,17 +401,15 @@
         color: var(--heading-color);
         font-size: 24px;
         line-height: 0;
-        margin-right: 0;
-        margin-left: 0;
         cursor: pointer;
-        transition: color 0.3s;
-        background: color-mix(in srgb, var(--accent-color), transparent 92%);
-        width: 40px;
-        height: 40px;
+        transition: all 0.3s;
+        background: none;
+        width: 35px;
+        height: 35px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 50%;
+        z-index: 9999;
     }
 
     .mobile-nav-toggle i {
@@ -423,156 +421,165 @@
         z-index: 9997;
     }
 
+    /* Premium Floating Box Layout - Reverted to Turn 8 state */
     .navmenu ul {
         display: block;
         visibility: hidden;
         opacity: 0;
         position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        width: 100%;
+        top: 82px;
+        left: 20px;
+        right: 20px;
+        width: calc(100% - 40px);
         height: auto;
-        max-height: calc(100vh - 70px);
-        padding: 20px 0;
+        max-height: calc(100vh - 140px);
+        padding: 15px 5px;
         margin: 0;
-        border-radius: 15px;
         background-color: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
         overflow-y: auto;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 9998;
-        box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.12);
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        transform: translateY(10px);
+        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 30px;
+        transform: translateY(20px);
+    }
+
+    .mobile-nav-active .navmenu ul {
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: translateY(0);
+    }
+
+    .navmenu li {
+        opacity: 0;
+        transform: translateY(15px);
+        transition: all 0.4s ease;
+        margin-bottom: 2px;
+    }
+
+    .mobile-nav-active .navmenu li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Staggered Entry Animation */
+    .mobile-nav-active .navmenu li:nth-child(1) {
+        transition-delay: 0.05s;
+    }
+
+    .mobile-nav-active .navmenu li:nth-child(2) {
+        transition-delay: 0.1s;
+    }
+
+    .mobile-nav-active .navmenu li:nth-child(3) {
+        transition-delay: 0.15s;
+    }
+
+    .mobile-nav-active .navmenu li:nth-child(4) {
+        transition-delay: 0.2s;
+    }
+
+    .mobile-nav-active .navmenu li:nth-child(5) {
+        transition-delay: 0.25s;
+    }
+
+    .mobile-nav-active .navmenu li:nth-child(6) {
+        transition-delay: 0.3s;
+    }
+
+    .mobile-nav-active .navmenu li:nth-child(7) {
+        transition-delay: 0.35s;
+    }
+
+    .mobile-nav-active .navmenu li:nth-child(8) {
+        transition-delay: 0.4s;
     }
 
     .navmenu a,
     .navmenu a:focus {
         color: var(--nav-dropdown-color);
-        padding: 10px 20px;
+        padding: 12px 18px;
         font-family: var(--nav-font);
-        font-size: 17px;
-        font-weight: 500;
+        font-size: 16px;
+        font-weight: 700;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        white-space: nowrap;
+        gap: 12px;
+        border-radius: 18px;
         transition: 0.3s;
     }
 
-    .navmenu a i,
-    .navmenu a:focus i {
-        font-size: 12px;
-        line-height: 0;
-        margin-left: 5px;
-        width: 30px;
-        height: 30px;
+    /* Icon Setup for Mobile Links - Restored with Backgrounds */
+    .navmenu a::before {
+        font-family: 'bootstrap-icons';
+        font-size: 1rem;
+        width: 32px;
+        height: 32px;
+        background: color-mix(in srgb, var(--accent-color), transparent 94%);
+        color: var(--accent-color);
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 50%;
-        transition: 0.3s;
-        background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+        border-radius: 10px;
+        transition: all 0.3s;
     }
 
-    .navmenu a i:hover,
-    .navmenu a:focus i:hover {
-        background-color: var(--accent-color);
-        color: var(--contrast-color);
+    /* Mapping Icons */
+    .navmenu li:nth-child(1) a::before { content: '\f425'; } /* house */
+    .navmenu li:nth-child(2) a::before { content: '\f6ce'; } /* boxes (Products) */
+    .navmenu li:nth-child(3) a::before { content: '\f43e'; } /* journal-bookmark (Courses) */
+    .navmenu li:nth-child(4) a::before { content: '\f433'; } /* info-circle */
+    .navmenu li:nth-child(5) a::before { content: '\f32f'; } /* envelope */
+
+    /* Auth Icons */
+    .navmenu li:nth-child(6) a::before { content: '\f12e'; } /* box-arrow-in-right (Login) */
+    .navmenu li:nth-child(7) a::before { content: '\f4e6'; } /* person-plus (Signup) */
+
+    /* Language Link Icon */
+    .navmenu li #language-toggle-mobile::before {
+        content: '\f3ee' !important;
+        /* globe */
+    }
+
+    /* Hide redundant internal icons in HTML */
+    .navmenu li a i {
+        display: none !important;
     }
 
     .navmenu a:hover,
-    .navmenu .active,
-    .navmenu .active:focus {
-        color: var(--nav-dropdown-hover-color);
+    .navmenu .active {
+        color: var(--accent-color);
+        background: color-mix(in srgb, var(--accent-color), transparent 95%);
     }
 
-    .navmenu .active i,
-    .navmenu .active:focus i {
-        background-color: var(--accent-color);
-        color: var(--contrast-color);
+    .navmenu .active::before {
+        background: var(--accent-color);
+        color: white;
+        box-shadow: 0 4px 10px color-mix(in srgb, var(--accent-color), transparent 80%);
     }
 
-    .navmenu li.d-xl-none a {
-        justify-content: flex-start;
-        gap: 10px;
-    }
-
-    .navmenu .dropdown ul {
-        position: static;
-        display: none;
-        z-index: 99;
-        padding: 10px 0;
-        margin: 10px 20px;
-        background-color: var(--nav-dropdown-background-color);
-        border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-        box-shadow: none;
-        transition: all 0.5s ease-in-out;
-    }
-
-    .navmenu .dropdown ul ul {
-        background-color: rgba(33, 37, 41, 0.1);
-    }
-
-    .navmenu .dropdown>.dropdown-active {
-        display: block;
-        background-color: rgba(33, 37, 41, 0.03);
+    /* Auth Actions Section Branding */
+    .navmenu li.d-xl-none:nth-child(6) {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .mobile-nav-active {
         overflow: hidden;
     }
 
+    /* Close Button Styling */
     .mobile-nav-active .mobile-nav-toggle {
-        color: var(--heading-color);
-        position: fixed;
-        font-size: 28px;
-        top: 78px;
-        left: 1px;
-        right: auto;
-        margin-right: 0;
-        z-index: 9999;
-        background: rgba(255, 255, 255, 0.9);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        color: var(--accent-color);
     }
 
-    .mobile-nav-active .navmenu {
-        position: fixed;
-        overflow: visible;
-        top: 70px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        /* Start below header */
-        background: rgba(33, 37, 41, 0.8);
-        transition: 0.3s;
-    }
-
-    /* Fix for scrolled header gap */
-    body.scrolled.mobile-nav-active .navmenu {
-        top: 70px;
-    }
-
-    body.scrolled.mobile-nav-active .navmenu ul {
-        top: 70px;
-    }
-
-    .mobile-nav-active .navmenu>ul {
-        visibility: visible !important;
-        opacity: 1 !important;
-        transform: translateY(0);
-    }
-
-    /* Keep toggle visible when scrolled */
-    body.scrolled.mobile-nav-active .mobile-nav-toggle {
-        top: 78px;
+    /* RTL Support for Mobile */
+    html[dir="rtl"] .navmenu a {
+        flex-direction: row;
     }
 
     /* RTL Support for Mobile (HTML[dir="ltr"]) */

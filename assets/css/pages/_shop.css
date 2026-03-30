@@ -1,4 +1,4 @@
-﻿/*--------------------------------------------------------------
+/*--------------------------------------------------------------
 # Product Cards (Matching Course Card Design)
 --------------------------------------------------------------*/
 .product-card {
@@ -1501,6 +1501,27 @@
     /* subtle arrow move on hover in RTL */
 }
 
+@media (max-width: 768px) {
+    .uiverse-shine-btn {
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border-radius: 50%;
+        flex-shrink: 0;
+        border-width: 1px;
+    }
+
+    .uiverse-shine-btn span {
+        display: none;
+    }
+
+    .uiverse-shine-btn .icon {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+    }
+}
+
 /*--------------------------------------------------------------
 # Courses Filter & Search
 --------------------------------------------------------------*/
@@ -1555,17 +1576,38 @@
     gap: 0.5rem;
 }
 
+@media (max-width: 991px) {
+    .filter-pills {
+        justify-content: center !important;
+        gap: 0.6rem !important;
+        row-gap: 12px !important;
+        /* Proper vertical spacing for wrapped items */
+        padding: 5px 0;
+    }
+
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        flex: 0 1 auto;
+        /* Allow items to keep natural width but wrap */
+    }
+}
+
 .filter-btn {
-    background: color-mix(in srgb, var(--surface-color), var(--default-color) 5%);
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    background: rgba(var(--surface-color-rgb), 0.5);
+    /* Glassmorphism start */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
     color: var(--heading-color);
-    padding: 10px 20px;
+    padding: 10px 24px;
     border-radius: 50px;
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 700;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 15px rgba(0, 74, 153, 0.03);
+    white-space: nowrap;
 }
 
 .filter-btn:hover {
@@ -1580,7 +1622,7 @@
     background: var(--accent-color);
     color: white;
     border-color: var(--accent-color);
-    box-shadow: 0 6px 20px color-mix(in srgb, var(--accent-color), transparent 60%);
+    box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 60%);
     transform: translateY(-2px);
 }
 
@@ -1833,6 +1875,10 @@
 }
 
 @media (max-width: 768px) {
+    .shop-hero {
+        padding: 130px 0 60px 0;
+    }
+
     .shop-hero h1 {
         font-size: 2.2rem;
     }

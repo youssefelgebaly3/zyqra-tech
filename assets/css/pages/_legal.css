@@ -4,10 +4,15 @@
 */
 
 .legal-section {
-    padding: 90px 0 80px;
-    /* Reduced top padding as requested */
+    padding: 60px 0 80px;
     position: relative;
     overflow: hidden;
+}
+
+@media (max-width: 991px) {
+    .legal-section {
+        padding-top: 30px;
+    }
 }
 
 .legal-section::before {
@@ -109,8 +114,6 @@
     line-height: 1.7;
     color: #374151;
     font-weight: 600;
-    display: flex;
-    align-items: flex-start;
 }
 
 .legal-list li::before {
