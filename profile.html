@@ -4,13 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>الملف الشخصي - ZYQRA</title>
-    <meta name="description" content="إدارة حسابك ودوراتك وشهاداتك - ZYQRA">
+    <title data-i18n="profile_title">الملف الشخصي - ZYQRA</title>
+    <meta name="description" content="إدارة حسابك ودوراتك وشهاداتك - ZYQRA" data-i18n-attr="content:profile_meta_desc">
 
     <link href="assets/img/favicon.png" rel="icon">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
         rel="stylesheet">
     <link href="assets/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <script src="assets/js/translations/common.js?v=3.1"></script>
+    <script src="assets/js/translations/profile.js?v=3.1"></script>
     <script src="assets/js/lang-config.js?v=3.1"></script>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -48,10 +50,10 @@
                 <div class="auth-links d-none d-xl-flex align-items-center gap-2">
                     <a href="profile.html" class="auth-link login active">
                         <i class="bi bi-person-circle"></i>
-                        <span>حسابي</span>
+                        <span data-i18n="nav_my_account">حسابي</span>
                     </a>
                 </div>
-                <a class="btn-shop-icon" href="cart.html" title="السلة">
+                <a class="btn-shop-icon" href="cart.html" title="السلة" data-i18n-attr="title:nav_cart">
                     <i class="bi bi-cart3"></i>
                     <span class="cart-badge"></span>
                 </a>
@@ -68,7 +70,7 @@
                     <div class="profile-avatar">
                         <img src="assets/img/profile-avatar.png" alt="صورة المستخدم"
                             onerror="this.src='https://ui-avatars.com/api/?name=User&background=2E86AB&color=fff&size=150'">
-                        <button class="change-avatar-btn" title="تغيير الصورة">
+                        <button class="change-avatar-btn" title="تغيير الصورة" data-i18n-attr="title:profile_change_avatar">
                             <i class="bi bi-camera-fill"></i>
                         </button>
                     </div>
@@ -76,25 +78,25 @@
                         <h1 class="profile-name" id="user-name">أحمد محمد</h1>
                         <p class="profile-email"><i class="bi bi-envelope me-2"></i><span
                                 id="user-email">ahmed@example.com</span></p>
-                        <p class="profile-since"><i class="bi bi-calendar3 me-2"></i>عضو منذ: <span
+                        <p class="profile-since"><i class="bi bi-calendar3 me-2"></i><span data-i18n="profile_member_since">عضو منذ:</span> <span
                                 id="member-since">يناير 2024</span></p>
                         <div class="profile-badges">
-                            <span class="badge-item"><i class="bi bi-award"></i> طالب متميز</span>
-                            <span class="badge-item"><i class="bi bi-graph-up-arrow"></i> 3 دورات مكتملة</span>
+                            <span class="badge-item"><i class="bi bi-award"></i> <span data-i18n="profile_badge_student">طالب متميز</span></span>
+                            <span class="badge-item"><i class="bi bi-graph-up-arrow"></i> <span data-i18n="profile_badge_courses">3 دورات مكتملة</span></span>
                         </div>
                     </div>
                     <div class="profile-stats">
                         <div class="stat-item">
                             <span class="stat-number" id="courses-count">5</span>
-                            <span class="stat-label">دوراتي</span>
+                            <span class="stat-label" data-i18n="profile_stat_courses">دوراتي</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number" id="certificates-count">3</span>
-                            <span class="stat-label">شهاداتي</span>
+                            <span class="stat-label" data-i18n="profile_stat_certificates">شهاداتي</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number" id="orders-count">2</span>
-                            <span class="stat-label">طلباتي</span>
+                            <span class="stat-label" data-i18n="profile_stat_orders">طلباتي</span>
                         </div>
                     </div>
                 </div>
@@ -111,28 +113,28 @@
                         <button class="nav-link active" id="courses-tab" data-bs-toggle="pill" data-bs-target="#courses"
                             type="button" role="tab">
                             <i class="bi bi-book"></i>
-                            <span>دوراتي</span>
+                            <span data-i18n="profile_tab_courses">دوراتي</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="certificates-tab" data-bs-toggle="pill"
                             data-bs-target="#certificates" type="button" role="tab">
                             <i class="bi bi-award"></i>
-                            <span>شهاداتي</span>
+                            <span data-i18n="profile_tab_certificates">شهاداتي</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="orders-tab" data-bs-toggle="pill" data-bs-target="#orders"
                             type="button" role="tab">
                             <i class="bi bi-bag"></i>
-                            <span>طلباتي</span>
+                            <span data-i18n="profile_tab_orders">طلباتي</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="settings-tab" data-bs-toggle="pill" data-bs-target="#settings"
                             type="button" role="tab">
                             <i class="bi bi-gear"></i>
-                            <span>الإعدادات</span>
+                            <span data-i18n="profile_tab_settings">الإعدادات</span>
                         </button>
                     </li>
                 </ul>
@@ -161,11 +163,11 @@
                                             <span class="progress-text">65%</span>
                                         </div>
                                         <div class="course-meta">
-                                            <span><i class="bi bi-clock"></i> 8/12 ساعة</span>
-                                            <span><i class="bi bi-play-circle"></i> 13/20 درس</span>
+                                            <span data-i18n="profile_meta_hours" data-i18n-replace='{"current": 8, "total": 12}'><i class="bi bi-clock"></i> 8/12 ساعة</span>
+                                            <span data-i18n="profile_meta_lessons" data-i18n-replace='{"current": 13, "total": 20}'><i class="bi bi-play-circle"></i> 13/20 درس</span>
                                         </div>
                                         <a href="course-player.html" class="btn-continue">
-                                            متابعة الدورة <i class="bi bi-arrow-left"></i>
+                                            <span data-i18n="profile_btn_continue">متابعة الدورة</span> <i class="bi bi-arrow-left"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -283,7 +285,7 @@
                             <div class="col-lg-4 col-md-6">
                                 <a href="courses.html" class="browse-more-card">
                                     <i class="bi bi-plus-circle"></i>
-                                    <span>تصفح المزيد من الدورات</span>
+                                    <span data-i18n="profile_browse_more">تصفح المزيد من الدورات</span>
                                 </a>
                             </div>
 
@@ -313,9 +315,8 @@
                                         <p><i class="bi bi-calendar3"></i> صدرت: 15 ديسمبر 2024</p>
                                         <p><i class="bi bi-hash"></i> رقم الشهادة: ZYQRA-ES-2024-001</p>
                                         <div class="certificate-actions">
-                                            <button class="btn-download"><i class="bi bi-download"></i> تحميل
-                                                PDF</button>
-                                            <button class="btn-share"><i class="bi bi-share"></i> مشاركة</button>
+                                            <button class="btn-download"><i class="bi bi-download"></i> <span data-i18n="cert_btn_download">تحميل PDF</span></button>
+                                            <button class="btn-share"><i class="bi bi-share"></i> <span data-i18n="cert_btn_share">مشاركة</span></button>
                                         </div>
                                     </div>
                                 </div>
@@ -417,9 +418,8 @@
                                             <span class="amount">1,100 ج.م</span>
                                         </div>
                                         <div class="order-actions">
-                                            <button class="btn-reorder"><i class="bi bi-arrow-repeat"></i> إعادة
-                                                الطلب</button>
-                                            <button class="btn-details"><i class="bi bi-eye"></i> التفاصيل</button>
+                                            <button class="btn-reorder"><i class="bi bi-arrow-repeat"></i> <span data-i18n="order_btn_reorder">إعادة الطلب</span></button>
+                                            <button class="btn-details"><i class="bi bi-eye"></i> <span data-i18n="order_btn_details">التفاصيل</span></button>
                                         </div>
                                     </div>
                                 </div>
@@ -481,22 +481,22 @@
                                         <h5><i class="bi bi-person"></i> المعلومات الشخصية</h5>
                                         <form class="settings-form">
                                             <div class="form-group">
-                                                <label>الاسم الأول</label>
+                                                <label data-i18n="settings_fname">الاسم الأول</label>
                                                 <input type="text" class="form-control" value="أحمد">
                                             </div>
                                             <div class="form-group">
-                                                <label>اسم العائلة</label>
+                                                <label data-i18n="settings_lname">اسم العائلة</label>
                                                 <input type="text" class="form-control" value="محمد">
                                             </div>
                                             <div class="form-group">
-                                                <label>البريد الإلكتروني</label>
+                                                <label data-i18n="settings_email">البريد الإلكتروني</label>
                                                 <input type="email" class="form-control" value="ahmed@example.com">
                                             </div>
                                             <div class="form-group">
-                                                <label>رقم الهاتف</label>
+                                                <label data-i18n="settings_phone">رقم الهاتف</label>
                                                 <input type="tel" class="form-control" value="01012345678">
                                             </div>
-                                            <button type="submit" class="btn-save">حفظ التغييرات</button>
+                                            <button type="submit" class="btn-save" data-i18n="settings_btn_save">حفظ التغييرات</button>
                                         </form>
                                     </div>
                                 </div>
@@ -562,15 +562,15 @@
                                 <!-- Account Actions -->
                                 <div class="col-lg-6">
                                     <div class="settings-card danger-zone">
-                                        <h5><i class="bi bi-exclamation-triangle"></i> إجراءات الحساب</h5>
+                                        <h5 data-i18n="settings_danger_title"><i class="bi bi-exclamation-triangle"></i> إجراءات الحساب</h5>
                                         <div class="account-actions">
                                             <button class="btn-logout">
                                                 <i class="bi bi-box-arrow-right"></i>
-                                                تسجيل الخروج
+                                                <span data-i18n="settings_btn_logout">تسجيل الخروج</span>
                                             </button>
                                             <button class="btn-delete-account">
                                                 <i class="bi bi-trash"></i>
-                                                حذف الحساب
+                                                <span data-i18n="settings_btn_delete">حذف الحساب</span>
                                             </button>
                                         </div>
                                     </div>
@@ -615,18 +615,18 @@
                         <li><a href="courses.html">الدورات</a></li>
                         <li><a href="about.html">من نحن</a></li>
                         <li><a href="contact.html">تواصل معنا</a></li>
-                        <li><a href="terms.html">الشروط والأحكام</a></li>
-                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="terms.html" data-i18n="nav_terms">الشروط والأحكام</a></li>
+                        <li><a href="privacy.html" data-i18n="nav_privacy">سياسة الخصوصية</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
                     <h4>خدماتنا</h4>
                     <ul>
-                        <li><a href="products.html">المنتجات الذكية</a></li>
-                        <li><a href="courses.html">الدورات التعليمية</a></li>
-                        <li><a href="contact.html">الدعم الفني</a></li>
-                        <li><a href="contact.html">الاستشارات</a></li>
+                        <li><a href="products.html" data-i18n="foo_serv_smart">المنتجات الذكية</a></li>
+                        <li><a href="courses.html" data-i18n="foo_serv_courses">الدورات التعليمية</a></li>
+                        <li><a href="contact.html" data-i18n="foo_serv_support">الدعم الفني</a></li>
+                        <li><a href="contact.html" data-i18n="foo_serv_consult">الاستشارات</a></li>
                     </ul>
                 </div>
 

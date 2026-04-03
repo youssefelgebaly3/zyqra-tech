@@ -199,21 +199,25 @@
 @media (max-width: 768px) {
     .features .feature-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        gap: 8px;
     }
+
     .features .feature-item {
         flex-direction: column;
         text-align: center;
-        padding: 16px 10px;
-        gap: 8px;
+        padding: 8px 4px;
+        gap: 4px;
+        border-radius: 10px;
     }
+
     .features .feature-item i {
-        font-size: 24px;
-        margin-bottom: 4px;
+        font-size: 16px;
+        margin-bottom: 2px;
     }
+
     .features .feature-item span {
-        font-size: 12px;
-        line-height: 1.4;
+        font-size: 10px;
+        line-height: 1.2;
     }
 }
 
@@ -358,6 +362,36 @@
     font-size: 16px;
     font-weight: 800;
     color: var(--heading-color);
+}
+
+@media (max-width: 768px) {
+    .features .visual-content {
+        padding: 10px;
+    }
+
+    .features .floating-card {
+        bottom: 25px;
+        left: 25px;
+        padding: 6px 10px;
+        gap: 8px;
+        border-radius: 8px;
+    }
+
+    .features .floating-card i {
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+        border-radius: 6px;
+    }
+
+    .features .floating-card .card-content span {
+        font-size: 9px;
+        margin-bottom: 0px;
+    }
+
+    .features .floating-card .card-content strong {
+        font-size: 11px;
+    }
 }
 
 /* Decorative Bloom */

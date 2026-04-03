@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مشغل الدورة - ZYQRA الخير</title>
+    <title>ZYQRA - Ø¥Ù†ØªØ±Ù†Øª Ø§Ù„Ø£Ø´ÙŠØ§Ø¡ Soft Skills</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,8 @@
         rel="stylesheet">
 
     <link href="assets/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <script src="assets/js/translations/common.js"></script>
+    <script src="assets/js/translations/course-player.js"></script>
     <script src="assets/js/lang-config.js?v=3.1"></script>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/css/pages/_course-player.css?v=3.0" rel="stylesheet">
@@ -26,23 +28,23 @@
         <div class="header-content">
             <a href="courses.html" class="back-btn">
                 <i class="bi bi-arrow-right"></i>
-                <span>العودة للدورات</span>
+                <span data-i18n="player_back">Ø§Ù„Ø¹ÙˆØ¯Ø© Ù„Ù„Ø¯ÙˆØ±Ø§Øª</span>
             </a>
 
             <div class="course-title-header">
-                <h1>أساسيات الإلكترونيات</h1>
-                <span><i class="bi bi-mortarboard-fill"></i> ZYQRA الخير</span>
+                <h1 data-i18n="softskills_title">Ø¥Ù†ØªØ±Ù†Øª Ø§Ù„Ø£Ø´ÙŠØ§Ø¡ Soft Skills</h1>
+                <span><i class="bi bi-mortarboard-fill"></i> <span data-i18n="player_zyqra_khair">ZYQRA Ø§Ù„Ø®ÙŠØ±</span></span>
             </div>
 
             <div class="header-actions">
                 <div class="streak-container">
                     <div class="streak-badge" id="streakBadge"
-                        title="عدد الأيام المتتالية التي أكملت فيها درساً واحداً على الأقل">
+                        title="Ø¹Ø¯Ø¯ Ø§Ù„Ø£ÙŠØ§Ù… Ø§Ù„Ù…ØªØªØ§Ù„ÙŠØ© Ø§Ù„ØªÙŠ Ø£ÙƒÙ…Ù„Øª ÙÙŠÙ‡Ø§ Ø¯Ø±Ø³Ø§Ù‹ ÙˆØ§Ø­Ø¯Ø§Ù‹ Ø¹Ù„Ù‰ Ø§Ù„Ø£Ù‚Ù„">
                         <i class="bi bi-fire"></i>
                         <span id="streakCount">0</span>
                     </div>
                     <div class="freeze-count" id="freezeBadge"
-                        title="دروع حماية تحافظ على أيام الحماسة الخاصة بك حتى لو غبت يوماً كاملاً">
+                        title="Ø¯Ø±ÙˆØ¹ Ø­Ù…Ø§ÙŠØ© ØªØ­Ø§ÙØ¸ Ø¹Ù„Ù‰ Ø£ÙŠØ§Ù… Ø§Ù„Ø­Ù…Ø§Ø³Ø© Ø§Ù„Ø®Ø§ØµØ© Ø¨Ùƒ Ø­ØªÙ‰ Ù„Ùˆ ØºØ¨Øª ÙŠÙˆÙ…Ø§Ù‹ ÙƒØ§Ù…Ù„Ø§Ù‹">
                         <i class="bi bi-snow"></i>
                         <span id="freezeCount">2</span>
                     </div>
@@ -67,18 +69,19 @@
                 <div class="video-controls-bar">
                     <button class="nav-btn" id="prevBtn" disabled>
                         <i class="bi bi-chevron-right"></i>
-                        <span>السابق</span>
+                        <span data-i18n="player_prev">Ø§Ù„Ø³Ø§Ø¨Ù‚</span>
                     </button>
 
                     <div class="lesson-info-bar">
-                        <h3 id="currentTitle">مقدمة في الإلكترونيات</h3>
-                        <div class="lesson-counter">الدرس <span id="currentNum">1</span> من <span id="totalNum">5</span>
+                        <h3 id="currentTitle">Ù…Ù‚Ø¯Ù…Ø© ÙÙŠ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ§Øª</h3>
+                        <div class="lesson-counter"><span data-i18n="player_lesson">Ø§Ù„Ø¯Ø±Ø³</span> <span id="currentNum">1</span> <span data-i18n="player_of">Ù…Ù†</span> <span
+                                id="totalNum">--</span>
                         </div>
                     </div>
 
                     <div class="control-actions">
                         <div class="speed-control">
-                            <button class="action-btn" id="speedBtn" title="سرعة التشغيل">
+                            <button class="action-btn" id="speedBtn" data-i18n="player_speed" title="Ø³Ø±Ø¹Ø© Ø§Ù„ØªØ´ØºÙŠÙ„">
                                 <span style="font-size: 0.75rem; font-weight: 700;">1x</span>
                             </button>
                             <div class="speed-dropdown">
@@ -90,19 +93,19 @@
                                 <div class="speed-option" data-speed="2">2x</div>
                             </div>
                         </div>
-                        <button class="action-btn" id="bookmarkBtn" title="إشارة مرجعية">
+                        <button class="action-btn" id="bookmarkBtn" title="Ø¥Ø´Ø§Ø±Ø© Ù…Ø±Ø¬Ø¹ÙŠØ©">
                             <i class="bi bi-bookmark"></i>
                         </button>
-                        <button class="action-btn" id="pipBtn" title="نافذة صغيرة">
+                        <button class="action-btn" id="pipBtn" title="Ù†Ø§ÙØ°Ø© ØµØºÙŠØ±Ø©">
                             <i class="bi bi-pip"></i>
                         </button>
-                        <button class="action-btn" id="completeBtn" title="تم الدرس">
+                        <button class="action-btn" id="completeBtn" title="ØªÙ… Ø§Ù„Ø¯Ø±Ø³">
                             <i class="bi bi-check-lg"></i>
                         </button>
                     </div>
 
                     <button class="nav-btn" id="nextBtn">
-                        <span>التالي</span>
+                        <span data-i18n="player_next">Ø§Ù„ØªØ§Ù„ÙŠ</span>
                         <i class="bi bi-chevron-left"></i>
                     </button>
                 </div>
@@ -111,16 +114,16 @@
                 <div class="content-section">
                     <div class="content-tabs">
                         <button class="tab-btn active" data-tab="overview">
-                            <i class="bi bi-info-circle me-2"></i>نظرة عامة
+                            <i class="bi bi-info-circle me-2"></i><span data-i18n="player_tab_overview">Ù†Ø¸Ø±Ø© Ø¹Ø§Ù…Ø©</span>
                         </button>
                         <button class="tab-btn" data-tab="resources">
-                            <i class="bi bi-folder me-2"></i>الموارد
+                            <i class="bi bi-folder me-2"></i><span data-i18n="player_tab_resources">Ø§Ù„Ù…ÙˆØ§Ø±Ø¯</span>
                         </button>
                         <button class="tab-btn" data-tab="tasks">
-                            <i class="bi bi-list-check me-2"></i>المهام
+                            <i class="bi bi-list-check me-2"></i><span data-i18n="player_tab_tasks">Ø§Ù„Ù…Ù‡Ø§Ù…</span>
                         </button>
                         <button class="tab-btn" data-tab="notes">
-                            <i class="bi bi-journal-text me-2"></i>ملاحظاتي
+                            <i class="bi bi-journal-text me-2"></i><span data-i18n="player_tab_notes">Ù…Ù„Ø§Ø­Ø¸Ø§ØªÙŠ</span>
                         </button>
                     </div>
 
@@ -130,32 +133,32 @@
                             <div class="row g-4">
                                 <div class="col-lg-8">
                                     <div class="glass-card mb-4">
-                                        <h3><i class="bi bi-info-circle-fill"></i> عن الدورة</h3>
-                                        <p class="text-muted leading-relaxed">
-                                            كيف تتواصل بوضوح وثقة مع الآخرين في بيئة العمل والحياة. ستتعلم مهارات
-                                            التواصل الفعال، القيادة، العرض التقديمي، وإدارة الوقت لتطوير مسارك المهني
-                                            والشخصي.
+                                        <h3><i class="bi bi-info-circle-fill"></i> <span data-i18n="player_about_title">Ø¹Ù† Ø§Ù„Ø¯ÙˆØ±Ø©</span></h3>
+                                        <p class="text-muted leading-relaxed" data-i18n="iot_about">
+                                            ØªØ¹Ù„Ù… Ø¨Ù†Ø§Ø¡ Ù…Ø´Ø§Ø±ÙŠØ¹ Ø¥Ù†ØªØ±Ù†Øª Ø§Ù„Ø£Ø´ÙŠØ§Ø¡ - Ø§Ù„Ø­Ø³Ø§Ø³Ø§ØªØŒ Ø§Ù„Ø§ØªØµØ§Ù„ØŒ ÙˆØ§Ù„ØªØ·Ø¨ÙŠÙ‚Ø§Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ©.
+                                            Ø³ØªØªØ¹Ù„Ù… ÙƒÙŠÙ ØªØ±Ø¨Ø· Ø§Ù„Ø£Ø¬Ù‡Ø²Ø© Ø§Ù„Ù…Ø§Ø¯ÙŠØ© Ø¨Ø§Ù„Ø¹Ø§Ù„Ù… Ø§Ù„Ø±Ù‚Ù…ÙŠ ÙˆØªØªØ­ÙƒÙ… Ø¨Ù‡Ø§ Ø¹Ù† Ø¨Ø¹Ø¯ Ø¹Ø¨Ø±
+                                            Ø§Ù„Ø³Ø­Ø§Ø¨Ø©.
                                         </p>
                                     </div>
 
                                     <div class="glass-card">
-                                        <h3><i class="bi bi-lightbulb-fill"></i> ماذا ستتعلم</h3>
+                                        <h3><i class="bi bi-lightbulb-fill"></i> <span data-i18n="player_learning_title">Ù…Ø§Ø°Ø§ Ø³ØªØªØ¹Ù„Ù…</span></h3>
                                         <div class="learning-grid">
                                             <div class="learning-item">
                                                 <i class="bi bi-check-circle-fill"></i>
-                                                <span>أساسيات التواصل اللفظي وغير اللفظي</span>
+                                                <span data-i18n="iot_learn_1">Ù…ÙØ§Ù‡ÙŠÙ… Soft Skills Ø§Ù„Ø£Ø³Ø§Ø³ÙŠØ© ÙˆØ¨Ø±ÙˆØªÙˆÙƒÙˆÙ„Ø§Øª M2M</span>
                                             </div>
                                             <div class="learning-item">
                                                 <i class="bi bi-check-circle-fill"></i>
-                                                <span>مهارات التفاوض والإقناع</span>
+                                                <span data-i18n="iot_learn_2">Ø§Ù„ØªØ¹Ø§Ù…Ù„ Ù…Ø¹ Ø¨Ø±ÙˆØªÙˆÙƒÙˆÙ„Ø§Øª Ø§Ù„Ø§ØªØµØ§Ù„ (MQTT, HTTP)</span>
                                             </div>
                                             <div class="learning-item">
                                                 <i class="bi bi-check-circle-fill"></i>
-                                                <span>إدارة الوقت وترتيب الأولويات</span>
+                                                <span data-i18n="iot_learn_3">Ø¨Ø±Ù…Ø¬Ø© ESP8266/ESP32 ÙˆØ±Ø¨Ø·Ù‡Ø§ Ø¨Ø§Ù„Ø³Ø­Ø§Ø¨Ø© (Cloud)</span>
                                             </div>
                                             <div class="learning-item">
                                                 <i class="bi bi-check-circle-fill"></i>
-                                                <span>القيادة وبناء فرق العمل الناجحة</span>
+                                                <span data-i18n="iot_learn_4">Ù…Ø´Ø§Ø±ÙŠØ¹ Ø§Ù„ØªØ­ÙƒÙ… Ø¹Ù† Ø¨Ø¹Ø¯ ÙˆØ§Ù„Ø£ØªÙ…ØªØ© (Home Automation)</span>
                                             </div>
                                         </div>
                                     </div>
@@ -163,40 +166,38 @@
 
                                 <div class="col-lg-4">
                                     <div class="glass-card mb-4">
-                                        <h5 class="mb-3"><i class="bi bi-person-badge"></i> المدرب</h5>
+                                        <h5 class="mb-3"><i class="bi bi-person-badge"></i> <span data-i18n="player_instructor_title">Ø§Ù„Ù…Ø¯Ø±Ø¨</span></h5>
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="avatar-circle"
                                                 style="width: 50px; height: 50px; background: var(--accent-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
                                                 <i class="bi bi-person-fill fs-4"></i>
                                             </div>
                                             <div>
-                                                <h6 class="mb-0 fw-bold">م. يوسف الجبالى</h6>
-                                                <span class="text-muted small">خبير الأنظمة المدمجة</span>
+                                                <h6 class="mb-0 fw-bold" data-i18n="player_instructor_name">Ù…. ÙŠÙˆØ³Ù Ø§Ù„Ø¬Ø¨Ø§Ù„Ù‰</h6>
+                                                <span class="text-muted small" data-i18n="player_instructor_desc">Ø®Ø¨ÙŠØ± Ø§Ù„Ø£Ù†Ø¸Ù…Ø© Ø§Ù„Ù…Ø¯Ù…Ø¬Ø©</span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="glass-card">
-                                        <h5 class="mb-3"><i class="bi bi-bar-chart-fill"></i> معلومات الدورة</h5>
+                                        <h5 class="mb-3"><i class="bi bi-bar-chart-fill"></i> <span data-i18n="player_info_title">Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¯ÙˆØ±Ø©</span></h5>
                                         <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
                                             <li class="d-flex justify-content-between text-muted">
-                                                <span><i class="bi bi-bar-chart me-2"></i>المستوى</span>
-                                                <strong class="text-dark">الكل</strong>
+                                                <span><i class="bi bi-bar-chart me-2"></i><span data-i18n="player_level">Ø§Ù„Ù…Ø³ØªÙˆÙ‰</span></span>
+                                                <strong class="text-dark" data-i18n="iot_level">Ù…ØªÙˆØ³Ø·</strong>
                                             </li>
                                             <li class="d-flex justify-content-between text-muted">
-                                                <span><i class="bi bi-clock me-2"></i>المدة</span>
-                                                <strong class="text-dark">6 ساعة</strong>
+                                                <span><i class="bi bi-clock me-2"></i><span data-i18n="player_duration">Ø§Ù„Ù…Ø¯Ø©</span></span>
+                                                <strong class="text-dark" data-i18n="iot_duration">15 Ø³Ø§Ø¹Ø©</strong>
                                             </li>
                                             <li class="d-flex justify-content-between text-muted">
-                                                <span><i class="bi bi-translate me-2"></i>اللغة</span>
-                                                <strong class="text-dark">العربية</strong>
+                                                <span><i class="bi bi-translate me-2"></i><span data-i18n="player_language">Ø§Ù„Ù„ØºØ©</span></span>
+                                                <strong class="text-dark" data-i18n="player_lang_val">Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©</strong>
                                             </li>
                                             <li class="d-flex justify-content-between text-muted">
-                                                <span><i class="bi bi-cash me-2"></i>السعر</span>
-                                                <strong class="text-success">مجاني 100%</strong>
+                                                <span><i class="bi bi-cash me-2"></i><span data-i18n="player_price">Ø§Ù„Ø³Ø¹Ø±</span></span>
+                                                <strong class="text-success" data-i18n="player_free">Ù…Ø¬Ø§Ù†ÙŠ 100%</strong>
                                             </li>
-                                            <li class="d-xl-none"><a href="#" id="language-toggle-mobile"><i
-                                                        class="bi bi-globe me-2"></i> <span>Language</span></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -209,54 +210,51 @@
                                 <div class="resource-info">
                                     <div class="resource-icon pdf"><i class="bi bi-file-pdf-fill"></i></div>
                                     <div class="resource-details">
-                                        <h6>العرض التقديمي</h6>
-                                        <span>PDF • 2.5 MB</span>
+                                        <h6 data-i18n="player_presentation">Ø§Ù„Ø¹Ø±Ø¶ Ø§Ù„ØªÙ‚Ø¯ÙŠÙ…ÙŠ</h6>
+                                        <span>PDF â€¢ 2.5 MB</span>
                                     </div>
                                 </div>
-                                <button class="download-btn"><i class="bi bi-download"></i> تحميل</button>
+                                <button class="download-btn"><i class="bi bi-download"></i> <span data-i18n="player_download">ØªØ­Ù…ÙŠÙ„</span></button>
                             </div>
                             <div class="resource-item">
                                 <div class="resource-info">
                                     <div class="resource-icon code"><i class="bi bi-file-code-fill"></i></div>
                                     <div class="resource-details">
-                                        <h6>كود المصدر</h6>
-                                        <span>ZIP • 1.2 MB</span>
+                                        <h6 data-i18n="player_source_code">ÙƒÙˆØ¯ Ø§Ù„Ù…ØµØ¯Ø±</h6>
+                                        <span>ZIP â€¢ 1.2 MB</span>
                                     </div>
                                 </div>
-                                <button class="download-btn"><i class="bi bi-download"></i> تحميل</button>
+                                <button class="download-btn"><i class="bi bi-download"></i> <span data-i18n="player_download">ØªØ­Ù…ÙŠÙ„</span></button>
                             </div>
                             <div class="resource-item">
                                 <div class="resource-info">
                                     <div class="resource-icon doc"><i class="bi bi-file-text-fill"></i></div>
                                     <div class="resource-details">
-                                        <h6>ملخص الدرس</h6>
-                                        <span>DOC • 850 KB</span>
+                                        <h6 data-i18n="player_lesson_summary">Ù…Ù„Ø®Øµ Ø§Ù„Ø¯Ø±Ø³</h6>
+                                        <span>DOC â€¢ 850 KB</span>
                                     </div>
                                 </div>
-                                <button class="download-btn"><i class="bi bi-download"></i> تحميل</button>
+                                <button class="download-btn"><i class="bi bi-download"></i> <span data-i18n="player_download">ØªØ­Ù…ÙŠÙ„</span></button>
                             </div>
                         </div>
 
                         <!-- Tasks Tab -->
                         <div class="tab-panel" id="tasks">
                             <div class="glass-card">
-                                <h3><i class="bi bi-list-check"></i> المهام المطلوبة</h3>
+                                <h3><i class="bi bi-list-check"></i> <span data-i18n="player_tasks_required">Ø§Ù„Ù…Ù‡Ø§Ù… Ø§Ù„Ù…Ø·Ù„ÙˆØ¨Ø©</span></h3>
                                 <div class="task-list">
                                     <div class="learning-item mb-3"
                                         style="background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3);">
                                         <i class="bi bi-exclamation-circle text-warning"></i>
                                         <div style="flex: 1;">
-                                            <h6 class="mb-1" style="color: var(--text-primary); font-weight: 600;">تمرين
-                                                عملي: تصميم دائرة بسيطة</h6>
-                                            <p class="mb-2 small text-muted">قم بتصميم دائرة إنارة بسيطة باستخدام بطارية
-                                                ومقاومة وLED، ثم ارفع صورة للتصميم.</p>
+                                            <h6 class="mb-1" style="color: var(--text-primary); font-weight: 600;" data-i18n="player_practical_exercise">ØªÙ…Ø±ÙŠÙ† Ø¹Ù…Ù„ÙŠ: ØªØµÙ…ÙŠÙ… Ø¯Ø§Ø¦Ø±Ø© Ø¨Ø³ÙŠØ·Ø©</h6>
+                                            <p class="mb-2 small text-muted" data-i18n="player_practical_desc">Ù‚Ù… Ø¨ØªØµÙ…ÙŠÙ… Ø¯Ø§Ø¦Ø±Ø© Ø¥Ù†Ø§Ø±Ø© Ø¨Ø³ÙŠØ·Ø© Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø¨Ø·Ø§Ø±ÙŠØ© ÙˆÙ…Ù‚Ø§ÙˆÙ…Ø© ÙˆLEDØŒ Ø«Ù… Ø§Ø±ÙØ¹ ØµÙˆØ±Ø© Ù„Ù„ØªØµÙ…ÙŠÙ….</p>
                                             <div class="d-flex gap-2">
                                                 <button class="btn btn-sm btn-primary" style="font-size: 0.8rem;">
-                                                    <i class="bi bi-upload me-1"></i> رفع الحل
+                                                    <i class="bi bi-upload me-1"></i> <span data-i18n="player_upload_solution">Ø±ÙØ¹ Ø§Ù„Ø­Ù„</span>
                                                 </button>
-                                                <button class="btn btn-sm btn-outline-secondary"
-                                                    style="font-size: 0.8rem;">
-                                                    <i class="bi bi-download me-1"></i> تحميل ملفات التمرين
+                                                <button class="btn btn-sm btn-outline-secondary" style="font-size: 0.8rem;">
+                                                    <i class="bi bi-download me-1"></i> <span data-i18n="player_download_exercise_files">ØªØ­Ù…ÙŠÙ„ Ù…Ù„ÙØ§Øª Ø§Ù„ØªÙ…Ø±ÙŠÙ†</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -265,12 +263,10 @@
                                     <div class="learning-item">
                                         <i class="bi bi-check-circle-fill text-success"></i>
                                         <div style="flex: 1;">
-                                            <h6 class="mb-1" style="color: var(--text-primary); font-weight: 600;">
-                                                اختبار قصير: المكونات الإلكترونية</h6>
-                                            <p class="mb-2 small text-muted">أجب على 5 أسئلة للتأكد من فهمك للموضوع.</p>
-                                            <button class="btn btn-sm btn-success" disabled
-                                                style="opacity: 0.8; font-size: 0.8rem;">
-                                                <i class="bi bi-check-lg me-1"></i> تم الإكمال
+                                            <h6 class="mb-1" style="color: var(--text-primary); font-weight: 600;" data-i18n="player_quiz_title">Ø§Ø®ØªØ¨Ø§Ø± Ù‚ØµÙŠØ±: Ø§Ù„Ù…ÙƒÙˆÙ†Ø§Øª Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ©</h6>
+                                            <p class="mb-2 small text-muted" data-i18n="player_quiz_desc">Ø£Ø¬Ø¨ Ø¹Ù„Ù‰ 5 Ø£Ø³Ø¦Ù„Ø© Ù„Ù„ØªØ£ÙƒØ¯ Ù…Ù† ÙÙ‡Ù…Ùƒ Ù„Ù„Ù…ÙˆØ¶ÙˆØ¹.</p>
+                                            <button class="btn btn-sm btn-success" disabled style="opacity: 0.8; font-size: 0.8rem;">
+                                                <i class="bi bi-check-lg me-1"></i> <span data-i18n="player_completed">ØªÙ… Ø§Ù„Ø¥ÙƒÙ…Ø§Ù„</span>
                                             </button>
                                         </div>
                                     </div>
@@ -281,11 +277,11 @@
                         <!-- Notes Tab -->
                         <div class="tab-panel" id="notes">
                             <div class="glass-card">
-                                <h3><i class="bi bi-pencil-fill"></i> ملاحظاتك الخاصة</h3>
+                                <h3><i class="bi bi-pencil-fill"></i> <span data-i18n="player_tab_notes">Ù…Ù„Ø§Ø­Ø¸Ø§ØªÙŠ</span></h3>
                                 <textarea class="notes-textarea" id="notesArea"
-                                    placeholder="اكتب ملاحظاتك هنا... سيتم حفظها تلقائياً"></textarea>
+                                    placeholder="Ø§ÙƒØªØ¨ Ù…Ù„Ø§Ø­Ø¸Ø§ØªÙƒ Ù‡Ù†Ø§... Ø³ÙŠØªÙ… Ø­ÙØ¸Ù‡Ø§ ØªÙ„Ù‚Ø§Ø¦ÙŠØ§Ù‹" data-i18n="player_notes_ph"></textarea>
                                 <button class="download-btn mt-3" onclick="saveNotes()">
-                                    <i class="bi bi-save"></i> حفظ الملاحظات
+                                    <i class="bi bi-save"></i> <span data-i18n="player_save_notes">Ø­ÙØ¸ Ø§Ù„Ù…Ù„Ø§Ø­Ø¸Ø§Øª</span>
                                 </button>
                             </div>
                         </div>
@@ -301,13 +297,13 @@
                             <circle class="bg-circle" cx="50" cy="50" r="45" />
                             <circle class="progress-circle" cx="50" cy="50" r="45" id="progressCircle" />
                         </svg>
-                        <span class="progress-value" id="progressValue">20%</span>
+                        <span class="progress-value" id="progressValue">0%</span>
                     </div>
-                    <div class="progress-label">أكملت <span id="completedCount">1</span> من <span
-                            id="totalCount">5</span> دروس</div>
+                    <div class="progress-label"><span data-i18n="player_progress_label_prefix">Ø£ÙƒÙ…Ù„Øª</span> <span id="completedCount">0</span> <span data-i18n="player_progress_label_divider">Ù…Ù†</span> <span
+                            id="totalCount">5</span> <span data-i18n="player_progress_label_suffix">Ø¯Ø±ÙˆØ³</span></div>
                     <div class="time-remaining">
                         <i class="bi bi-clock"></i>
-                        <span id="timeRemaining">متبقي ~45 دقيقة</span>
+                        <span id="timeRemaining"><span data-i18n="player_time_remaining">Ù…ØªØ¨Ù‚ÙŠ</span> ~45 <span data-i18n="player_minutes">Ø¯Ù‚ÙŠÙ‚Ø©</span></span>
                     </div>
                 </div>
 
@@ -316,7 +312,7 @@
                 </div>
 
                 <div class="search-box">
-                    <input type="text" class="search-input" placeholder="🔍 ابحث في الدروس..." id="searchInput">
+                    <input type="text" class="search-input" placeholder="ðŸ” Ø§Ø¨Ø­Ø« ÙÙŠ Ø§Ù„Ø¯Ø±ÙˆØ³..." id="searchInput" data-i18n="player_search_ph">
                 </div>
             </aside>
         </div>
@@ -329,16 +325,13 @@
 
     <div class="toast-notification" id="toast">
         <i class="bi bi-check-circle-fill"></i>
-        <span>تم إكمال الدرس بنجاح 🎉</span>
+        <span data-i18n="player_complete_msg">ØªÙ… Ø¥ÙƒÙ…Ø§Ù„ Ø§Ù„Ø¯Ø±Ø³ Ø¨Ù†Ø¬Ø§Ø­ ðŸŽ‰</span>
     </div>
-
-
 
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/data/soft-skills.js"></script>
     <script src="assets/js/pages/course-player.js"></script>
     <script src="assets/js/main.js?v=4.0"></script>
-
 </body>
 
 </html>

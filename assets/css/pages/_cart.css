@@ -21,11 +21,11 @@
     width: 100px;
     height: 100px;
     border-radius: 10px;
-    background: linear-gradient(135deg, var(--accent-color), var(--heading-color));
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    overflow: hidden;
 }
 
 .cart-item-image i {
@@ -232,11 +232,11 @@
 .order-item-image {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--accent-color), var(--heading-color));
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .order-item-image i {
@@ -508,8 +508,10 @@
         width: 70px;
         height: 70px;
         border-radius: 14px;
-        background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), var(--heading-color) 20%));
-        box-shadow: 0 6px 18px color-mix(in srgb, var(--accent-color), transparent 70%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
     }
 
     .cart-item-image i {
@@ -585,4 +587,47 @@
         border-radius: 12px;
         font-size: 1rem;
     }
+}
+
+/* Checkout Page Spacing - Achieving the 110px gap below the floating navbar */
+.checkout-main-section {
+    padding-top: 120px;
+}
+
+@media (max-width: 1199px) {
+    .checkout-main-section {
+        padding-top: 10px !important;
+    }
+}
+
+/* Modern Back to Cart Button */
+.back-to-cart-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--text-secondary, #64748b);
+    font-weight: 600;
+    padding: 0.75rem 1.75rem;
+    border-radius: 12px;
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #e2e8f0;
+    text-decoration: none;
+}
+
+.back-to-cart-btn i {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back-to-cart-btn:hover {
+    color: var(--accent-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 94%);
+    border-color: color-mix(in srgb, var(--accent-color), transparent 85%);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.back-to-cart-btn:hover i {
+    /* Translate right directly in RTL */
+    transform: translateX(5px);
 }

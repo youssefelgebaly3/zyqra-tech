@@ -109,7 +109,7 @@
 
 .legal-list li {
     position: relative;
-    padding-right: 30px;
+    padding-inline-start: 30px;
     margin-bottom: 12px;
     line-height: 1.7;
     color: #374151;
@@ -121,7 +121,7 @@
     /* bi-check-circle-fill */
     font-family: 'bootstrap-icons';
     position: absolute;
-    right: 0;
+    inset-inline-start: 0;
     color: var(--accent-color);
     font-size: 18px;
 }

@@ -12,6 +12,8 @@
         rel="stylesheet">
     <link href="assets/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet">
     <script src="assets/js/lang-config.js?v=3.1"></script>
+    <script src="assets/js/translations/common.js"></script>
+    <script src="assets/js/translations/checkout.js"></script>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/css/main.css?v=3.1" rel="stylesheet">
@@ -26,44 +28,38 @@
             </a>
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="products.html">المنتجات</a></li>
-                    <li><a href="courses.html">الدورات</a></li>
-                    <li><a href="about.html">من نحن</a></li>
-                    <li><a href="contact.html">تواصل معنا</a></li>
-                    <li class="d-xl-none"><a href="signin.html"><i class="bi bi-person me-2"></i> تسجيل الدخول</a></li>
-                    <li class="d-xl-none"><a href="signup.html"><i class="bi bi-person-plus me-2"></i> إنشاء حساب</a>
-                    </li>
+                    <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="products.html" data-i18n="nav_products">المنتجات</a></li>
+                    <li><a href="courses.html" data-i18n="nav_courses">الدورات</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+                    <li class="d-xl-none"><a href="signin.html"><i class="bi bi-person me-2"></i> <span
+                                data-i18n="nav_login">تسجيل الدخول</span></a></li>
+                    <li class="d-xl-none"><a href="signup.html"><i class="bi bi-person-plus me-2"></i> <span
+                                data-i18n="nav_signup">إنشاء حساب</span></a></li>
                     <li class="d-xl-none"><a href="#" id="language-toggle-mobile"><i class="bi bi-globe me-2"></i>
-                            <span>Language</span></a></li>
-                    <li class="d-xl-none"><a href="#" id="language-toggle-mobile"><i class="bi bi-globe me-2"></i>
-                            <span>Language</span></a></li>
+                            <span data-i18n="nav_lang">Language</span></a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
             <div class="header-actions d-flex align-items-center gap-2">
                 <div class="d-none d-xl-flex">
-                    <button id="language-toggle" class="btn-language-toggle" title="Change Language">
-                        <i class="bi bi-globe"></i>
-                    </button>
-                </div>
-                <div class="d-none d-xl-flex">
-                    <button id="language-toggle" class="btn-language-toggle" title="Change Language">
+                    <button id="language-toggle" class="btn-language-toggle">
                         <i class="bi bi-globe"></i>
                     </button>
                 </div>
                 <div class="auth-links d-none d-xl-flex align-items-center gap-2">
                     <a href="signin.html" class="auth-link login">
                         <i class="bi bi-person"></i>
-                        <span>تسجيل الدخول</span>
+                        <span data-i18n="nav_login">تسجيل الدخول</span>
                     </a>
                     <a href="signup.html" class="auth-link signup">
                         <i class="bi bi-person-plus"></i>
-                        <span>إنشاء حساب</span>
+                        <span data-i18n="nav_signup">إنشاء حساب</span>
                     </a>
                 </div>
-                <a class="btn-shop-icon" href="cart.html" title="السلة">
+                <a class="btn-shop-icon" href="cart.html">
                     <i class="bi bi-cart3"></i>
                     <span class="cart-badge"></span>
                 </a>
@@ -74,27 +70,27 @@
     <main class="main">
 
         <!-- Checkout Progress -->
-        <section class="section" style="padding-top: 120px; padding-bottom: 0;">
+        <section class="section checkout-main-section" style="padding-bottom: 0;">
             <div class="container">
                 <div class="checkout-progress" data-aos="fade-up">
                     <div class="progress-step completed">
                         <div class="step-icon"><i class="bi bi-cart-check"></i></div>
-                        <span>السلة</span>
+                        <span data-i18n="check_progress_cart">السلة</span>
                     </div>
                     <div class="progress-line completed"></div>
                     <div class="progress-step active">
                         <div class="step-icon"><i class="bi bi-truck"></i></div>
-                        <span>الشحن</span>
+                        <span data-i18n="check_progress_ship">الشحن</span>
                     </div>
                     <div class="progress-line"></div>
                     <div class="progress-step">
                         <div class="step-icon"><i class="bi bi-credit-card"></i></div>
-                        <span>الدفع</span>
+                        <span data-i18n="check_progress_pay">الدفع</span>
                     </div>
                     <div class="progress-line"></div>
                     <div class="progress-step">
                         <div class="step-icon"><i class="bi bi-check-circle"></i></div>
-                        <span>تأكيد</span>
+                        <span data-i18n="check_progress_confirm">تأكيد</span>
                     </div>
                 </div>
             </div>
@@ -110,79 +106,81 @@
 
                         <!-- Shipping Information -->
                         <div class="checkout-card" data-aos="fade-up" data-aos-delay="100">
-                            <h4>
+                            <h4 data-i18n="check_shipping_title">
                                 <span class="step-number">1</span>
                                 معلومات الشحن
                             </h4>
                             <form id="shipping-form">
                                 <div class="row g-3">
                                     <div class="col-md-6">
-                                        <label class="form-label">الاسم الأول *</label>
+                                        <label class="form-label" data-i18n="check_fname">الاسم الأول *</label>
                                         <input type="text" class="form-control" id="firstName" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">اسم العائلة *</label>
+                                        <label class="form-label" data-i18n="check_lname">اسم العائلة *</label>
                                         <input type="text" class="form-control" id="lastName" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">رقم الهاتف *</label>
+                                        <label class="form-label" data-i18n="check_phone">رقم الهاتف *</label>
                                         <input type="tel" class="form-control" id="phone" placeholder="01xxxxxxxxx"
                                             required>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">البريد الإلكتروني</label>
+                                        <label class="form-label" data-i18n="check_email">البريد الإلكتروني</label>
                                         <input type="email" class="form-control" id="email"
                                             placeholder="example@email.com">
                                     </div>
                                     <div class="col-12">
-                                        <label class="form-label">العنوان *</label>
+                                        <label class="form-label" data-i18n="check_address">العنوان *</label>
                                         <input type="text" class="form-control" id="address"
+                                            data-i18n-placeholder="check_address_placeholder"
                                             placeholder="الشارع، رقم المبنى، الشقة" required>
                                     </div>
                                     <div class="col-md-4">
-                                        <label class="form-label">المحافظة *</label>
+                                        <label class="form-label" data-i18n="check_gov">المحافظة *</label>
                                         <select class="form-select" id="governorate" required>
-                                            <option value="">اختر المحافظة</option>
-                                            <option value="cairo">القاهرة</option>
-                                            <option value="giza">الجيزة</option>
-                                            <option value="alex">الإسكندرية</option>
-                                            <option value="dakahlia">الدقهلية</option>
-                                            <option value="sharqia">الشرقية</option>
-                                            <option value="gharbia">الغربية</option>
-                                            <option value="monufia">المنوفية</option>
-                                            <option value="qalyubia">القليوبية</option>
-                                            <option value="beheira">البحيرة</option>
-                                            <option value="kafr">كفر الشيخ</option>
-                                            <option value="damietta">دمياط</option>
-                                            <option value="portsaid">بورسعيد</option>
-                                            <option value="ismailia">الإسماعيلية</option>
-                                            <option value="suez">السويس</option>
-                                            <option value="fayoum">الفيوم</option>
-                                            <option value="benisuef">بني سويف</option>
-                                            <option value="minya">المنيا</option>
-                                            <option value="assiut">أسيوط</option>
-                                            <option value="sohag">سوهاج</option>
-                                            <option value="qena">قنا</option>
-                                            <option value="luxor">الأقصر</option>
-                                            <option value="aswan">أسوان</option>
-                                            <option value="redsea">البحر الأحمر</option>
-                                            <option value="matrouh">مطروح</option>
-                                            <option value="newvalley">الوادي الجديد</option>
-                                            <option value="northsinai">شمال سيناء</option>
-                                            <option value="southsinai">جنوب سيناء</option>
+                                            <option value="" data-i18n="check_gov_placeholder">اختر المحافظة</option>
+                                            <option value="cairo" data-i18n="gov_cairo">القاهرة</option>
+                                            <option value="giza" data-i18n="gov_giza">الجيزة</option>
+                                            <option value="alex" data-i18n="gov_alex">الإسكندرية</option>
+                                            <option value="dakahlia" data-i18n="gov_dakahlia">الدقهلية</option>
+                                            <option value="sharqia" data-i18n="gov_sharqia">الشرقية</option>
+                                            <option value="gharbia" data-i18n="gov_gharbia">الغربية</option>
+                                            <option value="monufia" data-i18n="gov_monufia">المنوفية</option>
+                                            <option value="qalyubia" data-i18n="gov_qalyubia">القليوبية</option>
+                                            <option value="beheira" data-i18n="gov_beheira">البحيرة</option>
+                                            <option value="kafr" data-i18n="gov_kafr">كفر الشيخ</option>
+                                            <option value="damietta" data-i18n="gov_damietta">دمياط</option>
+                                            <option value="portsaid" data-i18n="gov_portsaid">بورسعيد</option>
+                                            <option value="ismailia" data-i18n="gov_ismailia">الإسماعيلية</option>
+                                            <option value="suez" data-i18n="gov_suez">السويس</option>
+                                            <option value="fayoum" data-i18n="gov_fayoum">الفيوم</option>
+                                            <option value="benisuef" data-i18n="gov_benisuef">بني سويف</option>
+                                            <option value="minya" data-i18n="gov_minya">المنيا</option>
+                                            <option value="assiut" data-i18n="gov_assiut">أسيوط</option>
+                                            <option value="sohag" data-i18n="gov_sohag">سوهاج</option>
+                                            <option value="qena" data-i18n="gov_qena">قنا</option>
+                                            <option value="luxor" data-i18n="gov_luxor">الأقصر</option>
+                                            <option value="aswan" data-i18n="gov_aswan">أسوان</option>
+                                            <option value="redsea" data-i18n="gov_redsea">البحر الأحمر</option>
+                                            <option value="matrouh" data-i18n="gov_matrouh">مطروح</option>
+                                            <option value="newvalley" data-i18n="gov_newvalley">الوادي الجديد</option>
+                                            <option value="northsinai" data-i18n="gov_northsinai">شمال سيناء</option>
+                                            <option value="southsinai" data-i18n="gov_southsinai">جنوب سيناء</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4">
-                                        <label class="form-label">المدينة/المنطقة *</label>
+                                        <label class="form-label" data-i18n="check_city">المدينة/المنطقة *</label>
                                         <input type="text" class="form-control" id="city" required>
                                     </div>
                                     <div class="col-md-4">
-                                        <label class="form-label">الرمز البريدي</label>
+                                        <label class="form-label" data-i18n="check_zip">الرمز البريدي</label>
                                         <input type="text" class="form-control" id="postalCode">
                                     </div>
                                     <div class="col-12">
-                                        <label class="form-label">ملاحظات إضافية</label>
+                                        <label class="form-label" data-i18n="check_notes">ملاحظات إضافية</label>
                                         <textarea class="form-control" id="notes" rows="2"
+                                            data-i18n="check_notes_placeholder"
                                             placeholder="تعليمات إضافية للتوصيل..."></textarea>
                                     </div>
                                 </div>
@@ -191,22 +189,22 @@
 
                         <!-- Payment Method -->
                         <div class="checkout-card" data-aos="fade-up" data-aos-delay="200">
-                            <h4>
+                            <h4 data-i18n="check_payment_title">
                                 <span class="step-number">2</span>
                                 طريقة الدفع
                             </h4>
                             <div class="payment-methods">
                                 <div class="payment-method active" data-method="cod">
                                     <i class="bi bi-cash-coin"></i>
-                                    <span>الدفع عند الاستلام</span>
+                                    <span data-i18n="check_pay_cod">الدفع عند الاستلام</span>
                                 </div>
                                 <div class="payment-method" data-method="vodafone">
                                     <i class="bi bi-phone"></i>
-                                    <span>فودافون كاش</span>
+                                    <span data-i18n="check_pay_vodafone">فودافون كاش</span>
                                 </div>
                                 <div class="payment-method" data-method="instapay">
                                     <i class="bi bi-wallet2"></i>
-                                    <span>إنستاباي</span>
+                                    <span data-i18n="check_pay_instapay">إنستاباي</span>
                                 </div>
                             </div>
 
@@ -214,7 +212,8 @@
                             <div id="cod-info" class="payment-info mt-3">
                                 <div class="alert alert-info d-flex align-items-center" style="border-radius: 12px;">
                                     <i class="bi bi-info-circle-fill me-2 fs-5"></i>
-                                    <span>سيتم الدفع نقداً عند استلام الطلب. قد تُضاف رسوم إضافية للدفع عند
+                                    <span data-i18n="check_cod_info">سيتم الدفع نقداً عند استلام الطلب. قد تُضاف رسوم
+                                        إضافية للدفع عند
                                         الاستلام.</span>
                                 </div>
                             </div>
@@ -224,9 +223,10 @@
                                 <div class="alert alert-warning d-flex flex-column" style="border-radius: 12px;">
                                     <div class="d-flex align-items-center mb-2">
                                         <i class="bi bi-phone-fill me-2 fs-5"></i>
-                                        <strong>رقم فودافون كاش: 01033624387</strong>
+                                        <strong data-i18n="check_vodafone_label">رقم فودافون كاش: 01033624387</strong>
                                     </div>
-                                    <small>قم بالتحويل ثم أرسل صورة الإيصال على واتساب</small>
+                                    <small data-i18n="check_vodafone_sub">قم بالتحويل ثم أرسل صورة الإيصال على
+                                        واتساب</small>
                                 </div>
                             </div>
 
@@ -235,19 +235,20 @@
                                 <div class="alert alert-success d-flex flex-column" style="border-radius: 12px;">
                                     <div class="d-flex align-items-center mb-2">
                                         <i class="bi bi-wallet2 me-2 fs-5"></i>
-                                        <strong>اسم المستخدم: ZYQRA-Tech</strong>
+                                        <strong data-i18n="check_instapay_label">اسم المستخدم: ZYQRA-Tech</strong>
                                     </div>
-                                    <small>قم بالتحويل عبر إنستاباي ثم أرسل صورة الإيصال على واتساب</small>
+                                    <small data-i18n="check_instapay_sub">قم بالتحويل عبر إنستاباي ثم أرسل صورة الإيصال
+                                        على واتساب</small>
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <!-- Order Summary -->
                     <div class="col-lg-4">
                         <div class="order-summary-card" data-aos="fade-up" data-aos-delay="300">
-                            <h4 class="mb-4"><i class="bi bi-receipt me-2"></i>ملخص الطلب</h4>
+                            <h4 class="mb-4"><i class="bi bi-receipt me-2"></i><span
+                                    data-i18n="check_summary_title">ملخص الطلب</span></h4>
 
                             <div id="order-items">
                                 <!-- Items will be populated by JavaScript -->
@@ -256,41 +257,40 @@
                             <hr>
 
                             <div class="summary-row">
-                                <span>المجموع الفرعي</span>
+                                <span data-i18n="check_subtotal">المجموع الفرعي</span>
                                 <span id="checkout-subtotal">0 ج.م</span>
                             </div>
                             <div class="summary-row">
-                                <span>الشحن</span>
+                                <span data-i18n="check_shipping">الشحن</span>
                                 <span id="checkout-shipping">50 ج.م</span>
                             </div>
                             <div class="summary-row" id="cod-fee-row" style="color: #EF4444;">
-                                <span>رسوم الدفع عند الاستلام</span>
+                                <span data-i18n="check_cod_fee">رسوم الدفع عند الاستلام</span>
                                 <span id="checkout-cod-fee">50 ج.م</span>
                             </div>
                             <div class="summary-row summary-total">
-                                <span>الإجمالي</span>
+                                <span data-i18n="check_total">الإجمالي</span>
                                 <span id="checkout-total">0 ج.م</span>
                             </div>
 
                             <button type="button" class="place-order-btn" onclick="placeOrder()">
                                 <i class="bi bi-check-circle me-2"></i>
-                                تأكيد الطلب
+                                <span data-i18n="check_confirm_btn">تأكيد الطلب</span>
                             </button>
 
                             <div class="secure-badge">
                                 <i class="bi bi-shield-lock-fill"></i>
-                                <span>تسوق آمن 100%</span>
+                                <span data-i18n="check_secure">تسوق آمن 100%</span>
                             </div>
 
-                            <div class="mt-3 text-center">
-                                <a href="cart.html" class="text-muted">
-                                    <i class="bi bi-arrow-right me-1"></i>
-                                    العودة للسلة
+                            <div class="mt-4 text-center">
+                                <a href="cart.html" class="back-to-cart-btn">
+                                    <i class="bi bi-arrow-right me-2"></i>
+                                    <span data-i18n="check_back_cart">العودة للسلة</span>
                                 </a>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -304,9 +304,8 @@
                     <a href="index.html" class="logo d-flex align-items-center">
                         <span class="sitename">ZYQRA</span>
                     </a>
-                    <p>نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز، نسعى لتحقيق
-                        تأثير
-                        اجتماعي إيجابي من خلال الابتكار.</p>
+                    <p data-i18n="footer_desc">نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي
+                        المتميز.</p>
                     <div class="social-links d-flex mt-4">
                         <a href="https://api.whatsapp.com/send?phone=201033624387" target="_blank"><i
                                 class="bi bi-whatsapp"></i></a>
@@ -319,39 +318,41 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-6 footer-links">
-                    <h4>روابط مفيدة</h4>
+                    <h4 data-i18n="footer_links_title">روابط مفيدة</h4>
                     <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="products.html">المنتجات</a></li>
-                        <li><a href="courses.html">الدورات</a></li>
-                        <li><a href="about.html">من نحن</a></li>
-                        <li><a href="contact.html">تواصل معنا</a></li>
-                        <li><a href="terms.html">الشروط والأحكام</a></li>
-                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                        <li><a href="products.html" data-i18n="nav_products">المنتجات</a></li>
+                        <li><a href="courses.html" data-i18n="nav_courses">الدورات</a></li>
+                        <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
+                        <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+                        <li><a href="terms.html" data-i18n="nav_terms">الشروط والأحكام</a></li>
+                        <li><a href="privacy.html" data-i18n="nav_privacy">سياسة الخصوصية</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
-                    <h4>خدماتنا</h4>
+                    <h4 data-i18n="footer_services_title">خدماتنا</h4>
                     <ul>
-                        <li><a href="products.html">المنتجات الذكية</a></li>
-                        <li><a href="courses.html">الدورات التعليمية</a></li>
-                        <li><a href="contact.html">الدعم الفني</a></li>
-                        <li><a href="contact.html">الاستشارات</a></li>
+                        <li><a href="products.html" data-i18n="foo_serv_smart">المنتجات الذكية</a></li>
+                        <li><a href="courses.html" data-i18n="foo_serv_courses">الدورات التعليمية</a></li>
+                        <li><a href="contact.html" data-i18n="foo_serv_support">الدعم الفني</a></li>
+                        <li><a href="contact.html" data-i18n="foo_serv_consult">الاستشارات</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                    <h4>تواصل معنا</h4>
-                    <p>طنطا، الغربية</p>
-                    <p>مصر</p>
-                    <p class="mt-4"><strong>الهاتف:</strong> <span dir="ltr">+201033624387</span></p>
-                    <p><strong>البريد:</strong> <span>info@zyqra.com</span></p>
+                    <h4 data-i18n="footer_contact_title">تواصل معنا</h4>
+                    <p data-i18n="footer_address">طنطا، الغربية</p>
+                    <p data-i18n="footer_country">مصر</p>
+                    <p class="mt-4"><strong data-i18n="footer_phone_label">الهاتف:</strong> <span
+                            dir="ltr">+201033624387</span></p>
+                    <p><strong data-i18n="footer_email_label">البريد:</strong> <span>info@zyqra.com</span></p>
                 </div>
             </div>
         </div>
         <div class="container copyright text-center mt-3">
-            <p>© <span>حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong> <span>جميع الحقوق محفوظة</span>
+            <p>© <span data-i18n="footer_copy_label">حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong>
+                <span data-i18n="footer_copyright">جميع الحقوق محفوظة</span>
             </p>
         </div>
     </footer>

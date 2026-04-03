@@ -21,7 +21,12 @@
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet">
+    
+    <!-- Language configuration & Dictionaries -->
+    <script src="assets/js/translations/common.js"></script>
+    <script src="assets/js/translations/home.js"></script>
     <script src="assets/js/lang-config.js?v=3.1"></script>
+    
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
@@ -42,16 +47,16 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="index.html" class="active">الرئيسية</a></li>
-                    <li><a href="products.html">المنتجات</a></li>
-                    <li><a href="courses.html">الدورات</a></li>
-                    <li><a href="about.html">من نحن</a></li>
-                    <li><a href="contact.html">تواصل معنا</a></li>
-                    <li class="d-xl-none"><a href="signin.html"><i class="bi bi-person me-2"></i> تسجيل الدخول</a></li>
-                    <li class="d-xl-none"><a href="signup.html"><i class="bi bi-person-plus me-2"></i> إنشاء حساب</a>
+                    <li><a href="index.html" class="active" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="products.html" data-i18n="nav_products">المنتجات</a></li>
+                    <li><a href="courses.html" data-i18n="nav_courses">الدورات</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+                    <li class="d-xl-none"><a href="signin.html"><i class="bi bi-person me-2"></i> <span data-i18n="nav_login">تسجيل الدخول</span></a></li>
+                    <li class="d-xl-none"><a href="signup.html"><i class="bi bi-person-plus me-2"></i> <span data-i18n="nav_signup">إنشاء حساب</span></a>
                     </li>
                     <li class="d-xl-none"><a href="#" id="language-toggle-mobile"><i class="bi bi-globe me-2"></i>
-                            <span>Language</span></a></li>
+                            <span data-i18n="nav_lang">Language</span></a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -65,11 +70,11 @@
                 <div class="auth-links d-none d-xl-flex align-items-center gap-2">
                     <a href="signin.html" class="auth-link login">
                         <i class="bi bi-person"></i>
-                        <span>تسجيل الدخول</span>
+                        <span data-i18n="nav_login">تسجيل الدخول</span>
                     </a>
                     <a href="signup.html" class="auth-link signup">
                         <i class="bi bi-person-plus"></i>
-                        <span>إنشاء حساب</span>
+                        <span data-i18n="nav_signup">إنشاء حساب</span>
                     </a>
                 </div>
                 <a class="btn-shop-icon" href="cart.html" title="السلة">
@@ -94,20 +99,20 @@
                         <div class="hero-content">
                             <div class="section-badge mb-4">
                                 <i class="bi bi-stars"></i>
-                                <span>مستقبل التكنولوجيا بين يديك</span>
+                                <span data-i18n="hero_badge">مستقبل التكنولوجيا بين يديك</span>
                             </div>
-                            <h1 class="hero-title">
+                            <h1 class="hero-title" data-i18n="hero_title">
                                 تكنولوجيا بتأثير <br>
                                 <span class="gradient-text">اجتماعي حقيقي</span>
                             </h1>
-                            <p class="hero-description">ZYQRA شركة تكنولوجية ناشئة بتبدأ من مشاكل حقيقية وتحوّلها
+                            <p class="hero-description" data-i18n="hero_desc">ZYQRA شركة تكنولوجية ناشئة بتبدأ من مشاكل حقيقية وتحوّلها
                                 لمنتجات ذكية وسهلة الاستخدام تخدم الناس في حياتهم اليومية.
                                 إحنا بنؤمن إن الابتكار الحقيقي هو اللي يضيف قيمة… ويترك أثر.</p>
                             <div class="hero-actions">
-                                <a href="products.html" class="btn-primary">اكتشف منتجاتنا</a>
+                                <a href="products.html" class="btn-primary" data-i18n="hero_btn1">اكتشف منتجاتنا</a>
                                 <a href="courses.html" class="btn-secondary">
                                     <i class="bi bi-play-circle"></i>
-                                    <span>استعرض الدورات</span>
+                                    <span data-i18n="hero_btn2">استعرض الدورات</span>
                                 </a>
                             </div>
                         </div>
@@ -120,11 +125,11 @@
                                     alt="ZYQRA Hero">
                                 <div class="floating-badge badge-top-right">
                                     <div class="badge-icon"><i class="bi bi-shield-check"></i></div>
-                                    <div class="badge-text">أمان موثوق</div>
+                                    <div class="badge-text" data-i18n="hero_badge_left">أمان موثوق</div>
                                 </div>
                                 <div class="floating-badge badge-bottom-left">
                                     <div class="badge-icon"><i class="bi bi-lightning-charge"></i></div>
-                                    <div class="badge-text">أداء سريع</div>
+                                    <div class="badge-text" data-i18n="hero_badge_right">أداء سريع</div>
                                 </div>
                             </div>
                         </div>
@@ -145,19 +150,19 @@
 
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="content-wrapper">
-                            <h2 class="mb-4">بدأت ZYQRA من فكرة بسيطة</h2>
+                            <h2 class="mb-4" data-i18n="about_title">بدأت ZYQRA من فكرة بسيطة</h2>
 
-                            <p class="description-text mb-4">بدأت Zyqra من فكرة بسيطة… فكرة بتحاول تحل مشكلة حقيقية
+                            <p class="description-text mb-4" data-i18n="about_desc1">بدأت Zyqra من فكرة بسيطة… فكرة بتحاول تحل مشكلة حقيقية
                                 بيقابلها ملايين من الناس كل يوم. لكن مع الوقت، الفكرة الصغيرة دي كبرت… وبقت مشروع،
                                 وبعدين رؤية، وبعدين بداية لشركة تكنولوجية هدفها الأول: إن التكنولوجيا تخدم الإنسان… مش
                                 تعقّد حياته.</p>
 
-                            <p class="description-text mb-4">من أول لحظة، كان هدفنا إننا نبتكر حلول بسيطة، ذكية، وسهلة
+                            <p class="description-text mb-4" data-i18n="about_desc2">من أول لحظة، كان هدفنا إننا نبتكر حلول بسيطة، ذكية، وسهلة
                                 الاستخدام، تخلي حياة الناس أكثر أمانًا، وأكثر راحة، وأكثر تحكمًا. ابتدينا رحلتنا بتطوير
                                 أول منتج ذكي في مجال الموتسيكلات، منتج يخلي الموبايل يتحول لمفتاح كامل… يفتح، يقفل،
                                 يشغل، ويأمّن الموتسيكل.</p>
 
-                            <p class="description-text mb-5">ومع توسّع الفكرة… اكتشفنا إن دورنا مش بس إننا نبني منتجات،
+                            <p class="description-text mb-5" data-i18n="about_desc3">ومع توسّع الفكرة… اكتشفنا إن دورنا مش بس إننا نبني منتجات،
                                 لكن إننا كمان نبني فرص… ونشارك معرفة… ونسيب أثر. ومن هنا اتولد قسم Zyqra El-Khair، قسم
                                 مجاني بالكامل لتقديم كورسات في الإلكترونيات، الـEmbedded Systems، والـIoT، وبعض مهارات
                                 الـSoft Skills. لأننا مؤمنين إن “ذكاة العلم… نشره”، وإن كل معرفة بنشاركها… بترجع لنا في
@@ -172,7 +177,7 @@
                                     class="img-fluid main-visual rounded-4 shadow-lg">
                                 <div class="floating-badge badge-br">
                                     <div class="badge-icon"><i class="bi bi-check-circle"></i></div>
-                                    <div class="badge-text">جودة معتمدة</div>
+                                    <div class="badge-text" data-i18n="about_badge">جودة معتمدة</div>
                                 </div>
                             </div>
 
@@ -202,8 +207,8 @@
                                         <div class="feature-icon">
                                             <i class="bi bi-shield-check"></i>
                                         </div>
-                                        <h5>أمان موثوق</h5>
-                                        <p>نضمن حماية بياناتك وخصوصيتك مع أعلى معايير الأمان الرقمي.</p>
+                                        <h5 data-i18n="about_box1_title">أمان موثوق</h5>
+                                        <p data-i18n="about_box1_desc">نضمن حماية بياناتك وخصوصيتك مع أعلى معايير الأمان الرقمي.</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -211,8 +216,8 @@
                                         <div class="feature-icon">
                                             <i class="bi bi-lightning-charge"></i>
                                         </div>
-                                        <h5>أداء سريع</h5>
-                                        <p>منتجاتنا مصممة لتقديم أفضل أداء ممكن بأقل استهلاك للموارد.</p>
+                                        <h5 data-i18n="about_box2_title">أداء سريع</h5>
+                                        <p data-i18n="about_box2_desc">منتجاتنا مصممة لتقديم أفضل أداء ممكن بأقل استهلاك للموارد.</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -220,8 +225,8 @@
                                         <div class="feature-icon">
                                             <i class="bi bi-headset"></i>
                                         </div>
-                                        <h5>دعم متخصص</h5>
-                                        <p>فريق دعم فني متخصص جاهز لمساعدتك في أي وقت.</p>
+                                        <h5 data-i18n="about_box3_title">دعم متخصص</h5>
+                                        <p data-i18n="about_box3_desc">فريق دعم فني متخصص جاهز لمساعدتك في أي وقت.</p>
                                     </div>
                                 </div>
                             </div>
@@ -239,8 +244,8 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
 
-                <h2>المميزات</h2>
-                <p>لماذا تختار ZYQRA؟ إليك ما يميزنا عن غيرنا</p>
+                <h2 data-i18n="features_title">المميزات</h2>
+                <p data-i18n="features_subtitle">لماذا تختار ZYQRA؟ إليك ما يميزنا عن غيرنا</p>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -254,7 +259,7 @@
                                     <i class="bi bi-rocket-takeoff"></i>
                                 </div>
                                 <div class="tab-content">
-                                    <h5>الابتكار</h5>
+                                    <h5 data-i18n="feat_tab1_title">الابتكار</h5>
                                 </div>
                             </a>
                         </li>
@@ -265,7 +270,7 @@
                                     <i class="bi bi-shield-shaded"></i>
                                 </div>
                                 <div class="tab-content">
-                                    <h5>الأمان</h5>
+                                    <h5 data-i18n="feat_tab2_title">الأمان</h5>
                                 </div>
                             </a>
                         </li>
@@ -276,7 +281,7 @@
                                     <i class="bi bi-lightning-charge"></i>
                                 </div>
                                 <div class="tab-content">
-                                    <h5>السرعة</h5>
+                                    <h5 data-i18n="feat_tab3_title">السرعة</h5>
                                 </div>
                             </a>
                         </li>
@@ -287,7 +292,7 @@
                                     <i class="bi bi-headset"></i>
                                 </div>
                                 <div class="tab-content">
-                                    <h5>الدعم</h5>
+                                    <h5 data-i18n="feat_tab4_title">الدعم</h5>
                                 </div>
                             </a>
                         </li>
@@ -308,31 +313,31 @@
                                             <div class="icon-badge">
                                                 <i class="bi bi-rocket-takeoff"></i>
                                             </div>
-                                            <h3>ابتكار متقدم يغير قواعد اللعبة</h3>
-                                            <p>نستخدم أحدث التقنيات لنبتكر حلولاً ذكية تتبسط حياتك وتفتح لك آفاقاً جديدة
+                                            <h3 data-i18n="feat1_heading">ابتكار متقدم يغير قواعد اللعبة</h3>
+                                            <p data-i18n="feat1_p">نستخدم أحدث التقنيات لنبتكر حلولاً ذكية تتبسط حياتك وتفتح لك آفاقاً جديدة
                                                 من الإمكانيات والتحكم.</p>
 
                                             <div class="feature-grid">
                                                 <div class="feature-item">
                                                     <i class="bi bi-cpu"></i>
-                                                    <span>ذكاء اصطناعي مدمج</span>
+                                                    <span data-i18n="feat1_i1">ذكاء اصطناعي مدمج</span>
                                                 </div>
                                                 <div class="feature-item">
                                                     <i class="bi bi-palette"></i>
-                                                    <span>تصميم عصري جذاب</span>
+                                                    <span data-i18n="feat1_i2">تصميم عصري جذاب</span>
                                                 </div>
                                                 <div class="feature-item">
                                                     <i class="bi bi-cloud-arrow-up"></i>
-                                                    <span>تحديثات هوائية فورية</span>
+                                                    <span data-i18n="feat1_i3">تحديثات هوائية فورية</span>
                                                 </div>
                                                 <div class="feature-item">
                                                     <i class="bi bi-gear-wide-connected"></i>
-                                                    <span>توافق شامل</span>
+                                                    <span data-i18n="feat1_i4">توافق شامل</span>
                                                 </div>
                                             </div>
 
 
-                                            <a href="products.html" class="btn-primary">استكشف الابتكار <i
+                                            <a href="products.html" class="btn-primary"><span data-i18n="feat1_btn">استكشف الابتكار</span> <i
                                                     class="bi bi-arrow-left"></i></a>
                                         </div>
                                     </div>
@@ -346,8 +351,8 @@
                                             <div class="floating-card">
                                                 <i class="bi bi-graph-up-arrow"></i>
                                                 <div class="card-content">
-                                                    <span>الكفاءة</span>
-                                                    <strong>+95% تحسين</strong>
+                                                    <span data-i18n="feat1_card_label">الكفاءة</span>
+                                                    <strong data-i18n="feat1_card_strong">+95% تحسين</strong>
                                                 </div>
                                             </div>
                                         </div>
@@ -364,30 +369,30 @@
                                             <div class="icon-badge">
                                                 <i class="bi bi-shield-lock"></i>
                                             </div>
-                                            <h3>أمان لا يقبل المساومة</h3>
-                                            <p>خصوصيتك وأمان بياناتك هم أولويتنا القصوى. صممنا أنظمتنا بأعلى معايير
+                                            <h3 data-i18n="feat2_heading">أمان لا يقبل المساومة</h3>
+                                            <p data-i18n="feat2_p">خصوصيتك وأمان بياناتك هم أولويتنا القصوى. صممنا أنظمتنا بأعلى معايير
                                                 التشفير العالمية لراحة بالك.</p>
 
                                             <div class="feature-grid">
                                                 <div class="feature-item">
                                                     <i class="bi bi-fingerprint"></i>
-                                                    <span>مصادقة حيوية</span>
+                                                    <span data-i18n="feat2_i1">مصادقة حيوية</span>
                                                 </div>
                                                 <div class="feature-item">
                                                     <i class="bi bi-shield-check"></i>
-                                                    <span>تشفير طرف لآخر</span>
+                                                    <span data-i18n="feat2_i2">تشفير طرف لآخر</span>
                                                 </div>
                                                 <div class="feature-item">
                                                     <i class="bi bi-broadcast-pin"></i>
-                                                    <span>تنبيهات فورية</span>
+                                                    <span data-i18n="feat2_i3">تنبيهات فورية</span>
                                                 </div>
                                                 <div class="feature-item">
                                                     <i class="bi bi-eye-slash"></i>
-                                                    <span>حماية الخصوصية</span>
+                                                    <span data-i18n="feat2_i4">حماية الخصوصية</span>
                                                 </div>
                                             </div>
 
-                                            <a href="about.html#vision" class="btn-primary">تعرف على معاييرنا <i
+                                            <a href="about.html#vision" class="btn-primary"><span data-i18n="feat2_btn">تعرف على معاييرنا</span> <i
                                                     class="bi bi-arrow-left"></i></a>
                                         </div>
                                     </div>
@@ -401,8 +406,8 @@
                                             <div class="floating-card">
                                                 <i class="bi bi-lock-fill"></i>
                                                 <div class="card-content">
-                                                    <span>الأمان</span>
-                                                    <strong>حماية 24/7</strong>
+                                                    <span data-i18n="feat2_card_label">الأمان</span>
+                                                    <strong data-i18n="feat2_card_strong">حماية 24/7</strong>
                                                 </div>
                                             </div>
                                         </div>
@@ -419,30 +424,30 @@
                                             <div class="icon-badge">
                                                 <i class="bi bi-lightning-charge"></i>
                                             </div>
-                                            <h3>سرعة البرق في كل لمسة</h3>
-                                            <p>تخطى الحدود مع أداء فائق السرعة. منتجاتنا مصممة لتوفر لك تجربة سلسة
+                                            <h3 data-i18n="feat3_heading">سرعة البرق في كل لمسة</h3>
+                                            <p data-i18n="feat3_p">تخطى الحدود مع أداء فائق السرعة. منتجاتنا مصممة لتوفر لك تجربة سلسة
                                                 وفورية دون أي تأخير.</p>
 
                                             <div class="feature-grid">
                                                 <div class="feature-item">
                                                     <i class="bi bi-speedometer"></i>
-                                                    <span>استجابة فائقة</span>
+                                                    <span data-i18n="feat3_i1">استجابة فائقة</span>
                                                 </div>
                                                 <div class="feature-item">
                                                     <i class="bi bi-activity"></i>
-                                                    <span>معالجة فورية</span>
+                                                    <span data-i18n="feat3_i2">معالجة فورية</span>
                                                 </div>
                                                 <div class="feature-item">
                                                     <i class="bi bi-hdd-network"></i>
-                                                    <span>اتصال مستقر</span>
+                                                    <span data-i18n="feat3_i3">اتصال مستقر</span>
                                                 </div>
                                                 <div class="feature-item">
                                                     <i class="bi bi-battery-charging"></i>
-                                                    <span>أداء مستدام</span>
+                                                    <span data-i18n="feat3_i4">أداء مستدام</span>
                                                 </div>
                                             </div>
 
-                                            <a href="products.html" class="btn-primary">جرب السرعة الآن <i
+                                            <a href="products.html" class="btn-primary"><span data-i18n="feat3_btn">جرب السرعة الآن</span> <i
                                                     class="bi bi-arrow-left"></i></a>
                                         </div>
                                     </div>
@@ -456,8 +461,8 @@
                                             <div class="floating-card">
                                                 <i class="bi bi-wind"></i>
                                                 <div class="card-content">
-                                                    <span>الأداء</span>
-                                                    <strong>صفر تأخير</strong>
+                                                    <span data-i18n="feat3_card_label">الأداء</span>
+                                                    <strong data-i18n="feat3_card_strong">صفر تأخير</strong>
                                                 </div>
                                             </div>
                                         </div>
@@ -474,30 +479,30 @@
                                             <div class="icon-badge">
                                                 <i class="bi bi-headset"></i>
                                             </div>
-                                            <h3>دعم مخصص يهتم بك</h3>
-                                            <p>أنت لست وحدك، فريقنا من الخبراء متاح دائماً ليسمعك ويقدم لك المساعدة التي
+                                            <h3 data-i18n="feat4_heading">دعم مخصص يهتم بك</h3>
+                                            <p data-i18n="feat4_p">أنت لست وحدك، فريقنا من الخبراء متاح دائماً ليسمعك ويقدم لك المساعدة التي
                                                 تحتاجها بكل ود وإتقان.</p>
 
                                             <div class="feature-grid">
                                                 <div class="feature-item">
                                                     <i class="bi bi-chat-heart"></i>
-                                                    <span>دعم مباشر</span>
+                                                    <span data-i18n="feat4_i1">دعم مباشر</span>
                                                 </div>
                                                 <div class="feature-item">
                                                     <i class="bi bi-journal-text"></i>
-                                                    <span>مركز معرفة شامل</span>
+                                                    <span data-i18n="feat4_i2">مركز معرفة شامل</span>
                                                 </div>
                                                 <div class="feature-item">
                                                     <i class="bi bi-envelope-check"></i>
-                                                    <span>تواصل سريع</span>
+                                                    <span data-i18n="feat4_i3">تواصل سريع</span>
                                                 </div>
                                                 <div class="feature-item">
                                                     <i class="bi bi-people"></i>
-                                                    <span>مجتمع تفاعلي</span>
+                                                    <span data-i18n="feat4_i4">مجتمع تفاعلي</span>
                                                 </div>
                                             </div>
 
-                                            <a href="contact.html" class="btn-primary">تواصل مع فريقنا <i
+                                            <a href="contact.html" class="btn-primary"><span data-i18n="feat4_btn">تواصل مع فريقنا</span> <i
                                                     class="bi bi-arrow-left"></i></a>
                                         </div>
                                     </div>
@@ -511,8 +516,8 @@
                                             <div class="floating-card">
                                                 <i class="bi bi-emoji-smile"></i>
                                                 <div class="card-content">
-                                                    <span>الرضا</span>
-                                                    <strong>100% مضمون</strong>
+                                                    <span data-i18n="feat4_card_label">الرضا</span>
+                                                    <strong data-i18n="feat4_card_strong">100% مضمون</strong>
                                                 </div>
                                             </div>
                                         </div>
@@ -535,8 +540,8 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
 
-                <h2>خدماتنا</h2>
-                <p>نقدم مجموعة متنوعة من الخدمات لتلبية احتياجاتك</p>
+                <h2 data-i18n="serv_title">خدماتنا</h2>
+                <p data-i18n="serv_subtitle">نقدم مجموعة متنوعة من الخدمات لتلبية احتياجاتك</p>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -546,13 +551,13 @@
                         <div class="intro-content" data-aos="fade-right" data-aos-delay="100">
                             <div class="section-badge mb-3" data-aos="zoom-in" data-aos-delay="50">
                                 <i class="bi bi-star-fill"></i>
-                                <span>ما نقدمه</span>
+                                <span data-i18n="serv_badge">ما نقدمه</span>
                             </div>
-                            <h2 class="section-heading mb-4">نحول الأفكار إلى نتائج استثنائية</h2>
-                            <p class="section-description mb-4">نؤمن بتقديم تجارب متميزة تدفع النمو الحقيقي لأعمالك.
+                            <h2 class="section-heading mb-4" data-i18n="serv_heading">نحول الأفكار إلى نتائج استثنائية</h2>
+                            <p class="section-description mb-4" data-i18n="serv_desc">نؤمن بتقديم تجارب متميزة تدفع النمو الحقيقي لأعمالك.
                                 فريقنا المتخصص
                                 يجمع بين الإبداع والخبرة التقنية لتقديم حلول تصنع الفرق.</p>
-                            <a href="products.html" class="cta-button" data-aos="fade-right" data-aos-delay="200">
+                            <a href="products.html" class="cta-button" data-aos="fade-right" data-aos-delay="200" data-i18n="serv_btn">
                                 استكشف منتجاتنا
                             </a>
                         </div>
@@ -572,8 +577,8 @@
                                     <span>01</span>
                                 </div>
                                 <div class="card-content">
-                                    <h5 class="service-title">المنتجات الذكية</h5>
-                                    <p class="service-description">منتجات تقنية مبتكرة مصممة لتحسين حياتك اليومية وزيادة
+                                    <h5 class="service-title" data-i18n="serv1_t">المنتجات الذكية</h5>
+                                    <p class="service-description" data-i18n="serv1_p">منتجات تقنية مبتكرة مصممة لتحسين حياتك اليومية وزيادة
                                         إنتاجيتك.</p>
                                 </div>
                             </div>
@@ -585,8 +590,8 @@
                                     <span>02</span>
                                 </div>
                                 <div class="card-content">
-                                    <h5 class="service-title">الدورات التعليمية</h5>
-                                    <p class="service-description">دورات تعليمية متخصصة تساعدك على اكتساب مهارات جديدة
+                                    <h5 class="service-title" data-i18n="serv2_t">الدورات التعليمية</h5>
+                                    <p class="service-description" data-i18n="serv2_p">دورات تعليمية متخصصة تساعدك على اكتساب مهارات جديدة
                                         وتطوير قدراتك.</p>
                                 </div>
                             </div>
@@ -599,9 +604,9 @@
                                 </div>
                                 <div class="card-content">
                                     <h5 class="service-title">
-                                        <a href="#contact">الاستشارات التقنية</a>
+                                        <a href="#contact" data-i18n="serv3_t">الاستشارات التقنية</a>
                                     </h5>
-                                    <p class="service-description">نقدم استشارات متخصصة لمساعدتك في اتخاذ القرارات
+                                    <p class="service-description" data-i18n="serv3_p">نقدم استشارات متخصصة لمساعدتك في اتخاذ القرارات
                                         التقنية الصحيحة.</p>
                                 </div>
                             </div>
@@ -614,9 +619,9 @@
                                 </div>
                                 <div class="card-content">
                                     <h5 class="service-title">
-                                        <a href="#contact">الدعم الفني</a>
+                                        <a href="#contact" data-i18n="serv4_t">الدعم الفني</a>
                                     </h5>
-                                    <p class="service-description">دعم فني متواصل على مدار الساعة لضمان أفضل تجربة لك.
+                                    <p class="service-description" data-i18n="serv4_p">دعم فني متواصل على مدار الساعة لضمان أفضل تجربة لك.
                                     </p>
                                 </div>
                             </div>
@@ -629,9 +634,9 @@
                                 </div>
                                 <div class="card-content">
                                     <h5 class="service-title">
-                                        <a href="products.html">حلول الأمان</a>
+                                        <a href="products.html" data-i18n="serv5_t">حلول الأمان</a>
                                     </h5>
-                                    <p class="service-description">حلول أمان متقدمة لحماية بياناتك وممتلكاتك الرقمية.
+                                    <p class="service-description" data-i18n="serv5_p">حلول أمان متقدمة لحماية بياناتك وممتلكاتك الرقمية.
                                     </p>
                                 </div>
                             </div>
@@ -644,9 +649,9 @@
                                 </div>
                                 <div class="card-content">
                                     <h5 class="service-title">
-                                        <a href="courses.html">التدريب المتخصص</a>
+                                        <a href="courses.html" data-i18n="serv6_t">التدريب المتخصص</a>
                                     </h5>
-                                    <p class="service-description">برامج تدريبية مكثفة لرفع مستوى فريقك وتحسين أداء
+                                    <p class="service-description" data-i18n="serv6_p">برامج تدريبية مكثفة لرفع مستوى فريقك وتحسين أداء
                                         العمل.</p>
                                 </div>
                             </div>
@@ -747,8 +752,8 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>منتجاتنا ودوراتنا</h2>
-                <p>اكتشف ما نقدمه لك من منتجات ذكية ودورات تعليمية متميزة مصممة للمستقبل</p>
+                <h2 data-i18n="showcase_title">منتجاتنا ودوراتنا</h2>
+                <p data-i18n="showcase_subtitle">اكتشف ما نقدمه لك من منتجات ذكية ودورات تعليمية متميزة مصممة للمستقبل</p>
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -757,7 +762,7 @@
                     <!-- Products Hub -->
                     <div class="col-lg-5" data-aos="fade-left" data-aos-delay="100">
                         <div class="hub-card hub-products">
-                            <span class="hub-badge">+1 منتج ذكي</span>
+                            <span class="hub-badge" data-i18n="hub_prod_badge">+1 منتج ذكي</span>
                             <div class="hub-decor"></div>
 
                             <div class="hub-content">
@@ -765,19 +770,19 @@
                                     <div class="hub-stage"></div>
                                     <i class="bi bi-cpu hub-icon"></i>
                                 </div>
-                                <h3>المنتجات الذكية</h3>
-                                <p>حلول تقنية مبتكرة تدمج الذكاء الاصطناعي في حياتك اليومية، لتوفر لك تحكماً كاملاً
+                                <h3 data-i18n="hub_prod_title">المنتجات الذكية</h3>
+                                <p data-i18n="hub_prod_p">حلول تقنية مبتكرة تدمج الذكاء الاصطناعي في حياتك اليومية، لتوفر لك تحكماً كاملاً
                                     وكفاءة غير مسبوقة بأعلى معايير الأمان.</p>
 
                                 <ul class="hub-list">
-                                    <li><i class="bi bi-stars"></i> تقنيات حديثة ومتطورة</li>
-                                    <li><i class="bi bi-shield-check"></i> أمان وحماية متكاملة</li>
-                                    <li><i class="bi bi-arrow-repeat"></i> تحديثات مستمرة ومجانية</li>
+                                    <li><i class="bi bi-stars"></i> <span data-i18n="hub_prod_li1">تقنيات حديثة ومتطورة</span></li>
+                                    <li><i class="bi bi-shield-check"></i> <span data-i18n="hub_prod_li2">أمان وحماية متكاملة</span></li>
+                                    <li><i class="bi bi-arrow-repeat"></i> <span data-i18n="hub_prod_li3">تحديثات مستمرة ومجانية</span></li>
                                 </ul>
                             </div>
 
                             <a href="products.html" class="hub-btn">
-                                <span>استعرض المنتجات</span>
+                                <span data-i18n="hub_prod_btn">استعرض المنتجات</span>
                                 <i class="bi bi-arrow-left"></i>
                             </a>
                         </div>
@@ -786,7 +791,7 @@
                     <!-- Courses Hub -->
                     <div class="col-lg-5" data-aos="fade-right" data-aos-delay="200">
                         <div class="hub-card hub-courses">
-                            <span class="hub-badge">+3 دورات متخصصة</span>
+                            <span class="hub-badge" data-i18n="hub_courses_badge">+3 دورات متخصصة</span>
                             <div class="hub-decor"></div>
 
                             <div class="hub-content">
@@ -794,19 +799,19 @@
                                     <div class="hub-stage"></div>
                                     <i class="bi bi-mortarboard hub-icon"></i>
                                 </div>
-                                <h3>الدورات التعليمية</h3>
-                                <p>انطلق في رحلة التعلم مع خبراء الصناعة. دوراتنا مصممة لتنقلك من الصفر إلى الاحتراف في
+                                <h3 data-i18n="hub_courses_title">الدورات التعليمية</h3>
+                                <p data-i18n="hub_courses_p">انطلق في رحلة التعلم مع خبراء الصناعة. دوراتنا مصممة لتنقلك من الصفر إلى الاحتراف في
                                     مجالات التقنية والبرمجة الحديثة.</p>
 
                                 <ul class="hub-list">
-                                    <li><i class="bi bi-award"></i> شهادات معتمدة دولياً</li>
-                                    <li><i class="bi bi-chat-dots"></i> دعم مباشر من المحاضرين</li>
-                                    <li><i class="bi bi-laptop"></i> تطبيق عملي على مشاريع حقيقية</li>
+                                    <li><i class="bi bi-award"></i> <span data-i18n="hub_courses_li1">شهادات معتمدة دولياً</span></li>
+                                    <li><i class="bi bi-chat-dots"></i> <span data-i18n="hub_courses_li2">دعم مباشر من المحاضرين</span></li>
+                                    <li><i class="bi bi-laptop"></i> <span data-i18n="hub_courses_li3">تطبيق عملي على مشاريع حقيقية</span></li>
                                 </ul>
                             </div>
 
                             <a href="courses.html" class="hub-btn">
-                                <span>استعرض الدورات</span>
+                                <span data-i18n="hub_courses_btn">استعرض الدورات</span>
                                 <i class="bi bi-arrow-left"></i>
                             </a>
                         </div>
@@ -827,7 +832,7 @@
                     <a href="index.html" class="logo d-flex align-items-center">
                         <span class="sitename">ZYQRA</span>
                     </a>
-                    <p>نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز، نسعى لتحقيق
+                    <p data-i18n="footer_desc">نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز، نسعى لتحقيق
                         تأثير
                         اجتماعي إيجابي من خلال الابتكار.</p>
                     <div class="social-links d-flex mt-4">
@@ -843,41 +848,41 @@
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
-                    <h4>روابط مفيدة</h4>
+                    <h4 data-i18n="footer_links_title">روابط مفيدة</h4>
                     <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="products.html">المنتجات</a></li>
-                        <li><a href="courses.html">الدورات</a></li>
-                        <li><a href="about.html">من نحن</a></li>
-                        <li><a href="contact.html">تواصل معنا</a></li>
-                        <li><a href="terms.html">الشروط والأحكام</a></li>
-                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                        <li><a href="products.html" data-i18n="nav_products">المنتجات</a></li>
+                        <li><a href="courses.html" data-i18n="nav_courses">الدورات</a></li>
+                        <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
+                        <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+                        <li><a href="terms.html" data-i18n="nav_terms">الشروط والأحكام</a></li>
+                        <li><a href="privacy.html" data-i18n="nav_privacy">سياسة الخصوصية</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
-                    <h4>خدماتنا</h4>
+                    <h4 data-i18n="footer_services_title">خدماتنا</h4>
                     <ul>
-                        <li><a href="products.html">المنتجات الذكية</a></li>
-                        <li><a href="courses.html">الدورات التعليمية</a></li>
-                        <li><a href="contact.html">الدعم الفني</a></li>
-                        <li><a href="contact.html">الاستشارات</a></li>
+                        <li><a href="products.html" data-i18n="foo_serv_smart">المنتجات الذكية</a></li>
+                        <li><a href="courses.html" data-i18n="foo_serv_courses">الدورات التعليمية</a></li>
+                        <li><a href="contact.html" data-i18n="foo_serv_support">الدعم الفني</a></li>
+                        <li><a href="contact.html" data-i18n="foo_serv_consult">الاستشارات</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                    <h4>تواصل معنا</h4>
-                    <p>طنطا، الغربية</p>
-                    <p>مصر</p>
-                    <p class="mt-4"><strong>الهاتف:</strong> <span dir="ltr">+201033624387</span></p>
-                    <p><strong>البريد:</strong> <span>info@zyqra.com</span></p>
+                    <h4 data-i18n="footer_contact_title">تواصل معنا</h4>
+                    <p data-i18n="footer_address">طنطا، الغربية</p>
+                    <p data-i18n="footer_country">مصر</p>
+                    <p class="mt-4"><strong data-i18n="footer_phone_label">الهاتف:</strong> <span dir="ltr">+201033624387</span></p>
+                    <p><strong data-i18n="footer_email_label">البريد:</strong> <span>info@zyqra.com</span></p>
                 </div>
 
             </div>
         </div>
 
         <div class="container copyright text-center mt-3">
-            <p>© <span>حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong> <span>جميع الحقوق محفوظة</span>
+            <p>© <span data-i18n="footer_copy_label">حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong> <span data-i18n="footer_copyright">جميع الحقوق محفوظة</span>
             </p>
         </div>
 

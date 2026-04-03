@@ -1,0 +1,72 @@
+window.pageTranslations = {
+    ar: {
+        // Sign In
+        auth_signin_title: "مرحباً بعودتك",
+        auth_signin_subtitle: "سجل دخولك للمتابعة",
+        auth_email_label: "البريد الإلكتروني",
+        auth_email_ph: "البريد الإلكتروني",
+        auth_pass_label: "كلمة المرور",
+        auth_pass_ph: "كلمة المرور",
+        auth_remember: "تذكرني",
+        auth_forgot: "نسيت كلمة المرور؟",
+        auth_signin_btn: "تسجيل الدخول",
+        auth_or: "أو",
+        auth_no_account: "ليس لديك حساب؟",
+        auth_signup_link: "سجل الآن",
+        auth_back_home: "العودة للرئيسية",
+        
+        // Sign Up
+        auth_signup_title: "إنشاء حساب جديد",
+        auth_signup_subtitle: "انضم إلى مجتمع ZYQRA",
+        auth_fname_label: "الاسم الأول",
+        auth_fname_ph: "أحمد",
+        auth_lname_label: "الاسم الأخير",
+        auth_lname_ph: "محمد",
+        auth_phone_label: "رقم الهاتف (اختياري)",
+        auth_phone_ph: "رقم الهاتف",
+        auth_confirm_pass_label: "تأكيد كلمة المرور",
+        auth_confirm_pass_ph: "تأكيد كلمة المرور",
+        auth_terms_prefix: "أوافق على",
+        auth_terms_link: "الشروط والأحكام",
+        auth_terms_and: "و",
+        auth_privacy_link: "سياسة الخصوصية",
+        auth_signup_btn: "إنشاء الحساب",
+        auth_has_account: "لديك حساب بالفعل؟",
+        auth_signin_link: "سجل دخولك"
+    },
+    en: {
+        // Sign In
+        auth_signin_title: "Welcome Back",
+        auth_signin_subtitle: "Sign in to continue",
+        auth_email_label: "Email Address",
+        auth_email_ph: "Email Address",
+        auth_pass_label: "Password",
+        auth_pass_ph: "Password",
+        auth_remember: "Remember Me",
+        auth_forgot: "Forgot Password?",
+        auth_signin_btn: "Sign In",
+        auth_or: "OR",
+        auth_no_account: "Don't have an account?",
+        auth_signup_link: "Sign Up Now",
+        auth_back_home: "Back to Home",
+        
+        // Sign Up
+        auth_signup_title: "Create New Account",
+        auth_signup_subtitle: "Join the ZYQRA community",
+        auth_fname_label: "First Name",
+        auth_fname_ph: "Ahmed",
+        auth_lname_label: "Last Name",
+        auth_lname_ph: "Mohamed",
+        auth_phone_label: "Phone Number (Optional)",
+        auth_phone_ph: "+20 xxx xxx xxxx",
+        auth_confirm_pass_label: "Confirm Password",
+        auth_confirm_pass_ph: "Confirm Password",
+        auth_terms_prefix: "I agree to the",
+        auth_terms_link: "Terms and Conditions",
+        auth_terms_and: "and",
+        auth_privacy_link: "Privacy Policy",
+        auth_signup_btn: "Create Account",
+        auth_has_account: "Already have an account?",
+        auth_signin_link: "Sign In"
+    }
+};

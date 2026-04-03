@@ -10,6 +10,12 @@
     const SHIPPING_FEE = 50;
     const COD_FEE = 50;
 
+    // Helper for translation with fallback
+    const t = (key, params = {}) => {
+        if (typeof window.t === 'function') return window.t(key, params);
+        return key;
+    };
+
     document.addEventListener('DOMContentLoaded', function () {
         // Load cart items
         loadOrderSummary();
@@ -51,7 +57,7 @@
         }
 
         const totalEl = document.getElementById('checkout-total');
-        if (totalEl) totalEl.textContent = total.toLocaleString() + ' ج.م';
+        if (totalEl) totalEl.textContent = total.toLocaleString() + ' ' + t('check_currency');
     }
 
     function loadOrderSummary() {
@@ -71,16 +77,20 @@
 
         cart.forEach(item => {
             currentSubtotal += item.price * (item.quantity || 1);
+            const itemImage = item.image ?
+                `<img src="${item.image}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: contain; border-radius: 4px; border: 1px solid rgba(var(--primary-rgb), 0.1);">` :
+                `<i class="bi bi-box-seam"></i>`;
+
             html += `
                 <div class="order-item">
                     <div class="order-item-image">
-                        <i class="bi bi-box-seam"></i>
+                        ${itemImage}
                     </div>
                     <div class="order-item-info">
                         <div class="order-item-name">${item.name}</div>
-                        <div class="order-item-qty">الكمية: ${item.quantity || 1}</div>
+                        <div class="order-item-qty">${t('check_qty')} ${item.quantity || 1}</div>
                     </div>
-                    <div class="order-item-price">${(item.price * (item.quantity || 1)).toLocaleString()} ج.م</div>
+                    <div class="order-item-price">${(item.price * (item.quantity || 1)).toLocaleString()} ${t('check_currency')}</div>
                 </div>
             `;
         });
@@ -91,9 +101,9 @@
         const shippingEl = document.getElementById('checkout-shipping');
         const codFeeEl = document.getElementById('checkout-cod-fee');
 
-        if (subtotalEl) subtotalEl.textContent = currentSubtotal.toLocaleString() + ' ج.م';
-        if (shippingEl) shippingEl.textContent = SHIPPING_FEE + ' ج.م';
-        if (codFeeEl) codFeeEl.textContent = COD_FEE + ' ج.م';
+        if (subtotalEl) subtotalEl.textContent = currentSubtotal.toLocaleString() + ' ' + t('check_currency');
+        if (shippingEl) shippingEl.textContent = SHIPPING_FEE + ' ' + t('check_currency');
+        if (codFeeEl) codFeeEl.textContent = COD_FEE + ' ' + t('check_currency');
 
         // Calculate initial total (COD is default selected)
         const activeMethod = document.querySelector('.payment-method.active');
@@ -137,20 +147,20 @@
                 <div class="success-icon mb-4">
                     <i class="bi bi-check-circle-fill" style="font-size: 5rem; color: #28a745;"></i>
                 </div>
-                <h2 class="mb-3">تم استلام طلبك بنجاح! 🎉</h2>
-                <p class="text-muted mb-4">شكراً لك ${orderData.customer.firstName}، سنتواصل معك قريباً لتأكيد الطلب.</p>
+                <h2 class="mb-3">${t('check_success_title')}</h2>
+                <p class="text-muted mb-4">${t('check_success_msg', { name: orderData.customer.firstName })}</p>
                 <div class="order-number mb-4">
                     <span class="badge bg-primary fs-5 p-3" style="border-radius: 12px;">
-                        رقم الطلب: #ZYQ-${Date.now().toString().slice(-6)}
+                        ${t('check_order_number', { number: Date.now().toString().slice(-6) })}
                     </span>
                 </div>
                 <div class="d-flex gap-3 justify-content-center flex-wrap">
                     <a href="https://api.whatsapp.com/send?phone=201033624387&text=مرحباً، أود الاستفسار عن طلبي" 
                        class="btn btn-success btn-lg" style="border-radius: 12px;" target="_blank">
-                        <i class="bi bi-whatsapp me-2"></i>تواصل عبر واتساب
+                        <i class="bi bi-whatsapp me-2"></i>${t('check_whatsapp_btn')}
                     </a>
                     <a href="index.html" class="btn btn-outline-primary btn-lg" style="border-radius: 12px;">
-                        <i class="bi bi-house me-2"></i>العودة للرئيسية
+                        <i class="bi bi-house me-2"></i>${t('check_home_btn')}
                     </a>
                 </div>
             </div>

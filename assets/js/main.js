@@ -29,6 +29,10 @@
   /*--------------------------------------------------------------
   # Cart Functions
   --------------------------------------------------------------*/
+
+  /*--------------------------------------------------------------
+  # Cart Functions
+  --------------------------------------------------------------*/
   /*--------------------------------------------------------------
   # Storage Wrapper (Cross-Browser Persistence)
   --------------------------------------------------------------*/
@@ -74,12 +78,19 @@
     StorageWrapper.set(cart);
   }
 
-  function addToCart(name, price, quantity = 1) {
+  function addToCart(name, price, quantity = 1, image = null) {
     let cart = getCart();
-    cart.push({ name, price, quantity });
+
+    // Automatically map image if not provided
+    if (!image) {
+      if (name === 'MotoLock') image = 'assets/img/products/motolock.png';
+      // Add other mappings here as needed
+    }
+
+    cart.push({ name, price, quantity, image });
     saveCart(cart);
     updateCartBadge();
-    alert('تمت إضافة ' + name + ' إلى السلة!');
+    alert(t('cart_alert_added', { name }));
   }
 
   function updateCartQuantity(index, change) {
@@ -126,29 +137,35 @@
 
     const cart = getCart();
 
+    const cartMainRow = document.querySelector('.row.g-4');
+
     if (cart.length === 0) {
-      cartItemsEl.innerHTML = '';
-      emptyCartEl.style.display = 'block';
-      if (summaryEl) summaryEl.style.display = 'none';
+      if (cartItemsEl) cartItemsEl.innerHTML = '';
+      if (emptyCartEl) emptyCartEl.style.display = 'block';
+      if (cartMainRow) cartMainRow.style.display = 'none';
       return;
     }
 
     if (emptyCartEl) emptyCartEl.style.display = 'none';
-    if (summaryEl) summaryEl.style.display = 'block';
+    if (cartMainRow) cartMainRow.style.display = 'flex';
 
     let html = '';
     let subtotal = 0;
 
     cart.forEach((item, index) => {
       subtotal += item.price * (item.quantity || 1);
+      const itemImage = item.image ?
+        `<img src="${item.image}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px; border: 1px solid rgba(var(--primary-rgb), 0.1);">` :
+        `<i class="bi bi-box-seam"></i>`;
+
       html += `
                 <div class="cart-item">
                     <div class="cart-item-image">
-                        <i class="bi bi-box-seam"></i>
+                        ${itemImage}
                     </div>
                     <div class="cart-item-info">
                         <h4 class="cart-item-title">${item.name}</h4>
-                        <div class="cart-item-price">${item.price} ج.م</div>
+                        <div class="cart-item-price">${item.price.toLocaleString()} ${t('cart_currency')}</div>
                     </div>
                     <div class="cart-item-actions">
                         <div class="quantity-control">
@@ -157,7 +174,7 @@
                             <button class="quantity-btn" onclick="updateCartQuantity(${index}, 1)">+</button>
                         </div>
                         <button class="remove-btn" onclick="removeCartItem(${index})">
-                            <i class="bi bi-trash"></i> حذف
+                            <i class="bi bi-trash"></i> ${t('cart_item_remove')}
                         </button>
                     </div>
                 </div>
@@ -167,45 +184,16 @@
     cartItemsEl.innerHTML = html;
     const subtotalEl = document.getElementById('subtotal');
     const totalEl = document.getElementById('total');
+    const shippingEl = document.getElementById('shipping');
 
-    if (subtotalEl) subtotalEl.textContent = subtotal + ' ج.م';
-    if (totalEl) totalEl.textContent = (subtotal + 50) + ' ج.م';
+    const shippingFee = 50;
+
+    if (subtotalEl) subtotalEl.textContent = subtotal.toLocaleString() + ' ' + t('cart_currency');
+    if (shippingEl) shippingEl.textContent = shippingFee + ' ' + t('cart_currency');
+    if (totalEl) totalEl.textContent = (subtotal + shippingFee).toLocaleString() + ' ' + t('cart_currency');
   }
 
-  function loadCheckoutPage() {
-    const itemsEl = document.getElementById('order-items');
-    if (!itemsEl) return;
 
-    const cart = getCart();
-
-    if (cart.length === 0) {
-      window.location.href = 'cart.html';
-      return;
-    }
-
-    let html = '';
-    let subtotal = 0;
-
-    cart.forEach(item => {
-      subtotal += item.price * (item.quantity || 1);
-      html += `
-                <div class="order-item">
-                    <div class="order-item-image"><i class="bi bi-box-seam"></i></div>
-                    <div class="order-item-info">
-                        <div class="order-item-name">${item.name}</div>
-                        <div class="order-item-price">${item.price} ج.م × ${item.quantity || 1}</div>
-                    </div>
-                </div>
-            `;
-    });
-
-    itemsEl.innerHTML = html;
-    const subtotalEl = document.getElementById('subtotal');
-    const totalEl = document.getElementById('total');
-
-    if (subtotalEl) subtotalEl.textContent = subtotal + ' ج.م';
-    if (totalEl) totalEl.textContent = (subtotal + 50) + ' ج.م';
-  }
 
   /*--------------------------------------------------------------
   # Search Functions
@@ -271,8 +259,8 @@
     if (qtyEl) qtyEl.textContent = currentDetailsQty;
   }
 
-  function addDetailsToCart(name, price) {
-    addToCart(name, price, currentDetailsQty);
+  function addDetailsToCart(name, price, image = null) {
+    addToCart(name, price, currentDetailsQty, image);
   }
 
   function selectPaymentMethod(el) {
@@ -440,115 +428,7 @@
     }, 800);
   }
 
-  /*--------------------------------------------------------------
-  # Language Switcher
-  --------------------------------------------------------------*/
-  function initLanguageSwitcher() {
-    const langBtns = [
-      document.getElementById('language-toggle'),
-      document.getElementById('language-toggle-mobile')
-    ].filter(btn => btn !== null);
 
-    if (langBtns.length === 0) return;
-
-    function translatePage(lang) {
-      const elements = document.querySelectorAll('[data-i18n]');
-
-      // Merge all available translation objects from window that follow the *Translations pattern
-      const combinedTranslations = {};
-      Object.keys(window).forEach(key => {
-        if (key.endsWith('Translations') && typeof window[key] === 'object') {
-          const dict = window[key][lang];
-          if (dict) {
-            Object.assign(combinedTranslations, dict);
-          }
-        }
-      });
-
-      elements.forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        const translation = combinedTranslations[key];
-
-        if (translation) {
-          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-            el.placeholder = translation;
-          } else {
-            el.innerHTML = translation;
-          }
-        }
-      });
-
-      // Special case: update copyright year or other dynamic parts if needed
-      document.dispatchEvent(new CustomEvent('zyqra_language_changed', { detail: { lang } }));
-    }
-
-    function setLanguage(lang) {
-      const isRTL = lang === 'ar';
-
-      // Disable transitions temporarily to prevent jumping/sliding effects
-      document.documentElement.classList.add('no-transition');
-
-      document.documentElement.lang = lang;
-      document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
-      localStorage.setItem('zyqra_lang', lang);
-
-      // Trigger translation engine
-      translatePage(lang);
-
-      const langCode = isRTL ? 'AR' : 'EN';
-      const textToDisplay = isRTL ? 'العربية' : 'English';
-
-      langBtns.forEach(btn => {
-        if (btn.tagName === 'A') {
-          btn.innerHTML = `<i class="bi bi-globe me-2"></i> <span>${textToDisplay}</span>`;
-        } else {
-          btn.innerHTML = `<i class="bi bi-globe"></i> <span>${langCode}</span>`;
-        }
-      });
-
-      // Update Bootstrap
-      const bootstrapLink = document.querySelector('link[href*="bootstrap.rtl.min.css"]') || document.querySelector('link[href*="bootstrap.min.css"]');
-      if (bootstrapLink) {
-        if (isRTL) {
-          if (!bootstrapLink.href.includes('rtl')) {
-            bootstrapLink.href = bootstrapLink.href.replace('bootstrap.min.css', 'bootstrap.rtl.min.css');
-          }
-        } else {
-          if (bootstrapLink.href.includes('rtl')) {
-            bootstrapLink.href = bootstrapLink.href.replace('bootstrap.rtl.min.css', 'bootstrap.min.css');
-          }
-        }
-      }
-
-      // Force a reflow to ensure the layout change is processed without transition
-      void document.documentElement.offsetHeight;
-
-      // Remove the no-transition class
-      setTimeout(() => {
-        document.documentElement.classList.remove('no-transition');
-      }, 50);
-    }
-
-    // Initialize from storage
-    const savedLang = localStorage.getItem('zyqra_lang');
-    if (savedLang) {
-      setLanguage(savedLang);
-    }
-
-    langBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const currentLang = document.documentElement.lang === 'en' ? 'en' : 'ar';
-        const newLang = currentLang === 'ar' ? 'en' : 'ar';
-        setLanguage(newLang);
-
-        // Close mobile menu if open
-        if (document.body.classList.contains('mobile-nav-active')) {
-          document.querySelector('.mobile-nav-toggle').click();
-        }
-      });
-    });
-  }
 
   function initAuth() {
     const passwordInput = document.getElementById('password');
@@ -588,25 +468,11 @@
   // Run Initialization on Load
   document.addEventListener('DOMContentLoaded', () => {
     initTemplate();
-    initLanguageSwitcher();
     initAuth();
     initMemoryTransition();
     updateCartBadge();
 
     if (document.body.classList.contains('cart-page')) loadCartPage();
-
-    if (document.body.classList.contains('checkout-page')) {
-      loadCheckoutPage();
-      const checkoutForm = document.getElementById('checkout-form');
-      if (checkoutForm) {
-        checkoutForm.addEventListener('submit', function (e) {
-          e.preventDefault();
-          alert('تم استلام طلبك بنجاح! سنتواصل معك قريباً.');
-          StorageWrapper.clear();
-          window.location.href = 'index.html';
-        });
-      }
-    }
 
     const searchInput = document.getElementById('search-input');
     if (searchInput) {

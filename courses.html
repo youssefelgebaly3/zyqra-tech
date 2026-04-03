@@ -23,6 +23,8 @@
         rel="stylesheet">
 
     <link href="assets/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <script src="assets/js/translations/common.js"></script>
+    <script src="assets/js/translations/courses.js"></script>
     <script src="assets/js/lang-config.js?v=3.1"></script>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -221,16 +223,17 @@
                             <div class="search-box">
                                 <i class="bi bi-search search-icon"></i>
                                 <input type="text" id="courseSearch" class="form-control modern-input"
-                                    placeholder="ابحث عن دورة..." data-i18n-placeholder="search_course_placeholder">
+                                    placeholder="ابحث عن دورة..." data-i18n="search_course_placeholder">
                             </div>
                         </div>
                         <div class="col-lg-7">
-                            <div class="filter-pills d-flex flex-wrap gap-2 justify-content-center justify-content-lg-end">
-                                <button class="filter-btn active" data-filter="all">الكل</button>
-                                <button class="filter-btn" data-filter="beginner">مبتدئ</button>
-                                <button class="filter-btn" data-filter="medium">متوسط</button>
-                                <button class="filter-btn" data-filter="short">أقل من 10 ساعات</button>
-                                <button class="filter-btn" data-filter="long">10 ساعات فأكثر</button>
+                            <div
+                                class="filter-pills d-flex flex-wrap gap-2 justify-content-center justify-content-lg-end">
+                                <button class="filter-btn active" data-filter="all" data-i18n="filter_all">الكل</button>
+                                <button class="filter-btn" data-filter="beginner" data-i18n="filter_beginner">مبتدئ</button>
+                                <button class="filter-btn" data-filter="medium" data-i18n="filter_medium">متوسط</button>
+                                <button class="filter-btn" data-filter="short" data-i18n="filter_short">أقل من 10 ساعات</button>
+                                <button class="filter-btn" data-filter="long" data-i18n="filter_long">10 ساعات فأكثر</button>
                             </div>
                         </div>
                     </div>
@@ -266,7 +269,7 @@
                                     الدوائر، والقياسات.</p>
                                 <div class="course-instructor">
                                     <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
-                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                    <span class="instructor-name" data-i18n="course_instructor_youssef">م. يوسف الجبالي</span>
                                 </div>
                                 <div class="course-meta">
                                     <span><i class="bi bi-clock"></i> 12 <span
@@ -306,7 +309,7 @@
                                     المشاريع.</p>
                                 <div class="course-instructor">
                                     <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
-                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                    <span class="instructor-name" data-i18n="course_instructor_youssef">م. يوسف الجبالي</span>
                                 </div>
                                 <div class="course-meta">
                                     <span><i class="bi bi-clock"></i> 20 <span
@@ -346,7 +349,7 @@
                                     العملية.</p>
                                 <div class="course-instructor">
                                     <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
-                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                    <span class="instructor-name" data-i18n="course_instructor_youssef">م. يوسف الجبالي</span>
                                 </div>
                                 <div class="course-meta">
                                     <span><i class="bi bi-clock"></i> 15 <span
@@ -385,7 +388,7 @@
                                     من الفكرة إلى التنفيذ.</p>
                                 <div class="course-instructor">
                                     <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
-                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                    <span class="instructor-name" data-i18n="course_instructor_youssef">م. يوسف الجبالي</span>
                                 </div>
                                 <div class="course-meta mb-2">
                                     <span><i class="bi bi-clock"></i> 8 <span
@@ -395,8 +398,8 @@
                                 </div>
                                 <div class="course-progress mb-3">
                                     <div class="progress-info d-flex justify-content-between align-items-center mb-1">
-                                        <span class="small text-muted fw-bold">مكتمل</span>
-                                        <span class="small fw-bold text-accent">40%</span>
+                                        <span class="small text-muted fw-bold" data-i18n="course_completed">مكتمل</span>
+                                        <span class="small fw-bold text-accent" data-i18n="course_perc_40">40%</span>
                                     </div>
                                     <div class="progress">
                                         <div class="progress-bar" role="progressbar" style="width: 40%;"
@@ -436,7 +439,7 @@
                                     بيئة العمل والحياة.</p>
                                 <div class="course-instructor">
                                     <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
-                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                    <span class="instructor-name" data-i18n="course_instructor_youssef">م. يوسف الجبالي</span>
                                 </div>
                                 <div class="course-meta">
                                     <span><i class="bi bi-clock"></i> 6 <span
@@ -475,7 +478,7 @@
                                     فريق العمل وإدارته.</p>
                                 <div class="course-instructor">
                                     <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
-                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                    <span class="instructor-name" data-i18n="course_instructor_youssef">م. يوسف الجبالي</span>
                                 </div>
                                 <div class="course-meta">
                                     <span><i class="bi bi-clock"></i> 8 <span
@@ -514,7 +517,7 @@
                                     وقتك بفعالية.</p>
                                 <div class="course-instructor">
                                     <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
-                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                    <span class="instructor-name" data-i18n="course_instructor_youssef">م. يوسف الجبالي</span>
                                 </div>
                                 <div class="course-meta">
                                     <span><i class="bi bi-clock"></i> 5 <span
@@ -553,7 +556,7 @@
                                     انتباه الجمهور.</p>
                                 <div class="course-instructor">
                                     <div class="instructor-avatar"><i class="bi bi-person-fill"></i></div>
-                                    <span class="instructor-name">م. يوسف الجبالي</span>
+                                    <span class="instructor-name" data-i18n="course_instructor_youssef">م. يوسف الجبالي</span>
                                 </div>
                                 <div class="course-meta">
                                     <span><i class="bi bi-clock"></i> 7 <span
@@ -581,19 +584,13 @@
                     <a href="index.html" class="logo d-flex align-items-center">
                         <span class="sitename">ZYQRA</span>
                     </a>
-                    <p data-i18n="footer_description">نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى
-                        التعليمي المتميز، نسعى لتحقيق
-                        تأثير
-                        اجتماعي إيجابي من خلال الابتكار.</p>
+                    <p data-i18n="footer_desc">نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز، نسعى لتحقيق تأثير اجتماعي إيجابي من خلال الابتكار.</p>
                     <div class="social-links d-flex mt-4">
-                        <a href="https://api.whatsapp.com/send?phone=201033624387" target="_blank"><i
-                                class="bi bi-whatsapp"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=201033624387" target="_blank"><i class="bi bi-whatsapp"></i></a>
                         <a href="https://www.facebook.com/zyqratech/" target="_blank"><i class="bi bi-facebook"></i></a>
-                        <a href="https://www.linkedin.com/company/zyqra-tech/" target="_blank"><i
-                                class="bi bi-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/company/zyqra-tech/" target="_blank"><i class="bi bi-linkedin"></i></a>
                         <a href="https://www.tiktok.com/@zyqra_tech" target="_blank"><i class="bi bi-tiktok"></i></a>
-                        <a href="https://www.instagram.com/zyqra_tech" target="_blank"><i
-                                class="bi bi-instagram"></i></a>
+                        <a href="https://www.instagram.com/zyqra_tech" target="_blank"><i class="bi bi-instagram"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-6 footer-links">
@@ -604,18 +601,18 @@
                         <li><a href="courses.html" data-i18n="nav_courses">الدورات</a></li>
                         <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
                         <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
-                        <li><a href="terms.html">الشروط والأحكام</a></li>
-                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="terms.html" data-i18n="nav_terms">الشروط والأحكام</a></li>
+                        <li><a href="privacy.html" data-i18n="nav_privacy">سياسة الخصوصية</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
                     <h4 data-i18n="footer_services_title">خدماتنا</h4>
                     <ul>
-                        <li><a href="products.html" data-i18n="nav_products">المنتجات الذكية</a></li>
-                        <li><a href="courses.html" data-i18n="nav_courses">الدورات التعليمية</a></li>
-                        <li><a href="contact.html" data-i18n="footer_support">الدعم الفني</a></li>
-                        <li><a href="contact.html" data-i18n="footer_consult">الاستشارات</a></li>
+                        <li><a href="products.html" data-i18n="foo_serv_smart">المنتجات الذكية</a></li>
+                        <li><a href="courses.html" data-i18n="foo_serv_courses">الدورات التعليمية</a></li>
+                        <li><a href="contact.html" data-i18n="foo_serv_support">الدعم الفني</a></li>
+                        <li><a href="contact.html" data-i18n="foo_serv_consult">الاستشارات</a></li>
                     </ul>
                 </div>
 
@@ -623,15 +620,13 @@
                     <h4 data-i18n="footer_contact_title">تواصل معنا</h4>
                     <p data-i18n="footer_address">طنطا، الغربية</p>
                     <p data-i18n="footer_country">مصر</p>
-                    <p class="mt-4"><strong data-i18n="footer_phone_label">الهاتف:</strong> <span
-                            dir="ltr">+201033624387</span></p>
+                    <p class="mt-4"><strong data-i18n="footer_phone_label">الهاتف:</strong> <span dir="ltr">+201033624387</span></p>
                     <p><strong data-i18n="footer_email_label">البريد:</strong> <span>info@zyqra.com</span></p>
                 </div>
             </div>
         </div>
         <div class="container copyright text-center mt-3">
-            <p>© <span data-i18n="footer_copyright_text">حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong>
-                <span data-i18n="footer_rights">جميع الحقوق محفوظة</span>
+            <p>© <span data-i18n="footer_copy_label">حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong> <span data-i18n="footer_copyright">جميع الحقوق محفوظة</span>
             </p>
         </div>
     </footer>
@@ -641,8 +636,6 @@
 
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/js/translations/common.js"></script>
-    <script src="assets/js/translations/courses.js"></script>
     <script src="assets/js/main.js?v=4.0"></script>
     <script src="assets/js/courses.js"></script>
 </body>

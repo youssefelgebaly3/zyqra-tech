@@ -61,7 +61,7 @@ function renderLessons() {
                     <div class="section-header" onclick="this.parentElement.classList.toggle('open')">
                         <div>
                             <h5>${module.title}</h5>
-                            <div class="section-meta">${completedInModule}/${totalInModule} مكتمل</div>
+                            <div class="section-meta">${completedInModule}/${totalInModule} ${window.t('player_completed_label')}</div>
                         </div>
                         <i class="bi bi-chevron-down chevron"></i>
                     </div>
@@ -76,7 +76,7 @@ function renderLessons() {
                                 </div>
                                 <div class="lesson-details">
                                     <h6>${lesson.title}</h6>
-                                    <span><i class="bi bi-play-circle"></i> فيديو</span>
+                                    <span><i class="bi bi-play-circle"></i> ${window.t('player_video_label')}</span>
                                 </div>
                                 <span class="lesson-duration">${lesson.duration}</span>
                             </div>
@@ -194,7 +194,7 @@ function updateProgress() {
         const parts = l.duration.split(':');
         mins += parseInt(parts[0]);
     });
-    document.getElementById('timeRemaining').textContent = `متبقي ~${mins} دقيقة`;
+    document.getElementById('timeRemaining').textContent = window.t('player_time_remaining_label', { n: mins });
 }
 
 // Toggle lesson completion

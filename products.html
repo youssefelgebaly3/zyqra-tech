@@ -14,6 +14,8 @@
         rel="stylesheet">
 
     <link href="assets/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <script src="assets/js/translations/common.js"></script>
+    <script src="assets/js/translations/products.js"></script>
     <script src="assets/js/lang-config.js?v=3.1"></script>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -32,16 +34,16 @@
             </a>
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="products.html" class="active">المنتجات</a></li>
-                    <li><a href="courses.html">الدورات</a></li>
-                    <li><a href="about.html">من نحن</a></li>
-                    <li><a href="contact.html">تواصل معنا</a></li>
-                    <li class="d-xl-none"><a href="signin.html"><i class="bi bi-person me-2"></i> تسجيل الدخول</a></li>
-                    <li class="d-xl-none"><a href="signup.html"><i class="bi bi-person-plus me-2"></i> إنشاء حساب</a>
+                    <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="products.html" class="active" data-i18n="nav_products">المنتجات</a></li>
+                    <li><a href="courses.html" data-i18n="nav_courses">الدورات</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+                    <li class="d-xl-none"><a href="signin.html"><i class="bi bi-person me-2"></i> <span data-i18n="nav_login">تسجيل الدخول</span></a></li>
+                    <li class="d-xl-none"><a href="signup.html"><i class="bi bi-person-plus me-2"></i> <span data-i18n="nav_signup">إنشاء حساب</span></a>
                     </li>
                     <li class="d-xl-none"><a href="#" id="language-toggle-mobile"><i class="bi bi-globe me-2"></i>
-                            <span>Language</span></a></li>
+                            <span data-i18n="nav_lang">Language</span></a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -55,11 +57,11 @@
                 <div class="auth-links d-none d-xl-flex align-items-center gap-2">
                     <a href="signin.html" class="auth-link login">
                         <i class="bi bi-person"></i>
-                        <span>تسجيل الدخول</span>
+                        <span data-i18n="nav_login">تسجيل الدخول</span>
                     </a>
                     <a href="signup.html" class="auth-link signup">
                         <i class="bi bi-person-plus"></i>
-                        <span>إنشاء حساب</span>
+                        <span data-i18n="nav_signup">إنشاء حساب</span>
                     </a>
                 </div>
                 <a class="btn-shop-icon" href="cart.html" title="السلة">
@@ -77,10 +79,10 @@
             <div class="container" data-aos="fade-up">
                 <div class="hero-badge">
                     <i class="bi bi-stars"></i>
-                    <span>ابتكارات ذكية لحياة أفضل</span>
+                    <span data-i18n="prod_hero_badge">ابتكارات ذكية لحياة أفضل</span>
                 </div>
-                <h1>منتجاتنا الذكية</h1>
-                <p>اكتشف أحدث الابتكارات التقنية والمنتجات الذكية المصممة لتطوير حياتك اليومية وتحويل منزلك إلى بيئة
+                <h1 data-i18n="prod_hero_title">منتجاتنا الذكية</h1>
+                <p data-i18n="prod_hero_desc">اكتشف أحدث الابتكارات التقنية والمنتجات الذكية المصممة لتطوير حياتك اليومية وتحويل منزلك إلى بيئة
                     ذكية متكاملة.</p>
             </div>
         </section>
@@ -100,32 +102,32 @@
                                 <div class="search-box">
                                     <i class="bi bi-search search-icon"></i>
                                     <input type="text" id="productSearch" class="form-control modern-input"
-                                        placeholder="ابحث عن منتج...">
+                                        placeholder="ابحث عن منتج..." data-i18n="prod_search_placeholder">
                                 </div>
                             </div>
 
                             <!-- Categories -->
                             <div class="sidebar-section">
-                                <h5 class="sidebar-title"><i class="bi bi-grid"></i> التصنيفات</h5>
+                                <h5 class="sidebar-title"><i class="bi bi-grid"></i> <span data-i18n="prod_filter_category">التصنيفات</span></h5>
                                 <div class="sidebar-filters">
                                     <label class="filter-check active">
                                         <input type="radio" name="category" value="all" checked>
-                                        <span class="check-label">كل المنتجات</span>
+                                        <span class="check-label" data-i18n="prod_cat_all">كل المنتجات</span>
                                         <span class="check-count">1</span>
                                     </label>
                                     <label class="filter-check">
                                         <input type="radio" name="category" value="security">
-                                        <span class="check-label">أنظمة الأمان</span>
+                                        <span class="check-label" data-i18n="prod_cat_security">أنظمة الأمان</span>
                                         <span class="check-count">1</span>
                                     </label>
                                     <label class="filter-check">
                                         <input type="radio" name="category" value="iot">
-                                        <span class="check-label">إنترنت الأشياء</span>
+                                        <span class="check-label" data-i18n="prod_cat_iot">إنترنت الأشياء</span>
                                         <span class="check-count">0</span>
                                     </label>
                                     <label class="filter-check">
                                         <input type="radio" name="category" value="smart-home">
-                                        <span class="check-label">المنزل الذكي</span>
+                                        <span class="check-label" data-i18n="prod_cat_smarthome">المنزل الذكي</span>
                                         <span class="check-count">0</span>
                                     </label>
                                 </div>
@@ -133,25 +135,25 @@
 
                             <!-- Price Range -->
                             <div class="sidebar-section">
-                                <h5 class="sidebar-title"><i class="bi bi-currency-dollar"></i> السعر</h5>
+                                <h5 class="sidebar-title"><i class="bi bi-currency-dollar"></i> <span data-i18n="prod_filter_price">السعر</span></h5>
                                 <div class="price-range-wrapper">
                                     <input type="range" class="form-range price-slider" min="0" max="5000" value="5000"
                                         id="priceRange">
                                     <div class="price-labels">
-                                        <span>0 ج.م</span>
-                                        <span id="priceValue">5,000 ج.م</span>
+                                        <span data-i18n="prod_price_min">0 ج.م</span>
+                                        <span id="priceValue" data-i18n="prod_price_max">5,000 ج.م</span>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Sort -->
                             <div class="sidebar-section">
-                                <h5 class="sidebar-title"><i class="bi bi-sort-down"></i> ترتيب حسب</h5>
+                                <h5 class="sidebar-title"><i class="bi bi-sort-down"></i> <span data-i18n="prod_sort_title">ترتيب حسب</span></h5>
                                 <select class="sidebar-select" id="sortProducts">
-                                    <option value="newest">الأحدث</option>
-                                    <option value="price-low">السعر: الأقل أولاً</option>
-                                    <option value="price-high">السعر: الأعلى أولاً</option>
-                                    <option value="popular">الأكثر مبيعاً</option>
+                                    <option value="newest" data-i18n="prod_sort_newest">الأحدث</option>
+                                    <option value="price-low" data-i18n="prod_sort_low">السعر: الأقل أولاً</option>
+                                    <option value="price-high" data-i18n="prod_sort_high">السعر: الأعلى أولاً</option>
+                                    <option value="popular" data-i18n="prod_sort_popular">الأكثر مبيعاً</option>
                                 </select>
                             </div>
 
@@ -173,30 +175,31 @@
                                                 class="bi bi-heart"></i></button>
                                     </div>
                                     <div class="product-info">
-                                        <span class="product-category">أنظمة الأمان</span>
+                                        <span class="product-category" data-i18n="prod_cat_security">أنظمة الأمان</span>
                                         <h3 class="product-title">MotoLock</h3>
-                                        <p class="product-desc">نظام أمان ذكي للدراجات النارية يحول هاتفك إلى مفتاح
+                                        <p class="product-desc" data-i18n="motolock_desc">نظام أمان ذكي للدراجات النارية يحول هاتفك إلى مفتاح
                                             كامل
                                             وتنبيهات فورية.</p>
                                         <div class="product-price-wrapper">
-                                            <div class="product-price">1,000 ج.م</div>
-                                            <div class="old-price">1,500 ج.م</div>
-                                            <span class="discount-badge">خصم 33%</span>
+                                            <div class="product-price" data-i18n="prod_price_curr">1,000 ج.م</div>
+                                            <div class="old-price" data-i18n="prod_price_old">1,500 ج.م</div>
+                                            <span class="discount-badge" data-i18n="prod_discount_33">خصم 33%</span>
                                         </div>
                                         <div class="product-meta">
-                                            <span><i class="bi bi-box-seam"></i> متوفر</span>
-                                            <span><i class="bi bi-shield-check"></i> ضمان سنة</span>
-                                            <span><i class="bi bi-archive"></i> المخزون: 50 قطعة</span>
+                                            <span><i class="bi bi-box-seam"></i> <span data-i18n="prod_in_stock">متوفر</span></span>
+                                            <span><i class="bi bi-shield-check"></i> <span data-i18n="prod_warranty_1yr">ضمان سنة</span></span>
+                                            <span><i class="bi bi-archive"></i> <span data-i18n="prod_stock_50">المخزون: 50 قطعة</span></span>
                                         </div>
                                         <ul class="product-features">
-                                            <li><i class="bi bi-check-circle-fill"></i> تنبيهات فورية عند الحركة
+                                            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="motolock_f1">تنبيهات فورية عند الحركة</span>
                                             </li>
-                                            <li><i class="bi bi-check-circle-fill"></i> تحكم عبر التطبيق</li>
-                                            <li><i class="bi bi-check-circle-fill"></i> ضمان سنة كاملة</li>
+                                            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="motolock_f2">تحكم عبر التطبيق</span></li>
+                                            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="motolock_f3">ضمان سنة كاملة</span></li>
                                         </ul>
                                         <div class="d-flex gap-2 w-100 mt-3">
-                                            <button class="btn-product" onclick="addToCart('MotoLock', 1000)">
-                                                <i class="bi bi-cart-plus"></i> أضف للسلة
+                                            <button class="btn-product"
+                                                onclick="addToCart('MotoLock', 1000, 1, 'assets/img/products/motolock.png')">
+                                                <i class="bi bi-cart-plus"></i> <span data-i18n="prod_add_cart">أضف للسلة</span>
                                             </button>
                                             <a href="product-details.html" class="btn-details">
                                                 <i class="bi bi-eye"></i>
@@ -217,11 +220,11 @@
         <div class="about-cta bg-white">
             <div class="container" data-aos="zoom-in">
                 <div class="about-cta-wrapper">
-                    <h2>تحتاج مساعدة في الاختيار؟</h2>
-                    <p>فريقنا جاهز لمساعدتك في اختيار المنتج المناسب لاحتياجاتك</p>
+                    <h2 data-i18n="prod_cta_title">تحتاج مساعدة في الاختيار؟</h2>
+                    <p data-i18n="prod_cta_desc">فريقنا جاهز لمساعدتك في اختيار المنتج المناسب لاحتياجاتك</p>
                     <div class="cta-btns mt-4">
                         <a href="contact.html" class="cta-btn cta-btn-primary">
-                            <i class="bi bi-chat-dots me-2"></i> تواصل معنا
+                            <i class="bi bi-chat-dots me-2"></i> <span data-i18n="prod_cta_btn">تواصل معنا</span>
                         </a>
                     </div>
                 </div>
@@ -237,7 +240,7 @@
                     <a href="index.html" class="logo d-flex align-items-center">
                         <span class="sitename">ZYQRA</span>
                     </a>
-                    <p>نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز، نسعى لتحقيق
+                    <p data-i18n="footer_desc">نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز، نسعى لتحقيق
                         تأثير
                         اجتماعي إيجابي من خلال الابتكار.</p>
                     <div class="social-links d-flex mt-4">
@@ -252,40 +255,40 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-6 footer-links">
-                    <h4>روابط مفيدة</h4>
+                    <h4 data-i18n="footer_links_title">روابط مفيدة</h4>
                     <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="products.html">المنتجات</a></li>
-                        <li><a href="courses.html">الدورات</a></li>
-                        <li><a href="about.html">من نحن</a></li>
-                        <li><a href="contact.html">تواصل معنا</a></li>
-                        <li><a href="terms.html">الشروط والأحكام</a></li>
-                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                        <li><a href="products.html" data-i18n="nav_products">المنتجات</a></li>
+                        <li><a href="courses.html" data-i18n="nav_courses">الدورات</a></li>
+                        <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
+                        <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+                        <li><a href="terms.html" data-i18n="nav_terms">الشروط والأحكام</a></li>
+                        <li><a href="privacy.html" data-i18n="nav_privacy">سياسة الخصوصية</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
-                    <h4>خدماتنا</h4>
+                    <h4 data-i18n="footer_services_title">خدماتنا</h4>
                     <ul>
-                        <li><a href="products.html">المنتجات الذكية</a></li>
-                        <li><a href="courses.html">الدورات التعليمية</a></li>
-                        <li><a href="contact.html">الدعم الفني</a></li>
-                        <li><a href="contact.html">الاستشارات</a></li>
+                        <li><a href="products.html" data-i18n="foo_serv_smart">المنتجات الذكية</a></li>
+                        <li><a href="courses.html" data-i18n="foo_serv_courses">الدورات التعليمية</a></li>
+                        <li><a href="contact.html" data-i18n="foo_serv_support">الدعم الفني</a></li>
+                        <li><a href="contact.html" data-i18n="foo_serv_consult">الاستشارات</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                    <h4>تواصل معنا</h4>
-                    <p>طنطا، الغربية</p>
-                    <p>مصر</p>
-                    <p class="mt-4"><strong>الهاتف:</strong> <span dir="ltr">+201033624387</span></p>
-                    <p><strong>البريد:</strong> <span>info@zyqra.com</span></p>
+                    <h4 data-i18n="footer_contact_title">تواصل معنا</h4>
+                    <p data-i18n="footer_address">طنطا، الغربية</p>
+                    <p data-i18n="footer_country">مصر</p>
+                    <p class="mt-4"><strong data-i18n="footer_phone_label">الهاتف:</strong> <span dir="ltr">+201033624387</span></p>
+                    <p><strong data-i18n="footer_email_label">البريد:</strong> <span>info@zyqra.com</span></p>
                 </div>
             </div>
         </div>
 
         <div class="container copyright text-center mt-3">
-            <p>© <span>حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong> <span>جميع الحقوق محفوظة</span>
+            <p>© <span data-i18n="footer_copy_label">حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong> <span data-i18n="footer_copyright">جميع الحقوق محفوظة</span>
             </p>
         </div>
     </footer>

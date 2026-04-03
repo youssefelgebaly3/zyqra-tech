@@ -1,4 +1,4 @@
-window.aboutTranslations = {
+window.pageTranslations = {
     ar: {
         about_badge: " ",
         about_title: "بدأت ZYQRA من فكرة بسيطة",

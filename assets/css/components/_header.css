@@ -94,114 +94,117 @@
 }
 
 /* Navbar Icon Actions */
+/*--------------------------------------------------------------
+# Auth Links & Language Toggle - Premium Redesign (Polished)
+--------------------------------------------------------------*/
 .header .auth-links {
     display: flex;
     align-items: center;
-    gap: 10px !important;
+    gap: 8px !important;
 }
 
 .header .auth-link {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 16px;
-    border-radius: 50px;
+    padding: 10px 22px; /* Increased padding for better clickable area */
+    border-radius: var(--radius-pill, 100px);
     font-size: 14px;
-    font-weight: 600;
-    transition: all 0.3s;
+    font-weight: 700;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
+    position: relative;
+    border: 1px solid transparent; /* Prepare for hover border */
 }
 
 .header .auth-link i {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
 }
 
-/* Specific Style for Login */
+/* Specific Style for Login / My Account */
 .header .auth-link.login {
     color: var(--heading-color);
-    background: transparent;
+    background: rgba(255, 255, 255, 0.3); /* Subtle glass base */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
 }
 
 .header .auth-link.login:hover {
-    color: var(--accent-color);
-    background: color-mix(in srgb, var(--accent-color), transparent 95%);
+    color: #ffffff;
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(var(--primary-rgb), 0.3);
 }
 
-/* Specific Style for Signup - Premium Pill */
+/* Specific Style for Signup - High Contrast CTA */
 .header .auth-link.signup {
     background: var(--heading-color);
+    background: linear-gradient(135deg, var(--heading-color) 0%, #2c3e50 100%);
     color: var(--contrast-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-color: var(--heading-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .header .auth-link.signup:hover {
-    background: var(--accent-color);
+    background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%);
     color: var(--contrast-color);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.header .btn-shop-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: var(--surface-color);
-    color: var(--heading-color);
-    font-size: 1.1rem;
-    transition: all 0.3s;
-    border: 1px solid color-mix(in srgb, var(--heading-color), transparent 85%);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.header .btn-shop-icon i {
-    line-height: 0;
-}
-
-.header .btn-shop-icon:hover {
-    background: var(--accent-color);
     border-color: var(--accent-color);
-    color: var(--contrast-color);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(var(--primary-rgb), 0.4);
 }
 
-.header .btn-shop-icon {
-    position: relative;
-}
-
+/* Language Toggle Button - Minimal Glass */
 .header .btn-language-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 42px;
-    height: 42px;
-    border-radius: 50px;
-    padding: 0 12px;
-    gap: 6px;
-    background: transparent;
+    min-width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
     color: var(--heading-color);
     font-size: 1.1rem;
-    transition: all 0.3s;
-    border: 1px solid color-mix(in srgb, var(--heading-color), transparent 85%);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     cursor: pointer;
-    margin-left: 10px;
-}
-
-.header .btn-language-toggle span {
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    box-shadow: none; /* Removed the shadow that might look like a line */
+    margin-right: 5px; /* Spacing from auth links */
+    outline: none !important;
+    text-decoration: none !important;
 }
 
 .header .btn-language-toggle:hover {
-    background: color-mix(in srgb, var(--accent-color), transparent 90%);
+    background: var(--accent-color);
+    color: #ffffff;
+    transform: translateY(-2px) scale(1.05); /* Simplified hover without rotation */
+    border-color: var(--accent-color);
+    box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
+}
+
+/* Shop Icon Update to match theme */
+.header .btn-shop-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--heading-color);
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.header .btn-shop-icon:hover {
+    background: #ffffff;
     color: var(--accent-color);
     transform: translateY(-2px);
     border-color: var(--accent-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .cart-badge {
@@ -225,44 +228,52 @@
 
     .header .container,
     .scrolled .header .container {
-        width: 90%;
-        max-width: 350px;
-        margin-left: 15px;
-        margin-right: auto;
-        padding: 10px 15px !important;
-        /* Keep fixed padding */
+        width: 95% !important;
+        max-width: 100% !important;
+        margin-inline: auto !important;
+        padding: 10px 20px !important;
         margin-top: 10px !important;
-        /* Keep fixed margin */
+        
+        /* Bulletproof Grid Layout - completely ignores Bootstrap flex bugs */
+        display: grid !important;
+        grid-template-columns: 1fr auto auto !important;
+        align-items: center !important;
+        column-gap: 15px !important; /* Solid gap between Cart and Hamburger */
     }
 
     .header .logo {
-        order: 1;
-        display: flex;
-        align-items: center;
+        grid-column: 1;
+        grid-row: 1 !important; /* Forces it onto the single row */
+        margin: 0 !important; 
+        justify-self: start !important;
     }
 
     .header .logo h1 {
-        font-size: 22px;
+        font-size: 24px;
         margin: 0;
-        margin-left: 10px;
         line-height: 1;
         white-space: nowrap;
     }
 
     .header .header-actions {
-        order: 2;
-        gap: 10px;
-        margin-right: auto;
+        grid-column: 2;
+        grid-row: 1 !important; /* Forces it onto the single row, preventing height stretching */
+        margin: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-self: center !important;
     }
 
     .header .navmenu {
-        order: 3;
-        margin-right: 0;
+        grid-column: 3;
+        grid-row: 1 !important; /* Forces it onto the single row */
+        margin: 0 !important;
+        padding: 0 !important;
+        justify-self: end !important;
     }
 
     .header .btn-shop-icon {
-        margin-left: 0;
-        margin-right: 100px;
+        margin: 0 !important;
     }
 }
 
@@ -528,15 +539,43 @@
     }
 
     /* Mapping Icons */
-    .navmenu li:nth-child(1) a::before { content: '\f425'; } /* house */
-    .navmenu li:nth-child(2) a::before { content: '\f6ce'; } /* boxes (Products) */
-    .navmenu li:nth-child(3) a::before { content: '\f43e'; } /* journal-bookmark (Courses) */
-    .navmenu li:nth-child(4) a::before { content: '\f433'; } /* info-circle */
-    .navmenu li:nth-child(5) a::before { content: '\f32f'; } /* envelope */
+    .navmenu li:nth-child(1) a::before {
+        content: '\f425';
+    }
+
+    /* house */
+    .navmenu li:nth-child(2) a::before {
+        content: '\f6ce';
+    }
+
+    /* boxes (Products) */
+    .navmenu li:nth-child(3) a::before {
+        content: '\f43e';
+    }
+
+    /* journal-bookmark (Courses) */
+    .navmenu li:nth-child(4) a::before {
+        content: '\f433';
+    }
+
+    /* info-circle */
+    .navmenu li:nth-child(5) a::before {
+        content: '\f32f';
+    }
+
+    /* envelope */
 
     /* Auth Icons */
-    .navmenu li:nth-child(6) a::before { content: '\f12e'; } /* box-arrow-in-right (Login) */
-    .navmenu li:nth-child(7) a::before { content: '\f4e6'; } /* person-plus (Signup) */
+    .navmenu li:nth-child(6) a::before {
+        content: '\f12e';
+    }
+
+    /* box-arrow-in-right (Login) */
+    .navmenu li:nth-child(7) a::before {
+        content: '\f4e6';
+    }
+
+    /* person-plus (Signup) */
 
     /* Language Link Icon */
     .navmenu li #language-toggle-mobile::before {
@@ -582,25 +621,25 @@
         flex-direction: row;
     }
 
-    /* RTL Support for Mobile (HTML[dir="ltr"]) */
+    /* LTR Support for Mobile (HTML[dir="ltr"]) */
     html[dir="ltr"] .header .logo {
-        margin-left: 0;
-        margin-right: auto;
+        margin: 0 !important;
+        justify-self: start !important; /* Keeps ZYQRA text on the left edge in LTR */
     }
 
     html[dir="ltr"] .header .logo h1 {
-        margin-left: 0;
-        margin-right: 10px;
+        margin-left: 10px !important;
+        margin-right: 0 !important;
     }
 
     html[dir="ltr"] .header .header-actions {
-        margin-left: 0;
-        margin-right: 10px;
+        left: auto !important;
+        right: auto !important;
+        margin: 0 !important; /* Grid gap handles spacing natively now */
     }
 
     html[dir="ltr"] .header .btn-shop-icon {
-        margin-left: 0;
-        margin-right: -115px;
+        margin: 0 !important;
     }
 
     html[dir="ltr"] .mobile-nav-active .mobile-nav-toggle {

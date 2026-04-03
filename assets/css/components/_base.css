@@ -9,6 +9,12 @@ body {
     line-height: 1.8;
 }
 
+body.lang-loading {
+    opacity: 0;
+    pointer-events: none;
+    transition: none;
+}
+
 body:not(.index-page) .main {
     padding-top: 100px;
 }

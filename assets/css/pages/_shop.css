@@ -162,7 +162,8 @@
 /* Product Meta (matches course-meta) */
 .product-meta {
     display: flex;
-    gap: 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.25rem;
     margin-bottom: 1.5rem;
     font-size: 0.85rem;
     color: var(--default-color);
@@ -173,6 +174,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
+    white-space: nowrap;
 }
 
 .product-meta i {

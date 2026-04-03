@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
         rel="stylesheet">
     <link href="assets/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <script src="assets/js/translations/common.js"></script>
+    <script src="assets/js/translations/auth.js"></script>
     <script src="assets/js/lang-config.js?v=3.1"></script>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/css/main.css?v=3.1" rel="stylesheet">
@@ -25,38 +27,38 @@
             </div>
 
             <div class="auth-title">
-                <h2>مرحباً بعودتك</h2>
-                <p>سجل دخولك للمتابعة</p>
+                <h2 data-i18n="auth_signin_title">مرحباً بعودتك</h2>
+                <p data-i18n="auth_signin_subtitle">سجل دخولك للمتابعة</p>
             </div>
 
             <form action="#" method="post">
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="email" placeholder="البريد الإلكتروني" required>
-                    <label for="email"><i class="bi bi-envelope me-2"></i> البريد الإلكتروني</label>
+                    <input type="email" class="form-control" id="email" placeholder="البريد الإلكتروني" required data-i18n="auth_email_ph">
+                    <label for="email"><i class="bi bi-envelope me-2"></i> <span data-i18n="auth_email_label">البريد الإلكتروني</span></label>
                 </div>
 
                 <div class="form-floating">
-                    <input type="password" class="form-control" id="password" placeholder="كلمة المرور" required>
-                    <label for="password"><i class="bi bi-lock me-2"></i> كلمة المرور</label>
+                    <input type="password" class="form-control" id="password" placeholder="كلمة المرور" required data-i18n="auth_pass_ph">
+                    <label for="password"><i class="bi bi-lock me-2"></i> <span data-i18n="auth_pass_label">كلمة المرور</span></label>
                 </div>
 
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="remember">
-                        <label class="form-check-label" for="remember">تذكرني</label>
+                        <label class="form-check-label" for="remember" data-i18n="auth_remember">تذكرني</label>
                     </div>
                     <div class="forgot-link">
-                        <a href="#">نسيت كلمة المرور؟</a>
+                        <a href="#" data-i18n="auth_forgot">نسيت كلمة المرور؟</a>
                     </div>
                 </div>
 
                 <button type="submit" class="btn-auth">
-                    <i class="bi bi-box-arrow-in-left me-2"></i> تسجيل الدخول
+                    <i class="bi bi-box-arrow-in-left me-2"></i> <span data-i18n="auth_signin_btn">تسجيل الدخول</span>
                 </button>
             </form>
 
             <div class="auth-divider">
-                <span>أو</span>
+                <span data-i18n="auth_or">أو</span>
             </div>
 
             <div class="social-login">
@@ -69,12 +71,12 @@
             </div>
 
             <div class="auth-footer">
-                ليس لديك حساب؟ <a href="signup.html">سجل الآن</a>
+                <span data-i18n="auth_no_account">ليس لديك حساب؟</span> <a href="signup.html" data-i18n="auth_signup_link">سجل الآن</a>
             </div>
 
             <div class="text-center mt-4">
                 <a href="index.html" style="color: #6c757d; text-decoration: none;">
-                    <i class="bi bi-arrow-right me-1"></i> العودة للرئيسية
+                    <i class="bi bi-arrow-right me-1"></i> <span data-i18n="auth_back_home">العودة للرئيسية</span>
                 </a>
             </div>
 

@@ -8,17 +8,24 @@ window.commonTranslations = {
         nav_login: "تسجيل الدخول",
         nav_signup: "إنشاء حساب",
         nav_lang: "اللغة",
+        nav_terms: "الشروط والأحكام",
+        nav_privacy: "سياسة الخصوصية",
 
         footer_desc: "نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز.",
         footer_links_title: "روابط مفيدة",
         footer_services_title: "خدماتنا",
         footer_contact_title: "تواصل معنا",
-        footer_city: "طنطا، الغربية",
+        footer_address: "طنطا، الغربية",
         footer_country: "مصر",
-        footer_phone: "الهاتف",
-        footer_email: "البريد",
+        footer_phone_label: "الهاتف:",
+        footer_email_label: "البريد:",
+        footer_copy_label: "حقوق النشر",
         footer_copyright: "جميع الحقوق محفوظة",
-        footer_copy_label: "حقوق النشر"
+
+        foo_serv_smart: "المنتجات الذكية",
+        foo_serv_courses: "الدورات التعليمية",
+        foo_serv_support: "الدعم الفني",
+        foo_serv_consult: "الاستشارات"
     },
     en: {
         nav_home: "Home",
@@ -29,16 +36,23 @@ window.commonTranslations = {
         nav_login: "Login",
         nav_signup: "Sign Up",
         nav_lang: "العربية",
+        nav_terms: "Terms and Conditions",
+        nav_privacy: "Privacy Policy",
 
         footer_desc: "We are ZYQRA - an integrated technology platform that combines smart products and distinguished educational content.",
         footer_links_title: "Useful Links",
         footer_services_title: "Our Services",
         footer_contact_title: "Contact Us",
-        footer_city: "Tanta, Gharbia",
+        footer_address: "Tanta, Gharbia",
         footer_country: "Egypt",
-        footer_phone: "Phone",
-        footer_email: "Email",
+        footer_phone_label: "Phone:",
+        footer_email_label: "Email:",
+        footer_copy_label: "Copyright",
         footer_copyright: "All rights reserved",
-        footer_copy_label: "Copyright"
+
+        foo_serv_smart: "Smart Products",
+        foo_serv_courses: "Educational Courses",
+        foo_serv_support: "Technical Support",
+        foo_serv_consult: "Consulting"
     }
 };

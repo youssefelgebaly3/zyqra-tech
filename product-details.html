@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
         rel="stylesheet">
     <link href="assets/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <script src="assets/js/translations/common.js"></script>
+    <script src="assets/js/translations/product-details.js"></script>
     <script src="assets/js/lang-config.js?v=3.1"></script>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -25,16 +27,16 @@
             </a>
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="products.html">المنتجات</a></li>
-                    <li><a href="courses.html">الدورات</a></li>
-                    <li><a href="about.html">من نحن</a></li>
-                    <li><a href="contact.html">تواصل معنا</a></li>
-                    <li class="d-xl-none"><a href="signin.html"><i class="bi bi-person me-2"></i> تسجيل الدخول</a></li>
-                    <li class="d-xl-none"><a href="signup.html"><i class="bi bi-person-plus me-2"></i> إنشاء حساب</a>
+                    <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="products.html" data-i18n="nav_products">المنتجات</a></li>
+                    <li><a href="courses.html" data-i18n="nav_courses">الدورات</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+                    <li class="d-xl-none"><a href="signin.html"><i class="bi bi-person me-2"></i> <span data-i18n="nav_login">تسجيل الدخول</span></a></li>
+                    <li class="d-xl-none"><a href="signup.html"><i class="bi bi-person-plus me-2"></i> <span data-i18n="nav_signup">إنشاء حساب</span></a>
                     </li>
                     <li class="d-xl-none"><a href="#" id="language-toggle-mobile"><i class="bi bi-globe me-2"></i>
-                            <span>Language</span></a></li>
+                            <span data-i18n="nav_lang">Language</span></a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -47,11 +49,11 @@
                 <div class="auth-links d-none d-xl-flex align-items-center gap-2">
                     <a href="signin.html" class="auth-link login">
                         <i class="bi bi-person"></i>
-                        <span>تسجيل الدخول</span>
+                        <span data-i18n="nav_login">تسجيل الدخول</span>
                     </a>
                     <a href="signup.html" class="auth-link signup">
                         <i class="bi bi-person-plus"></i>
-                        <span>إنشاء حساب</span>
+                        <span data-i18n="nav_signup">إنشاء حساب</span>
                     </a>
                 </div>
                 <a class="btn-shop-icon" href="cart.html" title="السلة">
@@ -74,41 +76,42 @@
 
                     <div class="col-lg-6">
                         <div class="product-gallery" data-aos="fade-right">
-                            <div class="main-image">
-                                <i class="bi bi-shield-lock"></i>
+                            <div class="main-image" style="background: transparent; height: auto; border: none;">
+                                <img src="assets/img/products/motolock.png" alt="MotoLock" class="img-fluid"
+                                    style="width: 100%; height: auto; object-fit: contain; border-radius: 16px;">
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="product-details" data-aos="fade-left">
-                            <span class="product-category"><i class="bi bi-tag me-2"></i> أنظمة الأمان</span>
+                            <span class="product-category"><i class="bi bi-tag me-2"></i> <span data-i18n="prd_det_cat">أنظمة الأمان</span></span>
                             <h1 class="product-title">MotoLock</h1>
-                            <p class="product-subtitle">موتوسيكلِك في جيبك.</p>
+                            <p class="product-subtitle" data-i18n="prd_det_subtitle">موتوسيكلِك في جيبك.</p>
 
-                            <p class="product-desc">نظام أمان ذكي يحول موبايلك لمفتاح كامل، مع تنبيهات فورية وتحكم كامل
+                            <p class="product-desc" data-i18n="prd_det_desc">نظام أمان ذكي يحول موبايلك لمفتاح كامل، مع تنبيهات فورية وتحكم كامل
                                 من تطبيق واحد.</p>
 
                             <div class="product-price-wrapper">
-                                <span class="discount-badge"> خصم لفترة محدودة – 33%</span>
-                                <div class="product-price">1,000 ج.م</div>
-                                <div class="old-price">1,500 ج.م</div>
+                                <span class="discount-badge" data-i18n="prd_det_discount"> خصم لفترة محدودة – 33%</span>
+                                <div class="product-price" data-i18n="prd_det_price">1,000 ج.م</div>
+                                <div class="old-price" data-i18n="prd_det_price_old">1,500 ج.م</div>
                             </div>
 
                             <div class="features-list">
-                                <h5><i class="bi bi-check2-circle me-2"></i> المميزات</h5>
+                                <h5><i class="bi bi-check2-circle me-2"></i> <span data-i18n="prd_det_features_title">المميزات</span></h5>
                                 <ul>
-                                    <li><i class="bi bi-phone"></i> تحكم كامل عبر التطبيق</li>
-                                    <li><i class="bi bi-mic"></i> تحكم صوتي باللغة العربية أو الإنجليزية</li>
-                                    <li><i class="bi bi-bell"></i> تنبيهات فورية عند أي محاولة حركة أو عبث</li>
-                                    <li><i class="bi bi-lock"></i> قفل وتشغيل الموتوسيكل من الموبايل</li>
-                                    <li><i class="bi bi-gear"></i> تركيب سهل بدون أي تعديل</li>
-                                    <li><i class="bi bi-shield-check"></i> ضمان سنة كاملة</li>
+                                    <li><i class="bi bi-phone"></i> <span data-i18n="prd_det_f1">تحكم كامل عبر التطبيق</span></li>
+                                    <li><i class="bi bi-mic"></i> <span data-i18n="prd_det_f2">تحكم صوتي باللغة العربية أو الإنجليزية</span></li>
+                                    <li><i class="bi bi-bell"></i> <span data-i18n="prd_det_f3">تنبيهات فورية عند أي محاولة حركة أو عبث</span></li>
+                                    <li><i class="bi bi-lock"></i> <span data-i18n="prd_det_f4">قفل وتشغيل الموتوسيكل من الموبايل</span></li>
+                                    <li><i class="bi bi-gear"></i> <span data-i18n="prd_det_f5">تركيب سهل بدون أي تعديل</span></li>
+                                    <li><i class="bi bi-shield-check"></i> <span data-i18n="prd_det_f6">ضمان سنة كاملة</span></li>
                                 </ul>
                             </div>
 
                             <div class="quantity-selector">
-                                <label>الكمية:</label>
+                                <label data-i18n="prd_det_qty_label">الكمية:</label>
                                 <div class="quantity-control">
                                     <button class="quantity-btn" onclick="updateDetailsQty(-1)">-</button>
                                     <span class="quantity-value" id="qty">1</span>
@@ -117,8 +120,9 @@
                             </div>
 
                             <div class="action-buttons">
-                                <button class="btn-add-cart" onclick="addDetailsToCart('MotoLock', 1000)">
-                                    <i class="bi bi-cart-plus"></i> أضف للسلة
+                                <button class="btn-add-cart"
+                                    onclick="addDetailsToCart('MotoLock', 1000, 'assets/img/products/motolock.png')">
+                                    <i class="bi bi-cart-plus"></i> <span data-i18n="prd_det_add_cart">أضف للسلة</span>
                                 </button>
                             </div>
                         </div>
@@ -131,32 +135,32 @@
                     <ul class="nav nav-tabs custom-tabs" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#specs" type="button"
-                                role="tab"><i class="bi bi-list-check me-2"></i>المواصفات</button>
+                                role="tab"><i class="bi bi-list-check me-2"></i><span data-i18n="prd_det_tab_specs">المواصفات</span></button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews" type="button"
-                                role="tab"><i class="bi bi-star-half me-2"></i>التقييمات</button>
+                                role="tab"><i class="bi bi-star-half me-2"></i><span data-i18n="prd_det_tab_reviews">التقييمات</span></button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#shipping" type="button"
-                                role="tab"><i class="bi bi-truck me-2"></i>الشحن</button>
+                                role="tab"><i class="bi bi-truck me-2"></i><span data-i18n="prd_det_tab_shipping">الشحن</span></button>
                         </li>
                     </ul>
                     <div class="tab-content custom-tab-content">
                         <!-- Specs Tab -->
                         <div class="tab-pane fade show active" id="specs" role="tabpanel">
                             <div class="tab-card">
-                                <h5>المواصفات التقنية</h5>
+                                <h5 data-i18n="prd_det_specs_title">المواصفات التقنية</h5>
                                 <ul class="modern-list">
-                                    <li><i class="bi bi-battery-charging"></i><span><strong>بطارية:</strong> ليثيوم 3.7V
+                                    <li><i class="bi bi-battery-charging"></i><span data-i18n="prd_det_spec1"><strong>بطارية:</strong> ليثيوم 3.7V
                                             2000mAh</span></li>
-                                    <li><i class="bi bi-bluetooth"></i><span><strong>اتصال:</strong> Bluetooth 5.0 +
+                                    <li><i class="bi bi-bluetooth"></i><span data-i18n="prd_det_spec2"><strong>اتصال:</strong> Bluetooth 5.0 +
                                             GSM</span></li>
-                                    <li><i class="bi bi-geo-alt"></i><span><strong>تتبع:</strong> GPS عالي الدقة</span>
+                                    <li><i class="bi bi-geo-alt"></i><span data-i18n="prd_det_spec3"><strong>تتبع:</strong> GPS عالي الدقة</span>
                                     </li>
-                                    <li><i class="bi bi-droplet-half"></i><span><strong>مقاومة:</strong> IP67 (مقاوم
+                                    <li><i class="bi bi-droplet-half"></i><span data-i18n="prd_det_spec4"><strong>مقاومة:</strong> IP67 (مقاوم
                                             للماء والغبار)</span></li>
-                                    <li><i class="bi bi-phone"></i><span><strong>التوافق:</strong> Android 6.0+ / iOS
+                                    <li><i class="bi bi-phone"></i><span data-i18n="prd_det_spec5"><strong>التوافق:</strong> Android 6.0+ / iOS
                                             12+</span></li>
                                 </ul>
                             </div>
@@ -167,18 +171,18 @@
                                 <div class="empty-state">
                                     <i class="bi bi-chat-square-text text-muted mb-3"
                                         style="font-size: 3rem; opacity: 0.5;"></i>
-                                    <p class="text-muted">لا توجد تقييمات حتى الآن. كن أول من يقيم هذا المنتج!</p>
+                                    <p class="text-muted" data-i18n="prd_det_no_reviews">لا توجد تقييمات حتى الآن. كن أول من يقيم هذا المنتج!</p>
                                 </div>
                             </div>
                         </div>
                         <!-- Shipping Tab -->
                         <div class="tab-pane fade" id="shipping" role="tabpanel">
                             <div class="tab-card">
-                                <h5>معلومات الشحن</h5>
+                                <h5 data-i18n="prd_det_shipping_title">معلومات الشحن</h5>
                                 <ul class="modern-list">
-                                    <li><i class="bi bi-clock-history"></i><span>الشحن خلال 2-5 أيام عمل</span></li>
-                                    <li><i class="bi bi-box-seam"></i><span>الشحن مجاني للطلبات فوق 1000 ج.م</span></li>
-                                    <li><i class="bi bi-cash-coin"></i><span>رسوم الشحن: 50 ج.م للطلبات العادية</span>
+                                    <li><i class="bi bi-clock-history"></i><span data-i18n="prd_det_ship1">الشحن خلال 2-5 أيام عمل</span></li>
+                                    <li><i class="bi bi-box-seam"></i><span data-i18n="prd_det_ship2">الشحن مجاني للطلبات فوق 1000 ج.م</span></li>
+                                    <li><i class="bi bi-cash-coin"></i><span data-i18n="prd_det_ship3">رسوم الشحن: 50 ج.م للطلبات العادية</span>
                                     </li>
                                 </ul>
                             </div>
@@ -188,18 +192,18 @@
 
                 <!-- FAQ Section -->
                 <div class="faq-section" data-aos="fade-up">
-                    <h3 class="section-title"><i class="bi bi-question-circle me-2"></i> الأسئلة الشائعة (FAQ)</h3>
+                    <h3 class="section-title"><i class="bi bi-question-circle me-2"></i> <span data-i18n="prd_det_faq_title">الأسئلة الشائعة (FAQ)</span></h3>
 
                     <div class="accordion" id="faqAccordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq1">
-                                    <i class="bi bi-shield-check me-2"></i> هل MotoLock آمن فعلاً؟
+                                    <i class="bi bi-shield-check me-2"></i> <span data-i18n="prd_det_faq1_q">هل MotoLock آمن فعلاً؟</span>
                                 </button>
                             </h2>
                             <div id="faq1" class="accordion-collapse collapse show">
-                                <div class="accordion-body">
+                                <div class="accordion-body" data-i18n="prd_det_faq1_a">
                                     نعم. يعمل MotoLock فقط مع الموبايل المسجّل على التطبيق، ولا يمكن تشغيل الموتوسيكل
                                     بدون إذن المستخدم، مما يقلل بشكل كبير خطر السرقة أو التشغيل غير المصرح به.
                                 </div>
@@ -210,11 +214,11 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq2">
-                                    <i class="bi bi-phone me-2"></i> هل يمكن تشغيل الموتوسيكل بدون الموبايل؟
+                                    <i class="bi bi-phone me-2"></i> <span data-i18n="prd_det_faq2_q">هل يمكن تشغيل الموتوسيكل بدون الموبايل؟</span>
                                 </button>
                             </h2>
                             <div id="faq2" class="accordion-collapse collapse">
-                                <div class="accordion-body">
+                                <div class="accordion-body" data-i18n="prd_det_faq2_a">
                                     يمكن تشغيل الموتوسيكل بشكل مزدوج: من خلال الموبايل أو المفتاح التقليدي، مع أن
                                     الأولوية دائمًا تكون للهاتف لضمان أقصى درجات الأمان والتحكم الذكي.
                                 </div>
@@ -225,11 +229,11 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq3">
-                                    <i class="bi bi-tools me-2"></i> هل يحتاج لتركيب معقد أو تعديل في الموتوسيكل؟
+                                    <i class="bi bi-tools me-2"></i> <span data-i18n="prd_det_faq3_q">هل يحتاج لتركيب معقد أو تعديل في الموتوسيكل؟</span>
                                 </button>
                             </h2>
                             <div id="faq3" class="accordion-collapse collapse">
-                                <div class="accordion-body">
+                                <div class="accordion-body" data-i18n="prd_det_faq3_a">
                                     لا. يمكن تركيب MotoLock بنفسك بسهولة دون أي تعديل أو قطع في الأسلاك، كما يمكن تركيبه
                                     بسرعة لدى فني معتمد إذا أحببت المساعدة.
                                 </div>
@@ -240,11 +244,11 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq4">
-                                    <i class="bi bi-mic me-2"></i> هل يدعم التحكم الصوتي؟
+                                    <i class="bi bi-mic me-2"></i> <span data-i18n="prd_det_faq4_q">هل يدعم التحكم الصوتي؟</span>
                                 </button>
                             </h2>
                             <div id="faq4" class="accordion-collapse collapse">
-                                <div class="accordion-body">
+                                <div class="accordion-body" data-i18n="prd_det_faq4_a">
                                     نعم. يدعم التحكم الصوتي باللغتين العربية والإنجليزية عبر التطبيق لتجربة استخدام أسرع
                                     وأسهل.
                                 </div>
@@ -255,12 +259,12 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq5">
-                                    <i class="bi bi-exclamation-triangle me-2"></i> ماذا يحدث عند محاولة سرقة
-                                    الموتوسيكل؟
+                                    <i class="bi bi-exclamation-triangle me-2"></i> <span data-i18n="prd_det_faq5_q">ماذا يحدث عند محاولة سرقة
+                                    الموتوسيكل؟</span>
                                 </button>
                             </h2>
                             <div id="faq5" class="accordion-collapse collapse">
-                                <div class="accordion-body">
+                                <div class="accordion-body" data-i18n="prd_det_faq5_a">
                                     في حال أي محاولة حركة أو عبث، يرسل MotoLock تنبيهًا فوريًا إلى موبايلك عبر التطبيق.
                                 </div>
                             </div>
@@ -270,11 +274,11 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq6">
-                                    <i class="bi bi-globe me-2"></i> هل يعمل في جميع الأماكن؟
+                                    <i class="bi bi-globe me-2"></i> <span data-i18n="prd_det_faq6_q">هل يعمل في جميع الأماكن؟</span>
                                 </button>
                             </h2>
                             <div id="faq6" class="accordion-collapse collapse">
-                                <div class="accordion-body">
+                                <div class="accordion-body" data-i18n="prd_det_faq6_a">
                                     نعم. يعمل بكفاءة في المدن والمناطق المزدحمة، ولا يعتمد على الاتصال الدائم بالإنترنت
                                     للتحكم الأساسي.
                                 </div>
@@ -285,11 +289,11 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq7">
-                                    <i class="bi bi-geo-alt me-2"></i> هل يوجد نظام تتبع GPS؟
+                                    <i class="bi bi-geo-alt me-2"></i> <span data-i18n="prd_det_faq7_q">هل يوجد نظام تتبع GPS؟</span>
                                 </button>
                             </h2>
                             <div id="faq7" class="accordion-collapse collapse">
-                                <div class="accordion-body">
+                                <div class="accordion-body" data-i18n="prd_det_faq7_a">
                                     حالياً، نظام التتبع غير متاح في هذا الإصدار. لكن سيتم إطلاق إصدار مستقبلي يتضمن
                                     إضافة GPS لمستوى أمان أعلى واسترجاع أسهل في حالة السرقة.
                                 </div>
@@ -300,11 +304,11 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq8">
-                                    <i class="bi bi-battery-charging me-2"></i> هل يؤثر على بطارية الموتوسيكل؟
+                                    <i class="bi bi-battery-charging me-2"></i> <span data-i18n="prd_det_faq8_q">هل يؤثر على بطارية الموتوسيكل؟</span>
                                 </button>
                             </h2>
                             <div id="faq8" class="accordion-collapse collapse">
-                                <div class="accordion-body">
+                                <div class="accordion-body" data-i18n="prd_det_faq8_a">
                                     لا. مصمم ليعمل باستهلاك طاقة منخفض جدًا، دون التأثير على بطارية الموتوسيكل عند
                                     الاستخدام الطبيعي.
                                 </div>
@@ -315,11 +319,11 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq9">
-                                    <i class="bi bi-patch-check me-2"></i> هل يوجد ضمان؟
+                                    <i class="bi bi-patch-check me-2"></i> <span data-i18n="prd_det_faq9_q">هل يوجد ضمان؟</span>
                                 </button>
                             </h2>
                             <div id="faq9" class="accordion-collapse collapse">
-                                <div class="accordion-body">
+                                <div class="accordion-body" data-i18n="prd_det_faq9_a">
                                     نعم. يأتي الجهاز مع ضمان سنة كاملة يشمل عيوب التصنيع والدعم الفني.
                                 </div>
                             </div>
@@ -329,11 +333,11 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq10">
-                                    <i class="bi bi-bicycle me-2"></i> هل يناسب كل أنواع الموتوسيكلات؟
+                                    <i class="bi bi-bicycle me-2"></i> <span data-i18n="prd_det_faq10_q">هل يناسب كل أنواع الموتوسيكلات؟</span>
                                 </button>
                             </h2>
                             <div id="faq10" class="accordion-collapse collapse">
-                                <div class="accordion-body">
+                                <div class="accordion-body" data-i18n="prd_det_faq10_a">
                                     MotoLock مناسب لمعظم الموتوسيكلات الشائعة، خاصة الموديلات الصينية المنتشرة للاستخدام
                                     اليومي. بالنسبة للموديلات النادرة أو القديمة، يُفضل التأكد من التوافق قبل الشراء.
                                 </div>
@@ -344,11 +348,11 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq11">
-                                    <i class="bi bi-google-play me-2"></i> ما هي متطلبات التطبيق؟
+                                    <i class="bi bi-google-play me-2"></i> <span data-i18n="prd_det_faq11_q">ما هي متطلبات التطبيق؟</span>
                                 </button>
                             </h2>
                             <div id="faq11" class="accordion-collapse collapse">
-                                <div class="accordion-body">
+                                <div class="accordion-body" data-i18n="prd_det_faq11_a">
                                     يتوفر تطبيق MotoLock حاليًا على Android فقط. يحتاج الهاتف إلى إصدار حديث قليلًا
                                     لضمان الأداء السلس لجميع الميزات.
                                 </div>
@@ -359,11 +363,11 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq12">
-                                    <i class="bi bi-arrow-repeat me-2"></i> ماذا يحدث لو فقدت الهاتف أو غيرت جهازك؟
+                                    <i class="bi bi-arrow-repeat me-2"></i> <span data-i18n="prd_det_faq12_q">ماذا يحدث لو فقدت الهاتف أو غيرت جهازك؟</span>
                                 </button>
                             </h2>
                             <div id="faq12" class="accordion-collapse collapse">
-                                <div class="accordion-body">
+                                <div class="accordion-body" data-i18n="prd_det_faq12_a">
                                     في حال فقدان الهاتف أو تغييره، يمكن إعادة ربط MotoLock من خلال الدعم الفني عبر
                                     الموقع الإلكتروني لضمان استمرار التحكم والأولوية للهاتف.
                                 </div>
@@ -374,11 +378,11 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq13">
-                                    <i class="bi bi-arrow-clockwise me-2"></i> هل يحصل الجهاز على تحديثات؟
+                                    <i class="bi bi-arrow-clockwise me-2"></i> <span data-i18n="prd_det_faq13_q">هل يحصل الجهاز على تحديثات؟</span>
                                 </button>
                             </h2>
                             <div id="faq13" class="accordion-collapse collapse">
-                                <div class="accordion-body">
+                                <div class="accordion-body" data-i18n="prd_det_faq13_a">
                                     نعم. يحصل MotoLock على تحديثات منتظمة لتحسين الأمان وإضافة ميزات جديدة، دون الحاجة
                                     لأي تدخل معقد من المستخدم.
                                 </div>
@@ -389,11 +393,11 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq14">
-                                    <i class="bi bi-lock me-2"></i> حماية البيانات والخصوصية
+                                    <i class="bi bi-lock me-2"></i> <span data-i18n="prd_det_faq14_q">حماية البيانات والخصوصية</span>
                                 </button>
                             </h2>
                             <div id="faq14" class="accordion-collapse collapse">
-                                <div class="accordion-body">
+                                <div class="accordion-body" data-i18n="prd_det_faq14_a">
                                     نحن نحترم خصوصيتك. التطبيق لا يشارك بياناتك الشخصية أو حركة الموتوسيكل مع أطراف
                                     خارجية، وتخزين البيانات يتم بشكل آمن داخل النظام.
                                 </div>
@@ -404,11 +408,11 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq15">
-                                    <i class="bi bi-headset me-2"></i> كيف أحصل على الدعم في حالة وجود مشكلة؟
+                                    <i class="bi bi-headset me-2"></i> <span data-i18n="prd_det_faq15_q">كيف أحصل على الدعم في حالة وجود مشكلة؟</span>
                                 </button>
                             </h2>
                             <div id="faq15" class="accordion-collapse collapse">
-                                <div class="accordion-body">
+                                <div class="accordion-body" data-i18n="prd_det_faq15_a">
                                     يتوفر دعم فني مباشر من خلال الموقع الإلكتروني، بالإضافة إلى الدعم عبر شركائنا من
                                     محلات الموتوسيكلات المعتمدة، لضمان حصولك على المساعدة بسرعة وكفاءة في أي وقت.
                                 </div>
@@ -429,7 +433,7 @@
                     <a href="index.html" class="logo d-flex align-items-center">
                         <span class="sitename">ZYQRA</span>
                     </a>
-                    <p>نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز، نسعى لتحقيق
+                    <p data-i18n="footer_desc">نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز، نسعى لتحقيق
                         تأثير
                         اجتماعي إيجابي من خلال الابتكار.</p>
                     <div class="social-links d-flex mt-4">
@@ -444,40 +448,39 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-6 footer-links">
-                    <h4>روابط مفيدة</h4>
+                    <h4 data-i18n="footer_links_title">روابط مفيدة</h4>
                     <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="products.html">المنتجات</a></li>
-                        <li><a href="courses.html">الدورات</a></li>
-                        <li><a href="about.html">من نحن</a></li>
-                        <li><a href="contact.html">تواصل معنا</a></li>
-                        <li><a href="terms.html">الشروط والأحكام</a></li>
-                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                        <li><a href="products.html" data-i18n="nav_products">المنتجات</a></li>
+                        <li><a href="courses.html" data-i18n="nav_courses">الدورات</a></li>
+                        <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
+                        <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+                        <li><a href="terms.html" data-i18n="nav_terms">الشروط والأحكام</a></li>
+                        <li><a href="privacy.html" data-i18n="nav_privacy">سياسة الخصوصية</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-6 footer-links">
-                    <h4>خدماتنا</h4>
+                    <h4 data-i18n="footer_services_title">خدماتنا</h4>
                     <ul>
-                        <li><a href="products.html">المنتجات الذكية</a></li>
-                        <li><a href="courses.html">الدورات التعليمية</a></li>
-                        <li><a href="contact.html">الدعم الفني</a></li>
-                        <li><a href="contact.html">الاستشارات</a></li>
+                        <li><a href="products.html" data-i18n="foo_serv_smart">المنتجات الذكية</a></li>
+                        <li><a href="courses.html" data-i18n="foo_serv_courses">الدورات التعليمية</a></li>
+                        <li><a href="contact.html" data-i18n="foo_serv_support">الدعم الفني</a></li>
+                        <li><a href="contact.html" data-i18n="foo_serv_consult">الاستشارات</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                    <h4>تواصل معنا</h4>
-                    <p>طنطا، الغربية</p>
-                    <p>مصر</p>
-                    <p class="mt-4"><strong>الهاتف:</strong> <span dir="ltr">+201033624387</span></p>
-                    <p><strong>البريد:</strong> <span>info@zyqra.com</span></p>
+                    <h4 data-i18n="footer_contact_title">تواصل معنا</h4>
+                    <p data-i18n="footer_address">طنطا، الغربية</p>
+                    <p data-i18n="footer_country">مصر</p>
+                    <p class="mt-4"><strong data-i18n="footer_phone_label">الهاتف:</strong> <span dir="ltr">+201033624387</span></p>
+                    <p><strong data-i18n="footer_email_label">البريد:</strong> <span>info@zyqra.com</span></p>
                 </div>
             </div>
         </div>
         <div class="container copyright text-center mt-3">
-            <p>© <span>حقوق النشر</span> <strong class="px-1 sitename"></strong>ZYQRA</strong> <span>جميع الحقوق
-                    محفوظة</span>
+            <p>© <span data-i18n="footer_copy_label">حقوق النشر</span> <strong class="px-1 sitename">ZYQRA</strong> <span data-i18n="footer_copyright">جميع الحقوق محفوظة</span>
             </p>
         </div>
     </footer>
