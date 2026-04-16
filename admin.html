@@ -52,6 +52,10 @@
                 <i class="bi bi-boxes"></i>
                 <span>المخزون</span>
             </a>
+            <a href="#messages" class="nav-item" data-section="messages">
+                <i class="bi bi-chat-dots"></i>
+                <span>رسائل التواصل</span>
+            </a>
         </nav>
         <div class="sidebar-footer">
             <a href="index.html" class="nav-item">
@@ -80,7 +84,7 @@
             <div class="topbar-actions">
                 <button class="notification-btn">
                     <i class="bi bi-bell"></i>
-                    <span class="badge">3</span>
+                    <span class="badge" id="notification-count" style="display: none;">0</span>
                 </button>
                 <div class="admin-profile">
                     <img src="https://ui-avatars.com/api/?name=Admin&background=2E86AB&color=fff" alt="Admin">
@@ -101,9 +105,9 @@
                 <div class="stat-card users">
                     <div class="stat-info">
                         <div class="stat-top-row">
-                            <span class="stat-number">1,256</span>
+                            <span class="stat-number" id="stat-users">--</span>
                             <div class="stat-trend up">
-                                <i class="bi bi-arrow-up"></i> 12% هذا الشهر
+                                <i class="bi bi-arrow-up"></i> إجمالي المسجلين
                             </div>
                         </div>
                         <span class="stat-label">مستخدم مسجل</span>
@@ -116,12 +120,12 @@
                 <div class="stat-card orders">
                     <div class="stat-info">
                         <div class="stat-top-row">
-                            <span class="stat-number">84</span>
+                            <span class="stat-number" id="stat-orders">--</span>
                             <div class="stat-trend up">
-                                <i class="bi bi-arrow-up"></i> 8% هذا الأسبوع
+                                <i class="bi bi-bag"></i> إجمالي الطلبات
                             </div>
                         </div>
-                        <span class="stat-label">طلب جديد</span>
+                        <span class="stat-label">طلب مسجل</span>
                     </div>
                     <div class="stat-icon">
                         <i class="bi bi-bag-fill"></i>
@@ -131,12 +135,12 @@
                 <div class="stat-card courses">
                     <div class="stat-info">
                         <div class="stat-top-row">
-                            <span class="stat-number">8</span>
+                            <span class="stat-number" id="stat-products">--</span>
                             <div class="stat-trend">
-                                <i class="bi bi-dash"></i> ثابت
+                                <i class="bi bi-box"></i> المنتجات
                             </div>
                         </div>
-                        <span class="stat-label">دورة متاحة</span>
+                        <span class="stat-label">منتج متاح</span>
                     </div>
                     <div class="stat-icon">
                         <i class="bi bi-book-fill"></i>
@@ -146,9 +150,9 @@
                 <div class="stat-card revenue">
                     <div class="stat-info">
                         <div class="stat-top-row">
-                            <span class="stat-number">45,200 ج.م</span>
+                            <span class="stat-number" id="stat-revenue">-- ج.م</span>
                             <div class="stat-trend up">
-                                <i class="bi bi-arrow-up"></i> 23% هذا الشهر
+                                <i class="bi bi-cash"></i> الأرباح
                             </div>
                         </div>
                         <span class="stat-label">إجمالي المبيعات</span>
@@ -160,7 +164,19 @@
             </div>
 
             <!-- Quick Stats Row -->
-            <div class="row g-4 mt-2">
+            <div class="row g-4 mt-1">
+                <!-- Sales Chart -->
+                <div class="col-12">
+                    <div class="admin-card">
+                        <div class="card-header">
+                            <h5><i class="bi bi-graph-up"></i> نظرة عامة على المبيعات</h5>
+                        </div>
+                        <div class="card-body" style="background: white;">
+                            <canvas id="salesChart" height="100" style="max-height: 350px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Recent Orders -->
                 <div class="col-lg-8">
                     <div class="admin-card">
@@ -181,48 +197,9 @@
                                             <th>الإجراءات</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="admin-recent-orders-body">
                                         <tr>
-                                            <td>#ZYQ-789456</td>
-                                            <td>محمد علي</td>
-                                            <td>MotoLock x2</td>
-                                            <td>2,100 ج.م</td>
-                                            <td><span class="status-badge pending">قيد المراجعة</span></td>
-                                            <td>
-                                                <button class="action-btn"><i class="bi bi-eye"></i></button>
-                                                <button class="action-btn success"><i class="bi bi-check"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>#ZYQ-789455</td>
-                                            <td>سارة أحمد</td>
-                                            <td>MotoLock x1</td>
-                                            <td>1,050 ج.م</td>
-                                            <td><span class="status-badge shipping">قيد الشحن</span></td>
-                                            <td>
-                                                <button class="action-btn"><i class="bi bi-eye"></i></button>
-                                                <button class="action-btn"><i class="bi bi-truck"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>#ZYQ-789454</td>
-                                            <td>أحمد حسن</td>
-                                            <td>MotoLock x1</td>
-                                            <td>1,050 ج.م</td>
-                                            <td><span class="status-badge delivered">تم التسليم</span></td>
-                                            <td>
-                                                <button class="action-btn"><i class="bi bi-eye"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>#ZYQ-789453</td>
-                                            <td>فاطمة محمود</td>
-                                            <td>MotoLock x3</td>
-                                            <td>3,150 ج.م</td>
-                                            <td><span class="status-badge delivered">تم التسليم</span></td>
-                                            <td>
-                                                <button class="action-btn"><i class="bi bi-eye"></i></button>
-                                            </td>
+                                            <td colspan="6" class="text-center">جاري التحميل...</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -291,8 +268,15 @@
                 <div class="card-header">
                     <h5><i class="bi bi-people"></i> قائمة المستخدمين</h5>
                     <div class="header-actions">
-                        <input type="text" placeholder="بحث عن مستخدم..." class="search-input">
-                        <button class="btn-add"><i class="bi bi-plus"></i> إضافة مستخدم</button>
+                        <select class="filter-select" id="user-role-filter">
+                            <option value="">جميع الأدوار</option>
+                            <option value="admin">مدير</option>
+                            <option value="student">طالب</option>
+                            <option value="customer">عميل</option>
+                            <option value="installer">فني تركيب</option>
+                        </select>
+                        <input type="text" placeholder="بحث باسم المستخدم أو البريد..." class="search-input"
+                            id="user-search-input">
                     </div>
                 </div>
                 <div class="card-body">
@@ -302,70 +286,15 @@
                                 <tr>
                                     <th>المستخدم</th>
                                     <th>البريد الإلكتروني</th>
-                                    <th>تاريخ التسجيل</th>
-                                    <th>الدورات</th>
-                                    <th>الطلبات</th>
-                                    <th>الحالة</th>
+                                    <th>رقم الهاتف</th>
+                                    <th>تاريخ الانضمام</th>
+                                    <th>الدور</th>
                                     <th>الإجراءات</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="admin-users-body">
                                 <tr>
-                                    <td>
-                                        <div class="user-cell">
-                                            <img src="https://ui-avatars.com/api/?name=Ahmed&background=2E86AB&color=fff"
-                                                alt="">
-                                            <span>أحمد محمد</span>
-                                        </div>
-                                    </td>
-                                    <td>ahmed@example.com</td>
-                                    <td>15 يناير 2024</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                    <td><span class="status-badge active">نشط</span></td>
-                                    <td>
-                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
-                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
-                                        <button class="action-btn danger"><i class="bi bi-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="user-cell">
-                                            <img src="https://ui-avatars.com/api/?name=Sara&background=A23B72&color=fff"
-                                                alt="">
-                                            <span>سارة علي</span>
-                                        </div>
-                                    </td>
-                                    <td>sara@example.com</td>
-                                    <td>20 فبراير 2024</td>
-                                    <td>3</td>
-                                    <td>1</td>
-                                    <td><span class="status-badge active">نشط</span></td>
-                                    <td>
-                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
-                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
-                                        <button class="action-btn danger"><i class="bi bi-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="user-cell">
-                                            <img src="https://ui-avatars.com/api/?name=Mohamed&background=F18F01&color=fff"
-                                                alt="">
-                                            <span>محمد حسن</span>
-                                        </div>
-                                    </td>
-                                    <td>mohamed@example.com</td>
-                                    <td>5 مارس 2024</td>
-                                    <td>2</td>
-                                    <td>0</td>
-                                    <td><span class="status-badge inactive">غير نشط</span></td>
-                                    <td>
-                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
-                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
-                                        <button class="action-btn danger"><i class="bi bi-trash"></i></button>
-                                    </td>
+                                    <td colspan="6" class="text-center">جاري تحميل المستخدمين...</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -385,14 +314,15 @@
                 <div class="card-header">
                     <h5><i class="bi bi-bag"></i> قائمة الطلبات</h5>
                     <div class="header-actions">
-                        <select class="filter-select">
+                        <select class="filter-select" id="order-status-filter">
                             <option value="">جميع الحالات</option>
                             <option value="pending">قيد المراجعة</option>
+                            <option value="processing">جاري التجهيز</option>
                             <option value="shipping">قيد الشحن</option>
-                            <option value="delivered">تم التسليم</option>
+                            <option value="completed">تم التسليم</option>
                             <option value="cancelled">ملغي</option>
                         </select>
-                        <input type="text" placeholder="بحث برقم الطلب..." class="search-input">
+                        <input type="text" placeholder="بحث برقم الطلب..." class="search-input" id="order-search-input">
                     </div>
                 </div>
                 <div class="card-body">
@@ -410,73 +340,11 @@
                                     <th>الإجراءات</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="admin-orders-body">
                                 <tr>
-                                    <td><strong>#ZYQ-789456</strong></td>
-                                    <td>محمد علي</td>
-                                    <td>MotoLock x2</td>
-                                    <td>2,100 ج.م</td>
-                                    <td><span class="payment-method cod">عند الاستلام</span></td>
-                                    <td>5 يناير 2025</td>
-                                    <td>
-                                        <select class="status-select pending">
-                                            <option value="pending" selected>قيد المراجعة</option>
-                                            <option value="confirmed">تم التأكيد</option>
-                                            <option value="shipping">قيد الشحن</option>
-                                            <option value="delivered">تم التسليم</option>
-                                            <option value="cancelled">ملغي</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
-                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
-                                        <button class="action-btn whatsapp"><i class="bi bi-whatsapp"></i></button>
-                                    </td>
+                                    <td colspan="8" class="text-center">جاري تحميل الطلبات...</td>
                                 </tr>
-                                <tr>
-                                    <td><strong>#ZYQ-789455</strong></td>
-                                    <td>سارة أحمد</td>
-                                    <td>MotoLock x1</td>
-                                    <td>1,050 ج.م</td>
-                                    <td><span class="payment-method vodafone">فودافون كاش</span></td>
-                                    <td>4 يناير 2025</td>
-                                    <td>
-                                        <select class="status-select shipping">
-                                            <option value="pending">قيد المراجعة</option>
-                                            <option value="confirmed">تم التأكيد</option>
-                                            <option value="shipping" selected>قيد الشحن</option>
-                                            <option value="delivered">تم التسليم</option>
-                                            <option value="cancelled">ملغي</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
-                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
-                                        <button class="action-btn whatsapp"><i class="bi bi-whatsapp"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>#ZYQ-789454</strong></td>
-                                    <td>أحمد حسن</td>
-                                    <td>MotoLock x1</td>
-                                    <td>1,050 ج.م</td>
-                                    <td><span class="payment-method instapay">إنستاباي</span></td>
-                                    <td>3 يناير 2025</td>
-                                    <td>
-                                        <select class="status-select delivered">
-                                            <option value="pending">قيد المراجعة</option>
-                                            <option value="confirmed">تم التأكيد</option>
-                                            <option value="shipping">قيد الشحن</option>
-                                            <option value="delivered" selected>تم التسليم</option>
-                                            <option value="cancelled">ملغي</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
-                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
-                                        <button class="action-btn whatsapp"><i class="bi bi-whatsapp"></i></button>
-                                    </td>
-                                </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -591,7 +459,18 @@
             <div class="admin-card">
                 <div class="card-header">
                     <h5><i class="bi bi-box-seam"></i> قائمة المنتجات</h5>
-                    <button class="btn-add"><i class="bi bi-plus"></i> إضافة منتج</button>
+                    <div class="header-actions">
+                        <select class="filter-select" id="product-category-filter">
+                            <option value="">جميع التصنيفات</option>
+                            <option value="security">أمان</option>
+                            <option value="accessories">إكسسوارات</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                        <input type="text" placeholder="بحث باسم المنتج..." class="search-input"
+                            id="product-search-input">
+                        <button class="btn-add" id="open-add-product-modal"><i class="bi bi-plus"></i> إضافة
+                            منتج</button>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -599,39 +478,16 @@
                             <thead>
                                 <tr>
                                     <th>المنتج</th>
+                                    <th>التصنيف</th>
                                     <th>السعر</th>
                                     <th>المخزون</th>
-                                    <th>المبيعات</th>
                                     <th>الحالة</th>
                                     <th>الإجراءات</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="admin-products-body">
                                 <tr>
-                                    <td>
-                                        <div class="product-cell">
-                                            <div class="product-icon">
-                                                <i class="bi bi-shield-lock"></i>
-                                            </div>
-                                            <div class="product-info">
-                                                <span class="product-name">MotoLock</span>
-                                                <span class="product-sku">SKU: ML-001</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><strong>1,000 ج.م</strong></td>
-                                    <td>
-                                        <span class="stock-badge in-stock">
-                                            <i class="bi bi-check-circle"></i> 45 قطعة
-                                        </span>
-                                    </td>
-                                    <td>84 طلب</td>
-                                    <td><span class="status-badge active">متاح</span></td>
-                                    <td>
-                                        <button class="action-btn"><i class="bi bi-eye"></i></button>
-                                        <button class="action-btn edit"><i class="bi bi-pencil"></i></button>
-                                        <button class="action-btn"><i class="bi bi-graph-up"></i></button>
-                                    </td>
+                                    <td colspan="6" class="text-center">جاري تحميل المنتجات...</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -651,10 +507,10 @@
             <div class="inventory-stats">
                 <div class="inv-stat-card">
                     <div class="inv-icon total">
-                        <i class="bi bi-boxes"></i>
+                        <i class="bi bi-box-seam"></i>
                     </div>
                     <div class="inv-info">
-                        <span class="inv-number">45</span>
+                        <span class="inv-number" id="inv-total-stock">---</span>
                         <span class="inv-label">إجمالي المخزون</span>
                     </div>
                 </div>
@@ -663,7 +519,7 @@
                         <i class="bi bi-bag-check"></i>
                     </div>
                     <div class="inv-info">
-                        <span class="inv-number">84</span>
+                        <span class="inv-number" id="inv-total-sold">---</span>
                         <span class="inv-label">تم بيعها</span>
                     </div>
                 </div>
@@ -706,33 +562,9 @@
                                     <th>الإجراءات</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="admin-inventory-body">
                                 <tr>
-                                    <td>
-                                        <div class="product-cell">
-                                            <div class="product-icon">
-                                                <i class="bi bi-shield-lock"></i>
-                                            </div>
-                                            <span>MotoLock</span>
-                                        </div>
-                                    </td>
-                                    <td>ML-001</td>
-                                    <td>
-                                        <div class="quantity-cell">
-                                            <button class="qty-btn minus"><i class="bi bi-dash"></i></button>
-                                            <input type="number" value="45" class="qty-input">
-                                            <button class="qty-btn plus"><i class="bi bi-plus"></i></button>
-                                        </div>
-                                    </td>
-                                    <td>10 قطع</td>
-                                    <td>5 يناير 2025</td>
-                                    <td><span class="status-badge in-stock">متوفر</span></td>
-                                    <td>
-                                        <button class="action-btn success" title="حفظ"><i
-                                                class="bi bi-check-lg"></i></button>
-                                        <button class="action-btn" title="السجل"><i
-                                                class="bi bi-clock-history"></i></button>
-                                    </td>
+                                    <td colspan="7" class="text-center">جاري تحميل المخزون...</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -759,33 +591,48 @@
                                     <th>ملاحظات</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="admin-inventory-history-body">
                                 <tr>
-                                    <td>5 يناير 2025</td>
-                                    <td>MotoLock</td>
-                                    <td><span class="movement-badge out">بيع</span></td>
-                                    <td>-2</td>
-                                    <td>47</td>
-                                    <td>45</td>
-                                    <td>طلب #ZYQ-789456</td>
+                                    <td colspan="7" class="text-center">جاري تحميل السجل...</td>
                                 </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Messages Section -->
+        <section class="admin-section" id="messages">
+            <div class="section-header">
+                <h2>رسائل التواصل</h2>
+                <p>إدارة استفسارات ورسائل العملاء</p>
+            </div>
+
+            <div class="admin-card">
+                <div class="card-header">
+                    <h5><i class="bi bi-chat-dots"></i> جميع الرسائل</h5>
+                    <div class="header-actions">
+                        <input type="text" placeholder="بحث باسم العميل أو الإيميل..." class="search-input"
+                            id="message-search-input">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
                                 <tr>
-                                    <td>4 يناير 2025</td>
-                                    <td>MotoLock</td>
-                                    <td><span class="movement-badge out">بيع</span></td>
-                                    <td>-1</td>
-                                    <td>48</td>
-                                    <td>47</td>
-                                    <td>طلب #ZYQ-789455</td>
+                                    <th>تاريخ الرسالة</th>
+                                    <th>العميل</th>
+                                    <th>الإيميل / الهاتف</th>
+                                    <th>الموضوع</th>
+                                    <th style="width: 300px;">الرسالة</th>
+                                    <th>الإجراءات</th>
                                 </tr>
+                            </thead>
+                            <tbody id="admin-messages-body">
                                 <tr>
-                                    <td>1 يناير 2025</td>
-                                    <td>MotoLock</td>
-                                    <td><span class="movement-badge in">إضافة</span></td>
-                                    <td>+50</td>
-                                    <td>0</td>
-                                    <td>50</td>
-                                    <td>توريد جديد</td>
+                                    <td colspan="6" class="text-center">جاري تحميل الرسائل...</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -796,9 +643,121 @@
 
     </main>
 
+    <!-- Product Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalTitle">إضافة منتج جديد</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="productForm" enctype="multipart/form-data">
+                    <input type="hidden" id="product-id" name="id">
+                    <div class="modal-body">
+                        <div class="row g-3">
+                            <!-- Name Arabic -->
+                            <div class="col-md-6">
+                                <label class="form-label">الاسم (بالعربي)</label>
+                                <input type="text" class="form-control" name="name_ar" id="product-name-ar" required>
+                            </div>
+                            <!-- Name English -->
+                            <div class="col-md-6">
+                                <label class="form-label">Name (English)</label>
+                                <input type="text" class="form-control" name="name_en" id="product-name-en" dir="ltr"
+                                    required>
+                            </div>
+
+                            <!-- Subtitle Arabic -->
+                            <div class="col-md-6">
+                                <label class="form-label">عنوان فرعي (بالعربي)</label>
+                                <input type="text" class="form-control" name="subtitle_ar" id="product-subtitle-ar">
+                            </div>
+                            <!-- Subtitle English -->
+                            <div class="col-md-6">
+                                <label class="form-label">Subtitle (English)</label>
+                                <input type="text" class="form-control" name="subtitle_en" id="product-subtitle-en"
+                                    dir="ltr">
+                            </div>
+
+                            <!-- Price -->
+                            <div class="col-md-4">
+                                <label class="form-label">السعر الحالي</label>
+                                <input type="number" step="0.01" class="form-control" name="price" id="product-price"
+                                    required>
+                            </div>
+                            <!-- Old Price -->
+                            <div class="col-md-4">
+                                <label class="form-label">السعر السابق (اختياري)</label>
+                                <input type="number" step="0.01" class="form-control" name="old_price"
+                                    id="product-old-price">
+                            </div>
+                            <!-- Stock -->
+                            <div class="col-md-4">
+                                <label class="form-label">الكمية المتوفرة</label>
+                                <input type="number" class="form-control" name="stock" id="product-stock" value="0">
+                            </div>
+
+                            <!-- Category -->
+                            <div class="col-md-6">
+                                <label class="form-label">التصنيف</label>
+                                <select class="form-select" name="category" id="product-category" required>
+                                    <option value="security">أمان (Security)</option>
+                                    <option value="accessories">إكسسوارات (Accessories)</option>
+                                    <option value="other">أخرى (Other)</option>
+                                </select>
+                            </div>
+                            <!-- Discount Label AR -->
+                            <div class="col-md-3">
+                                <label class="form-label">ملصق الخصم (عربي)</label>
+                                <input type="text" class="form-control" name="discount_ar" id="product-discount-ar"
+                                    placeholder="مثال: خصم 20%">
+                            </div>
+                            <!-- Discount Label EN -->
+                            <div class="col-md-3">
+                                <label class="form-label">Discount (EN)</label>
+                                <input type="text" class="form-control" name="discount_en" id="product-discount-en"
+                                    dir="ltr" placeholder="Ex: 20% OFF">
+                            </div>
+
+                            <!-- Image -->
+                            <div class="col-md-12">
+                                <label class="form-label">صورة المنتج</label>
+                                <div class="image-upload-wrapper">
+                                    <input type="file" class="form-control" name="image" id="product-image"
+                                        accept="image/*">
+                                    <div id="product-image-preview" class="mt-2 text-center">
+                                        <!-- Preview will appear here -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Description Arabic -->
+                            <div class="col-md-6">
+                                <label class="form-label">الوصف (بالعربي)</label>
+                                <textarea class="form-control" name="description_ar" id="product-description-ar"
+                                    rows="4"></textarea>
+                            </div>
+                            <!-- Description English -->
+                            <div class="col-md-6">
+                                <label class="form-label">Description (English)</label>
+                                <textarea class="form-control" name="description_en" id="product-description-en"
+                                    dir="ltr" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                        <button type="submit" class="btn btn-primary" id="save-product-btn">حفظ المنتج</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/js/admin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/pages/admin.js"></script>
 
 </body>
 

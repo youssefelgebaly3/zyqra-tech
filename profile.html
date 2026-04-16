@@ -16,7 +16,13 @@
     <script src="assets/js/lang-config.js?v=3.1"></script>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/css/main.css?v=3.1" rel="stylesheet">
+    <link href="assets/css/main.css?v=3.2" rel="stylesheet">
+    <style>
+        .course-status i {
+            font-size: 1rem !important;
+            color: white !important;
+        }
+    </style>
 </head>
 
 <body class="profile-page">
@@ -68,21 +74,26 @@
             <div class="container" data-aos="fade-up">
                 <div class="profile-header-card">
                     <div class="profile-avatar">
-                        <img src="assets/img/profile-avatar.png" alt="صورة المستخدم"
+                        <img src="assets/img/profile-avatar.png" alt="صورة المستخدم" id="user-avatar"
                             onerror="this.src='https://ui-avatars.com/api/?name=User&background=2E86AB&color=fff&size=150'">
-                        <button class="change-avatar-btn" title="تغيير الصورة" data-i18n-attr="title:profile_change_avatar">
+                        <button class="change-avatar-btn" id="change-avatar-btn" title="تغيير الصورة"
+                            data-i18n-attr="title:profile_change_avatar">
                             <i class="bi bi-camera-fill"></i>
                         </button>
+                        <input type="file" id="avatar-input" style="display:none;" accept="image/*">
                     </div>
                     <div class="profile-info">
                         <h1 class="profile-name" id="user-name">أحمد محمد</h1>
                         <p class="profile-email"><i class="bi bi-envelope me-2"></i><span
                                 id="user-email">ahmed@example.com</span></p>
-                        <p class="profile-since"><i class="bi bi-calendar3 me-2"></i><span data-i18n="profile_member_since">عضو منذ:</span> <span
-                                id="member-since">يناير 2024</span></p>
+                        <p class="profile-since"><i class="bi bi-calendar3 me-2"></i><span
+                                data-i18n="profile_member_since">عضو منذ:</span> <span id="member-since">يناير
+                                2024</span></p>
                         <div class="profile-badges">
-                            <span class="badge-item"><i class="bi bi-award"></i> <span data-i18n="profile_badge_student">طالب متميز</span></span>
-                            <span class="badge-item"><i class="bi bi-graph-up-arrow"></i> <span data-i18n="profile_badge_courses">3 دورات مكتملة</span></span>
+                            <span class="badge-item"><i class="bi bi-award"></i> <span
+                                    data-i18n="profile_badge_student">طالب متميز</span></span>
+                            <span class="badge-item"><i class="bi bi-graph-up-arrow"></i> <span
+                                    data-i18n="profile_badge_courses">3 دورات مكتملة</span></span>
                         </div>
                     </div>
                     <div class="profile-stats">
@@ -163,11 +174,16 @@
                                             <span class="progress-text">65%</span>
                                         </div>
                                         <div class="course-meta">
-                                            <span data-i18n="profile_meta_hours" data-i18n-replace='{"current": 8, "total": 12}'><i class="bi bi-clock"></i> 8/12 ساعة</span>
-                                            <span data-i18n="profile_meta_lessons" data-i18n-replace='{"current": 13, "total": 20}'><i class="bi bi-play-circle"></i> 13/20 درس</span>
+                                            <span data-i18n="profile_meta_hours"
+                                                data-i18n-replace='{"current": 8, "total": 12}'><i
+                                                    class="bi bi-clock"></i> 8/12 ساعة</span>
+                                            <span data-i18n="profile_meta_lessons"
+                                                data-i18n-replace='{"current": 13, "total": 20}'><i
+                                                    class="bi bi-play-circle"></i> 13/20 درس</span>
                                         </div>
                                         <a href="course-player.html" class="btn-continue">
-                                            <span data-i18n="profile_btn_continue">متابعة الدورة</span> <i class="bi bi-arrow-left"></i>
+                                            <span data-i18n="profile_btn_continue">متابعة الدورة</span> <i
+                                                class="bi bi-arrow-left"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -315,8 +331,10 @@
                                         <p><i class="bi bi-calendar3"></i> صدرت: 15 ديسمبر 2024</p>
                                         <p><i class="bi bi-hash"></i> رقم الشهادة: ZYQRA-ES-2024-001</p>
                                         <div class="certificate-actions">
-                                            <button class="btn-download"><i class="bi bi-download"></i> <span data-i18n="cert_btn_download">تحميل PDF</span></button>
-                                            <button class="btn-share"><i class="bi bi-share"></i> <span data-i18n="cert_btn_share">مشاركة</span></button>
+                                            <button class="btn-download"><i class="bi bi-download"></i> <span
+                                                    data-i18n="cert_btn_download">تحميل PDF</span></button>
+                                            <button class="btn-share"><i class="bi bi-share"></i> <span
+                                                    data-i18n="cert_btn_share">مشاركة</span></button>
                                         </div>
                                     </div>
                                 </div>
@@ -381,7 +399,7 @@
 
                     <!-- My Orders Tab -->
                     <div class="tab-pane fade" id="orders" role="tabpanel">
-                        <div class="orders-list">
+                        <div class="orders-list row g-4">
 
                             <!-- Order 1 -->
                             <div class="order-card">
@@ -418,8 +436,10 @@
                                             <span class="amount">1,100 ج.م</span>
                                         </div>
                                         <div class="order-actions">
-                                            <button class="btn-reorder"><i class="bi bi-arrow-repeat"></i> <span data-i18n="order_btn_reorder">إعادة الطلب</span></button>
-                                            <button class="btn-details"><i class="bi bi-eye"></i> <span data-i18n="order_btn_details">التفاصيل</span></button>
+                                            <button class="btn-reorder"><i class="bi bi-arrow-repeat"></i> <span
+                                                    data-i18n="order_btn_reorder">إعادة الطلب</span></button>
+                                            <button class="btn-details"><i class="bi bi-eye"></i> <span
+                                                    data-i18n="order_btn_details">التفاصيل</span></button>
                                         </div>
                                     </div>
                                 </div>
@@ -479,24 +499,25 @@
                                 <div class="col-lg-6">
                                     <div class="settings-card">
                                         <h5><i class="bi bi-person"></i> المعلومات الشخصية</h5>
-                                        <form class="settings-form">
+                                        <form class="settings-form" id="personal-info-form">
                                             <div class="form-group">
                                                 <label data-i18n="settings_fname">الاسم الأول</label>
-                                                <input type="text" class="form-control" value="أحمد">
+                                                <input type="text" class="form-control" id="settings-fname" value="">
                                             </div>
                                             <div class="form-group">
                                                 <label data-i18n="settings_lname">اسم العائلة</label>
-                                                <input type="text" class="form-control" value="محمد">
+                                                <input type="text" class="form-control" id="settings-lname" value="">
                                             </div>
                                             <div class="form-group">
                                                 <label data-i18n="settings_email">البريد الإلكتروني</label>
-                                                <input type="email" class="form-control" value="ahmed@example.com">
+                                                <input type="email" class="form-control" id="settings-email" value="">
                                             </div>
                                             <div class="form-group">
                                                 <label data-i18n="settings_phone">رقم الهاتف</label>
-                                                <input type="tel" class="form-control" value="01012345678">
+                                                <input type="tel" class="form-control" id="settings-phone" value="">
                                             </div>
-                                            <button type="submit" class="btn-save" data-i18n="settings_btn_save">حفظ التغييرات</button>
+                                            <button type="submit" class="btn-save" data-i18n="settings_btn_save">حفظ
+                                                التغييرات</button>
                                         </form>
                                     </div>
                                 </div>
@@ -505,64 +526,32 @@
                                 <div class="col-lg-6">
                                     <div class="settings-card">
                                         <h5><i class="bi bi-lock"></i> تغيير كلمة المرور</h5>
-                                        <form class="settings-form">
+                                        <form class="settings-form" id="password-form">
                                             <div class="form-group">
                                                 <label>كلمة المرور الحالية</label>
-                                                <input type="password" class="form-control">
+                                                <input type="password" class="form-control" id="current-password"
+                                                    required>
                                             </div>
                                             <div class="form-group">
                                                 <label>كلمة المرور الجديدة</label>
-                                                <input type="password" class="form-control">
+                                                <input type="password" class="form-control" id="new-password" required>
                                             </div>
                                             <div class="form-group">
                                                 <label>تأكيد كلمة المرور الجديدة</label>
-                                                <input type="password" class="form-control">
+                                                <input type="password" class="form-control" id="confirm-password"
+                                                    required>
                                             </div>
                                             <button type="submit" class="btn-save">تحديث كلمة المرور</button>
                                         </form>
                                     </div>
                                 </div>
 
-                                <!-- Notifications -->
-                                <div class="col-lg-6">
-                                    <div class="settings-card">
-                                        <h5><i class="bi bi-bell"></i> إعدادات الإشعارات</h5>
-                                        <div class="notification-settings">
-                                            <div class="notification-item">
-                                                <div class="info">
-                                                    <span class="title">إشعارات البريد الإلكتروني</span>
-                                                    <span class="desc">استلام تحديثات عبر البريد</span>
-                                                </div>
-                                                <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox" checked>
-                                                </div>
-                                            </div>
-                                            <div class="notification-item">
-                                                <div class="info">
-                                                    <span class="title">تحديثات الدورات</span>
-                                                    <span class="desc">إشعارات المحتوى الجديد</span>
-                                                </div>
-                                                <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox" checked>
-                                                </div>
-                                            </div>
-                                            <div class="notification-item">
-                                                <div class="info">
-                                                    <span class="title">العروض والخصومات</span>
-                                                    <span class="desc">عروض حصرية ومنتجات جديدة</span>
-                                                </div>
-                                                <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <!-- Account Actions -->
                                 <div class="col-lg-6">
                                     <div class="settings-card danger-zone">
-                                        <h5 data-i18n="settings_danger_title"><i class="bi bi-exclamation-triangle"></i> إجراءات الحساب</h5>
+                                        <h5 data-i18n="settings_danger_title"><i class="bi bi-exclamation-triangle"></i>
+                                            إجراءات الحساب</h5>
                                         <div class="account-actions">
                                             <button class="btn-logout">
                                                 <i class="bi bi-box-arrow-right"></i>
@@ -650,9 +639,8 @@
 
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/js/main.js?v=3.1"></script>
-    <script src="assets/js/profile.js"></script>
-
+    <script src="assets/js/main.js?v=4.5"></script>
+    <script src="assets/js/pages/profile.js"></script>
 </body>
 
 </html>

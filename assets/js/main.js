@@ -78,7 +78,7 @@
     StorageWrapper.set(cart);
   }
 
-  function addToCart(name, price, quantity = 1, image = null) {
+  function addToCart(id, name, price, quantity = 1, image = null) {
     let cart = getCart();
 
     // Automatically map image if not provided
@@ -87,7 +87,18 @@
       // Add other mappings here as needed
     }
 
-    cart.push({ name, price, quantity, image });
+    // Robust parsing
+    const numericPrice = parseFloat(price) || 0;
+    const numericQty = parseInt(quantity) || 1;
+
+    // Check if item already exists in cart to update quantity instead
+    const existingIndex = cart.findIndex(item => item.id == id);
+    if (existingIndex > -1) {
+      cart[existingIndex].quantity = (parseInt(cart[existingIndex].quantity) || 1) + numericQty;
+    } else {
+      cart.push({ id, name, price: numericPrice, quantity: numericQty, image });
+    }
+
     saveCart(cart);
     updateCartBadge();
     alert(t('cart_alert_added', { name }));
@@ -95,11 +106,47 @@
 
   function updateCartQuantity(index, change) {
     const cart = getCart();
-    cart[index].quantity = (cart[index].quantity || 1) + change;
+    cart[index].quantity = (parseInt(cart[index].quantity) || 1) + change;
     if (cart[index].quantity < 1) cart[index].quantity = 1;
     saveCart(cart);
     updateCartBadge();
     loadCartPage();
+  }
+
+  /**
+   * Sanitize cart data on load - fixes corrupted old entries
+   * Ensures all items have numeric price and quantity values
+   */
+  function sanitizeCart() {
+    let cart = getCart();
+    if (!Array.isArray(cart) || cart.length === 0) return;
+
+    let needsSave = false;
+    cart = cart.filter(item => {
+      // Remove items without a name (totally corrupted)
+      if (!item.name) return false;
+      return true;
+    }).map(item => {
+      const fixedPrice = parseFloat(item.price);
+      const fixedQty = parseInt(item.quantity);
+
+      if (isNaN(fixedPrice) || isNaN(fixedQty) || fixedPrice !== item.price || fixedQty !== item.quantity) {
+        needsSave = true;
+      }
+
+      return {
+        id: item.id || null,
+        name: item.name,
+        price: isNaN(fixedPrice) ? 0 : fixedPrice,
+        quantity: (isNaN(fixedQty) || fixedQty < 1) ? 1 : fixedQty,
+        image: item.image || null
+      };
+    });
+
+    if (needsSave || cart.length !== getCart().length) {
+      saveCart(cart);
+      console.log('ZYQRA: Cart data sanitized.');
+    }
   }
 
   function removeCartItem(index) {
@@ -112,7 +159,10 @@
 
   function updateCartBadge() {
     const cart = getCart();
-    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    const totalItems = cart.reduce((sum, item) => {
+      const q = parseInt(item.quantity);
+      return sum + (isNaN(q) ? 1 : q);
+    }, 0);
     const badges = document.querySelectorAll('.cart-badge');
 
     badges.forEach(badge => {
@@ -153,7 +203,9 @@
     let subtotal = 0;
 
     cart.forEach((item, index) => {
-      subtotal += item.price * (item.quantity || 1);
+      const p = parseFloat(item.price) || 0;
+      const q = parseInt(item.quantity) || 1;
+      subtotal += p * q;
       const itemImage = item.image ?
         `<img src="${item.image}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px; border: 1px solid rgba(var(--primary-rgb), 0.1);">` :
         `<i class="bi bi-box-seam"></i>`;
@@ -165,12 +217,12 @@
                     </div>
                     <div class="cart-item-info">
                         <h4 class="cart-item-title">${item.name}</h4>
-                        <div class="cart-item-price">${item.price.toLocaleString()} ${t('cart_currency')}</div>
+                        <div class="cart-item-price">${p.toLocaleString()} ${t('cart_currency')}</div>
                     </div>
                     <div class="cart-item-actions">
                         <div class="quantity-control">
                             <button class="quantity-btn" onclick="updateCartQuantity(${index}, -1)">-</button>
-                            <span class="quantity-value">${item.quantity || 1}</span>
+                            <span class="quantity-value">${q}</span>
                             <button class="quantity-btn" onclick="updateCartQuantity(${index}, 1)">+</button>
                         </div>
                         <button class="remove-btn" onclick="removeCartItem(${index})">
@@ -259,8 +311,8 @@
     if (qtyEl) qtyEl.textContent = currentDetailsQty;
   }
 
-  function addDetailsToCart(name, price, image = null) {
-    addToCart(name, price, currentDetailsQty, image);
+  function addDetailsToCart(id, name, price, image = null) {
+    addToCart(id, name, price, currentDetailsQty, image);
   }
 
   function selectPaymentMethod(el) {
@@ -453,6 +505,62 @@
   }
 
   /*--------------------------------------------------------------
+  # Global Auth Check
+  --------------------------------------------------------------*/
+  function checkAuthGlobal() {
+    console.log("ZYQRA: Checking global auth state...");
+    
+    // Skip if on profile or login/signup to avoid conflicts
+    const path = window.location.pathname;
+    if (path.includes('profile.html') || path.includes('signin.html') || path.includes('signup.html')) {
+        console.log("ZYQRA: On auth-related page, skipping global check.");
+        return;
+    }
+
+    fetch('backend/api/auth/check_session.php?t=' + new Date().getTime()) // Add timestamp to prevent caching
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          console.log("ZYQRA: User is logged in as " + data.full_name);
+          
+          // 1. Update Desktop Header
+          const authLinksDesktop = document.querySelector('.auth-links');
+          if (authLinksDesktop) {
+            authLinksDesktop.innerHTML = `
+              <a href="profile.html" class="auth-link login">
+                  <i class="bi bi-person-circle"></i>
+                  <span data-i18n="nav_my_account">حسابي</span>
+              </a>
+            `;
+          }
+
+          // 2. Update Mobile Navigation (Side Menu)
+          const sideMenuLinks = document.querySelectorAll('#navmenu ul li a');
+          sideMenuLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && (href.includes('signin.html') || href.includes('signup.html'))) {
+              if (href.includes('signin.html')) {
+                link.setAttribute('href', 'profile.html');
+                link.innerHTML = `<i class="bi bi-person-circle me-2"></i> <span data-i18n="nav_my_account">حسابي</span>`;
+              } else {
+                // Remove the signup link if logged in
+                link.parentElement.remove();
+              }
+            }
+          });
+
+          // 3. Apply translations to newly added elements
+          if (typeof applyLanguage === 'function') {
+            applyLanguage(localStorage.getItem('zyqra_lang') || 'ar');
+          }
+        } else {
+          console.log("ZYQRA: No active session found.");
+        }
+      })
+      .catch(err => console.error('Global Auth Check Error:', err));
+  }
+
+  /*--------------------------------------------------------------
   # Initialization & Exposing Globals
   --------------------------------------------------------------*/
 
@@ -467,10 +575,12 @@
 
   // Run Initialization on Load
   document.addEventListener('DOMContentLoaded', () => {
+    sanitizeCart();  // Fix any corrupted cart data first
     initTemplate();
     initAuth();
     initMemoryTransition();
     updateCartBadge();
+    checkAuthGlobal();
 
     if (document.body.classList.contains('cart-page')) loadCartPage();
 

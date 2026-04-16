@@ -1,0 +1,14 @@
+# Protect sensitive backend directories from direct access
+# Only API endpoints should be accessible
+
+# Deny access to config files
+<FilesMatch "\.(php|ini|log|env)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Allow access to API endpoints only
+<Files "*.php">
+    Order Deny,Allow
+    Allow from all
+</Files>

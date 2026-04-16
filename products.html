@@ -19,7 +19,7 @@
     <script src="assets/js/lang-config.js?v=3.1"></script>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/css/main.css?v=3.1" rel="stylesheet">
+    <link href="assets/css/main.css?v=4.5" rel="stylesheet">
     <link href="assets/css/pages/_shop.css" rel="stylesheet">
     <link href="assets/css/components/_about.css" rel="stylesheet">
 </head>
@@ -113,12 +113,12 @@
                                     <label class="filter-check active">
                                         <input type="radio" name="category" value="all" checked>
                                         <span class="check-label" data-i18n="prod_cat_all">كل المنتجات</span>
-                                        <span class="check-count">1</span>
+                                        <span class="check-count">0</span>
                                     </label>
                                     <label class="filter-check">
                                         <input type="radio" name="category" value="security">
                                         <span class="check-label" data-i18n="prod_cat_security">أنظمة الأمان</span>
-                                        <span class="check-count">1</span>
+                                        <span class="check-count">0</span>
                                     </label>
                                     <label class="filter-check">
                                         <input type="radio" name="category" value="iot">
@@ -163,52 +163,13 @@
                     <!-- Product Grid -->
                     <div class="col-lg-9">
                         <div class="row gy-4" id="productsGrid">
-
-                            <!-- MotoLock -->
-                            <div class="col-lg-6 col-md-6 product-item" data-product-id="motolock"
-                                data-category="security" data-aos="fade-up">
-                                <div class="product-card">
-                                    <div class="product-image">
-                                        <img src="assets/img/products/motolock.png" alt="MotoLock" class="img-fluid"
-                                            style="width: 100%; height: 100%; object-fit: cover;">
-                                        <button class="btn-wishlist" title="أضف للمفضلة"><i
-                                                class="bi bi-heart"></i></button>
-                                    </div>
-                                    <div class="product-info">
-                                        <span class="product-category" data-i18n="prod_cat_security">أنظمة الأمان</span>
-                                        <h3 class="product-title">MotoLock</h3>
-                                        <p class="product-desc" data-i18n="motolock_desc">نظام أمان ذكي للدراجات النارية يحول هاتفك إلى مفتاح
-                                            كامل
-                                            وتنبيهات فورية.</p>
-                                        <div class="product-price-wrapper">
-                                            <div class="product-price" data-i18n="prod_price_curr">1,000 ج.م</div>
-                                            <div class="old-price" data-i18n="prod_price_old">1,500 ج.م</div>
-                                            <span class="discount-badge" data-i18n="prod_discount_33">خصم 33%</span>
-                                        </div>
-                                        <div class="product-meta">
-                                            <span><i class="bi bi-box-seam"></i> <span data-i18n="prod_in_stock">متوفر</span></span>
-                                            <span><i class="bi bi-shield-check"></i> <span data-i18n="prod_warranty_1yr">ضمان سنة</span></span>
-                                            <span><i class="bi bi-archive"></i> <span data-i18n="prod_stock_50">المخزون: 50 قطعة</span></span>
-                                        </div>
-                                        <ul class="product-features">
-                                            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="motolock_f1">تنبيهات فورية عند الحركة</span>
-                                            </li>
-                                            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="motolock_f2">تحكم عبر التطبيق</span></li>
-                                            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="motolock_f3">ضمان سنة كاملة</span></li>
-                                        </ul>
-                                        <div class="d-flex gap-2 w-100 mt-3">
-                                            <button class="btn-product"
-                                                onclick="addToCart('MotoLock', 1000, 1, 'assets/img/products/motolock.png')">
-                                                <i class="bi bi-cart-plus"></i> <span data-i18n="prod_add_cart">أضف للسلة</span>
-                                            </button>
-                                            <a href="product-details.html" class="btn-details">
-                                                <i class="bi bi-eye"></i>
-                                            </a>
-                                        </div>
-                                    </div>
+                            <!-- Products will be loaded dynamically here -->
+                            <div class="col-12 text-center py-5" id="productLoader">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
                                 </div>
+                                <p class="mt-2 text-muted">جاري تحميل المنتجات من قاعدة البيانات...</p>
                             </div>
-
                         </div>
                     </div>
 
@@ -240,9 +201,7 @@
                     <a href="index.html" class="logo d-flex align-items-center">
                         <span class="sitename">ZYQRA</span>
                     </a>
-                    <p data-i18n="footer_desc">نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز، نسعى لتحقيق
-                        تأثير
-                        اجتماعي إيجابي من خلال الابتكار.</p>
+                    <p data-i18n="footer_desc">نحن ZYQRA - منصة تقنية متكاملة تجمع بين المنتجات الذكية والمحتوى التعليمي المتميز.</p>
                     <div class="social-links d-flex mt-4">
                         <a href="https://api.whatsapp.com/send?phone=201033624387" target="_blank"><i
                                 class="bi bi-whatsapp"></i></a>
@@ -298,8 +257,8 @@
 
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/js/main.js?v=3.1"></script>
-    <script src="assets/js/products.js"></script>
+    <script src="assets/js/main.js?v=4.5"></script>
+    <script src="assets/js/pages/products.js?v=1.1"></script>
 
 </body>
 

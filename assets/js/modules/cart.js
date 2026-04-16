@@ -10,7 +10,10 @@ export function saveCart(cart) {
 
 export function updateCartBadge() {
   const cart = getCart();
-  const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  const totalItems = cart.reduce((sum, item) => {
+    const qty = parseInt(item.quantity);
+    return sum + (isNaN(qty) ? 1 : qty);
+  }, 0);
   const badges = document.querySelectorAll('.cart-badge');
 
   badges.forEach(badge => {
@@ -26,9 +29,21 @@ export function updateCartBadge() {
   });
 }
 
-export function addToCart(name, price, quantity = 1) {
+export function addToCart(id, name, price, quantity = 1) {
   let cart = getCart();
-  cart.push({ name, price, quantity });
+
+  // Robust parsing
+  const numericPrice = parseFloat(price) || 0;
+  const numericQty = parseInt(quantity) || 1;
+
+  // Check if item already exists in cart to update quantity instead
+  const existingIndex = cart.findIndex(item => item.id == id);
+  if (existingIndex > -1) {
+    cart[existingIndex].quantity = (parseInt(cart[existingIndex].quantity) || 1) + numericQty;
+  } else {
+    cart.push({ id, name, price: numericPrice, quantity: numericQty });
+  }
+
   saveCart(cart);
   updateCartBadge();
   alert('تمت إضافة ' + name + ' إلى السلة!');
@@ -36,7 +51,7 @@ export function addToCart(name, price, quantity = 1) {
 
 export function updateCartQuantity(index, change) {
   const cart = getCart();
-  cart[index].quantity = (cart[index].quantity || 1) + change;
+  cart[index].quantity = (parseInt(cart[index].quantity) || 1) + change;
   if (cart[index].quantity < 1) cart[index].quantity = 1;
   saveCart(cart);
   updateCartBadge();
@@ -74,7 +89,9 @@ export function loadCartPage() {
   let subtotal = 0;
 
   cart.forEach((item, index) => {
-    subtotal += item.price * (item.quantity || 1);
+    const p = parseFloat(item.price) || 0;
+    const q = parseInt(item.quantity) || 1;
+    subtotal += p * q;
     html += `
               <div class="cart-item">
                   <div class="cart-item-image">
@@ -121,7 +138,9 @@ export function loadCheckoutPage() {
   let subtotal = 0;
 
   cart.forEach(item => {
-    subtotal += item.price * (item.quantity || 1);
+    const p = parseFloat(item.price) || 0;
+    const q = parseInt(item.quantity) || 1;
+    subtotal += p * q;
     html += `
               <div class="order-item">
                   <div class="order-item-image"><i class="bi bi-box-seam"></i></div>
@@ -150,8 +169,8 @@ export function updateDetailsQty(delta) {
   if (qtyEl) qtyEl.textContent = currentDetailsQty;
 }
 
-export function addDetailsToCart(name, price) {
-  addToCart(name, price, currentDetailsQty);
+export function addDetailsToCart(id, name, price) {
+  addToCart(id, name, price, currentDetailsQty);
 }
 
 export function selectPaymentMethod(el) {

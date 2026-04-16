@@ -7,7 +7,8 @@ window.commonTranslations = {
         nav_contact: "تواصل معنا",
         nav_login: "تسجيل الدخول",
         nav_signup: "إنشاء حساب",
-        nav_lang: "اللغة",
+        nav_my_account: "حسابي",
+        nav_lang: "English",
         nav_terms: "الشروط والأحكام",
         nav_privacy: "سياسة الخصوصية",
 
@@ -35,6 +36,7 @@ window.commonTranslations = {
         nav_contact: "Contact Us",
         nav_login: "Login",
         nav_signup: "Sign Up",
+        nav_my_account: "My Account",
         nav_lang: "العربية",
         nav_terms: "Terms and Conditions",
         nav_privacy: "Privacy Policy",

@@ -1,0 +1,8 @@
+# Deny all direct access to migration scripts
+Order Allow,Deny
+Deny from all
+
+<Files "setup_contact.php">
+    Allow from all
+</Files>
+

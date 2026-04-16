@@ -421,3 +421,46 @@ body.contact-page .main {
         padding: 30px;
     }
 }
+
+/* Form Feedback Messages */
+.php-email-form .loading {
+    display: none;
+    background: #ffffff;
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.php-email-form .error-message {
+    display: none;
+    background: #fee2e2;
+    color: #dc2626;
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border: 1px solid #fecaca;
+}
+
+.php-email-form .sent-message {
+    display: none;
+    background: #d1fae5;
+    color: #059669;
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border: 1px solid #a7f3d0;
+}
+
+.php-email-form .loading.d-block,
+.php-email-form .error-message.d-block,
+.php-email-form .sent-message.d-block {
+    display: block;
+}
